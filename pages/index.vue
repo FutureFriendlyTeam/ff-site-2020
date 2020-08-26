@@ -1,7 +1,16 @@
 <template>
   <div>
+    <header id="header">
+      <div class="center-col has-grid">
+        <background-grid 
+          class="grid-container center-col" 
+          columns="xs-1"/>
+        <div id="logo"/>
+      </div>
+    </header>
+
     <section 
-      id="header" 
+      id="main" 
       class="center-col horizontal v-center">
       <div>
         <h1 class="h-padded m-two-thirds">Mentally Friendly has changed its name to Future Friendly.</h1>
@@ -43,13 +52,11 @@
 
     <section 
       class="v-margin center-col has-grid" >
-      
-      <!-- <div class="has-grid"> -->
+    
       <background-grid 
         :inset="true"
         class="grid-container center-col" 
         columns="xs-1 m-2"/>
-
 
       <div 
         class="horizontal scroll-lock-block" 
@@ -267,7 +274,17 @@ export default {
 
 <style lang="scss" scoped>
 @import '../scss/variables.scss';
+
+#logo {
+  height: 2rem;
+  width: 4rem;
+}
+
 #header {
+  padding-top: 1rem;
+}
+
+#main {
   min-height: 90vh;
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -294,29 +311,15 @@ export default {
   }
 }
 
-// #servicesGrid {
-//   height: 100vh;
-//   // position: absolute;
-// }
-
-// #strategicDesign {
-//   @media (min-width: $mid) {
-//     margin-top: -50vh;
-//   }
-// }
-
 .service-block-content {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  // @media (min-width: $mid) {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
 
   position: relative;
-  // }
-
   .copy {
     margin-top: 8rem;
   }
