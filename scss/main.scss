@@ -1,0 +1,85 @@
+@import 'reset.scss';
+@import 'variables.scss';
+@import 'type.scss';
+@import 'layout.scss';
+@import 'images.scss';
+@import 'animations.scss';
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  color: $dark;
+}
+
+img {
+  display: block;
+}
+
+figure {
+  margin: 0px;
+}
+
+.border-left {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 1px;
+    background-color: $dark;
+  }
+
+  &.v-inset {
+    &:before {
+      top: 2rem;
+      bottom: 2rem;
+    }
+  }
+}
+
+.border-right {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 1px;
+    background-color: $dark;
+  }
+
+  &.v-inset {
+    &:after {
+      top: 2rem;
+      bottom: 2rem;
+    }
+  }
+}
+
+// .accent{
+//   background-color: $accent;
+//   color: $dark;
+// }
+
+// .inverse{
+//   background-color: $dark;
+//   color: $light;
+
+//   .image-mask{
+//     background-color: $dark!important;
+//   }
+// }
+
+// a{
+//   display: block;
+//   color: inherit;
+// }

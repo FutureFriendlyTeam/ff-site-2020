@@ -1,65 +1,404 @@
 <template>
-  <section class="container">
-    <div>
-      <logo/>
-      <h1 class="title">
-        ff-site-2020
-      </h1>
-      <h2 class="subtitle">
-        My polished Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+  <div>
+    <section 
+      id="header" 
+      class="center-col horizontal v-center">
+      <div>
+        <h1 class="h-padded m-two-thirds">Mentally Friendly has changed its name to Future Friendly.</h1>
+        <div class="h-padded s-two-thirds m-half">
+          <p>We’re changing the name to better reflect our purpose — rapidly delivering products and services that build towards powerful visions of the future. </p>
+          <p>While the name is changing, everything else remains the same. Same team. Same values. Same mission.</p>
+          <p>The future isn’t something you wait for.</p>
+          <p>The future is made today.</p>
+          <p>Let’s go.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+
+    <section 
+      id="partners" 
+      class="center-col has-grid horizontal">
+      <background-grid 
+        class="grid-container center-col" 
+        columns="xs-2 s-3 m-4 l-6"/>
+
+      <div class="xs-half s-third m-quarter l-sixth h-padded">
+        <p class="mini">Our partners</p>
+      </div>
+
+      <div 
+        id="partner-list" 
+        class="flex">
+        <p 
+          v-for="(partner, i) in partners"
+          :key="`${i}-partner`" 
+          class="partner mini h-padded">
+          {{ partner }}
+        </p>
+      </div>
+
+    </section>
+
+
+    <section 
+      class="v-margin center-col has-grid" >
+      
+      <!-- <div class="has-grid"> -->
+      <background-grid 
+        :inset="true"
+        class="grid-container center-col" 
+        columns="xs-1 m-2"/>
+
+
+      <div 
+        class="horizontal scroll-lock-block" 
+        sticky-container
+      >
+
+        <div class="xs-full m-half">
+          <div v-sticky="windowWidth > 760" >
+
+            <div 
+              class="m-full-height service-block-content h-padded">
+              <h1 class=" no-margin">Strategic Design</h1>
+              <div class=" l-two-thirds copy">
+                <p>A structured approach to problem solving.</p>
+                <p>Make sense of internal and external data sources. Output clear decisions that focus on both organisation and customer value.</p>
+                <p>We can help with;</p>
+                <ol class="body">
+                  <li>Proposition design.</li>
+                  <li>Service design.</li>
+                  <li>Experimentation and research.</li>
+                  <li>3 Horizon planning.</li>
+                </ol>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="xs-full m-half scroll-lock-block-spacer">
+          <div 
+            class="m-full-height service-block-image h-padded">
+            <fixed-aspect aspect="three-four"/>
+          </div>
+        </div>
+      </div>
+
+
+      <div 
+        class="horizontal scroll-lock-block m-reverse" 
+        sticky-container>
+
+        <div 
+          class="xs-full m-half scroll-lock-block-overlap">
+          <div 
+            v-sticky="windowWidth > 760"
+          >
+            <div class="m-full-height service-block-content h-padded ">
+              <h1 class="no-margin">Product Delivery</h1>
+              <div class="l-two-thirds copy">
+                <p>A rapid and continuous approach to the delivery & adoption of digital products and services.</p>
+                <p>Ensure strategy makes its way to the real world quickly. </p>
+                <p>We can help with;</p>
+                <ol class="body">
+                  <li>Proposition design.</li>
+                  <li>Service design.</li>
+                  <li>Experimentation and research.</li>
+                  <li>3 Horizon planning.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div 
+          class="xs-full m-half" 
+        >
+          <div 
+            class="m-full-height service-block-image h-padded">
+            <fixed-aspect aspect="three-four"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section 
+      v-for="(work, i) in caseStudies" 
+      :key="`${i}-caseStudies`" 
+      class="work-block">
+      <div class="work-image"/>
+      <div 
+        :class="i%2 === 1 ? 'reverse': ''" 
+        class="center-col horizontal">
+        <div class="xs-full m-half has-grid full-height work-block-content h-padded">
+          <background-grid 
+            :inset="true"
+            class="grid-container" 
+            columns="xs-1"/>
+
+          <div>
+            <h2 class="no-margin-top">{{ work.lead }}</h2>
+            <h2>{{ work.main }}</h2> 
+            <h2>With {{ work.client }}</h2>
+          </div>
+
+          <div>
+            <h2 class="no-margin-bottom">Full Case Study</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <section 
+        id="callout" 
+        class="center-col"> 
+        <div class="h-padded">
+          <h2>The future isn’t something you wait for.</h2>
+          <h2>The future is made today.</h2>
+        </div>
+      </section>
+
+      <section 
+        id="footerStuff" 
+        class="center-col horizontal has-grid">
+        <background-grid 
+          :inset="true"
+          class="grid-container center-col" 
+          columns="xs-1 s-2 m-4"/>
+        <div class="xs-full s-half m-quarter h-padded footer-col">
+          <p class="mini no-margin-top">General Enquiries</p>
+          <p class="mini ">hello@mentallyfriendly.com<br>
+            Sydney — +61 (02) 9360 8667<br>
+            Canberra — +61 431 277 652</p>
+        </div>
+
+        <div class="xs-full s-half m-quarter h-padded footer-col">
+          <p class="mini no-margin-top">New Business</p>
+          <p class="mini ">partnerships@mentallyfriendly.com<br>+61 (02) 9360 8667</p>
+        </div>
+
+        <div class="xs-full s-half m-quarter h-padded footer-col">
+          <p class="mini no-margin-top">Future Friendly is a certified b-Corp.</p>
+          <p class="mini ">We respect and honour Aboriginal and Torres Strait Islander Elders past, present and future.</p>
+          <p class="mini">
+            We acknowledge the stories, traditions and living cultures of Aboriginal and Torres Strait Islander peoples on this land and commit to building a brighter future together.
+          </p>
+        </div>
+
+        <div class="xs-full s-half m-quarter h-padded footer-col">
+          <p class="mini no-margin-top">General Enquiries</p>
+          <p class="mini ">hello@mentallyfriendly.com<br>
+            Sydney — +61 (02) 9360 8667<br>
+            Canberra — +61 431 277 652</p>
+        </div>
+
+      </section>
+    </footer>
+
+  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import FixedAspect from '~/components/FixedAspect.vue'
+import BackgroundGrid from '~/components/BackgroundGrid.vue'
 
 export default {
   components: {
-    Logo
+    FixedAspect,
+    BackgroundGrid
+  },
+  data() {
+    return {
+      partners: [
+        'ABC',
+        'Ausgrid',
+        'Dept. of Education',
+        'Russell Investments',
+        'Dept. of Premier & Cabinet',
+        'IAG',
+        'Public Service Commission',
+        'ACT Family Saftey Hub',
+        'Frasers Property',
+        'Russell Investments',
+        'Dept. of Premier & Cabinet',
+        'IAG',
+        'ABC',
+        'Ausgrid'
+      ],
+      caseStudies: [
+        {
+          lead: 'Managing the rising cost of living.',
+          main:
+            'We built a platform that delivered $1.5 billion to the people that need it most. ',
+          client: 'Service NSW.'
+        },
+        {
+          lead: 'Improving early childhood learning.',
+          main:
+            'We built a service to create a safe environment for new primary school students.',
+          client: 'the Dept. of Education.'
+        },
+        {
+          lead: 'Building financial resiliance.',
+          main:
+            'We built a product to help Australians build financial resiliance.',
+          client: 'a leading superannuation provider.'
+        },
+        {
+          lead: 'Mitigating domestic violence.',
+          main:
+            'We delivered strategic service design to recognise & respond to financial abuse. ',
+          client: 'the ACT Government'
+        }
+      ]
+    }
+  },
+  methods: {
+    visibilityChanged(isVisible, entry) {
+      this.isVisible = isVisible
+      console.log(entry.target)
+    }
   }
 }
 </script>
 
-<style>
-.container {
-  min-height: 100vh;
+<style lang="scss" scoped>
+@import '../scss/variables.scss';
+#header {
+  min-height: 90vh;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+#partners {
+  padding-bottom: 2rem;
+  #partner-list {
+    columns: 1;
+
+    @media (min-width: $small) {
+      columns: 2;
+    }
+
+    @media (min-width: $mid) {
+      columns: 3;
+    }
+
+    @media (min-width: $big) {
+      columns: 5;
+    }
+
+    column-gap: 0px;
+  }
+}
+
+// #servicesGrid {
+//   height: 100vh;
+//   // position: absolute;
+// }
+
+// #strategicDesign {
+//   @media (min-width: $mid) {
+//     margin-top: -50vh;
+//   }
+// }
+
+.service-block-content {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  // @media (min-width: $mid) {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  position: relative;
+  // }
+
+  .copy {
+    margin-top: 8rem;
+  }
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.service-block-image {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-top: 50vh;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+@media (min-width: $mid) {
+  .scroll-lock-block-spacer {
+    margin-bottom: 100vh;
+  }
+
+  .scroll-lock-block-overlap {
+    position: relative;
+    top: -100vh;
+  }
 }
 
-.links {
-  padding-top: 15px;
+.has-grid {
+  position: relative;
+}
+
+.grid-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  // background-color: purple;
+  height: 100%;
+}
+
+.work-block {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  /deep/ .grid-line {
+    background-color: #fff;
+  }
+  color: #fff;
+  .work-block-content {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    position: relative;
+  }
+
+  .work-image {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    background-color: black;
+  }
+}
+
+#footer {
+  background-color: #cccccc;
+
+  #callout {
+    min-height: 50vh;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  #footerStuff {
+    min-height: 50vh;
+
+    .footer-col {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
 }
 </style>
