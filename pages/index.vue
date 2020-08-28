@@ -69,20 +69,28 @@
 
     <section 
       id="process" 
-      class="v-margin">
+      class="v-margin center-col" 
+    >
       
-      <div class="center-col horizontal">
+      <div 
+        class="horizontal border-left border-right" 
+        sticky-container>
 
-        <div class="m-half">
-          <div class="horizontal border-left">
+        <div 
+          
+          class="m-half">
+          <div 
+            v-sticky="windowWidth > 760" 
+            class="horizontal border-left" >
             <div class="h-padded xs-full">
-              <h1 class="no-margin-top v-margin-bottom-big">A strategic product partner.</h1>
+              <h1 class="no-margin">A strategic product partner.</h1>
             </div>
           </div>
         </div>
 
         <div class="m-half">
           <div class="horizontal border-left border-right">
+
             <div class="h-padded l-half">
               <h2 class="no-margin-top v-margin-bottom-big">Strategic Design</h2>
               <p>A structured approach to problem solving.</p>
@@ -105,31 +113,45 @@
                 <li>3 Horizon planning.</li>
               </ol>
             </div>
+
+            <div 
+              :style="{marginTop: '1rem', transform: 'translate3d(-25%, 0, 0)'}" 
+              class="xs-full h-padded border-left" >
+              <fixed-aspect 
+                class="clear-line-top clear-line-bottom"
+                aspect="four-three">
+                <img 
+                  v-lazy = "require('~/assets/strategic-design-1.jpg')" 
+                >
+              </fixed-aspect>
+            </div>
+
+            <div 
+              :style="{marginLeft: 'auto', marginTop: '-4rem'}" 
+              class="xs-two-thirds h-padded" >
+              <fixed-aspect 
+                aspect="four-three">
+                <img 
+                  v-lazy = "require('~/assets/product-delivery-1.jpg')" 
+                  :style="{mixBlendMode:'multiply'}" 
+                >
+              </fixed-aspect>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="center-col horizontal">
+      <!-- <div class="horizontal border-right border-left">
+        
         <div 
-          :style="{ marginTop: '-4rem'}" 
-          class="xs-half h-padded border-left">
-          <fixed-aspect 
-            
-            aspect="four-three">
-            <img 
-              v-lazy = "require('~/assets/strategic-design-1.jpg')" 
-            >
-          </fixed-aspect>
-        </div>
-        <div 
-          :style="{marginLeft:'auto', marginTop:'-8rem'}" 
-          class="xs-two-thirds h-padded border-left border-right">
+          :style="{ marginTop:'-8rem'}" 
+          class="xs-two-thirds h-padded">
           <fixed-aspect 
             :style="{mixBlendMode:'multiply'}" 
-            aspect="four-three"><img 
+            aspect="sixteen-nine"><img 
               v-lazy = "require('~/assets/product-delivery-1.jpg')"></fixed-aspect>
         </div>
-      </div>
+      </div> -->
     </section>
 
     <!-- <section 
@@ -446,5 +468,15 @@ export default {
 .side-prlx {
   margin-left: -25%;
   height: 100%;
+}
+
+.clear-line-top {
+  border-top: 1rem solid #fff;
+  margin-top: -1rem;
+}
+
+.clear-line-bottom {
+  border-bottom: 1rem solid #fff;
+  margin-bottom: -1rem;
 }
 </style>

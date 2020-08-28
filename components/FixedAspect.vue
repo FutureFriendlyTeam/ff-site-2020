@@ -28,7 +28,7 @@ export default {
     padding-top: ($height / $width) * 100%;
   }
   > .fixed-aspect-inner {
-    background-color: black;
+    // background-color: black;
     position: absolute;
     top: 0;
     left: 0;
