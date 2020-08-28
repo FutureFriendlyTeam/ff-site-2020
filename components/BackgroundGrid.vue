@@ -83,6 +83,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '../scss/variables.scss';
 .grid-wrapper {
   display: flex;
   flex-direction: row;
@@ -93,8 +94,20 @@ export default {
   width: 1px;
   background-color: #000;
   &.inset {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    @media (min-width: $small) {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: $mid) {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: $big) {
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+    }
   }
 }
 </style>

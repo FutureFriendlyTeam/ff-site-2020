@@ -1,21 +1,26 @@
 <template>
 
   <section 
-    ref="wrapper" 
-    class="work-block jarallax-video">
-    <div class="work-image"/>
+    :style="{backgroundColor: work.color}" 
+    class="work-block">
+    <!--  -->
 
     <div 
       :class="reverse ? 'reverse': ''" 
-      class="center-col horizontal">
-      <div class="xs-full m-half l-third has-grid full-height work-block-content h-padded">
-        <background-grid 
-          :inset="true"
-          class="grid-container" 
-          columns="xs-1"/>
+      class="center-col horizontal has-grid ">
+
+      <background-grid 
+        :inset="true"
+        class="grid-container center-col" 
+        columns="xs-1 m-2 l-2"/>
+      <div class="xs-full m-half full-height work-block-content h-padded">
+
 
         <div>
           <h2 class="no-margin-top">{{ work.lead }}</h2>
+        </div>
+
+        <div>
           <h2>{{ work.main }}</h2> 
           <p>With {{ work.client }}</p>
         </div>
@@ -23,6 +28,12 @@
         <div class="button">
           <h2 class="no-margin-bottom">Full Case Study</h2>
         </div>
+      </div>
+
+      <div class="xs-full m-half work-block-image has-grid full-height h-padded">
+        <div 
+          ref="wrapper" 
+          class="work-image" />
       </div>
     </div>
   </section>
@@ -51,7 +62,7 @@ export default {
   mounted() {
     jarallaxVideo()
     jarallax(this.$refs.wrapper, {
-      speed: 0.2,
+      speed: 0.5,
       videoSrc: `mp4:${require(`../assets/video/${this.work.video}`)}`
     })
   }
@@ -71,24 +82,30 @@ export default {
     z-index: 2;
     // display: flex;
     // flex-direction: column;
-    // justify-content: space-around;
+    // justify-content: space-between;
     box-sizing: border-box;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     position: relative;
 
-    .button {
-      margin-top: 8rem;
-    }
+    // .button {
+    //   margin-top: 8rem;
+    // }
+  }
+
+  .work-block-image {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   .work-image {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: -1;
+    // position: absolute;
+    // top: 0px;
+    // left: 0px;
+    // right: 0px;
+    // bottom: 0px;
+    // z-index: -1;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
   }
 }

@@ -42,8 +42,8 @@
 }
 
 .v-padded {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   box-sizing: border-box;
 
   @media (min-width: $small) {
@@ -52,13 +52,13 @@
   }
 
   @media (min-width: $mid) {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   @media (min-width: $big) {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }
 

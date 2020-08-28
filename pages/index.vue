@@ -24,41 +24,6 @@
       </div>
     </section>
 
-
-    <!-- <div 
-      data-jarallax 
-      data-speed="0.2" 
-      class="jarallax-video">
-      <div>
-        <h1 class="h-padded m-half">Mentally Friendly has changed its name to Future Friendly.</h1>
-        <div class="h-padded s-half m-half">
-          <p>We’re changing the name to better reflect our purpose — rapidly delivering products and services that build towards powerful visions of the future. </p>
-          <p>While the name is changing, everything else remains the same. Same team. Same values. Same mission.</p>
-          <p>The future isn’t something you wait for.</p>
-          <p>The future is made today.</p>
-          <p>Let’s go.</p>
-        </div>
-      </div>
-    </div>
-
-    <div 
-      data-jarallax 
-      data-speed="0.2" 
-      class="jarallax-video">
-      <div>
-        <h1 class="h-padded m-half">Mentally Friendly has changed its name to Future Friendly.</h1>
-        <div class="h-padded s-half m-half">
-          <p>We’re changing the name to better reflect our purpose — rapidly delivering products and services that build towards powerful visions of the future. </p>
-          <p>While the name is changing, everything else remains the same. Same team. Same values. Same mission.</p>
-          <p>The future isn’t something you wait for.</p>
-          <p>The future is made today.</p>
-          <p>Let’s go.</p>
-        </div>
-      </div>
-    </div> -->
-
-
-
     <section 
       v-waypoint="{ active: true, callback: onWaypoint, options: {threshold: [1, 0]} }" 
       id="partners" 
@@ -83,7 +48,6 @@
           {{ partner }}
         </p>
       </div>
-
     </section>
 
 
@@ -110,7 +74,7 @@
           <div v-sticky="windowWidth > 760" >
 
             <div 
-              class="m-full-height service-block-content h-padded">
+              class="m-full-height service-block-content h-padded v-padded">
               <h1 class=" no-margin">Strategic Design</h1>
               <div class=" l-two-thirds copy">
                 <p>A structured approach to problem solving.</p>
@@ -130,7 +94,7 @@
 
         <div class="xs-full m-half scroll-lock-block-spacer">
           <div 
-            class="m-full-height service-block-image h-padded">
+            class="m-full-height service-block-image h-padded v-padded">
             <fixed-aspect aspect="three-four">
               <!-- <div class="prlx-img-wrapper">
                 <img
@@ -159,7 +123,7 @@
           <div 
             v-sticky="windowWidth > 760"
           >
-            <div class="m-full-height service-block-content h-padded ">
+            <div class="m-full-height service-block-content h-padded v-padded">
               <h1 class="no-margin">Product Delivery</h1>
               <div class="l-two-thirds copy">
                 <p>A rapid and continuous approach to the delivery & adoption of digital products and services.</p>
@@ -180,7 +144,7 @@
           class="xs-full m-half" 
         >
           <div 
-            class="m-full-height service-block-image h-padded">
+            class="m-full-height service-block-image h-padded v-padded">
             <fixed-aspect aspect="three-four"/>
           </div>
         </div>
@@ -206,19 +170,19 @@
           :inset="true"
           class="grid-container center-col" 
           columns="xs-1 s-2 m-4"/>
-        <div class="xs-full s-half m-quarter h-padded footer-col">
+        <div class="xs-full s-half m-quarter h-padded v-padded footer-col">
           <p class="mini no-margin-top">General Enquiries</p>
           <p class="mini ">hello@mentallyfriendly.com<br>
             Sydney — +61 (02) 9360 8667<br>
             Canberra — +61 431 277 652</p>
         </div>
 
-        <div class="xs-full s-half m-quarter h-padded footer-col">
+        <div class="xs-full s-half m-quarter h-padded v-padded footer-col">
           <p class="mini no-margin-top">New Business</p>
           <p class="mini ">partnerships@mentallyfriendly.com<br>+61 (02) 9360 8667</p>
         </div>
 
-        <div class="xs-full s-half m-quarter h-padded footer-col">
+        <div class="xs-full s-half m-quarter h-padded v-padded footer-col">
           <p class="mini no-margin-top">Future Friendly is a certified b-Corp.</p>
           <p class="mini ">We respect and honour Aboriginal and Torres Strait Islander Elders past, present and future.</p>
           <p class="mini">
@@ -226,7 +190,7 @@
           </p>
         </div>
 
-        <div class="xs-full s-half m-quarter h-padded footer-col">
+        <div class="xs-full s-half m-quarter h-padded v-padded footer-col">
           <p class="mini no-margin-top">General Enquiries</p>
           <p class="mini ">hello@mentallyfriendly.com<br>
             Sydney — +61 (02) 9360 8667<br>
@@ -275,7 +239,8 @@ export default {
           main:
             'We built a platform that delivered $1.5 billion to the people that need it most. ',
           client: 'Service NSW.',
-          video: 'COL.mp4'
+          video: 'COL.mp4',
+          color: '#E7294C'
         },
         // {
         //   lead: 'Improving early childhood learning.',
@@ -294,7 +259,8 @@ export default {
           main:
             'We delivered strategic service design to recognise & respond to financial abuse. ',
           client: 'the ACT Government',
-          video: 'FSH.mp4'
+          video: 'FSH.mp4',
+          color: '#0C1026'
         }
       ]
     }
@@ -362,8 +328,6 @@ export default {
 }
 
 .service-block-content {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -376,8 +340,6 @@ export default {
 }
 
 .service-block-image {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
   margin-top: 50vh;
 }
 
@@ -403,11 +365,6 @@ export default {
 
   #footerStuff {
     min-height: 50vh;
-
-    .footer-col {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
   }
 }
 
