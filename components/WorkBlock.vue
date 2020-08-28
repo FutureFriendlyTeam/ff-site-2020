@@ -1,34 +1,27 @@
 <template>
 
   <section 
-    class="work-block v-margin">
-    <!--  -->
-
+    ref="wrapper"
+    class="work-block jarallax">
+    <img 
+      :src="require(`~/assets/${work.image}`)"
+      class="jarallax-img" 
+      alt="">
     <div 
-      :class="reverse ? 'reverse': ''" 
-      class="center-col horizontal has-grid ">
+      :style="{justifyContent: justifyClass}"
+      class="center-col horizontal">
 
-      <background-grid 
-        :inset="true"
-        class="grid-container center-col" 
-        columns="xs-1 m-2"/>
-      <div class="xs-full m-half work-block-content h-padded v-padded">
-        <div>
+      <div class="xs-full m-half l-third v-padded full-height">
+        <div class="h-padded border-right border-left work-block-content">
           <h2 class="no-margin-top">{{ work.lead }}</h2>
-        </div>
-
-        <div>
           <h2>{{ work.main }}</h2> 
-          <p>With {{ work.client }}</p>
+          <p class="client">With {{ work.client }}</p>
+          <a class="button">
+            <h2 class="no-margin-bottom">Full Case Study</h2>
+          </a>
+          <p class="mini sideways">Winner Good Design Award Gold 2020</p>
         </div>
-
-        <div class="button">
-          <h2 class="no-margin-bottom">Full Case Study</h2>
-        </div>
-      </div>
-
-      <div class="xs-full m-half work-block-image has-grid h-padded v-padded">
-        <fixed-aspect aspect="three-four"/>
+        
       </div>
     </div>
   </section>
@@ -51,17 +44,22 @@ export default {
       type: Object,
       default: null
     },
-    reverse: {
-      type: Boolean,
-      default: false
+    index: {
+      type: Number,
+      default: 0
+    }
+  },
+  computed: {
+    justifyClass() {
+      const c = ['flex-start', 'space-around', 'flex-end']
+      return c[this.index % 3]
     }
   },
   mounted() {
     // jarallaxVideo()
-    // // jarallax(this.$refs.wrapper, {
-    // //   speed: 1,
-    // //   videoSrc: `mp4:${require(`../assets/video/${this.work.video}`)}`
-    // // })
+    jarallax(this.$refs.wrapper, {
+      speed: 0.1
+    })
   }
 }
 </script>
@@ -70,16 +68,44 @@ export default {
 .work-block {
   position: relative;
   overflow: hidden;
+  color: #fff;
 
+  .border-right:after {
+    background-color: #fff;
+  }
+
+  .border-left:before {
+    background-color: #fff;
+  }
+  // .horizontal {
+  //   justify-content: flex-end;
+  // }
   .work-block-content {
-    z-index: 2;
     box-sizing: border-box;
-    position: relative;
+    height: 100%;
+
+    .button {
+      display: block;
+      margin-top: 4rem;
+    }
+
+    .sideways {
+      line-height: 0rem;
+      margin: 0px;
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(-90deg);
+      transform-origin: 0% 50%;
+      position: absolute;
+      bottom: 0px;
+    }
   }
 
   .work-image {
     height: 100%;
     background-color: black;
+  }
+
+  .client {
+    font-weight: bold;
   }
 }
 </style>

@@ -35,6 +35,7 @@ figure {
     bottom: 0px;
     width: 1px;
     background-color: $dark;
+    // z-index: -999;
   }
 
   &.v-inset {
@@ -52,10 +53,11 @@ figure {
     content: '';
     position: absolute;
     top: 0px;
-    right: 0px;
+    right: -1px;
     bottom: 0px;
     width: 1px;
     background-color: $dark;
+    // z-index: -999;
   }
 
   &.v-inset {

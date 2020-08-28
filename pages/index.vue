@@ -1,11 +1,30 @@
 <template>
   <div>
+    <div id="promo" >
+      <section 
+        class="center-col horizontal v-padded ">
+        <div class="h-padded m-third border-left">
+          <h2 class="no-margin-top">Mentally Friendly has changed it's name to Future Friendly.</h2>
+        </div>
+        <div class="h-padded m-third border-left border-right">
+          <p class="no-margin-top mini">We’re changing the name to better reflect our purpose — rapidly delivering products and services that build towards powerful visions of the future. </p>
+          <p class="mini">While the name is changing, everything else remains the same. Same team. Same values. Same mission.</p>
+          <p class="mini">The future isn’t something you wait for.</p>
+          <p class="mini">The future is made today.</p>
+          <p class="no-margin-bottom mini">Let’s go.</p>
+        </div>
+      </section>
+    </div>
+
+
     <header id="header">
-      <div class="center-col has-grid">
-        <background-grid 
-          class="grid-container center-col" 
-          columns="xs-1"/>
-        <div id="logo"/>
+      <div class="center-col">
+        <div 
+          id="logo" 
+          class="horizontal border-right">
+          <span class="border-left">Future</span>
+          <span class="border-left border-right">Friendly</span>
+        </div>
       </div>
     </header>
 
@@ -14,20 +33,12 @@
       class="center-col horizontal v-center">
       <div>
         <h1 class="h-padded m-half v-padded">Digital services have the power to change peoples lives and build a better future.</h1>
-        <!-- <div class="h-padded s-half m-half">
-          <p>We’re changing the name to better reflect our purpose — rapidly delivering products and services that build towards powerful visions of the future. </p>
-          <p>While the name is changing, everything else remains the same. Same team. Same values. Same mission.</p>
-          <p>The future isn’t something you wait for.</p>
-          <p>The future is made today.</p>
-          <p>Let’s go.</p>
-        </div> -->
       </div>
     </section>
 
     <section 
-      v-waypoint="{ active: true, callback: onWaypoint, options: {threshold: [1, 0]} }" 
       id="partners" 
-      class="center-col has-grid horizontal">
+      class="center-col has-grid horizontal v-margin no-margin-top">
 
       <background-grid 
         class="grid-container center-col" 
@@ -54,7 +65,72 @@
       v-for="(work, i) in caseStudies" 
       :key="`${i}-caseStudies`" 
       :work="work" 
-      :reverse="i%2 === 1" />
+      :index="i" />
+
+    <section 
+      id="process" 
+      class="v-margin">
+      
+      <div class="center-col horizontal">
+
+        <div class="m-half">
+          <div class="horizontal border-left">
+            <div class="h-padded xs-full">
+              <h1 class="no-margin-top v-margin-bottom-big">A strategic product partner.</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-half">
+          <div class="horizontal border-left border-right">
+            <div class="h-padded l-half">
+              <h2 class="no-margin-top v-margin-bottom-big">Strategic Design</h2>
+              <p>A structured approach to problem solving.</p>
+              <p>Make sense of internal and external data sources. Output clear decisions that focus on both organisation and customer value.</p>
+              <ol class="body">
+                <li>Proposition design.</li>
+                <li>Service design.</li>
+                <li>Experimentation and research.</li>
+                <li>3 Horizon planning.</li>
+              </ol>
+            </div>
+            <div class="h-padded border-left l-half">
+              <h2 class="no-margin-top v-margin-bottom-big">Product Delivery</h2>
+              <p>A rapid and continuous approach to the delivery & adoption of digital products and services.</p>
+              <p>Ensure strategy makes its way to the real world quickly. </p>
+              <ol class="body">
+                <li>Proposition design.</li>
+                <li>Service design.</li>
+                <li>Experimentation and research.</li>
+                <li>3 Horizon planning.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="center-col horizontal">
+        <div 
+          :style="{ marginTop: '-4rem'}" 
+          class="xs-half h-padded border-left">
+          <fixed-aspect 
+            
+            aspect="four-three">
+            <img 
+              v-lazy = "require('~/assets/strategic-design-1.jpg')" 
+            >
+          </fixed-aspect>
+        </div>
+        <div 
+          :style="{marginLeft:'auto', marginTop:'-8rem'}" 
+          class="xs-two-thirds h-padded border-left border-right">
+          <fixed-aspect 
+            :style="{mixBlendMode:'multiply'}" 
+            aspect="four-three"><img 
+              v-lazy = "require('~/assets/product-delivery-1.jpg')"></fixed-aspect>
+        </div>
+      </div>
+    </section>
 
     <!-- <section 
       class="v-margin center-col has-grid" >
@@ -144,30 +220,30 @@
         id="callout" 
         class="center-col"> 
         <div class="h-padded v-padded">
-          <h2>The future isn’t something you wait for. <br>The future is made today.</h2>
+          <h2 class="no-margin-top">The future isn’t something you wait for. <br>The future is made today.</h2>
         </div>
       </section>
 
       <section 
         id="footerStuff" 
-        class="center-col horizontal has-grid">
-        <background-grid 
+        class="center-col horizontal has-grid v-padded">
+        <!-- <background-grid 
           :inset="true"
           class="grid-container center-col" 
-          columns="xs-1 s-2 m-4"/>
-        <div class="xs-full s-half m-quarter h-padded v-padded footer-col">
+          columns="xs-1 s-2 m-4"/> -->
+        <div class="xs-full s-half m-quarter h-padded footer-col border-left">
           <p class="mini no-margin-top">General Enquiries</p>
           <p class="mini ">hello@mentallyfriendly.com<br>
             Sydney — +61 (02) 9360 8667<br>
             Canberra — +61 431 277 652</p>
         </div>
 
-        <div class="xs-full s-half m-quarter h-padded v-padded footer-col">
+        <div class="xs-full s-half m-quarter h-padded footer-col border-left">
           <p class="mini no-margin-top">New Business</p>
           <p class="mini ">partnerships@mentallyfriendly.com<br>+61 (02) 9360 8667</p>
         </div>
 
-        <div class="xs-full s-half m-quarter h-padded v-padded footer-col">
+        <div class="xs-full s-half m-quarter h-padded footer-col border-left">
           <p class="mini no-margin-top">Future Friendly is a certified b-Corp.</p>
           <p class="mini ">We respect and honour Aboriginal and Torres Strait Islander Elders past, present and future.</p>
           <p class="mini">
@@ -175,7 +251,7 @@
           </p>
         </div>
 
-        <div class="xs-full s-half m-quarter h-padded v-padded footer-col">
+        <div class="xs-full s-half m-quarter h-padded footer-col border-left border-right">
           <p class="mini no-margin-top">General Enquiries</p>
           <p class="mini ">hello@mentallyfriendly.com<br>
             Sydney — +61 (02) 9360 8667<br>
@@ -224,26 +300,28 @@ export default {
           main:
             'We built a platform that delivered $1.5 billion to the people that need it most. ',
           client: 'Service NSW.',
-          video: 'COL.mp4'
+          image: 'col-hero.jpg'
         },
         {
           lead: 'Improving early childhood learning.',
           main:
             'We built a service to create a safe environment for new primary school students.',
-          client: 'the Dept. of Education.'
+          client: 'the Dept. of Education.',
+          image: 'tts-hero.jpg'
         },
         {
           lead: 'Building financial resiliance.',
           main:
             'We built a product to help Australians build financial resiliance.',
-          client: 'a leading superannuation provider.'
+          client: 'a leading superannuation provider.',
+          image: 'cfs-hero.jpg'
         },
         {
           lead: 'Mitigating domestic violence.',
           main:
             'We delivered strategic service design to recognise & respond to financial abuse. ',
           client: 'the ACT Government',
-          video: 'FSH.mp4'
+          image: 'fsh-hero.jpg'
         }
       ]
     }
@@ -253,19 +331,19 @@ export default {
     onWaypoint(e) {
       // this.isVisible = isVisible
       console.log('waypoint', e)
-    },
-    vidError(e) {
-      console.log(e)
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
-      // this.$refs.videobackground.player.play()
-    },
-    vidReady(e) {
-      console.log(e)
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
-      // this.$refs.videobackground.player.play()
     }
+    // vidError(e) {
+    //   console.log(e)
+    //   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    //   // @ts-ignore
+    //   // this.$refs.videobackground.player.play()
+    // },
+    // vidReady(e) {
+    //   console.log(e)
+    //   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    //   // @ts-ignore
+    //   // this.$refs.videobackground.player.play()
+    // }
   }
 }
 </script>
@@ -274,8 +352,14 @@ export default {
 @import '../scss/variables.scss';
 
 #logo {
-  height: 2rem;
-  width: 4rem;
+  span {
+    display: block;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+    font-size: 1.25rem;
+  }
 }
 
 #header {
@@ -283,14 +367,16 @@ export default {
 }
 
 #main {
-  min-height: 80vh;
-  // padding-top: 8rem;
-  // padding-bottom: 8rem;
+  min-height: 90vh;
+}
+
+#promo {
+  background-color: #ff4873;
+  position: relative;
 }
 
 #partners {
   padding-bottom: 2rem;
-  margin-bottom: 8rem;
   #partner-list {
     columns: 1;
 
@@ -338,7 +424,7 @@ export default {
 }
 
 #footer {
-  background-color: #cccccc;
+  background-color: #cdccc4;
 
   #callout {
     min-height: 50vh;
