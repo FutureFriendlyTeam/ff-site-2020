@@ -57,11 +57,11 @@ export default {
     }
   },
   mounted() {
-    jarallaxVideo()
-    // jarallax(this.$refs.wrapper, {
-    //   speed: 1,
-    //   videoSrc: `mp4:${require(`../assets/video/${this.work.video}`)}`
-    // })
+    // jarallaxVideo()
+    // // jarallax(this.$refs.wrapper, {
+    // //   speed: 1,
+    // //   videoSrc: `mp4:${require(`../assets/video/${this.work.video}`)}`
+    // // })
   }
 }
 </script>

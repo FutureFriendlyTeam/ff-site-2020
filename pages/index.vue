@@ -13,14 +13,14 @@
       id="main" 
       class="center-col horizontal v-center">
       <div>
-        <h1 class="h-padded m-half">Mentally Friendly has changed its name to Future Friendly.</h1>
-        <div class="h-padded s-half m-half">
+        <h1 class="h-padded m-half v-padded">Digital services have the power to change peoples lives and build a better future.</h1>
+        <!-- <div class="h-padded s-half m-half">
           <p>We’re changing the name to better reflect our purpose — rapidly delivering products and services that build towards powerful visions of the future. </p>
           <p>While the name is changing, everything else remains the same. Same team. Same values. Same mission.</p>
           <p>The future isn’t something you wait for.</p>
           <p>The future is made today.</p>
           <p>Let’s go.</p>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -28,7 +28,6 @@
       v-waypoint="{ active: true, callback: onWaypoint, options: {threshold: [1, 0]} }" 
       id="partners" 
       class="center-col has-grid horizontal">
-
 
       <background-grid 
         class="grid-container center-col" 
@@ -144,9 +143,8 @@
       <section 
         id="callout" 
         class="center-col"> 
-        <div class="h-padded">
-          <h2>The future isn’t something you wait for.</h2>
-          <h2>The future is made today.</h2>
+        <div class="h-padded v-padded">
+          <h2>The future isn’t something you wait for. <br>The future is made today.</h2>
         </div>
       </section>
 
@@ -285,9 +283,9 @@ export default {
 }
 
 #main {
-  min-height: 90vh;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  min-height: 80vh;
+  // padding-top: 8rem;
+  // padding-bottom: 8rem;
 }
 
 #partners {
@@ -344,8 +342,6 @@ export default {
 
   #callout {
     min-height: 50vh;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
   }
 
   #footerStuff {
