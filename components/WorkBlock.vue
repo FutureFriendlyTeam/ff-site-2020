@@ -1,8 +1,7 @@
 <template>
 
   <section 
-    :style="{backgroundColor: work.color}" 
-    class="work-block">
+    class="work-block v-margin">
     <!--  -->
 
     <div 
@@ -12,8 +11,8 @@
       <background-grid 
         :inset="true"
         class="grid-container center-col" 
-        columns="xs-1 m-2 l-2"/>
-      <div class="xs-full m-half full-height work-block-content h-padded">
+        columns="xs-1 m-2 l-3"/>
+      <div class="xs-full m-half l-third full-height work-block-content h-padded">
 
 
         <div>
@@ -30,7 +29,7 @@
         </div>
       </div>
 
-      <div class="xs-full m-half work-block-image has-grid full-height h-padded">
+      <div class="xs-full m-half l-two-thirds work-block-image has-grid full-height h-padded">
         <div 
           ref="wrapper" 
           class="work-image" />
@@ -62,7 +61,7 @@ export default {
   mounted() {
     jarallaxVideo()
     jarallax(this.$refs.wrapper, {
-      speed: 0.5,
+      speed: 1,
       videoSrc: `mp4:${require(`../assets/video/${this.work.video}`)}`
     })
   }
@@ -75,9 +74,9 @@ export default {
   position: relative;
   overflow: hidden;
   /deep/ .grid-line {
-    background-color: #fff;
+    // background-color: #fff;
   }
-  color: #fff;
+  // color: #fff;
   .work-block-content {
     z-index: 2;
     // display: flex;
