@@ -94,6 +94,9 @@ export default {
   width: 1px;
   background-color: #000;
   &.inset {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
     @media (min-width: $small) {
       margin-top: 2rem;
       margin-bottom: 2rem;

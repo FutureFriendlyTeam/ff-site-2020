@@ -57,7 +57,7 @@
       :work="work" 
       :reverse="i%2 === 1" />
 
-    <section 
+    <!-- <section 
       class="v-margin center-col has-grid" >
     
       <background-grid 
@@ -95,20 +95,7 @@
         <div class="xs-full m-half scroll-lock-block-spacer">
           <div 
             class="m-full-height service-block-image h-padded v-padded">
-            <fixed-aspect aspect="three-four">
-              <!-- <div class="prlx-img-wrapper">
-                <img
-                  v-prlx="{
-                    direction: 'x',
-                    speed: 0.07,
-                    fromBottom: true
-                  }"
-                  v-lazy="require('~/assets/strategic-design-1.jpg')"
-                  id="image"
-                  class="side-prlx"
-                >
-              </div> -->
-            </fixed-aspect>
+            <fixed-aspect aspect="three-four"/>
           </div>
         </div>
       </div>
@@ -149,7 +136,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
 
 
@@ -239,28 +226,26 @@ export default {
           main:
             'We built a platform that delivered $1.5 billion to the people that need it most. ',
           client: 'Service NSW.',
-          video: 'COL.mp4',
-          color: '#E7294C'
+          video: 'COL.mp4'
         },
-        // {
-        //   lead: 'Improving early childhood learning.',
-        //   main:
-        //     'We built a service to create a safe environment for new primary school students.',
-        //   client: 'the Dept. of Education.'
-        // },
-        // {
-        //   lead: 'Building financial resiliance.',
-        //   main:
-        //     'We built a product to help Australians build financial resiliance.',
-        //   client: 'a leading superannuation provider.'
-        // },
+        {
+          lead: 'Improving early childhood learning.',
+          main:
+            'We built a service to create a safe environment for new primary school students.',
+          client: 'the Dept. of Education.'
+        },
+        {
+          lead: 'Building financial resiliance.',
+          main:
+            'We built a product to help Australians build financial resiliance.',
+          client: 'a leading superannuation provider.'
+        },
         {
           lead: 'Mitigating domestic violence.',
           main:
             'We delivered strategic service design to recognise & respond to financial abuse. ',
           client: 'the ACT Government',
-          video: 'FSH.mp4',
-          color: '#0C1026'
+          video: 'FSH.mp4'
         }
       ]
     }
