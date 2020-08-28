@@ -39,7 +39,7 @@ export default {
           currBreakpoint = key
         }
       }
-      console.log('current breakpoint is', currBreakpoint)
+      // console.log('current breakpoint is', currBreakpoint)
 
       let definitionParts = this.columns.split(' ')
 
@@ -55,7 +55,7 @@ export default {
         let index = Object.keys(breakpoints).indexOf(key)
         let value = colDefinitions[key]
 
-        console.log(order[index], value)
+        // console.log(order[index], value)
 
         for (let i = index - 1; i >= 0; i--) {
           if (colDefinitions[order[i]]) {
@@ -74,7 +74,7 @@ export default {
         }
       })
 
-      console.log(colDefinitions)
+      // console.log(colDefinitions)
 
       return colDefinitions[currBreakpoint] + 1
     }

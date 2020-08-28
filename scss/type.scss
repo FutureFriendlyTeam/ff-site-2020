@@ -1,14 +1,16 @@
-// @import "variables.scss";
+@font-face {
+  font-family: 'Plain';
+  src: url('../assets/fonts/Plain-Medium.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
 
-// @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans|IBM+Plex+Serif:700');
-
-// .no-top-margin{
-//   margin-top: 0px;
-// }
-
-// .no-bottom-margin{
-//   margin-bottom: 0px;
-// }
+@font-face {
+  font-family: 'Plain';
+  src: url('../assets/fonts/Plain-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 h1 {
   font-size: 3rem;
@@ -23,6 +25,7 @@ h1 {
 }
 
 h2 {
+  font-family: 'Plain';
   font-size: 2rem;
   line-height: 2rem;
   margin-bottom: 2rem;
@@ -36,6 +39,7 @@ h2 {
 
 p,
 .body {
+  font-family: 'Plain';
   font-size: 1.25rem;
   line-height: 1.5rem;
   margin-bottom: 1rem;
@@ -43,6 +47,7 @@ p,
 }
 
 .mini {
+  font-family: 'Plain';
   font-size: 0.75rem;
   line-height: 1rem;
   margin-bottom: 0.25rem;

@@ -35,7 +35,7 @@ export default {
     right: 0;
     bottom: 0;
 
-    /deep/ img {
+    /deep/ .fitted-image {
       width: 100%;
       height: 100%;
       object-fit: cover;

@@ -13,8 +13,8 @@
       id="main" 
       class="center-col horizontal v-center">
       <div>
-        <h1 class="h-padded m-two-thirds">Mentally Friendly has changed its name to Future Friendly.</h1>
-        <div class="h-padded s-two-thirds m-half">
+        <h1 class="h-padded m-half">Mentally Friendly has changed its name to Future Friendly.</h1>
+        <div class="h-padded s-half m-half">
           <p>We’re changing the name to better reflect our purpose — rapidly delivering products and services that build towards powerful visions of the future. </p>
           <p>While the name is changing, everything else remains the same. Same team. Same values. Same mission.</p>
           <p>The future isn’t something you wait for.</p>
@@ -25,9 +25,46 @@
     </section>
 
 
+    <!-- <div 
+      data-jarallax 
+      data-speed="0.2" 
+      class="jarallax-video">
+      <div>
+        <h1 class="h-padded m-half">Mentally Friendly has changed its name to Future Friendly.</h1>
+        <div class="h-padded s-half m-half">
+          <p>We’re changing the name to better reflect our purpose — rapidly delivering products and services that build towards powerful visions of the future. </p>
+          <p>While the name is changing, everything else remains the same. Same team. Same values. Same mission.</p>
+          <p>The future isn’t something you wait for.</p>
+          <p>The future is made today.</p>
+          <p>Let’s go.</p>
+        </div>
+      </div>
+    </div>
+
+    <div 
+      data-jarallax 
+      data-speed="0.2" 
+      class="jarallax-video">
+      <div>
+        <h1 class="h-padded m-half">Mentally Friendly has changed its name to Future Friendly.</h1>
+        <div class="h-padded s-half m-half">
+          <p>We’re changing the name to better reflect our purpose — rapidly delivering products and services that build towards powerful visions of the future. </p>
+          <p>While the name is changing, everything else remains the same. Same team. Same values. Same mission.</p>
+          <p>The future isn’t something you wait for.</p>
+          <p>The future is made today.</p>
+          <p>Let’s go.</p>
+        </div>
+      </div>
+    </div> -->
+
+
+
     <section 
+      v-waypoint="{ active: true, callback: onWaypoint, options: {threshold: [1, 0]} }" 
       id="partners" 
       class="center-col has-grid horizontal">
+
+
       <background-grid 
         class="grid-container center-col" 
         columns="xs-2 s-3 m-4 l-6"/>
@@ -49,6 +86,12 @@
 
     </section>
 
+
+    <work-block 
+      v-for="(work, i) in caseStudies" 
+      :key="`${i}-caseStudies`" 
+      :work="work" 
+      :reverse="i%2 === 1" />
 
     <section 
       class="v-margin center-col has-grid" >
@@ -88,7 +131,20 @@
         <div class="xs-full m-half scroll-lock-block-spacer">
           <div 
             class="m-full-height service-block-image h-padded">
-            <fixed-aspect aspect="three-four"/>
+            <fixed-aspect aspect="three-four">
+              <!-- <div class="prlx-img-wrapper">
+                <img
+                  v-prlx="{
+                    direction: 'x',
+                    speed: 0.07,
+                    fromBottom: true
+                  }"
+                  v-lazy="require('~/assets/strategic-design-1.jpg')"
+                  id="image"
+                  class="side-prlx"
+                >
+              </div> -->
+            </fixed-aspect>
           </div>
         </div>
       </div>
@@ -131,32 +187,7 @@
       </div>
     </section>
 
-    <section 
-      v-for="(work, i) in caseStudies" 
-      :key="`${i}-caseStudies`" 
-      class="work-block">
-      <div class="work-image"/>
-      <div 
-        :class="i%2 === 1 ? 'reverse': ''" 
-        class="center-col horizontal">
-        <div class="xs-full m-half has-grid full-height work-block-content h-padded">
-          <background-grid 
-            :inset="true"
-            class="grid-container" 
-            columns="xs-1"/>
 
-          <div>
-            <h2 class="no-margin-top">{{ work.lead }}</h2>
-            <h2>{{ work.main }}</h2> 
-            <h2>With {{ work.client }}</h2>
-          </div>
-
-          <div>
-            <h2 class="no-margin-bottom">Full Case Study</h2>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <footer id="footer">
       <section 
@@ -211,11 +242,14 @@
 <script>
 import FixedAspect from '~/components/FixedAspect.vue'
 import BackgroundGrid from '~/components/BackgroundGrid.vue'
+import WorkBlock from '~/components/WorkBlock.vue'
+import { jarallax, jarallaxVideo } from 'jarallax'
 
 export default {
   components: {
     FixedAspect,
-    BackgroundGrid
+    BackgroundGrid,
+    WorkBlock
   },
   data() {
     return {
@@ -240,33 +274,48 @@ export default {
           lead: 'Managing the rising cost of living.',
           main:
             'We built a platform that delivered $1.5 billion to the people that need it most. ',
-          client: 'Service NSW.'
+          client: 'Service NSW.',
+          video: 'COL.mp4'
         },
-        {
-          lead: 'Improving early childhood learning.',
-          main:
-            'We built a service to create a safe environment for new primary school students.',
-          client: 'the Dept. of Education.'
-        },
-        {
-          lead: 'Building financial resiliance.',
-          main:
-            'We built a product to help Australians build financial resiliance.',
-          client: 'a leading superannuation provider.'
-        },
+        // {
+        //   lead: 'Improving early childhood learning.',
+        //   main:
+        //     'We built a service to create a safe environment for new primary school students.',
+        //   client: 'the Dept. of Education.'
+        // },
+        // {
+        //   lead: 'Building financial resiliance.',
+        //   main:
+        //     'We built a product to help Australians build financial resiliance.',
+        //   client: 'a leading superannuation provider.'
+        // },
         {
           lead: 'Mitigating domestic violence.',
           main:
             'We delivered strategic service design to recognise & respond to financial abuse. ',
-          client: 'the ACT Government'
+          client: 'the ACT Government',
+          video: 'FSH.mp4'
         }
       ]
     }
   },
+
   methods: {
-    visibilityChanged(isVisible, entry) {
-      this.isVisible = isVisible
-      console.log(entry.target)
+    onWaypoint(e) {
+      // this.isVisible = isVisible
+      console.log('waypoint', e)
+    },
+    vidError(e) {
+      console.log(e)
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
+      // this.$refs.videobackground.player.play()
+    },
+    vidReady(e) {
+      console.log(e)
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
+      // this.$refs.videobackground.player.play()
     }
   }
 }
@@ -292,6 +341,7 @@ export default {
 
 #partners {
   padding-bottom: 2rem;
+  margin-bottom: 8rem;
   #partner-list {
     columns: 1;
 
@@ -342,50 +392,6 @@ export default {
   }
 }
 
-.has-grid {
-  position: relative;
-}
-
-.grid-container {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-  // background-color: purple;
-  height: 100%;
-}
-
-.work-block {
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-  /deep/ .grid-line {
-    background-color: #fff;
-  }
-  color: #fff;
-  .work-block-content {
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    position: relative;
-  }
-
-  .work-image {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 1;
-    background-color: black;
-  }
-}
-
 #footer {
   background-color: #cccccc;
 
@@ -403,5 +409,18 @@ export default {
       padding-bottom: 2rem;
     }
   }
+}
+
+.prlx-img-wrapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.side-prlx {
+  margin-left: -25%;
+  height: 100%;
 }
 </style>
