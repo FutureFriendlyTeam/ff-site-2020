@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="promo" >
+    <!-- <div id="promo" >
       <section 
         class="center-col horizontal v-padded ">
         <div class="h-padded m-third border-left">
@@ -14,31 +14,24 @@
           <p class="no-margin-bottom mini">Let’s go.</p>
         </div>
       </section>
-    </div>
+    </div> -->
 
 
-    <header id="header">
-      <div class="center-col">
-        <div 
-          id="logo" 
-          class="horizontal border-right">
-          <span class="border-left">Future</span>
-          <span class="border-left border-right">Friendly</span>
-        </div>
-      </div>
-    </header>
+
+    <main-header/>
+
 
     <section 
-      id="main" 
+      id="hero" 
       class="center-col horizontal v-center">
-      <div>
-        <h1 class="h-padded m-half v-padded">Digital services have the power to change peoples lives and build a better future.</h1>
+      <div class="h-padded m-two-thirds v-padded">
+        <h1 class="no-margin">Digital services have the power to change peoples lives and build a better future.</h1>
       </div>
     </section>
 
     <section 
       id="partners" 
-      class="center-col has-grid horizontal v-margin no-margin-top">
+      class="center-col horizontal has-grid">
 
       <background-grid 
         class="grid-container center-col" 
@@ -60,180 +53,90 @@
       </div>
     </section>
 
-
-    <work-block 
-      v-for="(work, i) in caseStudies" 
-      :key="`${i}-caseStudies`" 
-      :work="work" 
-      :index="i" />
-
-    <section 
-      id="process" 
-      class="v-margin center-col" 
-    >
-      
-      <div 
-        class="horizontal border-left border-right" 
-        sticky-container>
-
-        <div 
-          
-          class="m-half">
-          <div 
-            v-sticky="windowWidth > 760" 
-            class="horizontal border-left" >
-            <div class="h-padded xs-full">
-              <h1 class="no-margin">A strategic product partner.</h1>
-            </div>
-          </div>
-        </div>
-
-        <div class="m-half">
-          <div class="horizontal border-left border-right">
-
-            <div class="h-padded l-half">
-              <h2 class="no-margin-top v-margin-bottom-big">Strategic Design</h2>
-              <p>A structured approach to problem solving.</p>
-              <p>Make sense of internal and external data sources. Output clear decisions that focus on both organisation and customer value.</p>
-              <ol class="body">
-                <li>Proposition design.</li>
-                <li>Service design.</li>
-                <li>Experimentation and research.</li>
-                <li>3 Horizon planning.</li>
-              </ol>
-            </div>
-            <div class="h-padded border-left l-half">
-              <h2 class="no-margin-top v-margin-bottom-big">Product Delivery</h2>
-              <p>A rapid and continuous approach to the delivery & adoption of digital products and services.</p>
-              <p>Ensure strategy makes its way to the real world quickly. </p>
-              <ol class="body">
-                <li>Proposition design.</li>
-                <li>Service design.</li>
-                <li>Experimentation and research.</li>
-                <li>3 Horizon planning.</li>
-              </ol>
-            </div>
-
-            <div 
-              :style="{marginTop: '1rem', transform: 'translate3d(-25%, 0, 0)'}" 
-              class="xs-full h-padded border-left" >
-              <fixed-aspect 
-                class="clear-line-top clear-line-bottom"
-                aspect="four-three">
-                <img 
-                  v-lazy = "require('~/assets/strategic-design-1.jpg')" 
-                >
-              </fixed-aspect>
-            </div>
-
-            <div 
-              :style="{marginLeft: 'auto', marginTop: '-4rem'}" 
-              class="xs-two-thirds h-padded" >
-              <fixed-aspect 
-                aspect="four-three">
-                <img 
-                  v-lazy = "require('~/assets/product-delivery-1.jpg')" 
-                  :style="{mixBlendMode:'multiply'}" 
-                >
-              </fixed-aspect>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- <div class="horizontal border-right border-left">
-        
-        <div 
-          :style="{ marginTop:'-8rem'}" 
-          class="xs-two-thirds h-padded">
-          <fixed-aspect 
-            :style="{mixBlendMode:'multiply'}" 
-            aspect="sixteen-nine"><img 
-              v-lazy = "require('~/assets/product-delivery-1.jpg')"></fixed-aspect>
-        </div>
-      </div> -->
+    <section class="center-col horizontal v-margin-big">
+      <work-block 
+        v-for="(work, i) in caseStudies" 
+        :key="`${i}-caseStudies`" 
+        :work="work" 
+        :i="i"
+        :class="[i%2 === 0 ? 'start': 'end']"
+        class="work-row" />
     </section>
 
-    <!-- <section 
-      class="v-margin center-col has-grid" >
-    
-      <background-grid 
-        :inset="true"
-        class="grid-container center-col" 
-        columns="xs-1 m-2"/>
+
+
+
+
+    <section 
+      id="services" 
+      class="center-col v-margin-big">
+      <div class="h-padded v-margin m-two-thirds">
+        <h1 class="no-margin">We build critical services by combining strategic design with product delivery.</h1>
+      </div>
+
+      <!-- <div class="border-left"> -->
 
       <div 
-        class="horizontal scroll-lock-block" 
-        sticky-container
-      >
-
-        <div class="xs-full m-half">
-          <div v-sticky="windowWidth > 760" >
+        id="strategic-design" 
+        class="horizontal border-left service-row">
+        <div class="xs-full m-two-thirds service-image border-left border-right">
+          <div id="strategic-design-image">
+            <div 
+              id="strategic-design-image-1"
+              class="h-padded flex" >
+              <fixed-aspect 
+                aspect="four-three"/>
+            </div>
 
             <div 
-              class="m-full-height service-block-content h-padded v-padded">
-              <h1 class=" no-margin">Strategic Design</h1>
-              <div class=" l-two-thirds copy">
-                <p>A structured approach to problem solving.</p>
-                <p>Make sense of internal and external data sources. Output clear decisions that focus on both organisation and customer value.</p>
-                <p>We can help with;</p>
-                <ol class="body">
-                  <li>Proposition design.</li>
-                  <li>Service design.</li>
-                  <li>Experimentation and research.</li>
-                  <li>3 Horizon planning.</li>
-                </ol>
-              </div>
+              id="strategic-design-image-2"
+              class="xs-half h-padded">
+              <image-grid :images="[1,2,3,'blank','blank',4,5, 6]"/>
             </div>
-
           </div>
         </div>
 
-        <div class="xs-full m-half scroll-lock-block-spacer">
-          <div 
-            class="m-full-height service-block-image h-padded v-padded">
-            <fixed-aspect aspect="three-four"/>
-          </div>
+        <div class="xs-full s-half m-third h-padded border-right service-copy">
+          <h2 class="no-margin-top">Strategic Design</h2>
+          <p>A structured approach to problem solving.</p>
+          <p>Make sense of internal and external data sources. Output clear decisions that focus on both organisation and customer value.</p>
+          <ol class="body no-margin">
+            <li>Proposition design.</li>
+            <li>Service design.</li>
+            <li>Experimentation and research.</li>
+            <li>3 Horizon planning.</li>
+          </ol>
         </div>
       </div>
-
 
       <div 
-        class="horizontal scroll-lock-block m-reverse" 
-        sticky-container>
-
-        <div 
-          class="xs-full m-half scroll-lock-block-overlap">
-          <div 
-            v-sticky="windowWidth > 760"
-          >
-            <div class="m-full-height service-block-content h-padded v-padded">
-              <h1 class="no-margin">Product Delivery</h1>
-              <div class="l-two-thirds copy">
-                <p>A rapid and continuous approach to the delivery & adoption of digital products and services.</p>
-                <p>Ensure strategy makes its way to the real world quickly. </p>
-                <p>We can help with;</p>
-                <ol class="body">
-                  <li>Proposition design.</li>
-                  <li>Service design.</li>
-                  <li>Experimentation and research.</li>
-                  <li>3 Horizon planning.</li>
-                </ol>
-              </div>
+        id="product-delivery" 
+        class="horizontal s-reverse border-left service-row">
+        <div class="xs-full m-two-thirds service-image border-left border-right">
+          <div id="product-delivery-image">
+            <div 
+              id="product-delivery-image-1"
+              class="h-padded flex" >
+              <fixed-aspect 
+                aspect="four-three"/>
             </div>
           </div>
+          
         </div>
 
-        <div 
-          class="xs-full m-half" 
-        >
-          <div 
-            class="m-full-height service-block-image h-padded v-padded">
-            <fixed-aspect aspect="three-four"/>
-          </div>
+        <div class="xs-full s-half m-third h-padded border-left service-copy">
+          <h2 class="no-margin-top">Product Delivery</h2>
+          <p>A rapid and continuous approach to the delivery & adoption of digital products and services.</p>
+          <p>Ensure strategy makes its way to the real world quickly. </p>
+          <ol class="body no-margin">
+            <li>Proposition design.</li>
+            <li>Service design.</li>
+            <li>Experimentation and research.</li>
+            <li>3 Horizon planning.</li>
+          </ol>
         </div>
       </div>
-    </section> -->
+    </section>
 
 
 
@@ -249,10 +152,6 @@
       <section 
         id="footerStuff" 
         class="center-col horizontal has-grid v-padded">
-        <!-- <background-grid 
-          :inset="true"
-          class="grid-container center-col" 
-          columns="xs-1 s-2 m-4"/> -->
         <div class="xs-full s-half m-quarter h-padded footer-col border-left">
           <p class="mini no-margin-top">General Enquiries</p>
           <p class="mini ">hello@mentallyfriendly.com<br>
@@ -287,16 +186,20 @@
 </template>
 
 <script>
+import MainHeader from '~/components/MainHeader.vue'
 import FixedAspect from '~/components/FixedAspect.vue'
 import BackgroundGrid from '~/components/BackgroundGrid.vue'
 import WorkBlock from '~/components/WorkBlock.vue'
-import { jarallax, jarallaxVideo } from 'jarallax'
+import ImageGrid from '~/components/ImageGrid.vue'
+// import { jarallax, jarallaxVideo } from 'jarallax'
 
 export default {
   components: {
+    MainHeader,
     FixedAspect,
     BackgroundGrid,
-    WorkBlock
+    WorkBlock,
+    ImageGrid
   },
   data() {
     return {
@@ -322,28 +225,45 @@ export default {
           main:
             'We built a platform that delivered $1.5 billion to the people that need it most. ',
           client: 'Service NSW.',
-          image: 'col-hero.jpg'
-        },
-        {
-          lead: 'Improving early childhood learning.',
-          main:
-            'We built a service to create a safe environment for new primary school students.',
-          client: 'the Dept. of Education.',
-          image: 'tts-hero.jpg'
-        },
-        {
-          lead: 'Building financial resiliance.',
-          main:
-            'We built a product to help Australians build financial resiliance.',
-          client: 'a leading superannuation provider.',
-          image: 'cfs-hero.jpg'
+          img: {
+            src: 'col-hero.jpg',
+            aspect: 'four-three',
+            alt: 'Foo'
+          }
         },
         {
           lead: 'Mitigating domestic violence.',
           main:
             'We delivered strategic service design to recognise & respond to financial abuse. ',
           client: 'the ACT Government',
-          image: 'fsh-hero.jpg'
+          img: {
+            src: 'fsh-hero.jpg',
+            aspect: 'square',
+            alt: 'Foo'
+          }
+        },
+
+        {
+          lead: 'Building financial resiliance.',
+          main:
+            'We built a product to help Australians build financial resiliance.',
+          client: 'a leading superannuation provider.',
+          img: {
+            src: 'cfs-hero.jpg',
+            aspect: 'four-three',
+            alt: 'Foo'
+          }
+        },
+        {
+          lead: 'Improving early childhood learning.',
+          main:
+            'We built a service to create a safe environment for new primary school students.',
+          client: 'the Dept. of Education.',
+          img: {
+            src: 'tts-hero.jpg',
+            aspect: 'square',
+            alt: 'Foo'
+          }
         }
       ]
     }
@@ -351,21 +271,8 @@ export default {
 
   methods: {
     onWaypoint(e) {
-      // this.isVisible = isVisible
       console.log('waypoint', e)
     }
-    // vidError(e) {
-    //   console.log(e)
-    //   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    //   // @ts-ignore
-    //   // this.$refs.videobackground.player.play()
-    // },
-    // vidReady(e) {
-    //   console.log(e)
-    //   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    //   // @ts-ignore
-    //   // this.$refs.videobackground.player.play()
-    // }
   }
 }
 </script>
@@ -373,29 +280,14 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/variables.scss';
 
-#logo {
-  span {
-    display: block;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    font-weight: bold;
-    padding-bottom: 1rem;
-    font-size: 1.25rem;
-  }
+#hero {
+  min-height: 80vh;
 }
 
-#header {
-  padding-top: 1rem;
-}
-
-#main {
-  min-height: 90vh;
-}
-
-#promo {
-  background-color: #ff4873;
-  position: relative;
-}
+// #promo {
+//   background-color: #ff4873;
+//   position: relative;
+// }
 
 #partners {
   padding-bottom: 2rem;
@@ -418,30 +310,53 @@ export default {
   }
 }
 
-.service-block-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-
-  position: relative;
-  .copy {
-    margin-top: 8rem;
+.work-row {
+  &.end {
+    @media (min-width: $small) {
+      margin-left: 33.33%;
+    }
   }
 }
 
-.service-block-image {
-  margin-top: 50vh;
-}
+#services {
+  .service-row {
+    margin-bottom: 8rem;
 
-@media (min-width: $mid) {
-  .scroll-lock-block-spacer {
-    margin-bottom: 100vh;
+    @media (min-width: $mid) {
+      margin-bottom: 1rem;
+    }
   }
 
-  .scroll-lock-block-overlap {
-    position: relative;
-    top: -100vh;
+  .service-image {
+    margin-bottom: 1rem;
+
+    @media (min-width: $mid) {
+      margin-bottom: 0rem;
+    }
+  }
+
+  #strategic-design-image-1 {
+    position: absolute;
+    left: 0rem;
+    right: 4rem;
+
+    @media (min-width: $mid) {
+      right: 8rem;
+    }
+  }
+
+  #strategic-design-image-2 {
+    margin-left: 50%;
+    margin-top: 2rem;
+    @media (min-width: $mid) {
+      transform: translate3d(0, 33.33%, 0);
+    }
+  }
+
+  #product-delivery-image-1 {
+    @media (min-width: $mid) {
+      margin-left: 4rem;
+    }
   }
 }
 
@@ -455,28 +370,5 @@ export default {
   #footerStuff {
     min-height: 50vh;
   }
-}
-
-.prlx-img-wrapper {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-}
-
-.side-prlx {
-  margin-left: -25%;
-  height: 100%;
-}
-
-.clear-line-top {
-  border-top: 1rem solid #fff;
-  margin-top: -1rem;
-}
-
-.clear-line-bottom {
-  border-bottom: 1rem solid #fff;
-  margin-bottom: -1rem;
 }
 </style>

@@ -1,42 +1,26 @@
 <template>
 
-  <section 
-    ref="wrapper"
-    class="work-block jarallax">
-    <img 
-      :src="require(`~/assets/${work.image}`)"
-      class="jarallax-img" 
-      alt="">
-    <div 
-      :style="{justifyContent: justifyClass}"
-      class="center-col horizontal">
-
-      <div class="xs-full m-half l-third v-padded full-height">
-        <div class="h-padded border-right border-left work-block-content">
-          <h2 class="no-margin-top">{{ work.lead }}</h2>
-          <h2>{{ work.main }}</h2> 
-          <p class="client">With {{ work.client }}</p>
-          <a class="button">
-            <h2 class="no-margin-bottom">Full Case Study</h2>
-          </a>
-          <p class="mini sideways">Winner Good Design Award Gold 2020</p>
-        </div>
-        
+  <div 
+    :class="i%2 === 0 ? 'start': 'end'" 
+    class="work-block xs-full s-two-thirds border-left border-right">
+    <div class="work-block-copy horizontal">
+      <div 
+        class="xs-full m-half h-padded border-left border-right work-block-copy-text">
+        <h2 class="no-margin-top">{{ work.lead }}</h2>
+        <h2 class="no-margin-bottom">With {{ work.client }}</h2>
       </div>
     </div>
-  </section>
-
-
+    <div class="work-image h-padded">
+      <fixed-aspect :aspect="work.img.aspect"/>
+    </div>
+  </div>
 </template>
 
 <script>
-import BackgroundGrid from '~/components/BackgroundGrid.vue'
 import FixedAspect from '~/components/FixedAspect.vue'
-import { jarallax, jarallaxVideo } from 'jarallax'
 export default {
   name: 'WorkBlock',
   components: {
-    BackgroundGrid,
     FixedAspect
   },
   props: {
@@ -44,68 +28,69 @@ export default {
       type: Object,
       default: null
     },
-    index: {
+    i: {
       type: Number,
       default: 0
     }
-  },
-  computed: {
-    justifyClass() {
-      const c = ['flex-start', 'space-around', 'flex-end']
-      return c[this.index % 3]
-    }
-  },
-  mounted() {
-    // jarallaxVideo()
-    jarallax(this.$refs.wrapper, {
-      speed: 0.1
-    })
   }
 }
 </script>
 
 <style scoped lang="scss">
+@import '../scss/variables.scss';
+
 .work-block {
-  position: relative;
-  overflow: hidden;
-  color: #fff;
+  margin-bottom: 8rem;
 
-  .border-right:after {
-    background-color: #fff;
+  @media (min-width: $mid) {
+    margin-bottom: 1rem;
   }
 
-  .border-left:before {
-    background-color: #fff;
-  }
-  // .horizontal {
-  //   justify-content: flex-end;
-  // }
-  .work-block-content {
-    box-sizing: border-box;
-    height: 100%;
+  &:not(:first-child) {
+    &.end {
+      .work-block-copy-text {
+        margin-left: auto;
+        &.border-left:before {
+          top: -8rem;
 
-    .button {
-      display: block;
-      margin-top: 4rem;
+          @media (min-width: $small) {
+            top: -7rem;
+          }
+
+          @media (min-width: $mid) {
+            top: -1rem;
+          }
+        }
+      }
     }
 
-    .sideways {
-      line-height: 0rem;
-      margin: 0px;
-      transform: rotateX(0deg) rotateY(0deg) rotateZ(-90deg);
-      transform-origin: 0% 50%;
-      position: absolute;
-      bottom: 0px;
+    &.start {
+      .work-block-copy-text {
+        margin-right: auto;
+        &.border-right:after {
+          top: -8rem;
+          @media (min-width: $small) {
+            top: -7rem;
+          }
+
+          @media (min-width: $mid) {
+            top: -1rem;
+          }
+        }
+      }
     }
   }
 
-  .work-image {
-    height: 100%;
-    background-color: black;
+  @media (min-width: $mid) {
+    margin-bottom: 1rem;
   }
 
-  .client {
-    font-weight: bold;
+  &:last-child {
+    margin-bottom: 0px;
   }
+}
+
+.work-image {
+  margin-top: 1rem;
 }
 </style>

@@ -24,21 +24,6 @@
   padding-left: 1rem;
   padding-right: 1rem;
   box-sizing: border-box;
-
-  // @media (min-width: $small) {
-  //   padding-left: 1rem;
-  //   padding-right: 1rem;
-  // }
-
-  // @media (min-width: $mid) {
-  //   padding-left: 1.5rem;
-  //   padding-right: 1.5rem;
-  // }
-
-  // @media (min-width: $big) {
-  //   padding-left: 2rem;
-  //   padding-right: 2rem;
-  // }
 }
 
 .v-padded {
@@ -62,13 +47,49 @@
   }
 }
 
+.v-padded-small {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.v-margin-small {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.v-margin-bottom-small {
+  margin-bottom: 1rem;
+}
+
+.v-margin-top-small {
+  margin-top: 1rem;
+}
+
 .v-margin {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.v-margin-bottom {
+  margin-bottom: 4rem;
+}
+
+.v-margin-top {
+  margin-top: 4rem;
+}
+
+.v-margin-big {
   margin-top: 8rem;
   margin-bottom: 8rem;
 }
 
 .v-margin-bottom-big {
   margin-bottom: 8rem;
+}
+
+.v-margin-top-big {
+  margin-top: 8rem;
 }
 
 .no-margin {
@@ -181,6 +202,10 @@
 
   .s-two-thirds {
     width: 66.66%;
+  }
+
+  .s-reverse {
+    flex-direction: row-reverse;
   }
 }
 

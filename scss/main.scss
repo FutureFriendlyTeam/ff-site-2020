@@ -35,14 +35,6 @@ figure {
     bottom: 0px;
     width: 1px;
     background-color: $dark;
-    // z-index: -999;
-  }
-
-  &.v-inset {
-    &:before {
-      top: 2rem;
-      bottom: 2rem;
-    }
   }
 }
 
@@ -57,32 +49,24 @@ figure {
     bottom: 0px;
     width: 1px;
     background-color: $dark;
-    // z-index: -999;
-  }
-
-  &.v-inset {
-    &:after {
-      top: 2rem;
-      bottom: 2rem;
-    }
   }
 }
 
-.jarallax {
-  position: relative;
-  z-index: 0;
-}
-.jarallax > .jarallax-img {
-  position: absolute;
-  object-fit: cover;
-  /* support for plugin https://github.com/bfred-it/object-fit-images */
-  font-family: 'object-fit: cover;';
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+// .jarallax {
+//   position: relative;
+//   z-index: 0;
+// }
+// .jarallax > .jarallax-img {
+//   position: absolute;
+//   object-fit: cover;
+//   /* support for plugin https://github.com/bfred-it/object-fit-images */
+//   font-family: 'object-fit: cover;';
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: -1;
+// }
 
 .has-grid {
   position: relative;
