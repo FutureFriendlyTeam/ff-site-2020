@@ -1,95 +1,172 @@
+@import 'variables.scss';
 .center-col {
-  max-width: $max;
-  margin: 0 auto;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  max-width: 1800px;
+  // margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   @media (min-width: $small) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   @media (min-width: $mid) {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   @media (min-width: $big) {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 
 .h-padded {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  box-sizing: border-box;
-}
-
-.v-padded {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   box-sizing: border-box;
 
   @media (min-width: $small) {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   @media (min-width: $mid) {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   @media (min-width: $big) {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
+}
+
+.v-padded {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  box-sizing: border-box;
+
+  // @media (min-width: $small) {
+  //   padding-top: 2rem;
+  //   padding-bottom: 2rem;
+  // }
+
+  // @media (min-width: $mid) {
+  //   padding-top: 3rem;
+  //   padding-bottom: 3rem;
+  // }
+
+  // @media (min-width: $big) {
+  //   padding-top: 4rem;
+  //   padding-bottom: 4rem;
+  // }
 }
 
 .v-padded-small {
   padding-top: 1rem;
   padding-bottom: 1rem;
   box-sizing: border-box;
+
+  @media (min-width: $mid) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.v-padded-big {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  @media (min-width: $mid) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.v-padded-bottom-big {
+  padding-bottom: 4rem;
+  @media (min-width: $mid) {
+    padding-bottom: 8rem;
+  }
+}
+
+.v-padded-top-big {
+  padding-top: 4rem;
+  @media (min-width: $mid) {
+    padding-top: 8rem;
+  }
 }
 
 .v-margin-small {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  // @media (min-width: $mid) {
+  //   margin-top: 1.5rem;
+  //   margin-bottom: 1.5rem;
+  // }
 }
 
 .v-margin-bottom-small {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  // @media (min-width: $mid) {
+  //   margin-bottom: 1.5rem;
+  // }
 }
 
 .v-margin-top-small {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  // @media (min-width: $mid) {
+  //   margin-top: 1.5rem;
+  // }
 }
 
 .v-margin {
   margin-top: 4rem;
   margin-bottom: 4rem;
+  @media (min-width: $mid) {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
 }
 
 .v-margin-bottom {
   margin-bottom: 4rem;
+  @media (min-width: $mid) {
+    margin-bottom: 8rem;
+  }
 }
 
 .v-margin-top {
   margin-top: 4rem;
+  @media (min-width: $mid) {
+    margin-top: 8rem;
+  }
 }
 
-.v-margin-big {
-  margin-top: 8rem;
-  margin-bottom: 8rem;
+// .v-margin-big {
+//   margin-top: 8rem;
+//   margin-bottom: 8rem;
+// }
+
+// .v-margin-bottom-big {
+//   margin-bottom: 8rem;
+// }
+
+// .v-margin-top-big {
+//   margin-top: 8rem;
+// }
+
+.v-margin-mega {
+  margin-top: 25vh;
+  margin-bottom: 25vh;
 }
 
-.v-margin-bottom-big {
-  margin-bottom: 8rem;
+.v-margin-mega-top {
+  margin-top: 25vh;
 }
 
-.v-margin-top-big {
-  margin-top: 8rem;
+.v-margin-mega-bottom {
+  margin-bottom: 25vh;
 }
 
 .no-margin {

@@ -8,9 +8,17 @@
         v-for="(img,i) in images" 
         :key="`image-${i}`" 
         class="image-grid-tile xs-half" >
+        <!-- <wipe-in :delay="i*50"> -->
         <fixed-aspect 
           :class="img" 
-          aspect="four-three"/>
+          aspect="four-three">
+          <img 
+            v-lazy ="require(`~/assets/${img}`)" 
+            v-if="img != 'blank'"
+            :style="{transitionDelay: `${i*50}ms`}"
+          >
+        </fixed-aspect>
+        <!-- </wipe-in> -->
       </div>
     </div>
               
@@ -20,9 +28,11 @@
 
 <script>
 import FixedAspect from '~/components/FixedAspect.vue'
+import WipeIn from '~/components/WipeIn.vue'
 export default {
   name: 'ImageGrid',
   components: {
+    WipeIn,
     FixedAspect
   },
   props: {

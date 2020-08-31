@@ -14,160 +14,83 @@
 
 h1 {
   font-size: 3rem;
-  line-height: 3rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  line-height: 1;
   letter-spacing: -0.01em;
+  font-weight: normal;
 
-  // @media (min-width: $big) {
-  //   font-size: 3rem;
-  //   line-height: 3rem;
-  // }
+  @media (min-width: $mid) {
+    font-size: 3.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: $big) {
+    font-size: 4rem;
+  }
+
+  @media (min-width: $max) {
+    font-size: 5rem;
+  }
 }
 
 h2 {
+  font-weight: normal;
   font-family: 'Plain';
   font-size: 2rem;
-  line-height: 2rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  line-height: 1.1;
   letter-spacing: -0.01em;
-  // @media (min-width: $big) {
-  //   font-size: 2.5rem;
-  //   line-height: 2.5rem;
-  // }
+
+  @media (min-width: $mid) {
+    font-size: 2.25rem;
+  }
+
+  @media (min-width: $big) {
+    font-size: 2.5rem;
+  }
+}
+
+h3 {
+  font-weight: normal;
+  font-family: 'Plain';
+  font-size: 1.75rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
 }
 
 p,
 .body {
   font-family: 'Plain';
-  font-size: 1rem;
-  line-height: 1.25rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.25;
 }
 
 .mini {
   font-family: 'Plain';
-  font-size: 0.75rem;
-  line-height: 1rem;
-  margin-bottom: 0.25rem;
-  margin-top: 0rem;
+  font-size: 0.875rem;
+  line-height: 1.25;
 }
 
-// h2{
-//   font-family: 'IBM Plex Serif', serif;
-//   font-size: 1rem;
-//   line-height: 1.5rem;
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-//   @media (min-width: $mid) {
-//     font-size: 1.5rem;
-//     line-height: 2rem;
-//   }
-// }
+  li {
+    position: relative;
+    padding-left: 2rem;
+    display: block;
+    font-size: 1.25rem;
+    // line-height: 1.5;
+    margin-bottom: 0.5rem;
 
-// p{
-//   font-size: 0.875rem;
-//   line-height: 1.25rem;
-
-//   @media (min-width: $mid) {
-//     font-size: 1rem;
-//     line-height: 1.5rem;
-//   }
-// }
-
-// h1{
-//   font-family: 'IBM Plex Serif', serif;
-//   font-size: 1.5rem;
-//   line-height: 2rem;
-
-//   @media (min-width: $mid) {
-//     font-size: 2rem;
-//     line-height: 3rem;
-//   }
-// }
-
-// .lead p{
-//   font-size: 1.5rem;
-//   line-height: 2rem;
-
-//   @media (min-width: $mid) {
-//     font-size: 2rem;
-//     line-height: 3rem;
-//   }
-// }
-
-// .caption, p.caption{
-//   font-size: 0.75rem;
-//   line-height: 1rem;
-// }
-
-// // h1{
-// //   font-family: 'IBM Plex Serif', serif;
-// //   font-size: 2.5rem;
-// //   line-height: 2.5rem;
-// //   margin-bottom: 1.5rem;
-// //   margin-top: 0px;
-
-// //   @media (min-width: $mid) {
-// //     font-size: 4rem;
-// //     line-height: 3.5rem;
-// //   }
-
-// //   @media (min-width: $max) {
-// //     font-size: 5rem;
-// //     line-height: 5rem;
-// //   }
-// // }
-
-// // h2{
-// //   font-family: 'IBM Plex Serif', serif;
-// //   font-size: 1.5rem;
-// //   line-height: 2rem;
-// //   margin-bottom: 1.5rem;
-// // }
-
-// // p{
-// //   font-size: 1rem;
-// //   line-height: 1.5rem;
-// //   margin-bottom: 1.5rem;
-// // }
-
-// // a{
-// //   font-family: 'IBM Plex Serif', serif;
-// //   font-size: 1rem;
-// //   line-height: 1.5rem;
-// //   text-decoration: underline;
-// // }
-
-// // figcaption{
-// //   font-family: 'IBM Plex Serif', serif;
-// //   font-size: 0.75rem;
-// //   line-height: 1rem;
-// // }
-
-// ul{
-//   list-style: none;
-//   margin: 0;
-//   padding: 0;
-
-//   li{
-//     position: relative;
-//     padding-left: 2rem;
-//     display: block;
-//     font-size: 1rem;
-//     line-height: 1.5rem;
-//     margin-bottom: 0.5rem;
-
-//     &:before {
-//       content: "";
-//       color: inherit;
-//       position: absolute;
-//       left: 0px;
-//       top: 0.7em;
-//       width: 1rem;
-//       text-align: right;
-//       border-bottom: 1px solid currentColor;
-//     }
-//   }
-// }
+    &:before {
+      content: '';
+      color: inherit;
+      position: absolute;
+      left: 0px;
+      top: 0.7em;
+      width: 1rem;
+      text-align: right;
+      border-bottom: 1px solid currentColor;
+    }
+  }
+}

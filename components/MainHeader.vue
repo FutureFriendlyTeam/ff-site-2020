@@ -6,27 +6,40 @@
       <div 
         id="logo" 
         class="horizontal border-right">
-        <span class="border-left">Future</span>
-        <span class="border-left border-right">Friendly</span>
+        <div class="border-left logo-part">
+          Future
+        </div>
+        <div class="border-left border-right logo-part">Friendly</div>
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import WipeIn from '~/components/WipeIn.vue'
 export default {
-  name: 'MainHeader'
+  name: 'MainHeader',
+  components: {
+    WipeIn
+  }
 }
 </script>
 
 
 <style lang="scss" scoped>
+#header {
+  position: fixed;
+  width: 100%;
+  // background-color: #fff;
+  z-index: 99;
+}
+
 #logo {
-  span {
+  .logo-part {
     display: block;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    font-weight: bold;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+    // font-weight: bold;
     padding-bottom: 1rem;
     font-size: 1.25rem;
   }

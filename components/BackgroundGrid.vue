@@ -28,9 +28,9 @@ export default {
       let order = ['xs', 's', 'm', 'l']
       const breakpoints = {
         xs: 0,
-        s: 560,
-        m: 760,
-        l: 1080
+        s: 639,
+        m: 959,
+        l: 1199
       }
 
       let currBreakpoint = 'xs'

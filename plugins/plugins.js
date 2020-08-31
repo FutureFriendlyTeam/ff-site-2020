@@ -2,11 +2,20 @@ import Vue from 'vue'
 import Sticky from 'vue-sticky-directive'
 import VueWindowSize from 'vue-window-size'
 import VueLazyload from 'vue-lazyload'
-import VueWaypoint from 'vue-waypoint'
-// import VuePrlx from 'vue-prlx'
+import Inview from 'vueinview'
+
+import VueLazyLoadVideo from 'vue-lazyload-video'
+
+// Register Components
+// LazyVideo & LazyVideoAsGIF
+Vue.use(VueLazyLoadVideo)
+
 // import VideoBackground from 'vue-responsive-video-background-player'
 
 // Vue.component('video-background', VideoBackground)
+Vue.use(Inview)
+// import VueWaypoint from 'vue-waypoint'
+import VuePrlx from 'vue-prlx'
 
 // import 'object-fit-images'
 
@@ -23,8 +32,8 @@ import VueWaypoint from 'vue-waypoint'
 //   // })
 // })
 
-Vue.use(VueWaypoint)
+// Vue.use(VueWaypoint)
 Vue.use(VueLazyload)
-// Vue.use(VuePrlx)
+Vue.use(VuePrlx)
 Vue.use(VueWindowSize)
 Vue.use(Sticky)
