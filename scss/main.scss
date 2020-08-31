@@ -1,0 +1,99 @@
+@import 'reset.scss';
+@import 'variables.scss';
+@import 'type.scss';
+@import 'layout.scss';
+@import 'images.scss';
+@import 'animations.scss';
+
+html,
+body {
+  font-family: 'Plain';
+  margin: 0px;
+  padding: 0px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  color: $dark;
+}
+
+img {
+  display: block;
+}
+
+figure {
+  margin: 0px;
+}
+
+.border-left {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 1px;
+    background-color: #272727;
+  }
+}
+
+.border-right {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    bottom: 0px;
+    width: 1px;
+    background-color: #272727;
+  }
+}
+
+.has-grid {
+  position: relative;
+}
+
+.grid-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  height: 100%;
+}
+
+img[lazy='loading'] {
+  transition: all 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+  // transform: translate3d(-1rem, 0, 0);
+  opacity: 0;
+}
+img[lazy='error'] {
+  opacity: 1;
+}
+img[lazy='loaded'] {
+  transition: all 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+  // transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+.wrapper-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.accent {
+  color: $accent;
+}
+
+// .parallax-img-wrapper {
+//   overflow: hidden;
+// }
+
+// .parallax-img-outer {
+//   // transform-origin: 100%, 0%;
+//   transform: scale(1.1);
+// }

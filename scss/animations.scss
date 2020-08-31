@@ -1,0 +1,57 @@
+// .page-enter-active, .page-leave-active{
+//   transition-duration: 1s;
+//   transition-property: opacity, transform;
+//   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+//   overflow: hidden;
+// }
+
+// .page-enter {
+//   opacity: 0;
+//   transform: translate3d(0, 4rem, 0);
+// }
+
+// .page-enter-active{
+//   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+// }
+
+// .page-leave-to{
+//   opacity: 0;
+//   transform: translate3d(0, -4rem, 0);
+// }
+
+// BUILD IN
+.slide-left-enter-active {
+  transition-duration: 600ms;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc((50ms * var(--i)));
+  overflow: hidden;
+}
+
+.slide-left-enter {
+  opacity: 0;
+  transform: translate3d(-1rem, 0, 0);
+}
+
+.slide-left-enter-active {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scale-down-enter-active {
+  transition-duration: 1200ms;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(100ms * var(--i));
+  overflow: hidden;
+  transform-origin: 0% 0%;
+}
+
+.scale-down-enter {
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: 0% 0%;
+}
+
+.scale-down-enter-active {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}

@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'Plain';
+  src: url('../assets/fonts/Plain-Medium.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plain';
+  src: url('../assets/fonts/Plain-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  font-weight: normal;
+
+  @media (min-width: $mid) {
+    font-size: 3.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: $big) {
+    font-size: 4rem;
+  }
+
+  @media (min-width: $max) {
+    font-size: 5rem;
+  }
+}
+
+h2 {
+  font-weight: normal;
+  font-family: 'Plain';
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+
+  @media (min-width: $mid) {
+    font-size: 2.25rem;
+  }
+
+  @media (min-width: $big) {
+    font-size: 2.5rem;
+  }
+}
+
+h3 {
+  font-weight: normal;
+  font-family: 'Plain';
+  font-size: 1.75rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+p,
+.body {
+  font-family: 'Plain';
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.mini {
+  font-family: 'Plain';
+  font-size: 0.875rem;
+  line-height: 1.25;
+}
+
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    position: relative;
+    padding-left: 2rem;
+    display: block;
+    font-size: 1.25rem;
+    // line-height: 1.5;
+    margin-bottom: 0.5rem;
+
+    &:before {
+      content: '';
+      color: inherit;
+      position: absolute;
+      left: 0px;
+      top: 0.7em;
+      width: 1rem;
+      text-align: right;
+      border-bottom: 1px solid currentColor;
+    }
+  }
+}
