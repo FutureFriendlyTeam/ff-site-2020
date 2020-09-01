@@ -15,17 +15,17 @@
       data-enter-background="#FFF" 
       class="center-col horizontal v-center">
       <div 
-        class="s-three-quarters m-two-thirds v-margin-mega ">
-        <h1 class="no-margin">Digital services have the power to change lives and build a better future.</h1>
+        class="s-three-quarters m-two-thirds v-margin-mega">
+        <h1 class="no-margin indent">Digital services have the power to change lives and build a better future.</h1>
       </div>
 
-      <img 
+      <!-- <img 
         v-lazy ="require(`~/assets/arrow_loop.gif`)" 
-        id="arrow">
+        id="arrow"> -->
     </section>
 
 
-    <section 
+    <!-- <section 
       v-observe-visibility="{
         callback: changeBackground,
         intersection: {
@@ -57,7 +57,7 @@
           </p>        
         </div>
       </div>
-    </section>
+    </section> -->
 
 
 
@@ -126,16 +126,16 @@
             </div>
           </div>
 
-          <div class="xs-full s-two-thirds m-third h-padded border-right service-copy">
-            <h2 class="no-margin-top v-margin-bottom">Digital service strategy </h2>
-            <p>A structured approach to problem solving.</p>
-            <p>Make sense of internal and external data sources. Output clear decisions that focus on both organisation and customer value.</p>
+          <div class="xs-full s-two-thirds m-third h-padded border-right service-copy v-padded-bottom-big">
+            <h3 class="no-margin-top">Digital service strategy — define how digital products succeed today, tomorrow, and in the future.</h3>
             <ol class="body no-margin">
               <li>Proposition design </li>
-              <li>Service design and validation .</li>
-              <li>Customer Research / validation </li>
-              <li>Business/ funding strategy </li>
-              <li>Live trials </li>
+              <li>Product innovation.</li>
+              <li>Service design.</li>
+              <li>Rapid prototyping & customer validation.</li>
+              <li>Business cases & funding.</li>
+              <li>Live trials & experimentation.</li>
+              <li>3 horizons roadmaps.</li>
             </ol>
           </div>
         </div>
@@ -159,16 +159,15 @@
           
           </div>
 
-          <div class="xs-full s-two-thirds m-third h-padded border-left service-copy">
-            <h2 class="no-margin-top v-margin-bottom">Delivery support </h2>
-            <p>A rapid and continuous approach to the delivery & adoption of digital products and services.</p>
-            <p>Ensure strategy makes its way to the real world quickly. </p>
+          <div class="xs-full s-two-thirds m-third h-padded border-left service-copy v-padded-bottom-big">
+            <h3 class="no-margin-top">Delivery support — work together to launch new digital products, and set internal teams up for success.</h3>
             <ol class="body no-margin">
-              <li>Team formation </li>
-              <li>Product management </li>
-              <li>Product Design </li>
-              <li>Product engineering </li>
-              <li>First release delivery MVP delivery  </li>
+              <li>Team formation & acceleration.</li>
+              <li>Product management.</li>
+              <li>Product Design.</li>
+              <li>Product engineering.</li>
+              <li>MVP / First release delivery.</li>
+              <li>Product roadmaps.</li>
             </ol>
           </div>
         </div>
@@ -177,7 +176,50 @@
 
 
 
-    <main-footer/>
+    <section 
+      v-observe-visibility="{
+        callback: changeBackground,
+        intersection: {
+          rootMargin: '-50% 0px -50% 0px'
+        },
+      }"
+      id="partners" 
+      class="v-margin-mega"
+      data-enter-background="#FFDAE3" 
+    >
+
+      <div class="center-col horizontal has-grid v-padded-bottom-big">
+        <background-grid 
+          class="grid-container center-col" 
+          columns="xs-2 s-3 m-4"/>
+        <div class="xs-half s-third m-quarter h-padded">
+          <h3 class="no-margin">Client partners</h3>
+        </div>
+
+        <div 
+          id="partner-list" 
+          class="flex">
+          <p 
+            v-for="(partner, i) in partners"
+            :key="`${i}-partner`" 
+            :delay="100+(i*50)" 
+            class="h-padded partner no-margin-top mini">
+            {{ partner }}
+          </p>        
+        </div>
+      </div>
+    </section>
+
+
+
+    <main-footer 
+      v-observe-visibility="{
+        callback: changeBackground,
+        intersection: {
+          rootMargin: '-50% 0px -50% 0px'
+        },
+      }" 
+      data-enter-background="#CDCCC4"/>
 
   </div>
 </template>
@@ -316,7 +358,8 @@ export default {
 }
 
 #hero {
-  min-height: 100vh;
+  padding-top: 4rem;
+  min-height: 80vh;
   overflow: hidden;
 
   #arrow {
@@ -332,9 +375,6 @@ export default {
 }
 
 #partners {
-  // padding-top: 15vh;
-  // padding-bottom: 15vh;
-
   .partner {
     margin-bottom: 1rem;
   }
@@ -350,10 +390,6 @@ export default {
     @media (min-width: $mid) {
       columns: 3;
     }
-
-    // @media (min-width: $big) {
-    //   columns: 5;
-    // }
 
     column-gap: 0px;
   }
@@ -372,14 +408,6 @@ export default {
 }
 
 #services {
-  // .service-row {
-  //   margin-bottom: 8rem;
-
-  //   @media (min-width: $mid) {
-  //     margin-bottom: 1rem;
-  //   }
-  // }
-
   .service-image {
     margin-bottom: 1.5rem;
 
@@ -398,10 +426,6 @@ export default {
     left: 0rem;
     top: 0rem;
     right: 25%;
-
-    // @media (min-width: $mid) {
-    //   right: 8rem;
-    // }
   }
 
   #strategic-design-image-2 {
@@ -411,12 +435,6 @@ export default {
       transform: translate3d(0, 33.33%, 0);
     }
     mix-blend-mode: multiply;
-  }
-
-  #product-delivery-image-1 {
-    @media (min-width: $mid) {
-      margin-left: 25%;
-    }
   }
 }
 </style>

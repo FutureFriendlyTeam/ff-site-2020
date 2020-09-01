@@ -19,20 +19,19 @@
         <div 
           class="xs-full s-half h-padded border-left border-right work-block-copy-text">
           <h3 class="no-margin-top v-margin-bottom-big">{{ work.main }}</h3>
+
           <h3 
             id="link" 
             class="no-margin hover-accent">Case Study &#8594;</h3>
         </div>
 
         <div 
-          class="xs-full s-half h-padded v-padded-bottom">
-          <future-img
+          class="xs-full s-half h-padded">          <future-img
             v-if="work.badgeImg"
             :src="require(`~/assets/${work.badgeImg.src}`)" 
             :aspect="'free'"
             class="badge" 
-          />
-        </div>
+        /></div>
       
         <aside id="mini-text">
           <p 
@@ -124,6 +123,11 @@ export default {
 }
 
 #mini-text {
+  display: none;
+
+  @media (min-width: $small) {
+    display: block;
+  }
   position: absolute;
   right: 1rem;
   bottom: 0.25rem;
@@ -156,7 +160,14 @@ export default {
 }
 
 .badge {
+  position: absolute;
+  bottom: 0rem;
+  right: 0.75rem;
   width: 6rem;
+
+  @media (min-width: $small) {
+    position: relative;
+  }
 }
 
 // #link{

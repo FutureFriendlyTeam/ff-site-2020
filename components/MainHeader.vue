@@ -37,6 +37,7 @@ export default {
     padding-right: 0.25rem;
     padding-bottom: 1rem;
     font-size: 1.25rem;
+    line-height: 1.2;
   }
 }
 </style>
