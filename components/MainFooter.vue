@@ -1,7 +1,10 @@
 <template>
-  <footer id="footer">
-    <section class="center-col v-padded"> 
-      <div class="s-three-quarters m-two-thirds">
+  <footer 
+    id="footer">
+    <section 
+      id="footer-hero" 
+      class="center-col horizontal v-center"> 
+      <div class="xs-full s-three-quarters m-two-thirds v-padded">
         <h1>The future isn’t something you wait for.</h1>
         <h1>The future is made today.</h1>
       </div>
@@ -39,18 +42,8 @@ export default {
 
 <style lang="scss" scoped>
 #footer {
-  background-color: #cdccc4;
-
-  #callout {
-    min-height: 50vh;
-  }
-
-  #footerStuff {
-    min-height: 50vh;
-  }
-
-  .footer-col {
-    margin-top: 2rem;
+  #footer-hero {
+    min-height: 75vh;
   }
 }
 </style>

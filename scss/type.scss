@@ -61,12 +61,11 @@ h3 {
 p,
 .body {
   font-family: 'Plain';
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1.25;
-
-  @media (min-width: $mid) {
-    font-size: 1.25rem;
-  }
+  // @media (min-width: $mid) {
+  //   font-size: 1.25rem;
+  // }
 }
 
 .mini {
@@ -100,4 +99,8 @@ ol {
       left: 0px;
     }
   }
+}
+
+.indent {
+  text-indent: 25%;
 }
