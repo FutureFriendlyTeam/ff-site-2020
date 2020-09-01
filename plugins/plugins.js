@@ -6,6 +6,10 @@ import Inview from 'vueinview'
 
 import VueLazyLoadVideo from 'vue-lazyload-video'
 
+// import VueIntersect from 'vue-intersect-directive'
+
+// Vue.use(VueIntersect)
+
 // Register Components
 // LazyVideo & LazyVideoAsGIF
 Vue.use(VueLazyLoadVideo)
@@ -14,6 +18,13 @@ Vue.use(VueLazyLoadVideo)
 
 // Vue.component('video-background', VideoBackground)
 Vue.use(Inview)
+// Inview.offset({
+//   top: 100,
+//   right: 75,
+//   bottom: -50,
+//   left: 25
+// })
+Inview.threshold(0.5)
 // import VueWaypoint from 'vue-waypoint'
 import VuePrlx from 'vue-prlx'
 

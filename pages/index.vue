@@ -1,44 +1,64 @@
 <template>
   <div>
 
+    <div 
+      id="background" 
+      :style="{backgroundColor: backgroundColor}"/>
 
     <main-header/>
     <section 
-      id="hero" 
+      v-inview:enter="changeBackground" 
+      id="hero"
+      data-enter-background="#FFF" 
       class="center-col horizontal v-center">
       <div class="s-three-quarters l-two-thirds v-margin-mega">
-        <h1>Digital services have the power to change peoples lives and build a better future.</h1>
+        <h1><span class="indent">Digital services have the power to change lives and build a better future.</span></h1>
       </div>
     </section>
+
+
+
+
 
     <section 
+      v-inview:enter="changeBackground"
       id="partners" 
-      class="center-col horizontal has-grid">
-      <background-grid 
-        class="grid-container center-col" 
-        columns="xs-2 s-3 m-4 l-6"/>
-      <div class="xs-half s-third m-quarter l-sixth h-padded">
-        <p class="no-margin mini">Our partners</p>
-      </div>
+      data-enter-background="#FFDAE3" 
+    >
 
-      <div 
-        id="partner-list" 
-        class="flex">
-        <p 
-          v-for="(partner, i) in partners"
-          :key="`${i}-partner`" 
-          :delay="100+(i*50)" 
-          class="h-padded partner no-margin-top mini">
-          {{ partner }}
-        </p>        
+      <div class="center-col horizontal has-grid v-padded-bottom-big">
+        <background-grid 
+          class="grid-container center-col" 
+          columns="xs-2 s-3 m-4"/>
+        <div class="xs-half s-third m-quarter h-padded">
+          <h2 class="no-margin">Our partners</h2>
+        </div>
+
+        <div 
+          id="partner-list" 
+          class="flex">
+          <p 
+            v-for="(partner, i) in partners"
+            :key="`${i}-partner`" 
+            :delay="100+(i*50)" 
+            class="h-padded partner no-margin-top">
+            {{ partner }}
+          </p>        
+        </div>
       </div>
     </section>
 
 
 
-    <section class="center-col horizontal v-margin-mega">
-      <work-block 
-        v-for="(work, i) in caseStudies" 
+
+
+    <section 
+      
+      class="center-col horizontal v-margin-mega" >
+      <work-block
+        v-inview:enter="changeBackground"
+        v-for="(work, i) in caseStudies"
+        :data-enter-background="work.color" 
         :key="`${i}-caseStudies`" 
         :work="work" 
         :i="i"
@@ -51,9 +71,15 @@
 
 
     <section 
+      
+
       id="services" 
+      
       class="center-col v-margin-mega">
-      <div class="s-three-quarters l-two-thirds v-margin-mega">
+      <div 
+        v-inview:enter="changeBackground" 
+        class="s-three-quarters l-two-thirds v-margin-mega" 
+        data-enter-background="#FFF" >
         <h1>We define multi-year strategies, and guide you to your first release.</h1>
       </div>
 
@@ -134,43 +160,14 @@
 
 
 
-    <footer id="footer">
-      <section class="center-col v-padded"> 
-        <div class="s-three-quarters l-full">
-          <h1>The future isn’t something you wait for.<br>The future is made today.</h1>
-        </div>
-      </section>
-
-      <section 
-        class="center-col horizontal v-padded">
-        <div class="xs-full m-half h-padded footer-col">
-          <p class=" no-margin-top">General Enquiries</p>
-          <p class=" ">hello@mentallyfriendly.com<br>
-            Sydney — +61 (02) 9360 8667<br>
-            Canberra — +61 431 277 652</p>
-        </div>
-
-        <div class="xs-full m-half h-padded footer-col">
-          <p class=" no-margin-top">New Business</p>
-          <p class=" ">partnerships@mentallyfriendly.com<br>+61 (02) 9360 8667</p>
-        </div>
-
-        <div class="xs-full m-half h-padded footer-col">
-          <p class="mini no-margin-top">Future Friendly is a certified b-Corp.</p>
-          <p class="mini ">We respect and honour Aboriginal and Torres Strait Islander Elders past, present and future.</p>
-          <p class="mini">
-            We acknowledge the stories, traditions and living cultures of Aboriginal and Torres Strait Islander peoples on this land and commit to building a brighter future together.
-          </p>
-        </div>
-
-      </section>
-    </footer>
+    <main-footer/>
 
   </div>
 </template>
 
 <script>
 import MainHeader from '~/components/MainHeader.vue'
+import MainFooter from '~/components/MainFooter.vue'
 import FixedAspect from '~/components/FixedAspect.vue'
 import BackgroundGrid from '~/components/BackgroundGrid.vue'
 import WorkBlock from '~/components/WorkBlock.vue'
@@ -184,10 +181,12 @@ export default {
     BackgroundGrid,
     WorkBlock,
     ImageGrid,
-    WipeIn
+    WipeIn,
+    MainFooter
   },
   data() {
     return {
+      backgroundColor: '#ffffff',
       partners: [
         'ABC',
         'Ausgrid',
@@ -208,49 +207,53 @@ export default {
         {
           lead: 'Managing the rising cost of living.',
           main:
-            'We built a platform that delivered $1.5 billion to the people that need it most. ',
+            'With Service NSW we delivered a digital service to access government support – giving $3 billion back to NSW residents.',
           client: 'Service NSW.',
           img: {
             src: 'col-hero.jpg',
             video: 'col-hero.mp4',
             aspect: 'four-three',
             alt: 'Foo'
-          }
+          },
+          color: '#EAD2C6'
+        },
+        {
+          lead: 'Building financial resiliance.',
+          main:
+            'With Colonial First State we defined a digital strategy to help Australians build financial resiliance.',
+          client: 'a leading superannuation provider.',
+          img: {
+            src: 'cfs-hero.jpg',
+            aspect: 'four-three',
+            alt: 'Foo'
+          },
+          color: '#CDEBED'
         },
         {
           lead: 'Mitigating domestic violence.',
           main:
-            'We designed a service to recognise & respond to financial abuse. ',
+            'With the ACT Government we designed a service to recognise & respond to financial abuse. ',
           client: 'the ACT Government',
           img: {
             src: 'fsh-hero.jpg',
             video: 'fsh-hero.mp4',
             aspect: 'four-three',
             alt: 'Foo'
-          }
+          },
+          color: '#BFC6AF'
         },
 
         {
-          lead: 'Building financial resiliance.',
-          main:
-            'We built a product to help Australians build financial resiliance.',
-          client: 'a leading superannuation provider.',
-          img: {
-            src: 'cfs-hero.jpg',
-            aspect: 'four-three',
-            alt: 'Foo'
-          }
-        },
-        {
           lead: 'Improving early childhood learning.',
           main:
-            'We built a service to create a safe environment for new primary school students.',
+            'With the Department of Education, we built a digital service to create a safe environment for new primary school students.',
           client: 'the Dept. of Education.',
           img: {
             src: 'tts-hero.jpg',
             aspect: 'four-three',
             alt: 'Foo'
-          }
+          },
+          color: '#BFBCC2'
         }
       ]
     }
@@ -258,7 +261,22 @@ export default {
 
   methods: {
     onWaypoint(e) {
-      console.log('waypoint', e)
+      console.log(e)
+      // this.backgroundColor = color
+
+      // // this.$nextTick(() => {
+      // if (e.going === 'in') {
+      //   // console.log(e.el.dataset.enterBackground)
+      //   // this.backgroundColor = e.el.dataset.enterBackground
+      // } else if (e.going === 'out') {
+      //   // console.log(el.getD)
+      //   // this.backgroundColor = e.el.dataset.exitBackground
+      // }
+      // })
+    },
+    changeBackground(e) {
+      console.log(e)
+      this.backgroundColor = e.dataset.enterBackground
     }
   }
 }
@@ -267,8 +285,32 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/variables.scss';
 
+#background {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  // background-color: #ffedf1;
+  transition: background-color 600ms ease;
+  z-index: -1;
+}
+
 #hero {
-  min-height: 95vh;
+  min-height: 101vh;
+  // background-color: #ffedf1; //$accent;
+
+  h1 span {
+    display: block;
+
+    // &.tabbed {
+    //   margin-left: 25%;
+    // }
+  }
+}
+
+.indent {
+  text-indent: 25%;
 }
 
 // #promo {
@@ -277,10 +319,12 @@ export default {
 // }
 
 #partners {
-  padding-bottom: 4rem;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+  // padding-bottom: 4rem;
 
   .partner {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 
   #partner-list {
@@ -295,9 +339,9 @@ export default {
       columns: 3;
     }
 
-    @media (min-width: $big) {
-      columns: 5;
-    }
+    // @media (min-width: $big) {
+    //   columns: 5;
+    // }
 
     column-gap: 0px;
   }
@@ -361,22 +405,6 @@ export default {
     @media (min-width: $mid) {
       margin-left: 25%;
     }
-  }
-}
-
-#footer {
-  background-color: #cdccc4;
-
-  #callout {
-    min-height: 50vh;
-  }
-
-  #footerStuff {
-    min-height: 50vh;
-  }
-
-  .footer-col {
-    margin-top: 2rem;
   }
 }
 </style>

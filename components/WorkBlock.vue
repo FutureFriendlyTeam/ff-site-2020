@@ -1,6 +1,7 @@
 <template>
 
   <article
+
     :class="i%2 === 0 ? 'start': 'end'" 
     class="work-block xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small">
 
@@ -12,7 +13,7 @@
       <section class="work-image h-padded v-margin-bottom-small">
         <fixed-aspect 
           :aspect="work.img.aspect" 
-          class="parallax-img-wrapper">
+          class="scale-image-wrapper">
           <figure>
             <!--         
           <LazyVideoAsGIF 
@@ -21,22 +22,27 @@
             :src="require(`~/assets/video/${work.img.video}`)"
             class="video"/> -->
           
-            <img v-lazy ="require(`~/assets/${work.img.src}`)">
+            <img 
+              v-lazy ="require(`~/assets/${work.img.src}`)" 
+              v-inview:class="['visible']" 
+              class="scale-image">
           </figure>
         </fixed-aspect>
       </section>
 
       <section class="work-block-copy horizontal">
         <div 
-          class="xs-full s-half h-padded v-padded-bottom-big border-left border-right work-block-copy-text">
-          <h3 class="no-margin-top">{{ work.main }}</h3>
-          <h3 class="no-margin-top">With {{ work.client }}</h3>
+          class="xs-full s-half h-padded border-left border-right work-block-copy-text">
+          <h3 class="no-margin-top v-margin-bottom-big">{{ work.main }}</h3>
+          <h3 
+            id="link" 
+            class="no-margin hover-accent">Case Study &#8594;</h3>
         </div>
       
         <aside id="mini-text">
           <p 
             id="mini-text-inner" 
-            class="mini hover-accent">Winner good design award 2020</p>
+            class="mini hover-accent">Lorem ipsum dolor sit amet.</p>
         </aside>
       </section>
     </a>
@@ -102,12 +108,15 @@ export default {
 
 .work-block-copy {
   position: relative;
-  min-height: 8rem;
 }
 
 .work-block-copy-text {
-  position: relative;
-  padding-right: 4rem;
+  min-height: 18rem;
+  // position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // padding-right: 4rem;
   // padding-bottom: 8rem;
 
   @media (min-width: $mid) {
@@ -151,4 +160,8 @@ export default {
   height: auto;
   transform: translate(0%, -100%);
 }
+
+// #link{
+//   position: ;
+// }
 </style>

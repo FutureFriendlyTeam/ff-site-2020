@@ -30,7 +30,6 @@ export default {
 #header {
   position: fixed;
   width: 100%;
-  // background-color: #fff;
   z-index: 99;
 }
 
@@ -39,7 +38,6 @@ export default {
     display: block;
     padding-left: 0.5%;
     padding-right: 0.5%;
-    // font-weight: bold;
     padding-bottom: 1rem;
     font-size: 1.25rem;
   }
