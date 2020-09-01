@@ -88,29 +88,11 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-right: -1px;
 }
 
 .grid-line {
-  width: 1px;
-  background-color: #000;
-  &.inset {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-
-    @media (min-width: $small) {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    @media (min-width: $mid) {
-      margin-top: 3rem;
-      margin-bottom: 3rem;
-    }
-
-    @media (min-width: $big) {
-      margin-top: 4rem;
-      margin-bottom: 4rem;
-    }
-  }
+  width: 0.5px;
+  background-color: #272727;
 }
 </style>
