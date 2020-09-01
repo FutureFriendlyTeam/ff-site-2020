@@ -92,7 +92,7 @@ export default {
 }
 
 .grid-line {
-  width: 0.5px;
+  width: 1px;
   background-color: #272727;
 }
 </style>

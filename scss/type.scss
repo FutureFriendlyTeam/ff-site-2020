@@ -50,9 +50,12 @@ h2 {
 h3 {
   font-weight: normal;
   font-family: 'Plain';
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   line-height: 1.2;
   letter-spacing: -0.01em;
+  @media (min-width: $mid) {
+    font-size: 1.75rem;
+  }
 }
 
 p,
@@ -75,7 +78,8 @@ p,
 .tiny {
   font-family: 'Plain';
   font-size: 0.75rem;
-  line-height: 1.25;
+  line-height: 1;
+  opacity: 0.6;
 }
 
 ol {
