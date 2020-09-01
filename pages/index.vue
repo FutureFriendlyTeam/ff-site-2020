@@ -14,6 +14,10 @@
       <div class="s-three-quarters l-two-thirds v-margin-mega">
         <h1><span class="indent">Digital services have the power to change lives and build a better future.</span></h1>
       </div>
+
+      <img 
+        v-lazy ="require(`~/assets/arrow_loop.gif`)" 
+        id="arrow">
     </section>
 
 
@@ -306,6 +310,15 @@ export default {
     // &.tabbed {
     //   margin-left: 25%;
     // }
+  }
+
+  #arrow {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    width: 16rem;
+
+    mix-blend-mode: multiply;
   }
 }
 
