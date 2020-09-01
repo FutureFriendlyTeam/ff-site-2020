@@ -19,9 +19,9 @@
         <h1 class="no-margin">Digital services have the power to change lives and build a better future.</h1>
       </div>
 
-      <!-- <img 
+      <img 
         v-lazy ="require(`~/assets/arrow_loop.gif`)" 
-        id="arrow"> -->
+        id="arrow">
     </section>
 
 
@@ -33,6 +33,7 @@
         },
       }"
       id="partners" 
+      class="v-margin-mega"
       data-enter-background="#FFDAE3" 
     >
 
@@ -93,9 +94,9 @@
       }"
       id="services" 
       data-enter-background="#FFF" 
-      class="center-col v-margin">
+      class="center-col v-margin-mega">
       <div 
-        class="s-three-quarters m-two-thirds v-margin" 
+        class="s-three-quarters m-two-thirds v-margin-mega" 
       >
         <h1>We define multi-year digital strategies, and support you to your first release.</h1>
       </div>
@@ -104,7 +105,7 @@
 
         <div 
           id="strategic-design" 
-          class="horizontal border-left service-row">
+          class="horizontal border-left service-row v-margin-bottom-small">
           <div class="xs-full m-two-thirds service-image border-left border-right">
             <div id="strategic-design-image">
               <div 
@@ -320,11 +321,11 @@ export default {
 
   #arrow {
     position: absolute;
-    top: 50%;
+    bottom: 0%;
     left: 50%;
     width: 320px;
     height: auto;
-    transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, 0, 0);
     mix-blend-mode: multiply;
     opacity: 0.5;
   }
@@ -371,16 +372,16 @@ export default {
 }
 
 #services {
-  .service-row {
-    margin-bottom: 8rem;
+  // .service-row {
+  //   margin-bottom: 8rem;
 
-    @media (min-width: $mid) {
-      margin-bottom: 1rem;
-    }
-  }
+  //   @media (min-width: $mid) {
+  //     margin-bottom: 1rem;
+  //   }
+  // }
 
   .service-image {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 
     @media (min-width: $mid) {
       margin-bottom: 0rem;

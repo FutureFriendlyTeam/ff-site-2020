@@ -37,7 +37,7 @@
         <aside id="mini-text">
           <p 
             id="mini-text-inner" 
-            class="mini hover-accent">Lorem ipsum dolor sit amet.</p>
+            class="tiny hover-accent">Lorem ipsum dolor sit amet.</p>
         </aside>
       </section>
     </a>
