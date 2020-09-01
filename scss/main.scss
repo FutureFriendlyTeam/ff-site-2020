@@ -33,7 +33,7 @@ figure {
     top: 0px;
     left: 0px;
     bottom: 0px;
-    width: 1px;
+    width: 0.5px;
     background-color: #272727;
   }
 }
@@ -47,7 +47,7 @@ figure {
     top: 0px;
     right: -1px;
     bottom: 0px;
-    width: 1px;
+    width: 0.5px;
     background-color: #272727;
   }
 }
@@ -63,33 +63,6 @@ figure {
   bottom: 0px;
   right: 0px;
   height: 100%;
-}
-
-// img[lazy='loading'] {
-//   transition: all 1000ms cubic-bezier(0.16, 1, 0.3, 1);
-//   // transform: translate3d(-1rem, 0, 0);
-//   opacity: 0;
-// }
-// img[lazy='error'] {
-//   opacity: 1;
-// }
-// img[lazy='loaded'] {
-//   transition: all 1000ms cubic-bezier(0.16, 1, 0.3, 1);
-//   // transform: translate3d(0, 0, 0);
-//   opacity: 1;
-// }
-
-.scale-image-wrapper {
-  overflow: hidden;
-}
-
-.scale-image {
-  transition: all 50000ms cubic-bezier(0.16, 1, 0.3, 1);
-  transform: scale3d(1.1, 1.1, 1.1);
-
-  &.visible {
-    transform: scale3d(1, 1, 1);
-  }
 }
 
 .wrapper-link {

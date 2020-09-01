@@ -25,7 +25,7 @@
         </div>
 
         <div 
-          class="xs-full s-half h-padded border-left border-right v-padded-bottom">
+          class="xs-full s-half h-padded v-padded-bottom">
           <future-img
             v-if="work.badgeImg"
             :src="require(`~/assets/${work.badgeImg.src}`)" 
