@@ -18,50 +18,7 @@
         class="s-three-quarters m-two-thirds v-margin-mega">
         <h1 class="no-margin indent">Digital services have the power to change lives and build a better future.</h1>
       </div>
-
-      <!-- <img 
-        v-lazy ="require(`~/assets/arrow_loop.gif`)" 
-        id="arrow"> -->
     </section>
-
-
-    <!-- <section 
-      v-observe-visibility="{
-        callback: changeBackground,
-        intersection: {
-          rootMargin: '-50% 0px -50% 0px'
-        },
-      }"
-      id="partners" 
-      class="v-margin-mega"
-      data-enter-background="#FFDAE3" 
-    >
-
-      <div class="center-col horizontal has-grid v-padded-bottom-big">
-        <background-grid 
-          class="grid-container center-col" 
-          columns="xs-2 s-3 m-4"/>
-        <div class="xs-half s-third m-quarter h-padded">
-          <h2 class="no-margin">Client partners</h2>
-        </div>
-
-        <div 
-          id="partner-list" 
-          class="flex">
-          <p 
-            v-for="(partner, i) in partners"
-            :key="`${i}-partner`" 
-            :delay="100+(i*50)" 
-            class="h-padded partner no-margin-top mini">
-            {{ partner }}
-          </p>        
-        </div>
-      </div>
-    </section> -->
-
-
-
-
 
     <section 
       class="center-col horizontal v-margin-small" >
@@ -80,10 +37,6 @@
         :class="[i%2 === 0 ? 'start': 'end']"
         class="work-row" />
     </section>
-
-
-
-
 
     <section 
       v-observe-visibility="{
