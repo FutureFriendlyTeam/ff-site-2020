@@ -26,12 +26,15 @@
         </div>
 
         <div 
-          class="xs-full s-half h-padded">          <future-img
-            v-if="work.badgeImg"
-            :src="require(`~/assets/${work.badgeImg.src}`)" 
-            :aspect="'free'"
-            class="badge" 
-        /></div>
+          class="xs-full s-half">          
+          <div class="badge-container h-padded">
+            <future-img
+              v-if="work.badgeImg"
+              :src="require(`~/assets/${work.badgeImg.src}`)" 
+              :aspect="'free'"
+              class="badge " 
+          /></div>
+        </div>
       
         <aside id="mini-text">
           <p 
@@ -159,18 +162,17 @@ export default {
   transform: translate(0%, -100%);
 }
 
-.badge {
+.badge-container {
   position: absolute;
   bottom: 0rem;
-  right: 0.75rem;
-  width: 6rem;
+  right: 0rem;
 
   @media (min-width: $small) {
     position: relative;
   }
 }
 
-// #link{
-//   position: ;
-// }
+.badge {
+  width: 6rem;
+}
 </style>
