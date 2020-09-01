@@ -2,38 +2,27 @@
 
   <div 
     class="image-grid">
-              
     <div class="image-grid-wrapper horizontal">
       <div 
         v-for="(img,i) in images" 
         :key="`image-${i}`" 
         class="image-grid-tile xs-half" >
-        <!-- <wipe-in :delay="i*50"> -->
-        <fixed-aspect 
-          :class="img" 
-          aspect="four-three">
-          <img 
-            v-lazy ="require(`~/assets/${img}`)" 
-            v-if="img != 'blank'"
-            :style="{transitionDelay: `${i*50}ms`}"
-          >
-        </fixed-aspect>
-        <!-- </wipe-in> -->
+        <future-img 
+          v-if="img != 'blank'" 
+          :src ="require(`~/assets/${img}`)" 
+          aspect="four-three"/>
       </div>
     </div>
-              
   </div>
 
 </template>
 
 <script>
-import FixedAspect from '~/components/FixedAspect.vue'
-import WipeIn from '~/components/WipeIn.vue'
+import FutureImg from '~/components/FutureImg.vue'
 export default {
   name: 'ImageGrid',
   components: {
-    WipeIn,
-    FixedAspect
+    FutureImg
   },
   props: {
     images: {

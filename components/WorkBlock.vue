@@ -1,33 +1,18 @@
 <template>
 
   <article
-
     :class="i%2 === 0 ? 'start': 'end'" 
     class="work-block xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small">
 
     <a 
-      href="https://good-design.org/"
+      :href="work.link"
       target="_blank" 
       class="wrapper-link">
-
       <section class="work-image h-padded v-margin-bottom-small">
-        <fixed-aspect 
+        <future-img 
+          :src="require(`~/assets/${work.img.src}`)" 
           :aspect="work.img.aspect" 
-          class="scale-image-wrapper">
-          <figure>
-            <!--         
-          <LazyVideoAsGIF 
-            v-if="work.img.video"
-            :poster="require(`~/assets/${work.img.src}`)"
-            :src="require(`~/assets/video/${work.img.video}`)"
-            class="video"/> -->
-          
-            <img 
-              v-lazy ="require(`~/assets/${work.img.src}`)" 
-              v-inview:class="['visible']" 
-              class="scale-image">
-          </figure>
-        </fixed-aspect>
+          :scale="true"/>
       </section>
 
       <section class="work-block-copy horizontal">
@@ -37,6 +22,16 @@
           <h3 
             id="link" 
             class="no-margin hover-accent">Case Study &#8594;</h3>
+        </div>
+
+        <div 
+          class="xs-full s-half h-padded border-left border-right v-padded-bottom">
+          <future-img
+            v-if="work.badgeImg"
+            :src="require(`~/assets/${work.badgeImg.src}`)" 
+            :aspect="'free'"
+            class="badge" 
+          />
         </div>
       
         <aside id="mini-text">
@@ -51,12 +46,12 @@
 
 <script>
 import FixedAspect from '~/components/FixedAspect.vue'
-import WipeIn from '~/components/WipeIn.vue'
+import FutureImg from '~/components/FutureImg.vue'
 export default {
   name: 'WorkBlock',
   components: {
     FixedAspect,
-    WipeIn
+    FutureImg
   },
   props: {
     work: {
@@ -80,18 +75,17 @@ export default {
   @media (min-width: $mid) {
     margin-bottom: 1.5rem;
   }
-
-  &:not(:first-child) {
-    &.end {
-      .work-block-copy-text {
-        margin-left: auto;
-      }
+  &.end {
+    .work-block-copy {
+      flex-direction: row-reverse;
+      flex-wrap: wrap-reverse;
     }
+  }
 
-    &.start {
-      .work-block-copy-text {
-        margin-right: auto;
-      }
+  &.start {
+    .work-block-copy {
+      flex-direction: row;
+      flex-wrap: wrap-reverse;
     }
   }
 
@@ -159,6 +153,10 @@ export default {
   width: 8rem;
   height: auto;
   transform: translate(0%, -100%);
+}
+
+.badge {
+  width: 6rem;
 }
 
 // #link{

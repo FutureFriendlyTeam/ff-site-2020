@@ -2,9 +2,12 @@ import Vue from 'vue'
 import Sticky from 'vue-sticky-directive'
 import VueWindowSize from 'vue-window-size'
 import VueLazyload from 'vue-lazyload'
-import Inview from 'vueinview'
+// import Inview from 'vueinview'
 
 import VueLazyLoadVideo from 'vue-lazyload-video'
+
+import VueObserveVisibility from 'vue-observe-visibility'
+Vue.use(VueObserveVisibility)
 
 // import VueIntersect from 'vue-intersect-directive'
 
@@ -17,14 +20,14 @@ Vue.use(VueLazyLoadVideo)
 // import VideoBackground from 'vue-responsive-video-background-player'
 
 // Vue.component('video-background', VideoBackground)
-Vue.use(Inview)
+// Vue.use(Inview)
 // Inview.offset({
-//   top: 100,
-//   right: 75,
-//   bottom: -50,
-//   left: 25
+//   top: 0,
+//   right: 0,
+//   bottom: 50,
+//   left: 0
 // })
-Inview.threshold(0.5)
+// Inview.threshold(0.5)
 // import VueWaypoint from 'vue-waypoint'
 import VuePrlx from 'vue-prlx'
 

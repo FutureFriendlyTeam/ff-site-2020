@@ -1,31 +1,37 @@
 <template>
-  <div>
-
-    <div 
-      id="background" 
-      :style="{backgroundColor: backgroundColor}"/>
-
+  <div 
+    id="page" 
+    :style="{backgroundColor: backgroundColor}">
     <main-header/>
+
     <section 
-      v-inview:enter="changeBackground" 
+      v-observe-visibility="{
+        callback: changeBackground,
+        intersection: {
+          rootMargin: '-50% 0px -50% 0px'
+        },
+      }"
       id="hero"
       data-enter-background="#FFF" 
       class="center-col horizontal v-center">
-      <div class="s-three-quarters l-two-thirds v-margin-mega">
-        <h1><span class="indent">Digital services have the power to change lives and build a better future.</span></h1>
+      <div 
+        class="s-three-quarters m-two-thirds v-margin-mega ">
+        <h1 class="no-margin">Digital services have the power to change lives and build a better future.</h1>
       </div>
 
-      <img 
+      <!-- <img 
         v-lazy ="require(`~/assets/arrow_loop.gif`)" 
-        id="arrow">
+        id="arrow"> -->
     </section>
 
 
-
-
-
     <section 
-      v-inview:enter="changeBackground"
+      v-observe-visibility="{
+        callback: changeBackground,
+        intersection: {
+          rootMargin: '-50% 0px -50% 0px'
+        },
+      }"
       id="partners" 
       data-enter-background="#FFDAE3" 
     >
@@ -35,7 +41,7 @@
           class="grid-container center-col" 
           columns="xs-2 s-3 m-4"/>
         <div class="xs-half s-third m-quarter h-padded">
-          <h2 class="no-margin">Our partners</h2>
+          <h2 class="no-margin">Client partners</h2>
         </div>
 
         <div 
@@ -45,7 +51,7 @@
             v-for="(partner, i) in partners"
             :key="`${i}-partner`" 
             :delay="100+(i*50)" 
-            class="h-padded partner no-margin-top">
+            class="h-padded partner no-margin-top mini">
             {{ partner }}
           </p>        
         </div>
@@ -57,10 +63,14 @@
 
 
     <section 
-      
-      class="center-col horizontal v-margin-mega" >
+      class="center-col horizontal v-margin-small" >
       <work-block
-        v-inview:enter="changeBackground"
+        v-observe-visibility="{
+          callback: changeBackground,
+          intersection: {
+            rootMargin: '-50% 0px -50% 0px'
+          },
+        }"
         v-for="(work, i) in caseStudies"
         :data-enter-background="work.color" 
         :key="`${i}-caseStudies`" 
@@ -75,16 +85,19 @@
 
 
     <section 
-      
-
+      v-observe-visibility="{
+        callback: changeBackground,
+        intersection: {
+          rootMargin: '-50% 0px -50% 0px'
+        },
+      }"
       id="services" 
-      
-      class="center-col v-margin-mega">
+      data-enter-background="#FFF" 
+      class="center-col v-margin">
       <div 
-        v-inview:enter="changeBackground" 
-        class="s-three-quarters l-two-thirds v-margin-mega" 
-        data-enter-background="#FFF" >
-        <h1>We define multi-year strategies, and guide you to your first release.</h1>
+        class="s-three-quarters m-two-thirds v-margin" 
+      >
+        <h1>We define multi-year digital strategies, and support you to your first release.</h1>
       </div>
 
       <div class="border-left border-right">
@@ -97,12 +110,11 @@
               <div 
                 id="strategic-design-image-1"
                 class="h-padded flex" >
-      
-                <fixed-aspect 
-                  aspect="four-three">
-                  <img v-lazy="require(`~/assets/strategic-design.png`)">
-                </fixed-aspect>
-    
+
+                <future-img 
+                  :src="require(`~/assets/strategic-design.png`)" 
+                  :scale="true" 
+                  aspect="four-three"/>
               </div>
 
               <div 
@@ -136,10 +148,10 @@
                 id="product-delivery-image-1"
                 class="h-padded flex" >
   
-                <fixed-aspect 
-                  aspect="square">
-                  <img v-lazy="require(`~/assets/product-delivery.png`)">  
-                </fixed-aspect>
+                <future-img 
+                  :src="require(`~/assets/product-delivery.png`)" 
+                  :scale="true" 
+                  aspect="four-three"/>
 
               </div>
             </div>
@@ -172,20 +184,18 @@
 <script>
 import MainHeader from '~/components/MainHeader.vue'
 import MainFooter from '~/components/MainFooter.vue'
-import FixedAspect from '~/components/FixedAspect.vue'
+import FutureImg from '~/components/FutureImg.vue'
 import BackgroundGrid from '~/components/BackgroundGrid.vue'
 import WorkBlock from '~/components/WorkBlock.vue'
 import ImageGrid from '~/components/ImageGrid.vue'
-import WipeIn from '~/components/WipeIn.vue'
 
 export default {
   components: {
     MainHeader,
-    FixedAspect,
+    FutureImg,
     BackgroundGrid,
     WorkBlock,
     ImageGrid,
-    WipeIn,
     MainFooter
   },
   data() {
@@ -193,33 +203,39 @@ export default {
       backgroundColor: '#ffffff',
       partners: [
         'ABC',
+        'ASIC',
         'Ausgrid',
+        'IAG',
         'Dept. of Education',
-        'Russell Investments',
         'Dept. of Premier & Cabinet',
-        'IAG',
+        'Dept. of Planning, Industry & Environment',
+        'Dept. of Health',
         'Public Service Commission',
-        'ACT Family Saftey Hub',
-        'Frasers Property',
+        'ACT Government',
+        'Tasmanian Government',
         'Russell Investments',
-        'Dept. of Premier & Cabinet',
-        'IAG',
-        'ABC',
-        'Ausgrid'
+        'Colonial First State',
+        'Frasers Property',
+        'SBS',
+        'Service NSW',
+        'National Film & Sound Archives'
       ],
       caseStudies: [
         {
-          lead: 'Managing the rising cost of living.',
           main:
-            'With Service NSW we delivered a digital service to access government support – giving $3 billion back to NSW residents.',
+            'With Service NSW we delivered a digital service to access government benefits – giving $3 billion back to NSW residents.',
           client: 'Service NSW.',
           img: {
             src: 'col-hero.jpg',
-            video: 'col-hero.mp4',
-            aspect: 'four-three',
-            alt: 'Foo'
+            aspect: 'four-three'
           },
-          color: '#EAD2C6'
+          color: '#ECDFD8',
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
+          badgeImg: {
+            src: 'gda.png',
+            alt: 'Good Design Award Winner Logo'
+          }
         },
         {
           lead: 'Building financial resiliance.',
@@ -231,7 +247,13 @@ export default {
             aspect: 'four-three',
             alt: 'Foo'
           },
-          color: '#CDEBED'
+          color: '#DDEEEF',
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
+          badgeImg: {
+            src: 'gda.png',
+            alt: 'Good Design Award Winner Logo'
+          }
         },
         {
           lead: 'Mitigating domestic violence.',
@@ -244,7 +266,13 @@ export default {
             aspect: 'four-three',
             alt: 'Foo'
           },
-          color: '#BFC6AF'
+          color: '#DFE3D6',
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
+          badgeImg: {
+            src: 'gda.png',
+            alt: 'Good Design Award Winner Logo'
+          }
         },
 
         {
@@ -257,30 +285,23 @@ export default {
             aspect: 'four-three',
             alt: 'Foo'
           },
-          color: '#BFBCC2'
+          color: '#EEE8F3',
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
+          badgeImg: {
+            src: 'gda.png',
+            alt: 'Good Design Award Winner Logo'
+          }
         }
       ]
     }
   },
 
   methods: {
-    onWaypoint(e) {
-      console.log(e)
-      // this.backgroundColor = color
-
-      // // this.$nextTick(() => {
-      // if (e.going === 'in') {
-      //   // console.log(e.el.dataset.enterBackground)
-      //   // this.backgroundColor = e.el.dataset.enterBackground
-      // } else if (e.going === 'out') {
-      //   // console.log(el.getD)
-      //   // this.backgroundColor = e.el.dataset.exitBackground
-      // }
-      // })
-    },
-    changeBackground(e) {
-      console.log(e)
-      this.backgroundColor = e.dataset.enterBackground
+    changeBackground(visible, el) {
+      if (visible) {
+        this.backgroundColor = el.target.dataset.enterBackground
+      }
     }
   }
 }
@@ -289,52 +310,29 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/variables.scss';
 
-#background {
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  // background-color: #ffedf1;
+#page {
   transition: background-color 600ms ease;
-  z-index: -1;
 }
 
 #hero {
-  min-height: 101vh;
-  // background-color: #ffedf1; //$accent;
-
-  h1 span {
-    display: block;
-
-    // &.tabbed {
-    //   margin-left: 25%;
-    // }
-  }
+  min-height: 100vh;
+  overflow: hidden;
 
   #arrow {
     position: absolute;
-    bottom: 4rem;
+    top: 50%;
     left: 50%;
-    width: 16rem;
-
+    width: 320px;
+    height: auto;
+    transform: translate3d(-50%, -50%, 0);
     mix-blend-mode: multiply;
+    opacity: 0.5;
   }
 }
 
-.indent {
-  text-indent: 25%;
-}
-
-// #promo {
-//   background-color: #ff4873;
-//   position: relative;
-// }
-
 #partners {
-  padding-top: 15vh;
-  padding-bottom: 15vh;
-  // padding-bottom: 4rem;
+  // padding-top: 15vh;
+  // padding-bottom: 15vh;
 
   .partner {
     margin-bottom: 1rem;

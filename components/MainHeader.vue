@@ -1,7 +1,7 @@
 <template>
   <header 
     id="header" 
-    class="v-padded-small">
+    class="v-padded">
     <div class="center-col">
       <div 
         id="logo" 
@@ -16,12 +16,9 @@
 </template>
 
 <script>
-import WipeIn from '~/components/WipeIn.vue'
 export default {
   name: 'MainHeader',
-  components: {
-    WipeIn
-  }
+  components: {}
 }
 </script>
 
@@ -36,8 +33,8 @@ export default {
 #logo {
   .logo-part {
     display: block;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
     padding-bottom: 1rem;
     font-size: 1.25rem;
   }

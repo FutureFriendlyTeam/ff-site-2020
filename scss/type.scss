@@ -16,7 +16,6 @@ h1 {
   font-size: 3rem;
   line-height: 1;
   letter-spacing: -0.01em;
-  font-weight: normal;
 
   @media (min-width: $mid) {
     font-size: 3.5rem;
@@ -24,7 +23,7 @@ h1 {
   }
 
   @media (min-width: $big) {
-    font-size: 4rem;
+    font-size: 4.5rem;
   }
 
   @media (min-width: $max) {
@@ -61,11 +60,21 @@ p,
   font-family: 'Plain';
   font-size: 1.25rem;
   line-height: 1.25;
+
+  @media (min-width: $mid) {
+    font-size: 1.25rem;
+  }
 }
 
 .mini {
   font-family: 'Plain';
-  font-size: 0.875rem;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.tiny {
+  font-family: 'Plain';
+  font-size: 0.75rem;
   line-height: 1.25;
 }
 
@@ -78,19 +87,13 @@ ol {
     position: relative;
     padding-left: 2rem;
     display: block;
-    font-size: 1.25rem;
-    line-height: 1.25;
     margin-bottom: 1rem;
 
     &:before {
-      content: '';
+      content: '\00AC';
       color: inherit;
       position: absolute;
       left: 0px;
-      top: 0.7em;
-      width: 1rem;
-      text-align: right;
-      border-bottom: 1px solid currentColor;
     }
   }
 }
