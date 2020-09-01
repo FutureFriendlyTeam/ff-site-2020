@@ -43,19 +43,19 @@ export default {
   }
 }
 
-.sixteen-nine {
+.fixed-aspect.sixteen-nine {
   @include aspect-ratio(16, 9);
 }
 
-.four-three {
+.fixed-aspect.four-three {
   @include aspect-ratio(4, 3);
 }
 
-.three-four {
+.fixed-aspect.three-four {
   @include aspect-ratio(3, 4);
 }
 
-.square {
+.fixed-aspect.square {
   @include aspect-ratio(1, 1);
 }
 </style>

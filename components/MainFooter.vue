@@ -1,8 +1,9 @@
 <template>
   <footer id="footer">
     <section class="center-col v-padded"> 
-      <div class="s-three-quarters l-full">
-        <h1>The future isn’t something you wait for.<br>The future is made today.</h1>
+      <div class="s-three-quarters m-two-thirds">
+        <h1>The future isn’t something you wait for.</h1>
+        <h1>The future is made today.</h1>
       </div>
     </section>
 
@@ -29,12 +30,9 @@
 </template>
 
 <script>
-import WipeIn from '~/components/WipeIn.vue'
 export default {
-  name: 'MainHeader',
-  components: {
-    WipeIn
-  }
+  name: 'MainFooter',
+  components: {}
 }
 </script>
 

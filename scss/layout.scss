@@ -63,16 +63,21 @@
   // }
 }
 
-.v-padded-small {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.v-padded-bottom {
+  padding-bottom: 1.5rem;
   box-sizing: border-box;
-
-  @media (min-width: $mid) {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
 }
+
+// .v-padded-small {
+//   padding-top: 1rem;
+//   padding-bottom: 1rem;
+//   box-sizing: border-box;
+
+//   @media (min-width: $mid) {
+//     padding-top: 2rem;
+//     padding-bottom: 2rem;
+//   }
+// }
 
 .v-padded-big {
   padding-top: 4rem;
