@@ -3,7 +3,7 @@
     id="page" 
     :style="{backgroundColor: backgroundColor}">
 
-    <!-- <fixed-banner/> -->
+    <fixed-banner/>
 
     <main-header/>
 
@@ -23,57 +23,12 @@
       </div>
     </section>
 
-
     <section v-observe-visibility="{
       callback: changeBackground,
       intersection: {
         rootMargin: '-50% 0px -50% 0px'
       },
     }" id="awardsCallout" class=" center-col v-margin-bottom-small" data-enter-background="#CCEAD0" >
-
-
-      <!-- <article
-        class="work-block xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small">
-
-        <div>
-          <section class="work-image h-padded v-margin-bottom-small">
-            <future-img 
-              :src="require(`~/assets/gda-photo.jpg`)" 
-              :aspect="'four-three'" 
-              :scale="true"/>
-          </section>
-
-          <section class="work-block-copy horizontal">
-            <div 
-              class="xs-full s-half h-padded border-left border-right work-block-copy-text">
-              <h3 class="no-margin-top v-margin-bottom-big">Future Friendly recognised for 9 Good Design awards in 2020.</h3>
-            </div>
-
-            <div 
-              class="xs-full s-half h-padded">          
-              <div v-for="(award, i) in awards" :key="`${i}-award`" class="award-list-item horizontal no-wrap">
-                <div class="badge-wrapper">
-
-                  <future-img
-                    v-if="award.badgeImg"  
-                    :src="require(`~/assets/${award.badgeImg.src}`)" 
-                    :aspect="'free'"
-                    class="badge "
-                  />
-                </div>
-                <div class="flex">
-                  <p class="no-margin">{{ award.text }}</p>
-                  <p class="no-margin secondary-text">{{ award.client }}</p>
-                </div>
-              </div>
-            </div>
-      
-
-          </section>
-        </div>
-      </article> -->
-
-
 
 
       <div class="xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small border-left border-right">
@@ -511,7 +466,7 @@ export default {
 #hero {
   box-sizing: border-box;
   padding-top: 4rem;
-  min-height: 90vh;
+  min-height: 75vh;
   overflow: hidden;
 
   #arrow {
