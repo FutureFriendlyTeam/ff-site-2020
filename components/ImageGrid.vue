@@ -10,6 +10,7 @@
         <future-img 
           v-if="img != 'blank'" 
           :src ="require(`~/assets/${img}`)" 
+          alt="Small photo of workshop "
           aspect="four-three"/>
       </div>
     </div>
