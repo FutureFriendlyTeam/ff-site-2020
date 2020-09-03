@@ -84,29 +84,15 @@ module.exports = {
       {
         rel: 'mask-icon',
         href: '/safari-pinned-tab.svg',
-        color: '#00DBBF'
+        color: '#ffffff'
       },
       { name: 'msapplication-TileColor', content: '#ffffff' },
-      { name: 'theme-color', content: '#ffffff' },
-      {
-        rel: 'preload',
-        href: '/fonts/Plain-Regular.woff',
-        as: 'font',
-        type: 'font/woff',
-        crossorigin: 'anonymous'
-      },
-      {
-        rel: 'preload',
-        href: '/fonts/Plain-Medium.woff',
-        as: 'font',
-        type: 'font/woff',
-        crossorigin: 'anonymous'
-      }
+      { name: 'theme-color', content: '#ffffff' }
     ],
     script: [
       {
         src:
-          '//cdn.polyfill.io/v2/polyfill.js?features=es5,es6,es2016,es2017,IntersectionObserver,|gated&flags=gated&unknown=polyfill&callback=onPolyfillsLoad'
+          '//cdn.polyfill.io/v2/polyfill.js?features=es2017,IntersectionObserver,|gated&flags=gated&unknown=polyfill&callback=onPolyfillsLoad'
       }
     ]
   },
