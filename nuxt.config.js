@@ -115,7 +115,7 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: ['@nuxtjs/google-analytics'],
+  modules: ['@nuxtjs/google-analytics', 'nuxt-compress'],
 
   googleAnalytics: {
     id: 'UA-1790615-74'
