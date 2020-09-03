@@ -135,6 +135,13 @@ module.exports = {
     id: 'UA-1790615-74'
   },
 
+  buildModules: ['@aceforth/nuxt-optimized-images'],
+
+  optimizedImages: {
+    optimizeImages: true,
+    optimizeImagesInDev: true
+  },
+
   /*
   ** Build configuration
   */

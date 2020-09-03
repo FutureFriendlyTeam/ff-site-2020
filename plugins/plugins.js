@@ -47,7 +47,16 @@ Vue.use(VueObserveVisibility)
 // })
 
 // Vue.use(VueWaypoint)
-Vue.use(VueLazyload)
+Vue.use(VueLazyload, {
+  filter: {
+    webp(listener, options) {
+      if (!options.supportWebp) return
+      if (listener.src.includes('.jpg') || listener.src.includes('.png')) {
+        listener.src += '?webp'
+      }
+    }
+  }
+})
 Vue.use(VuePrlx)
 Vue.use(VueWindowSize)
 // Vue.use(Sticky)
