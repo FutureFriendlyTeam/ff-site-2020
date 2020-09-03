@@ -8,7 +8,7 @@
 # install dependencies
 $ yarn install
 
-# serve with hot reload at localhost:3000
+# serve with hot reloading at localhost:3000
 $ yarn run dev
 
 # build for production and launch server
