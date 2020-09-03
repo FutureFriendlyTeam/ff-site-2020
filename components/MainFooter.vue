@@ -24,7 +24,7 @@
       <div class="xs-full s-half horizontal">
         <div class="m-half footer-col v-margin-bottom-small">
           <p class="no-margin-top">Future Friendly is a certified b-Corp.</p>
-          <future-img :aspect="'free'" :src="require('~/assets/b-corp.png')" class="flag"/>
+          <future-img :aspect="'free'" :src="require('~/assets/b-corp.png')" class="flag" alt="B-Corp Logo"/>
         </div>
 
         <div class="m-half footer-col v-margin-bottom-small">
@@ -33,8 +33,8 @@
             We acknowledge the stories, traditions and living cultures of Aboriginal and Torres Strait Islander peoples on this land and commit to building a brighter future together.
           </p> 
           <div class="horizontal">
-            <future-img :aspect="'free'" :src="require('~/assets/australian-aboriginal-flag.png')" class="flag"/>
-            <future-img :aspect="'free'" :src="require('~/assets/torres-strait-islander-flag.png')" class="flag"/>
+            <future-img :aspect="'free'" :src="require('~/assets/australian-aboriginal-flag.png')" class="flag" alt="Australian Aboriginal Flag"/>
+            <future-img :aspect="'free'" :src="require('~/assets/torres-strait-islander-flag.png')" class="flag" alt="Torres Strait Islander Flag"/>
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@
 
         <div class="horizontal border-left">
           <div class="h-padded s-half border-right">
-            <h3 class="no-margin-top">Future Friendly recognised for 9 Good Design awards in 2020.</h3>
+            <h2 class="no-margin-top mid">Future Friendly recognised for 9 Good Design awards in 2020.</h2>
             <p class="mid">Australia's annual Good Design Awards program is one of the oldest and most prestigious international design awards in the world, promoting excellence in design and innovation since 1958.</p>
           </div>
 
@@ -58,7 +58,7 @@
                 />
               </div>
               <div class="flex">
-                <h4 class="no-margin body">{{ award.text }}</h4>
+                <h3 class="no-margin body">{{ award.text }}</h3>
                 <p class="no-margin secondary-text">{{ award.client }}</p>
               </div>
             </div>
@@ -136,7 +136,7 @@
           </div>
 
           <div class="xs-full s-two-thirds m-third h-padded border-right service-copy v-padded-bottom-big">
-            <h3 class="no-margin-top">Digital service strategy — define how digital products succeed today, tomorrow, and in the future.</h3>
+            <h2 class="no-margin-top mid">Digital service strategy — define how digital products succeed today, tomorrow, and in the future.</h2>
             <ol class="body no-margin">
               <li>Proposition design </li>
               <li>Product innovation.</li>
@@ -170,7 +170,7 @@
           </div>
 
           <div class="xs-full s-two-thirds m-third h-padded border-left service-copy v-padded-bottom-big">
-            <h3 class="no-margin-top">Delivery support — work together to launch new digital products, and set internal teams up for success.</h3>
+            <h2 class="no-margin-top mid">Delivery support — work together to launch new digital products, and set internal teams up for success.</h2>
             <ol class="body no-margin">
               <li>Team formation & acceleration.</li>
               <li>Product management.</li>
