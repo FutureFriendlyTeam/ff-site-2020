@@ -2,7 +2,7 @@ name: GitHub Pages Publish
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   publish:
     name: Publish to GitHub Pages
