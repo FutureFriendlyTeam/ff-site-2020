@@ -53,6 +53,7 @@
                   v-if="award.badgeImg"  
                   :src="require(`~/assets/${award.badgeImg.src}`)" 
                   :aspect="'free'"
+                  :alt="award.badgeImg.alt"
                   class="badge "
                 />
               </div>
