@@ -48,10 +48,6 @@ export default {
     flex-wrap: nowrap;
   }
 
-  a:hover {
-    color: $accent;
-  }
-
   .close {
     padding-left: 1rem;
   }
@@ -61,12 +57,7 @@ export default {
     border: none;
     margin: 0px;
     cursor: pointer;
-    color: #fff;
     display: block;
-
-    &:hover {
-      color: $accent;
-    }
   }
   z-index: 999;
 }

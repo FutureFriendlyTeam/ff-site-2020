@@ -15,63 +15,16 @@
       }"
       id="hero"
       data-enter-background="#FFF" 
-      class="center-col horizontal v-center">
+      class="center-col v-margin-bottom-small v-center horizontal">
       <div 
-        class="s-three-quarters m-two-thirds v-margin">
+        id="hero-text" class="xs-full s-three-quarters m-two-thirds">
         <h1 class="no-margin indent">Digital services have the power to change lives and build a better future.</h1>
       </div>
     </section>
 
-    <section v-observe-visibility="{
-      callback: changeBackground,
-      intersection: {
-        rootMargin: '-50% 0px -50% 0px'
-      },
-    }" id="awardsCallout" class=" center-col v-margin-bottom-small" data-enter-background="#CCEAD0" >
-
-      <article class="xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small border-left border-right">
-    
-        <div class="h-padded v-margin-bottom-small">
-          <future-img 
-            :aspect="'four-three'" 
-            :scale="true"
-            src="gda-photo.jpg" 
-            alt="Photo of hand holding a Good Design Award"/>
-        </div>
-
-        <div class="horizontal border-left">
-          <div class="h-padded s-half border-right">
-            <h2 class="no-margin-top mid">Future Friendly recognised for 9 Good Design awards in 2020.</h2>
-            <p class="mid">Australia's annual Good Design Awards program is one of the oldest and most prestigious international design awards in the world, promoting excellence in design and innovation since 1958.</p>
-          </div>
-
-          <div class="h-padded s-half ">
-            <div v-for="(award, i) in awards" :key="`${i}-award`" class="award-list-item horizontal no-wrap">
-              <div class="badge-wrapper">
-                <future-img
-                  v-if="award.badgeImg"  
-                  :src="award.badgeImg.src" 
-                  :aspect="'free'"
-                  :alt="award.badgeImg.alt"
-                  class="badge "
-                />
-              </div>
-              <div class="flex">
-                <h3 class="no-margin body">{{ award.text }}</h3>
-                <p class="no-margin secondary-text">{{ award.client }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-    </section>
-
-
-
-
 
     <section 
-      class="center-col horizontal v-margin-mega-bottom" >
+      class="center-col horizontal v-margin-bottom-small" >
       <work-block
         v-observe-visibility="{
           callback: changeBackground,
@@ -84,9 +37,61 @@
         :key="`${i}-caseStudies`" 
         :work="work" 
         :i="i"
-        :class="[i%2 === 1 ? 'start': 'end']"
+        :class="[i%2 === 0 ? 'start': 'end']"
         class="work-row" />
     </section>
+
+
+
+    <section v-observe-visibility="{
+      callback: changeBackground,
+      intersection: {
+        rootMargin: '-50% 0px -50% 0px'
+      },
+    }" id="awardsCallout" class=" center-col v-margin-bottom-small" data-enter-background="#CCEAD0" >
+
+      <article class="xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small border-left border-right">
+    
+        <section class="h-padded v-margin-bottom-small">
+          <future-img 
+            :aspect="'four-three'" 
+            :scale="true"
+            src="gda-photo.jpg" 
+            alt="Photo of hand holding a Good Design Award"/>
+        </section>
+
+        <div class="horizontal border-left">
+          <section class="h-padded s-half border-right">
+            <h2 class="no-margin-top mid">Future Friendly recognised for 9 Good Design awards in 2020.</h2>
+            <p class="mid">Australia's annual Good Design Awards program is one of the oldest and most prestigious international design awards in the world, promoting excellence in design and innovation since 1958.</p>
+          </section>
+
+          <section class="h-padded s-half ">
+            <a v-for="(award, i) in awards" :key="`${i}-award`" :href="award.link" target="_blank" class="award-list-item horizontal no-wrap wrapper-link">
+              <div class="badge-wrapper">
+                <future-img
+                  v-if="award.badgeImg"  
+                  :src="award.badgeImg.src" 
+                  :aspect="'free'"
+                  :alt="award.badgeImg.alt"
+                  class="badge "
+                />
+              </div>
+              <div class="flex hover-accent">
+                <h3 class="no-margin body">{{ award.text }}</h3>
+                <p class="no-margin secondary-text">{{ award.client }}</p>
+              </div>
+            </a>
+          </section>
+        </div>
+      </article>
+    </section>
+
+
+
+
+
+
 
 
 
@@ -105,7 +110,7 @@
       <div 
         class="s-three-quarters m-two-thirds v-margin-mega" 
       >
-        <h1 class="indent">We define visionary strategies for your digital services, and support your teams to rapidly deliver their first release.</h1>
+        <h1 class="indent">We define and deliver digital services that succeed today and in the future.</h1>
       </div>
 
       <div class="border-left border-right">
@@ -138,12 +143,12 @@
             <h2 class="no-margin-top mid">Digital service strategy — define how digital products succeed today, tomorrow, and in the future.</h2>
             <ol class="body no-margin">
               <li>Proposition design </li>
-              <li>Product innovation.</li>
-              <li>Service design.</li>
-              <li>Rapid prototyping & customer validation.</li>
-              <li>Business cases & funding.</li>
-              <li>Live trials & experimentation.</li>
-              <li>3 horizons roadmaps.</li>
+              <li>Product innovation</li>
+              <li>Service design</li>
+              <li>Rapid prototyping & customer validation</li>
+              <li>Business cases & funding</li>
+              <li>Live trials & experimentation</li>
+              <li>3 horizons roadmaps</li>
             </ol>
           </div>
         </div>
@@ -171,12 +176,12 @@
           <div class="xs-full s-two-thirds m-third h-padded border-left service-copy v-padded-bottom-big">
             <h2 class="no-margin-top mid">Delivery support — work together to launch new digital products, and set internal teams up for success.</h2>
             <ol class="body no-margin">
-              <li>Team formation & acceleration.</li>
-              <li>Product management.</li>
-              <li>Product Design.</li>
-              <li>Product engineering.</li>
-              <li>MVP / First release delivery.</li>
-              <li>Product roadmaps.</li>
+              <li>Team formation & acceleration</li>
+              <li>Product management</li>
+              <li>Product Design</li>
+              <li>Product engineering</li>
+              <li>MVP / First release delivery</li>
+              <li>Product roadmaps</li>
             </ol>
           </div>
         </div>
@@ -487,21 +492,44 @@ export default {
 }
 
 #hero {
-  box-sizing: border-box;
-  padding-top: 4rem;
-  min-height: 75vh;
+  // box-sizing: border-box;
+
+  // #hero-text {
+  //   align-self: flex-end;
+  // }
+
+  h1 {
+    text-indent: 16.66%;
+    // @media (min-width: $small) {
+    //   font-size: 8vw;
+    //   line-height: 0.85;
+    //   letter-spacing: -0.025em;
+    // }
+
+    // @media (min-width: $mid) {
+    //   font-size: 5vw;
+    //   // line-height: 0.9;
+    //   // letter-spacing: -0.02;
+    // }
+
+    // @media (min-width: $max) {
+    //   font-size: 8.5rem;
+    // }
+  }
+  padding-top: 5.5rem;
+  min-height: 80vh;
   overflow: hidden;
 
-  #arrow {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    width: 160px;
-    height: auto;
-    transform: translate3d(-50%, 0, 0);
-    mix-blend-mode: multiply;
-    opacity: 0.5;
-  }
+  // #arrow {
+  //   position: absolute;
+  //   bottom: 10%;
+  //   left: 50%;
+  //   width: 160px;
+  //   height: auto;
+  //   transform: translate3d(-50%, 0, 0);
+  //   mix-blend-mode: multiply;
+  //   opacity: 0.5;
+  // }
 }
 
 #partners {

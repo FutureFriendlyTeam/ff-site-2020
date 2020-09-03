@@ -68,11 +68,19 @@ figure {
 .wrapper-link {
   text-decoration: none;
   color: inherit;
-  display: block;
+
+  &:hover {
+    .hover-accent {
+      color: $accent;
+    }
+  }
 }
 
 a {
   color: inherit;
+  &:hover {
+    color: $accent;
+  }
 }
 
 .accent {

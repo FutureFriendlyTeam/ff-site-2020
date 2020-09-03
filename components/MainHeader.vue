@@ -2,15 +2,19 @@
   <header 
     id="header" 
     class="v-padded">
-    <div class="center-col">
+    <div id="header-wrapper" class="center-col horizontal">
       <div 
         id="logo" 
         class="horizontal border-right">
-        <div class="border-left logo-part">
+        <div class="border-left header-part">
           Future
         </div>
-        <div class="border-left border-right logo-part">Friendly</div>
+        <div class="border-left border-right header-part">Friendly</div>
       </div>
+
+      <a href="" class="header-part border-right border-left">hello@futurefriendly.team</a>
+
+
     </div>
   </header>
 </template>
@@ -30,14 +34,17 @@ export default {
   z-index: 99;
 }
 
-#logo {
-  .logo-part {
-    display: block;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    padding-bottom: 1rem;
-    font-size: 1.25rem;
-    line-height: 1.2;
-  }
+#header-wrapper {
+  justify-content: space-between;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.header-part {
+  display: block;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.75rem;
+  text-decoration: none;
 }
 </style>
