@@ -350,16 +350,16 @@ export default {
             'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
         }
       ],
+      // partners:{
+      //   government:[],
+      //   business:[]
+      // },
+
       partners: [
         'ABC',
         'ASIC',
         'Ausgrid',
         'IAG',
-        'Dept. of Education',
-        'Dept. of Premier & Cabinet',
-        'Dept. of Planning, Industry & Environment',
-        'Dept. of Health',
-        'Public Service Commission',
         'ACT Government',
         'Tasmanian Government',
         'Russell Investments',
@@ -367,7 +367,31 @@ export default {
         'Frasers Property',
         'SBS',
         'Service NSW',
-        'National Film & Sound Archives'
+        'National Film & Sound Archive',
+        'Service Australia ',
+        'TAFE',
+        'UTS',
+        'Versent ',
+        'Sport Aus',
+        'Atlassian ',
+        'Austrade ',
+        'Australian Taxation Office ',
+        'Bupa',
+        'Indigenous Business Australia ',
+        'Super Future Fund ',
+        'Royal Australian Mint',
+        'Department of Agriculture Water and the Environment',
+        'Department of Education Skills & Employment',
+        'Department of Finance Services & Innovation (DFSI)',
+        'Department of Foreign Affairs and Trade',
+        'Department of industry science energy and resources',
+        'Department of Health',
+        'Digital Transformation Agency (DTA)',
+        'NSW Department of Education',
+        'NSW Department of Premier & Cabinet',
+        'NSW Department of Planning, Industry & Environment',
+        'Public Service Commission',
+        'NSW Trustee & Guardian'
       ],
       caseStudies: [
         {
