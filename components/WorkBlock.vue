@@ -49,12 +49,10 @@
 </template>
 
 <script>
-import FixedAspect from '~/components/FixedAspect.vue'
 import FutureImg from '~/components/FutureImg.vue'
 export default {
   name: 'WorkBlock',
   components: {
-    FixedAspect,
     FutureImg
   },
   props: {

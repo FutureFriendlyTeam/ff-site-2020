@@ -16,21 +16,11 @@
   "dependencies": {
     "@nuxtjs/google-analytics": "^2.2.0",
     "cross-env": "^5.2.0",
-    "jarallax": "^1.12.2",
     "lazysizes": "^5.2.2",
     "nuxt": "^2.0.0",
     "object-fit-images": "^3.2.4",
-    "vue-intersect": "^1.1.6",
-    "vue-intersect-directive": "^1.1.0",
-    "vue-lazyload": "^1.3.3",
-    "vue-lazyload-video": "^0.1.15",
     "vue-observe-visibility": "^0.4.6",
-    "vue-prlx": "^1.3.4",
-    "vue-responsive-video-background-player": "^1.1.2",
-    "vue-sticky-directive": "0.0.10",
-    "vue-window-size": "^0.6.1",
-    "vueinview": "^1.0.7",
-    "vuetensils": "^0.7.4"
+    "vue-window-size": "^0.6.1"
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.3.0",
