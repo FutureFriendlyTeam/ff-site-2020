@@ -492,44 +492,12 @@ export default {
 }
 
 #hero {
-  // box-sizing: border-box;
-
-  // #hero-text {
-  //   align-self: flex-end;
-  // }
-
   h1 {
     text-indent: 16.66%;
-    // @media (min-width: $small) {
-    //   font-size: 8vw;
-    //   line-height: 0.85;
-    //   letter-spacing: -0.025em;
-    // }
-
-    // @media (min-width: $mid) {
-    //   font-size: 5vw;
-    //   // line-height: 0.9;
-    //   // letter-spacing: -0.02;
-    // }
-
-    // @media (min-width: $max) {
-    //   font-size: 8.5rem;
-    // }
   }
   padding-top: 5.5rem;
-  min-height: 80vh;
+  min-height: 66.66vh;
   overflow: hidden;
-
-  // #arrow {
-  //   position: absolute;
-  //   bottom: 10%;
-  //   left: 50%;
-  //   width: 160px;
-  //   height: auto;
-  //   transform: translate3d(-50%, 0, 0);
-  //   mix-blend-mode: multiply;
-  //   opacity: 0.5;
-  // }
 }
 
 #partners {
