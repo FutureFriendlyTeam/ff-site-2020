@@ -30,26 +30,25 @@
       },
     }" id="awardsCallout" class=" center-col v-margin-bottom-small" data-enter-background="#CCEAD0" >
 
-
-      <div class="xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small border-left border-right">
+      <article class="xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small border-left border-right">
     
         <div class="h-padded v-margin-bottom-small">
           <future-img 
             :src="require(`~/assets/gda-photo.jpg`)" 
-            :aspect="'four-three'" 
-            :scale="true"/>
+            :aspect="'four-three'"
+            :scale="true" 
+            alt="Photo of hand holding a Good Design Award"/>
         </div>
 
         <div class="horizontal border-left">
           <div class="h-padded s-half border-right">
             <h3 class="no-margin-top">Future Friendly recognised for 9 Good Design awards in 2020.</h3>
-            <h3>Australia's annual Good Design Awards program is one of the oldest and most prestigious international design awards in the world, promoting excellence in design and innovation since 1958.</h3>
+            <p class="mid">Australia's annual Good Design Awards program is one of the oldest and most prestigious international design awards in the world, promoting excellence in design and innovation since 1958.</p>
           </div>
 
           <div class="h-padded s-half ">
             <div v-for="(award, i) in awards" :key="`${i}-award`" class="award-list-item horizontal no-wrap">
               <div class="badge-wrapper">
-
                 <future-img
                   v-if="award.badgeImg"  
                   :src="require(`~/assets/${award.badgeImg.src}`)" 
@@ -58,16 +57,13 @@
                 />
               </div>
               <div class="flex">
-                <p class="no-margin">{{ award.text }}</p>
+                <h4 class="no-margin body">{{ award.text }}</h4>
                 <p class="no-margin secondary-text">{{ award.client }}</p>
               </div>
             </div>
-
-
           </div>
         </div>
-
-      </div>
+      </article>
     </section>
 
 
@@ -125,7 +121,8 @@
 
                 <future-img 
                   :src="require(`~/assets/strategic-design.png`)" 
-                  :scale="true" 
+                  :scale="true"
+                  alt="Photo of a woman co-designing a digital service"
                   aspect="four-three"/>
               </div>
 
@@ -163,6 +160,7 @@
                 <future-img 
                   :src="require(`~/assets/product-delivery.png`)" 
                   :scale="true" 
+                  alt="Photo of a developer building a new digital product"
                   aspect="four-three"/>
 
               </div>
@@ -400,7 +398,8 @@ export default {
           client: 'Service NSW.',
           img: {
             src: 'col-hero.jpg',
-            aspect: 'four-three'
+            aspect: 'four-three',
+            alt: "Photo showing a children's dance class"
           },
           color: '#ECDFD8',
           link:
@@ -418,7 +417,7 @@ export default {
           img: {
             src: 'cfs-hero.jpg',
             aspect: 'four-three',
-            alt: 'Foo'
+            alt: 'Illustration of the Colonial First State website'
           },
           color: '#DDEEEF',
           link:
@@ -437,7 +436,7 @@ export default {
             src: 'fsh-hero.jpg',
             video: 'fsh-hero.mp4',
             aspect: 'four-three',
-            alt: 'Foo'
+            alt: 'Photo of a woman in a workshop'
           },
           color: '#DFE3D6',
           link:
@@ -456,7 +455,7 @@ export default {
           img: {
             src: 'tts-hero.jpg',
             aspect: 'four-three',
-            alt: 'Foo'
+            alt: 'Photo of a small child playing'
           },
           color: '#EEE8F3',
           link:
