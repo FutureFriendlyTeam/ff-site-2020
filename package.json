@@ -14,8 +14,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/google-analytics": "^2.2.0",
     "cross-env": "^5.2.0",
     "jarallax": "^1.12.2",
+    "lazysizes": "^5.2.2",
     "nuxt": "^2.0.0",
     "object-fit-images": "^3.2.4",
     "vue-intersect": "^1.1.6",
@@ -28,7 +30,6 @@
     "vue-sticky-directive": "0.0.10",
     "vue-window-size": "^0.6.1",
     "vueinview": "^1.0.7",
-    "@nuxtjs/google-analytics": "^2.2.0",
     "vuetensils": "^0.7.4"
   },
   "devDependencies": {

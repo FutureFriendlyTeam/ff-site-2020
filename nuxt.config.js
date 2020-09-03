@@ -124,7 +124,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/plugins.js'],
+  plugins: ['@/plugins/plugins.js', '@/plugins/vue-lazysizes.client.js'],
 
   /*
   ** Nuxt.js modules
@@ -149,6 +149,21 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+
+    extend(
+      config,
+      {
+        isDev,
+        isClient,
+        loaders: { vue }
+      }
+    ) {
+      if (isClient) {
+        vue.transformAssetUrls.img = ['data-src', 'src']
+        vue.transformAssetUrls.source = ['data-srcset', 'srcset']
+      }
+    },
+
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {

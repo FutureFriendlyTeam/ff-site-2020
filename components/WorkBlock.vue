@@ -10,7 +10,7 @@
       class="wrapper-link">
       <section class="work-image h-padded v-margin-bottom-small">
         <future-img 
-          :src="require(`~/assets/${work.img.src}`)" 
+          :src="work.img.src" 
           :aspect="work.img.aspect" 
           :alt="work.img.alt"
           :scale="true"/>
@@ -31,7 +31,7 @@
           <div class="badge-container h-padded">
             <future-img
               v-if="work.badgeImg"
-              :src="require(`~/assets/${work.badgeImg.src}`)" 
+              :src="work.badgeImg.src" 
               :aspect="'free'"
               :alt="work.badgeImg.alt"
               class="badge "

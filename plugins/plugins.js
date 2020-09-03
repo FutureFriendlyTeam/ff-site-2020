@@ -1,7 +1,7 @@
 import Vue from 'vue'
 // import Sticky from 'vue-sticky-directive'
 import VueWindowSize from 'vue-window-size'
-import VueLazyload from 'vue-lazyload'
+// import VueLazyload from 'vue-lazyload'
 // import Inview from 'vueinview'
 
 // import VueLazyLoadVideo from 'vue-lazyload-video'
@@ -47,16 +47,19 @@ Vue.use(VueObserveVisibility)
 // })
 
 // Vue.use(VueWaypoint)
-Vue.use(VueLazyload, {
-  filter: {
-    webp(listener, options) {
-      if (!options.supportWebp) return
-      if (listener.src.includes('.jpg') || listener.src.includes('.png')) {
-        listener.src += '?webp'
-      }
-    }
-  }
-})
+// Vue.use(VueLazyload, {
+//   filter: {
+//     webp(listener, options) {
+//       console.log(listener, options)
+//       // if (!options.supportWebp && ) {
+
+//       // }
+//       // if (listener.src.includes('.jpg') || listener.src.includes('.png')) {
+//       //   listener.src += '?webp'
+//       // }
+//     }
+//   }
+// })
 Vue.use(VuePrlx)
 Vue.use(VueWindowSize)
 // Vue.use(Sticky)

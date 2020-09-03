@@ -4,7 +4,6 @@
     :style="{backgroundColor: backgroundColor}">
 
     <fixed-banner/>
-
     <main-header/>
 
     <section 
@@ -34,9 +33,9 @@
     
         <div class="h-padded v-margin-bottom-small">
           <future-img 
-            :src="require(`~/assets/gda-photo.jpg`)" 
-            :aspect="'four-three'"
-            :scale="true" 
+            :aspect="'four-three'" 
+            :scale="true"
+            src="gda-photo.jpg" 
             alt="Photo of hand holding a Good Design Award"/>
         </div>
 
@@ -51,7 +50,7 @@
               <div class="badge-wrapper">
                 <future-img
                   v-if="award.badgeImg"  
-                  :src="require(`~/assets/${award.badgeImg.src}`)" 
+                  :src="award.badgeImg.src" 
                   :aspect="'free'"
                   :alt="award.badgeImg.alt"
                   class="badge "
@@ -121,8 +120,8 @@
                 class="h-padded flex" >
 
                 <future-img 
-                  :src="require(`~/assets/strategic-design.png`)" 
-                  :scale="true"
+                  :scale="true" 
+                  src="strategic-design.png"
                   alt="Photo of a woman co-designing a digital service"
                   aspect="four-three"/>
               </div>
@@ -159,8 +158,8 @@
                 class="h-padded flex" >
   
                 <future-img 
-                  :src="require(`~/assets/product-delivery.png`)" 
                   :scale="true" 
+                  src="product-delivery.png" 
                   alt="Photo of a developer building a new digital product"
                   aspect="four-three"/>
 
