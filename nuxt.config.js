@@ -105,13 +105,7 @@ module.exports = {
     script: [
       {
         src:
-          'https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver'
-      },
-      {
-        src: '//js.hs-scripts.com/2273078.js',
-        id: 'hs-script-loader',
-        defer: true,
-        async: true
+          '//cdn.polyfill.io/v2/polyfill.js?features=es5,es6,es2016,es2017,IntersectionObserver,|gated&flags=gated&unknown=polyfill&callback=onPolyfillsLoad'
       }
     ]
   },
