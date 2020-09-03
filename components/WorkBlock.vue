@@ -1,7 +1,7 @@
 <template>
 
   <article
-    :class="i%2 === 0 ? 'start': 'end'" 
+    :class="i%2 === 1 ? 'start': 'end'" 
     class="work-block xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small">
 
     <a 

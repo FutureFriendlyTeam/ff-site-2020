@@ -3,7 +3,7 @@
     id="page" 
     :style="{backgroundColor: backgroundColor}">
 
-    <fixed-banner/>
+    <!-- <fixed-banner/> -->
 
     <main-header/>
 
@@ -23,8 +23,108 @@
       </div>
     </section>
 
+
+
+
+
+    <section v-observe-visibility="{
+      callback: changeBackground,
+      intersection: {
+        rootMargin: '-50% 0px -50% 0px'
+      },
+    }" id="awardsCallout" :data-enter-background="'#000'" class=" center-col v-margin-mega-bottom callout inverse " >
+
+
+      <!-- <article
+        class="work-block xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small">
+
+        <div>
+          <section class="work-image h-padded v-margin-bottom-small">
+            <future-img 
+              :src="require(`~/assets/gda-photo.jpg`)" 
+              :aspect="'four-three'" 
+              :scale="true"/>
+          </section>
+
+          <section class="work-block-copy horizontal">
+            <div 
+              class="xs-full s-half h-padded border-left border-right work-block-copy-text">
+              <h3 class="no-margin-top v-margin-bottom-big">Future Friendly recognised for 9 Good Design awards in 2020.</h3>
+            </div>
+
+            <div 
+              class="xs-full s-half h-padded">          
+              <div v-for="(award, i) in awards" :key="`${i}-award`" class="award-list-item horizontal no-wrap">
+                <div class="badge-wrapper">
+
+                  <future-img
+                    v-if="award.badgeImg"  
+                    :src="require(`~/assets/${award.badgeImg.src}`)" 
+                    :aspect="'free'"
+                    class="badge "
+                  />
+                </div>
+                <div class="flex">
+                  <p class="no-margin">{{ award.text }}</p>
+                  <p class="no-margin secondary-text">{{ award.client }}</p>
+                </div>
+              </div>
+            </div>
+      
+
+          </section>
+        </div>
+      </article> -->
+
+
+
+
+      <div class="border-left ">
+    
+        <div class="s-two-thirds border-left border-right h-padded v-margin-bottom">
+          <future-img 
+            :src="require(`~/assets/gda-photo.jpg`)" 
+            :aspect="'four-three'" 
+            :scale="true"/>
+        </div>
+
+        <div class="horizontal border-left border-right">
+          <div class="h-padded s-half m-third border-right">
+            <h2 class="no-margin-top">Future Friendly recognised for 9 Good Design awards in 2020.</h2>
+          </div>
+
+          <div class="h-padded s-half m-two-thirds">
+
+
+            <div v-for="(award, i) in awards" :key="`${i}-award`" class="award-list-item horizontal no-wrap">
+              <div class="badge-wrapper">
+
+                <future-img
+                  v-if="award.badgeImg"  
+                  :src="require(`~/assets/${award.badgeImg.src}`)" 
+                  :aspect="'free'"
+                  class="badge "
+                />
+              </div>
+              <div class="flex">
+                <p class="no-margin">{{ award.text }}</p>
+                <p class="no-margin secondary-text">{{ award.client }}</p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+
     <section 
-      class="center-col horizontal v-margin-small" >
+      class="center-col horizontal v-margin-mega-bottom" >
       <work-block
         v-observe-visibility="{
           callback: changeBackground,
@@ -37,9 +137,13 @@
         :key="`${i}-caseStudies`" 
         :work="work" 
         :i="i"
-        :class="[i%2 === 0 ? 'start': 'end']"
+        :class="[i%2 === 1 ? 'start': 'end']"
         class="work-row" />
     </section>
+
+
+
+
 
     <section 
       v-observe-visibility="{
@@ -50,11 +154,11 @@
       }"
       id="services" 
       data-enter-background="#FFF" 
-      class="center-col v-margin-mega">
+      class="center-col v-margin-mega-bottom">
       <div 
         class="s-three-quarters m-two-thirds v-margin-mega" 
       >
-        <h1>We define long term digital strategies, and support you to your first release.</h1>
+        <h1 class="indent">We define visionary strategies for your digital services, and support your teams to rapidly deliver their first release.</h1>
       </div>
 
       <div class="border-left border-right">
@@ -203,6 +307,98 @@ export default {
     return {
       backgroundColor: '#ffffff',
       showBanner: true,
+      awards: [
+        {
+          text:
+            'Special Accolade – Design Institute of Australia’s design organisation of the year.',
+          badgeImg: {
+            src: 'gda-badges/gda-winner-white.svg',
+            alt: 'Good Design Award Winner — 2020'
+          },
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
+        },
+        {
+          text: 'Saving Radio from Streaming',
+          client: 'triple j',
+          badgeImg: {
+            src: 'gda-badges/gda-best-white.svg',
+            alt: 'Good Design Award Best in Class Winner — 2020'
+          },
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
+        },
+        {
+          text: 'Savings Finder – giving $1.5 billion back to the community',
+          client: 'Service NSW',
+          badgeImg: {
+            src: 'gda-badges/gda-gold-white.svg',
+            alt: 'Good Design Award Best in Class Winner – 2020'
+          },
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
+        },
+        {
+          text: 'Recognising & Responding to Financial Abuse',
+          client: 'ACT Government',
+          badgeImg: {
+            src: 'gda-badges/gda-gold-white.svg',
+            alt: 'Good Design Award Best in Class Winner – 2020'
+          },
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
+        },
+        {
+          text: 'ABC Kids app – Designing with Kids for Kids.',
+          client: 'ABC',
+          badgeImg: {
+            src: 'gda-badges/gda-winner-white.svg',
+            alt: 'Good Design Award Winner – 2020'
+          },
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
+        },
+        {
+          text: 'Helping Australians Build Financial Resilience',
+          client: 'Colonial First State',
+          badgeImg: {
+            src: 'gda-badges/gda-winner-white.svg',
+            alt: 'Good Design Award Winner – 2020'
+          },
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
+        },
+        {
+          text: 'Helping seniors reconnect with Australian pastimes',
+          client: 'National Film & Sound Archives',
+          badgeImg: {
+            src: 'gda-badges/gda-winner-white.svg',
+            alt: 'Good Design Award Winner – 2020'
+          },
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
+        },
+        {
+          text: 'Transforming the form, for a better transition to school ',
+          client: 'NSW Department of Education',
+          badgeImg: {
+            src: 'gda-badges/gda-winner-white.svg',
+            alt: 'Good Design Award Winner – 2020'
+          },
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
+        },
+        {
+          text: 'Designing teams for a better experience for schools.',
+          client: 'NSW Department of Education',
+          badgeImg: {
+            src: 'gda-badges/gda-winner-white.svg',
+            alt: 'Good Design Award Winner – 2020'
+          },
+          link:
+            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
+        }
+      ],
       partners: [
         'ABC',
         'ASIC',
@@ -317,8 +513,9 @@ export default {
 }
 
 #hero {
+  box-sizing: border-box;
   padding-top: 4rem;
-  min-height: 60vh;
+  min-height: 90vh;
   overflow: hidden;
 
   #arrow {
@@ -394,6 +591,19 @@ export default {
       transform: translate3d(0, 33.33%, 0);
     }
     mix-blend-mode: multiply;
+  }
+}
+
+#awardsCallout {
+  color: #fff;
+}
+
+.award-list-item {
+  margin-bottom: 3rem;
+
+  .badge-wrapper {
+    width: 6rem;
+    margin-right: 1.5rem;
   }
 }
 </style>
