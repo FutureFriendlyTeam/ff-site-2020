@@ -90,14 +90,14 @@ module.exports = {
       { name: 'theme-color', content: '#ffffff' },
       {
         rel: 'preload',
-        href: '/assets/fonts/Plain-Regular.woff',
+        href: '/fonts/Plain-Regular.woff',
         as: 'font',
         type: 'font/woff',
         crossorigin: 'anonymous'
       },
       {
         rel: 'preload',
-        href: '/assets/fonts/Plain-Medium.woff',
+        href: '/fonts/Plain-Medium.woff',
         as: 'font',
         type: 'font/woff',
         crossorigin: 'anonymous'
