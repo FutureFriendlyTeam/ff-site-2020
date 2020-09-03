@@ -359,7 +359,7 @@ export default {
         'Ausgrid',
         'IAG',
         'ACT Government',
-        'Tasmanian Government',
+        'Tasmanian Department of Premier & Cabinet',
         'Russell Investments',
         'Colonial First State',
         'Frasers Property',
@@ -394,7 +394,7 @@ export default {
       caseStudies: [
         {
           main:
-            'With Service NSW we delivered a digital service to access government benefits – giving $3 billion back to NSW residents.',
+            'With Service NSW, we delivered a digital service to access government benefits – giving $3 billion back to NSW residents.',
           client: 'Service NSW.',
           img: {
             src: 'col-hero.jpg',
@@ -410,9 +410,9 @@ export default {
           }
         },
         {
-          lead: 'Building financial resiliance.',
+          lead: 'Building financial resilience.',
           main:
-            'With Colonial First State we defined a digital strategy to help Australians build financial resiliance.',
+            'With Colonial First State, we defined a digital strategy to help Australians build financial resilience.',
           client: 'a leading superannuation provider.',
           img: {
             src: 'cfs-hero.jpg',
@@ -430,7 +430,7 @@ export default {
         {
           lead: 'Mitigating domestic violence.',
           main:
-            'With the ACT Government we designed a service to recognise & respond to financial abuse. ',
+            'With the ACT Government, we designed a service to recognise & respond to financial abuse. ',
           client: 'the ACT Government',
           img: {
             src: 'fsh-hero.jpg',
@@ -450,8 +450,8 @@ export default {
         {
           lead: 'Improving early childhood learning.',
           main:
-            'With the Department of Education, we built a digital service to create a safe environment for new primary school students.',
-          client: 'the Dept. of Education.',
+            'With the NSW Department of Education, we built a digital service to create a safe environment for new primary school students.',
+          client: 'NSW Department of Education.',
           img: {
             src: 'tts-hero.jpg',
             aspect: 'four-three',
