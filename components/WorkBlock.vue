@@ -32,7 +32,7 @@
               v-if="work.badgeImg"
               :src="require(`~/assets/${work.badgeImg.src}`)" 
               :aspect="'free'"
-              class="badge " 
+              class="badge "
           /></div>
         </div>
       
@@ -173,6 +173,6 @@ export default {
 }
 
 .badge {
-  width: 6rem;
+  width: 8rem;
 }
 </style>
