@@ -2,6 +2,9 @@
   <div 
     id="page" 
     :style="{backgroundColor: backgroundColor}">
+
+    <fixed-banner/>
+
     <main-header/>
 
     <section 
@@ -15,7 +18,7 @@
       data-enter-background="#FFF" 
       class="center-col horizontal v-center">
       <div 
-        class="s-three-quarters m-two-thirds v-margin-mega">
+        class="s-three-quarters m-two-thirds v-margin">
         <h1 class="no-margin indent">Digital services have the power to change lives and build a better future.</h1>
       </div>
     </section>
@@ -51,7 +54,7 @@
       <div 
         class="s-three-quarters m-two-thirds v-margin-mega" 
       >
-        <h1>We define multi-year digital strategies, and support you to your first release.</h1>
+        <h1>We define long term digital strategies, and support you to your first release.</h1>
       </div>
 
       <div class="border-left border-right">
@@ -184,6 +187,7 @@ import FutureImg from '~/components/FutureImg.vue'
 import BackgroundGrid from '~/components/BackgroundGrid.vue'
 import WorkBlock from '~/components/WorkBlock.vue'
 import ImageGrid from '~/components/ImageGrid.vue'
+import FixedBanner from '~/components/FixedBanner.vue'
 
 export default {
   components: {
@@ -192,11 +196,13 @@ export default {
     BackgroundGrid,
     WorkBlock,
     ImageGrid,
-    MainFooter
+    MainFooter,
+    FixedBanner
   },
   data() {
     return {
       backgroundColor: '#ffffff',
+      showBanner: true,
       partners: [
         'ABC',
         'ASIC',
@@ -229,8 +235,8 @@ export default {
           link:
             'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
           badgeImg: {
-            src: 'gda.png',
-            alt: 'Good Design Award Winner Logo'
+            src: 'gda-badges/gda-gold.svg',
+            alt: 'Good Design Award Winner – Gold'
           }
         },
         {
@@ -247,8 +253,8 @@ export default {
           link:
             'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
           badgeImg: {
-            src: 'gda.png',
-            alt: 'Good Design Award Winner Logo'
+            src: 'gda-badges/gda-winner.svg',
+            alt: 'Good Design Award Winner'
           }
         },
         {
@@ -266,8 +272,8 @@ export default {
           link:
             'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
           badgeImg: {
-            src: 'gda.png',
-            alt: 'Good Design Award Winner Logo'
+            src: 'gda-badges/gda-gold.svg',
+            alt: 'Good Design Award Winner – Gold'
           }
         },
 
@@ -285,8 +291,8 @@ export default {
           link:
             'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
           badgeImg: {
-            src: 'gda.png',
-            alt: 'Good Design Award Winner Logo'
+            src: 'gda-badges/gda-winner.svg',
+            alt: 'Good Design Award Winner'
           }
         }
       ]
@@ -296,7 +302,7 @@ export default {
   methods: {
     changeBackground(visible, el) {
       if (visible) {
-        this.backgroundColor = el.target.dataset.enterBackground
+        this.backgroundColor = el.target.getAttribute('data-enter-background')
       }
     }
   }
@@ -312,14 +318,14 @@ export default {
 
 #hero {
   padding-top: 4rem;
-  min-height: 80vh;
+  min-height: 60vh;
   overflow: hidden;
 
   #arrow {
     position: absolute;
-    bottom: 0%;
+    bottom: 10%;
     left: 50%;
-    width: 320px;
+    width: 160px;
     height: auto;
     transform: translate3d(-50%, 0, 0);
     mix-blend-mode: multiply;

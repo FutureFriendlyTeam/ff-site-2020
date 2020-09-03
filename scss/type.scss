@@ -12,7 +12,8 @@
   font-style: normal;
 }
 
-h1 {
+h1,
+.mega {
   font-size: 3rem;
   line-height: 1;
   letter-spacing: -0.01em;
@@ -31,7 +32,8 @@ h1 {
   }
 }
 
-h2 {
+h2,
+.big {
   font-weight: normal;
   font-family: 'Plain';
   font-size: 2rem;
@@ -47,7 +49,8 @@ h2 {
   }
 }
 
-h3 {
+h3,
+.mid {
   font-weight: normal;
   font-family: 'Plain';
   font-size: 1.5rem;
