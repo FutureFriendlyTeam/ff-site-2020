@@ -1,21 +1,12 @@
 import Vue from 'vue'
-import Sticky from 'vue-sticky-directive'
+// import Sticky from 'vue-sticky-directive'
 import VueWindowSize from 'vue-window-size'
 import VueLazyload from 'vue-lazyload'
 // import Inview from 'vueinview'
 
-import VueLazyLoadVideo from 'vue-lazyload-video'
+// import VueLazyLoadVideo from 'vue-lazyload-video'
 
 import VueObserveVisibility from 'vue-observe-visibility'
-Vue.use(VueObserveVisibility)
-
-// import VueIntersect from 'vue-intersect-directive'
-
-// Vue.use(VueIntersect)
-
-// Register Components
-// LazyVideo & LazyVideoAsGIF
-Vue.use(VueLazyLoadVideo)
 
 // import VideoBackground from 'vue-responsive-video-background-player'
 
@@ -30,6 +21,15 @@ Vue.use(VueLazyLoadVideo)
 // Inview.threshold(0.5)
 // import VueWaypoint from 'vue-waypoint'
 import VuePrlx from 'vue-prlx'
+Vue.use(VueObserveVisibility)
+
+// import VueIntersect from 'vue-intersect-directive'
+
+// Vue.use(VueIntersect)
+
+// Register Components
+// LazyVideo & LazyVideoAsGIF
+// Vue.use(VueLazyLoadVideo)
 
 // import 'object-fit-images'
 
@@ -50,4 +50,4 @@ import VuePrlx from 'vue-prlx'
 Vue.use(VueLazyload)
 Vue.use(VuePrlx)
 Vue.use(VueWindowSize)
-Vue.use(Sticky)
+// Vue.use(Sticky)

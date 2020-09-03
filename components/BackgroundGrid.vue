@@ -25,7 +25,7 @@ export default {
 
   computed: {
     lineCount() {
-      let order = ['xs', 's', 'm', 'l']
+      const order = ['xs', 's', 'm', 'l']
       const breakpoints = {
         xs: 0,
         s: 639,
@@ -41,10 +41,10 @@ export default {
       }
       // console.log('current breakpoint is', currBreakpoint)
 
-      let definitionParts = this.columns.split(' ')
+      const definitionParts = this.columns.split(' ')
 
-      let colDefinitions = definitionParts.reduce((acc, curr) => {
-        let currParts = curr.split('-')
+      const colDefinitions = definitionParts.reduce((acc, curr) => {
+        const currParts = curr.split('-')
         acc[currParts[0]] = parseInt(currParts[1])
         return acc
       }, {})
@@ -52,8 +52,8 @@ export default {
       //
 
       Object.keys(colDefinitions).forEach(key => {
-        let index = Object.keys(breakpoints).indexOf(key)
-        let value = colDefinitions[key]
+        const index = Object.keys(breakpoints).indexOf(key)
+        const value = colDefinitions[key]
 
         // console.log(order[index], value)
 
@@ -88,7 +88,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-right: -1px;
+  // margin-right: -1px;
 }
 
 .grid-line {
