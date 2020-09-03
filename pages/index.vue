@@ -545,13 +545,8 @@ export default {
   }
 }
 
-// #awardsCallout {
-//   color: #fff;
-// }
-
 .award-list-item {
   margin-bottom: 3rem;
-
   .badge-wrapper {
     width: 8rem;
     margin-right: 1.5rem;
