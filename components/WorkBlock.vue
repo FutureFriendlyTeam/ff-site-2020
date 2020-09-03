@@ -38,11 +38,11 @@
           /></div>
         </div>
       
-        <aside id="mini-text">
+        <!-- <aside id="mini-text">
           <p 
             id="mini-text-inner" 
             class="tiny hover-accent">Lorem ipsum dolor sit amet.</p>
-        </aside>
+        </aside> -->
       </section>
     </a>
   </article>
