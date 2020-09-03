@@ -19,11 +19,11 @@
       <section class="work-block-copy horizontal">
         <div 
           class="xs-full s-half h-padded border-left border-right work-block-copy-text">
-          <h3 class="no-margin-top v-margin-bottom-big">{{ work.main }}</h3>
+          <h2 class="no-margin-top v-margin-bottom-big">{{ work.main }}</h2>
 
-          <h3 
+          <p 
             id="link" 
-            class="no-margin hover-accent">Case Study &#8594;</h3>
+            class="no-margin hover-accent mid">Case Study &#8594;</p>
         </div>
 
         <div 
