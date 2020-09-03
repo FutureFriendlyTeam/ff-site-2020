@@ -50,6 +50,7 @@ const defaultMeta = [
 
 module.exports = {
   mode: 'spa',
+  telemetry: false,
 
   /*
   ** Headers of the page
