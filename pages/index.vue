@@ -24,15 +24,12 @@
     </section>
 
 
-
-
-
     <section v-observe-visibility="{
       callback: changeBackground,
       intersection: {
         rootMargin: '-50% 0px -50% 0px'
       },
-    }" id="awardsCallout" :data-enter-background="'#000'" class=" center-col v-margin-mega-bottom callout inverse " >
+    }" id="awardsCallout" class=" center-col v-margin-bottom-small" data-enter-background="#CCEAD0" >
 
 
       <!-- <article
@@ -79,23 +76,22 @@
 
 
 
-      <div class="border-left ">
+      <div class="xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small border-left border-right">
     
-        <div class="s-two-thirds border-left border-right h-padded v-margin-bottom">
+        <div class="h-padded v-margin-bottom-small">
           <future-img 
             :src="require(`~/assets/gda-photo.jpg`)" 
             :aspect="'four-three'" 
             :scale="true"/>
         </div>
 
-        <div class="horizontal border-left border-right">
-          <div class="h-padded s-half m-third border-right">
-            <h2 class="no-margin-top">Future Friendly recognised for 9 Good Design awards in 2020.</h2>
+        <div class="horizontal border-left">
+          <div class="h-padded s-half border-right">
+            <h3 class="no-margin-top">Future Friendly recognised for 9 Good Design awards in 2020.</h3>
+            <h3>Australia's annual Good Design Awards program is one of the oldest and most prestigious international design awards in the world, promoting excellence in design and innovation since 1958.</h3>
           </div>
 
-          <div class="h-padded s-half m-two-thirds">
-
-
+          <div class="h-padded s-half ">
             <div v-for="(award, i) in awards" :key="`${i}-award`" class="award-list-item horizontal no-wrap">
               <div class="badge-wrapper">
 
@@ -312,7 +308,7 @@ export default {
           text:
             'Special Accolade – Design Institute of Australia’s design organisation of the year.',
           badgeImg: {
-            src: 'gda-badges/gda-winner-white.svg',
+            src: 'gda-badges/dia-award.svg',
             alt: 'Good Design Award Winner — 2020'
           },
           link:
@@ -322,7 +318,7 @@ export default {
           text: 'Saving Radio from Streaming',
           client: 'triple j',
           badgeImg: {
-            src: 'gda-badges/gda-best-white.svg',
+            src: 'gda-badges/gda-best.svg',
             alt: 'Good Design Award Best in Class Winner — 2020'
           },
           link:
@@ -332,7 +328,7 @@ export default {
           text: 'Savings Finder – giving $1.5 billion back to the community',
           client: 'Service NSW',
           badgeImg: {
-            src: 'gda-badges/gda-gold-white.svg',
+            src: 'gda-badges/gda-gold.svg',
             alt: 'Good Design Award Best in Class Winner – 2020'
           },
           link:
@@ -342,7 +338,7 @@ export default {
           text: 'Recognising & Responding to Financial Abuse',
           client: 'ACT Government',
           badgeImg: {
-            src: 'gda-badges/gda-gold-white.svg',
+            src: 'gda-badges/gda-gold.svg',
             alt: 'Good Design Award Best in Class Winner – 2020'
           },
           link:
@@ -352,7 +348,7 @@ export default {
           text: 'ABC Kids app – Designing with Kids for Kids.',
           client: 'ABC',
           badgeImg: {
-            src: 'gda-badges/gda-winner-white.svg',
+            src: 'gda-badges/gda-winner.svg',
             alt: 'Good Design Award Winner – 2020'
           },
           link:
@@ -362,7 +358,7 @@ export default {
           text: 'Helping Australians Build Financial Resilience',
           client: 'Colonial First State',
           badgeImg: {
-            src: 'gda-badges/gda-winner-white.svg',
+            src: 'gda-badges/gda-winner.svg',
             alt: 'Good Design Award Winner – 2020'
           },
           link:
@@ -372,7 +368,7 @@ export default {
           text: 'Helping seniors reconnect with Australian pastimes',
           client: 'National Film & Sound Archives',
           badgeImg: {
-            src: 'gda-badges/gda-winner-white.svg',
+            src: 'gda-badges/gda-winner.svg',
             alt: 'Good Design Award Winner – 2020'
           },
           link:
@@ -382,7 +378,7 @@ export default {
           text: 'Transforming the form, for a better transition to school ',
           client: 'NSW Department of Education',
           badgeImg: {
-            src: 'gda-badges/gda-winner-white.svg',
+            src: 'gda-badges/gda-winner.svg',
             alt: 'Good Design Award Winner – 2020'
           },
           link:
@@ -392,7 +388,7 @@ export default {
           text: 'Designing teams for a better experience for schools.',
           client: 'NSW Department of Education',
           badgeImg: {
-            src: 'gda-badges/gda-winner-white.svg',
+            src: 'gda-badges/gda-winner.svg',
             alt: 'Good Design Award Winner – 2020'
           },
           link:
@@ -594,15 +590,15 @@ export default {
   }
 }
 
-#awardsCallout {
-  color: #fff;
-}
+// #awardsCallout {
+//   color: #fff;
+// }
 
 .award-list-item {
   margin-bottom: 3rem;
 
   .badge-wrapper {
-    width: 6rem;
+    width: 8rem;
     margin-right: 1.5rem;
   }
 }
