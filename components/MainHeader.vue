@@ -6,10 +6,22 @@
       <div 
         id="logo" 
         class="horizontal border-right">
+        
         <div class="border-left header-part">
-          Future
+          <transition
+            appear
+            name="wipe-in">
+            <span :style="{'--delay':'50ms', '--color':'#fff'}" >
+              Future
+            </span>
+          </transition>
         </div>
-        <div class="border-left border-right header-part">Friendly</div>
+        <div class="border-left border-right header-part">
+          <transition
+            appear
+            name="wipe-in">
+        <span :style="{'--delay':'150ms', '--color':'#fff'}">Friendly</span></transition></div>
+          
       </div>
       <a id="email" href="" class="header-part border-right border-left">hello@futurefriendly.team</a>
     </div>
@@ -32,12 +44,6 @@ export default {
     display: block;
   }
 }
-
-// #header {
-//   position: fixed;
-//   width: 100%;
-//   z-index: 99;
-// }
 
 #header-wrapper {
   justify-content: space-between;

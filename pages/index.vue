@@ -18,7 +18,10 @@
       class="center-col v-margin-bottom-small v-center horizontal">
       <div 
         id="hero-text" class="xs-full s-three-quarters m-two-thirds">
-        <h1 class="no-margin indent">Digital services have the power to change lives and build a better future.</h1>
+        <!-- <transition
+          appear name="wipe-in"> -->
+        <h1 class="no-margin indent" >Digital services have the power to change lives and build a better future.</h1>
+        <!-- </transition> -->
       </div>
     </section>
 
@@ -312,9 +315,9 @@ export default {
 }
 
 #hero {
-  h1 {
-    text-indent: 16.66%;
-  }
+  // h1 {
+  //   // text-indent: 16.66%;
+  // }
   min-height: 66.66vh;
   overflow: hidden;
 }
