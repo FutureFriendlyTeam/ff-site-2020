@@ -60,14 +60,14 @@
         </section>
 
         <div class="horizontal border-left">
-          <section class="h-padded s-half border-right v-margin-bottom">
+          <section class="h-padded s-half border-right v-padded-bottom">
             <h2 class="no-margin-top mid">Future Friendly recognised for {{ visibleAwards.length }} Good Design awards in 2020.</h2>
             <p class="mid">Australia's annual Good Design Awards program is one of the oldest and most prestigious international design awards in the world, promoting excellence in design and innovation since 1958.</p>
 
-            <a href="#" class="mid link">Read the annoucement</a>
+            <p><a href="#" class="mid link">Read the annoucement</a></p>
           </section>
 
-          <section class="h-padded s-half ">
+          <section class="h-padded s-half">
             <a v-for="(award, i) in visibleAwards" :key="`${i}-award`" :href="award.link" target="_blank" class="award-list-item horizontal no-wrap wrapper-link">
               <div class="badge-wrapper">
                 <future-img
@@ -142,7 +142,7 @@
 
           <div class="xs-full s-two-thirds m-third h-padded border-right service-copy v-padded-bottom-big">
             <h2 class="no-margin-top mid">Digital service strategy — define how digital products succeed today, tomorrow, and in the future.</h2>
-            <ol class="body no-margin">
+            <ul class="body no-margin">
               <li>Proposition design </li>
               <li>Product innovation</li>
               <li>Service design</li>
@@ -150,7 +150,7 @@
               <li>Business cases & funding</li>
               <li>Live trials & experimentation</li>
               <li>3 horizons roadmaps</li>
-            </ol>
+            </ul>
           </div>
         </div>
 
@@ -176,14 +176,14 @@
 
           <div class="xs-full s-two-thirds m-third h-padded border-left service-copy v-padded-bottom-big">
             <h2 class="no-margin-top mid">Delivery support — work together to launch new digital products, and set internal teams up for success.</h2>
-            <ol class="body no-margin">
+            <ul class="body no-margin">
               <li>Team formation & acceleration</li>
               <li>Product management</li>
               <li>Product Design</li>
               <li>Product engineering</li>
               <li>MVP / First release delivery</li>
               <li>Product roadmaps</li>
-            </ol>
+            </ul>
           </div>
         </div>
       </div>
@@ -199,25 +199,21 @@
         },
       }"
       id="partners" 
-      class="v-margin-mega"
+      class="v-margin-mega center-col"
       data-enter-background="#FFDAE3" 
     >
 
-      <div class="center-col horizontal has-grid v-padded-bottom-big">
-        <background-grid 
-          class="grid-container center-col" 
-          columns="xs-2 s-3 m-4"/>
-        <div class="xs-half s-third m-quarter h-padded">
-          <h3 class="no-margin">Client partners</h3>
+      <div class=" horizontal border-left border-right">
+        <div class="xs-full s-third m-quarter h-padded border-right">
+          <h3 class="no-margin-top v-margin-bottom-small">Client partners</h3>
           <nav>
-            <ul>
-              <li><a>All</a></li>
-              <li><a>Public Sector</a></li>
-              <li><a>Finance</a></li>
-              <li><a>Health</a></li>
-              <li><a>Education</a></li>
-            </ul>
-
+            
+            <a :class="[showClients === 'all' ? 'active' : '']" class="link partner-filter" @click="showClients = 'all'">All</a>
+            <a :class="[showClients === 'gov' ? 'active' : '']" class="link partner-filter" @click="showClients = 'gov'">Public Sector</a>
+            <a :class="[showClients === 'fin' ? 'active' : '']" class="link partner-filter" @click="showClients = 'fin'">Finance</a>
+            <a :class="[showClients === 'health' ? 'active' : '']" class="link partner-filter" @click="showClients = 'health'">Health</a>
+            <a :class="[showClients === 'edu' ? 'active' : '']" class="link partner-filter" @click="showClients = 'edu'">Education</a>
+            
           </nav>
         </div>
 
@@ -225,7 +221,7 @@
           id="partner-list" 
           class="flex">
           <p 
-            v-for="(partner, i) in partners"
+            v-for="(partner, i) in visibleClients"
             :key="`${i}-partner`" 
             :delay="100+(i*50)" 
             class="h-padded partner no-margin-top mini">
@@ -256,7 +252,6 @@ import caseStudies from '~/data/case-studies.json'
 import MainHeader from '~/components/MainHeader.vue'
 import MainFooter from '~/components/MainFooter.vue'
 import FutureImg from '~/components/FutureImg.vue'
-import BackgroundGrid from '~/components/BackgroundGrid.vue'
 import WorkBlock from '~/components/WorkBlock.vue'
 import ImageGrid from '~/components/ImageGrid.vue'
 import FixedBanner from '~/components/FixedBanner.vue'
@@ -265,7 +260,6 @@ export default {
   components: {
     MainHeader,
     FutureImg,
-    BackgroundGrid,
     WorkBlock,
     ImageGrid,
     MainFooter,
@@ -278,7 +272,8 @@ export default {
       awards: awards,
       partners: clients,
       caseStudies: caseStudies,
-      showAwards: ['accolade', 'winner', 'gold', 'best']
+      showAwards: ['accolade', 'winner', 'gold', 'best'],
+      showClients: 'gov'
     }
   },
 
@@ -286,6 +281,15 @@ export default {
     visibleAwards() {
       return this.awards.filter(award => {
         return this.showAwards.includes(award.type)
+      })
+    },
+    visibleClients() {
+      return this.partners.filter(partner => {
+        if (this.showClients === 'all') {
+          return true
+        } else {
+          return partner.tags.includes(this.showClients)
+        }
       })
     }
   },
@@ -311,15 +315,14 @@ export default {
   h1 {
     text-indent: 16.66%;
   }
-  // padding-top: 5.5rem;
   min-height: 66.66vh;
   overflow: hidden;
 }
 
 #partners {
-  .partner {
-    margin-bottom: 1rem;
-  }
+  // .partner {
+  //   margin-bottom: 1rem;
+  // }
 
   #partner-list {
     columns: 1;
@@ -334,6 +337,11 @@ export default {
     }
 
     column-gap: 0px;
+  }
+
+  .partner-filter {
+    display: block;
+    margin-bottom: 1em;
   }
 }
 
