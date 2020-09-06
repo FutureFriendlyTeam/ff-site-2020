@@ -1,0 +1,91 @@
+[
+  {
+    "text": "Special Accolade – Design Institute of Australia’s design organisation of the year.",
+    "type": "accolade",
+    "badgeImg": {
+      "src": "gda-badges/dia-award.svg",
+      "alt": "Good Design Award Winner — 2020"
+    },
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1"
+  },
+  {
+    "text": "Saving Radio from Streaming",
+    "type": "best",
+    "client": "triple j",
+    "badgeImg": {
+      "src": "gda-badges/gda-best.svg",
+      "alt": "Good Design Award Best in Class Winner — 2020"
+    },
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1"
+  },
+  {
+    "text": "Savings Finder – giving $1.5 billion back to the community",
+    "client": "Service NSW",
+    "type": "gold",
+    "badgeImg": {
+      "src": "gda-badges/gda-gold.svg",
+      "alt": "Good Design Award Best in Class Winner – 2020"
+    },
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1"
+  },
+  {
+    "text": "Recognising & Responding to Financial Abuse",
+    "client": "ACT Government",
+    "type": "gold",
+    "badgeImg": {
+      "src": "gda-badges/gda-gold.svg",
+      "alt": "Good Design Award Best in Class Winner – 2020"
+    },
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1"
+  },
+  {
+    "text": "ABC Kids app – Designing with Kids for Kids.",
+    "client": "ABC",
+    "type": "winner",
+    "badgeImg": {
+      "src": "gda-badges/gda-winner.svg",
+      "alt": "Good Design Award Winner – 2020"
+    },
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1"
+  },
+  {
+    "text": "Helping Australians Build Financial Resilience",
+    "client": "Colonial First State",
+    "type": "winner",
+    "badgeImg": {
+      "src": "gda-badges/gda-winner.svg",
+      "alt": "Good Design Award Winner – 2020"
+    },
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1"
+  },
+  {
+    "text": "Helping seniors reconnect with Australian pastimes",
+    "client": "National Film & Sound Archives",
+    "type": "winner",
+    "badgeImg": {
+      "src": "gda-badges/gda-winner.svg",
+      "alt": "Good Design Award Winner – 2020"
+    },
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1"
+  },
+  {
+    "text": "Transforming the form, for a better transition to school ",
+    "client": "NSW Department of Education",
+    "type": "winner",
+    "badgeImg": {
+      "src": "gda-badges/gda-winner.svg",
+      "alt": "Good Design Award Winner – 2020"
+    },
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1"
+  },
+  {
+    "text": "Designing teams for a better experience for schools.",
+    "client": "NSW Department of Education",
+    "type": "winner",
+    "badgeImg": {
+      "src": "gda-badges/gda-winner.svg",
+      "alt": "Good Design Award Winner – 2020"
+    },
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1"
+  }
+]
