@@ -60,9 +60,11 @@
         </section>
 
         <div class="horizontal border-left">
-          <section class="h-padded s-half border-right">
+          <section class="h-padded s-half border-right v-margin-bottom">
             <h2 class="no-margin-top mid">Future Friendly recognised for {{ visibleAwards.length }} Good Design awards in 2020.</h2>
             <p class="mid">Australia's annual Good Design Awards program is one of the oldest and most prestigious international design awards in the world, promoting excellence in design and innovation since 1958.</p>
+
+            <a href="#" class="mid link">Read the annoucement</a>
           </section>
 
           <section class="h-padded s-half ">
@@ -70,15 +72,15 @@
               <div class="badge-wrapper">
                 <future-img
                   v-if="award.badgeImg"  
-                  :src="award.badgeImg.src" 
+                  :src="`${award.badgeImg.src}`" 
                   :aspect="'free'"
                   :alt="award.badgeImg.alt"
                   class="badge "
                 />
               </div>
               <div class="flex hover-accent">
-                <h3 class="no-margin body">{{ award.text }}</h3>
-                <p class="no-margin secondary-text">{{ award.client }}</p>
+                <h3 class="no-margin body">{{ award.text }}<span v-if="award.client">, with {{ award.client }}</span></h3>
+                <!-- <p class="no-margin"></p> -->
               </div>
             </a>
           </section>
@@ -207,6 +209,16 @@
           columns="xs-2 s-3 m-4"/>
         <div class="xs-half s-third m-quarter h-padded">
           <h3 class="no-margin">Client partners</h3>
+          <nav>
+            <ul>
+              <li><a>All</a></li>
+              <li><a>Public Sector</a></li>
+              <li><a>Finance</a></li>
+              <li><a>Health</a></li>
+              <li><a>Education</a></li>
+            </ul>
+
+          </nav>
         </div>
 
         <div 
@@ -217,7 +229,7 @@
             :key="`${i}-partner`" 
             :delay="100+(i*50)" 
             class="h-padded partner no-margin-top mini">
-            {{ partner }}
+            {{ partner.name }}
           </p>        
         </div>
       </div>
@@ -299,7 +311,7 @@ export default {
   h1 {
     text-indent: 16.66%;
   }
-  padding-top: 5.5rem;
+  // padding-top: 5.5rem;
   min-height: 66.66vh;
   overflow: hidden;
 }
@@ -369,10 +381,18 @@ export default {
 }
 
 .award-list-item {
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+
+  @media (min-width: $mid) {
+    margin-bottom: 3rem;
+  }
+
   .badge-wrapper {
-    width: 8rem;
+    width: 6rem;
     margin-right: 1.5rem;
+    padding: 1rem;
+    background-color: #000;
   }
 }
 </style>

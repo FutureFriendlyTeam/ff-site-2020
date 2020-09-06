@@ -11,7 +11,7 @@
     "link": "https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1",
     "awardType": "gold",
     "badgeImg": {
-      "src": "gda-badges/gda-gold.svg",
+      "src": "gda-badges/gda-gold-white.svg",
       "alt": "Good Design Award Winner – Gold"
     }
   },
@@ -28,14 +28,14 @@
     "link": "https://awards.good-design.org/gallery/mGNXVWjB/XnPbaMOY?search=b7d96f3ac059fe34-1",
     "awardType": "winner",
     "badgeImg": {
-      "src": "gda-badges/gda-winner.svg",
+      "src": "gda-badges/gda-winner-white.svg",
       "alt": "Good Design Award Winner"
     }
   },
   {
     "lead": "Mitigating domestic violence.",
-    "main": "With the ACT Government, we designed a service to recognise & respond to financial abuse. ",
-    "client": "the ACT Government",
+    "main": "With the ACT Government's Family Safety Hub, we designed a service to recognise & respond to financial abuse. ",
+    "client": "the ACT Government's Family Safety Hub",
     "img": {
       "src": "fsh-hero.jpg",
       "video": "fsh-hero.mp4",
@@ -46,7 +46,7 @@
     "link": "https://awards.good-design.org/gallery/mGNXVWjB/vXpKBnnD?search=2bf9ed7b2d437dc6-1",
     "awardType": "gold",
     "badgeImg": {
-      "src": "gda-badges/gda-gold.svg",
+      "src": "gda-badges/gda-gold-white.svg",
       "alt": "Good Design Award Winner – Gold"
     }
   },
@@ -63,7 +63,7 @@
     "link": "https://awards.good-design.org/gallery/mGNXVWjB/EawRmEAB?search=4d634bc299224577-1",
     "awardType": "winner",
     "badgeImg": {
-      "src": "gda-badges/gda-winner.svg",
+      "src": "gda-badges/gda-winner-white.svg",
       "alt": "Good Design Award Winner"
     }
   }

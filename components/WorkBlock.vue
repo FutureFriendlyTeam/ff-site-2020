@@ -19,11 +19,10 @@
       <section class="work-block-copy horizontal">
         <div 
           class="xs-full s-half h-padded border-left border-right work-block-copy-text">
-          <h2 class="no-margin-top v-margin-bottom-big">{{ work.main }}</h2>
-
+          <h2 class="no-margin-top mid">{{ work.main }}</h2>
           <p 
             id="link" 
-            class="no-margin hover-accent mid">Case Study &#8594;</p>
+            class="no-margin mid link">Case Study</p>
         </div>
 
         <div 
@@ -106,12 +105,12 @@ export default {
 
 .work-block-copy-text {
   min-height: 18rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  @media (min-width: $mid) {
-    padding-right: 1.5rem;
-  }
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // @media (min-width: $mid) {
+  //   padding-right: 1.5rem;
+  // }
 }
 
 .video {
@@ -159,7 +158,7 @@ export default {
 .badge-container {
   position: absolute;
   bottom: 0rem;
-  right: 0rem;
+  left: 0rem;
 
   @media (min-width: $small) {
     position: relative;
@@ -167,6 +166,12 @@ export default {
 }
 
 .badge {
-  width: 8rem;
+  width: 6rem;
+  padding: 1rem;
+  background-color: #000;
+
+  // @media (min-width: $mid) {
+  //   width: 8rem;
+  // }
 }
 </style>

@@ -78,6 +78,11 @@ figure {
 
 a {
   color: inherit;
+}
+
+.link {
+  text-decoration: underline;
+
   &:hover {
     color: $accent;
   }
