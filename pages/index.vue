@@ -207,7 +207,7 @@
     >
 
       <div class=" horizontal border-left border-right">
-        <div class="xs-full s-third m-quarter h-padded border-right">
+        <div class="xs-full s-third m-quarter h-padded border-right v-padded-bottom-big">
           <h3 class="no-margin-top v-margin-bottom-small">Client partners</h3>
           <nav>
             
