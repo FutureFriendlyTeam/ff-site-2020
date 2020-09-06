@@ -36,19 +36,18 @@
         :data-enter-background="work.color" 
         :key="`${i}-caseStudies`" 
         :work="work" 
+        :show-badge="showAwards.includes(work.awardType)"
         :i="i"
         :class="[i%2 === 0 ? 'start': 'end']"
         class="work-row" />
     </section>
-
-
 
     <section v-observe-visibility="{
       callback: changeBackground,
       intersection: {
         rootMargin: '-50% 0px -50% 0px'
       },
-    }" id="awardsCallout" class=" center-col v-margin-bottom-small" data-enter-background="#CCEAD0" >
+    }" v-if="visibleAwards.length > 0" id="awardsCallout" class=" center-col v-margin-bottom-small" data-enter-background="#CCEAD0" >
 
       <article class="xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small border-left border-right">
     
@@ -62,12 +61,12 @@
 
         <div class="horizontal border-left">
           <section class="h-padded s-half border-right">
-            <h2 class="no-margin-top mid">Future Friendly recognised for 9 Good Design awards in 2020.</h2>
+            <h2 class="no-margin-top mid">Future Friendly recognised for {{ visibleAwards.length }} Good Design awards in 2020.</h2>
             <p class="mid">Australia's annual Good Design Awards program is one of the oldest and most prestigious international design awards in the world, promoting excellence in design and innovation since 1958.</p>
           </section>
 
           <section class="h-padded s-half ">
-            <a v-for="(award, i) in awards" :key="`${i}-award`" :href="award.link" target="_blank" class="award-list-item horizontal no-wrap wrapper-link">
+            <a v-for="(award, i) in visibleAwards" :key="`${i}-award`" :href="award.link" target="_blank" class="award-list-item horizontal no-wrap wrapper-link">
               <div class="badge-wrapper">
                 <future-img
                   v-if="award.badgeImg"  
@@ -234,11 +233,14 @@
         },
       }" 
       data-enter-background="#CDCCC4"/>
-
   </div>
 </template>
 
 <script>
+import awards from '~/data/awards.json'
+import clients from '~/data/clients.json'
+import caseStudies from '~/data/case-studies.json'
+
 import MainHeader from '~/components/MainHeader.vue'
 import MainFooter from '~/components/MainFooter.vue'
 import FutureImg from '~/components/FutureImg.vue'
@@ -261,214 +263,18 @@ export default {
     return {
       backgroundColor: '#ffffff',
       showBanner: true,
-      awards: [
-        {
-          text:
-            'Special Accolade – Design Institute of Australia’s design organisation of the year.',
-          badgeImg: {
-            src: 'gda-badges/dia-award.svg',
-            alt: 'Good Design Award Winner — 2020'
-          },
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
-        },
-        {
-          text: 'Saving Radio from Streaming',
-          client: 'triple j',
-          badgeImg: {
-            src: 'gda-badges/gda-best.svg',
-            alt: 'Good Design Award Best in Class Winner — 2020'
-          },
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
-        },
-        {
-          text: 'Savings Finder – giving $1.5 billion back to the community',
-          client: 'Service NSW',
-          badgeImg: {
-            src: 'gda-badges/gda-gold.svg',
-            alt: 'Good Design Award Best in Class Winner – 2020'
-          },
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
-        },
-        {
-          text: 'Recognising & Responding to Financial Abuse',
-          client: 'ACT Government',
-          badgeImg: {
-            src: 'gda-badges/gda-gold.svg',
-            alt: 'Good Design Award Best in Class Winner – 2020'
-          },
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
-        },
-        {
-          text: 'ABC Kids app – Designing with Kids for Kids.',
-          client: 'ABC',
-          badgeImg: {
-            src: 'gda-badges/gda-winner.svg',
-            alt: 'Good Design Award Winner – 2020'
-          },
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
-        },
-        {
-          text: 'Helping Australians Build Financial Resilience',
-          client: 'Colonial First State',
-          badgeImg: {
-            src: 'gda-badges/gda-winner.svg',
-            alt: 'Good Design Award Winner – 2020'
-          },
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
-        },
-        {
-          text: 'Helping seniors reconnect with Australian pastimes',
-          client: 'National Film & Sound Archives',
-          badgeImg: {
-            src: 'gda-badges/gda-winner.svg',
-            alt: 'Good Design Award Winner – 2020'
-          },
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
-        },
-        {
-          text: 'Transforming the form, for a better transition to school ',
-          client: 'NSW Department of Education',
-          badgeImg: {
-            src: 'gda-badges/gda-winner.svg',
-            alt: 'Good Design Award Winner – 2020'
-          },
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
-        },
-        {
-          text: 'Designing teams for a better experience for schools.',
-          client: 'NSW Department of Education',
-          badgeImg: {
-            src: 'gda-badges/gda-winner.svg',
-            alt: 'Good Design Award Winner – 2020'
-          },
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1'
-        }
-      ],
-      // partners:{
-      //   government:[],
-      //   business:[]
-      // },
+      awards: awards,
+      partners: clients,
+      caseStudies: caseStudies,
+      showAwards: ['accolade', 'winner', 'gold', 'best']
+    }
+  },
 
-      partners: [
-        'ABC',
-        'ASIC',
-        'Ausgrid',
-        'IAG',
-        'ACT Government',
-        'Tasmanian Department of Premier & Cabinet',
-        'Russell Investments',
-        'Colonial First State',
-        'Frasers Property',
-        'SBS',
-        'Service NSW',
-        'National Film & Sound Archive',
-        'Services Australia ',
-        'TAFE',
-        'UTS',
-        'Sport Aus',
-        'Atlassian ',
-        'Austrade ',
-        'Australian Taxation Office ',
-        'Bupa',
-        'Indigenous Business Australia ',
-        'Super Future Fund ',
-        'Royal Australian Mint',
-        'Department of Agriculture Water and the Environment',
-        'Department of Education Skills & Employment',
-        'Department of Foreign Affairs and Trade',
-        'Department of industry science energy and resources',
-        'Department of Health',
-        'Digital Transformation Agency (DTA)',
-        'NSW Department of Education',
-        'NSW Department of Premier & Cabinet',
-        'NSW Department of Planning, Industry & Environment',
-        'Public Service Commission',
-        'NSW Trustee & Guardian'
-      ],
-      caseStudies: [
-        {
-          main:
-            'With Service NSW, we delivered a digital service to access government benefits – giving $3 billion back to NSW residents.',
-          client: 'Service NSW.',
-          img: {
-            src: 'col-hero.jpg',
-            aspect: 'four-three',
-            alt: "Photo showing a children's dance class"
-          },
-          color: '#ECDFD8',
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
-          badgeImg: {
-            src: 'gda-badges/gda-gold.svg',
-            alt: 'Good Design Award Winner – Gold'
-          }
-        },
-        {
-          lead: 'Building financial resilience.',
-          main:
-            'With Colonial First State, we defined a digital strategy to help Australians build financial resilience.',
-          client: 'a leading superannuation provider.',
-          img: {
-            src: 'cfs-hero.jpg',
-            aspect: 'four-three',
-            alt: 'Illustration of the Colonial First State website'
-          },
-          color: '#DDEEEF',
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
-          badgeImg: {
-            src: 'gda-badges/gda-winner.svg',
-            alt: 'Good Design Award Winner'
-          }
-        },
-        {
-          lead: 'Mitigating domestic violence.',
-          main:
-            'With the ACT Government, we designed a service to recognise & respond to financial abuse. ',
-          client: 'the ACT Government',
-          img: {
-            src: 'fsh-hero.jpg',
-            video: 'fsh-hero.mp4',
-            aspect: 'four-three',
-            alt: 'Photo of a woman in a workshop'
-          },
-          color: '#DFE3D6',
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
-          badgeImg: {
-            src: 'gda-badges/gda-gold.svg',
-            alt: 'Good Design Award Winner – Gold'
-          }
-        },
-
-        {
-          lead: 'Improving early childhood learning.',
-          main:
-            'With the NSW Department of Education, we built a digital service to create a safe environment for new primary school students.',
-          client: 'NSW Department of Education.',
-          img: {
-            src: 'tts-hero.jpg',
-            aspect: 'four-three',
-            alt: 'Photo of a small child playing'
-          },
-          color: '#EEE8F3',
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
-          badgeImg: {
-            src: 'gda-badges/gda-winner.svg',
-            alt: 'Good Design Award Winner'
-          }
-        }
-      ]
+  computed: {
+    visibleAwards() {
+      return this.awards.filter(award => {
+        return this.showAwards.includes(award.type)
+      })
     }
   },
 

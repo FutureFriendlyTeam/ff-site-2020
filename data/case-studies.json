@@ -9,6 +9,7 @@
     },
     "color": "#ECDFD8",
     "link": "https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1",
+    "awardType": "gold",
     "badgeImg": {
       "src": "gda-badges/gda-gold.svg",
       "alt": "Good Design Award Winner – Gold"
@@ -25,6 +26,7 @@
     },
     "color": "#DDEEEF",
     "link": "https://awards.good-design.org/gallery/mGNXVWjB/XnPbaMOY?search=b7d96f3ac059fe34-1",
+    "awardType": "winner",
     "badgeImg": {
       "src": "gda-badges/gda-winner.svg",
       "alt": "Good Design Award Winner"
@@ -42,6 +44,7 @@
     },
     "color": "#DFE3D6",
     "link": "https://awards.good-design.org/gallery/mGNXVWjB/vXpKBnnD?search=2bf9ed7b2d437dc6-1",
+    "awardType": "gold",
     "badgeImg": {
       "src": "gda-badges/gda-gold.svg",
       "alt": "Good Design Award Winner – Gold"
@@ -58,6 +61,7 @@
     },
     "color": "#EEE8F3",
     "link": "https://awards.good-design.org/gallery/mGNXVWjB/EawRmEAB?search=4d634bc299224577-1",
+    "awardType": "winner",
     "badgeImg": {
       "src": "gda-badges/gda-winner.svg",
       "alt": "Good Design Award Winner"

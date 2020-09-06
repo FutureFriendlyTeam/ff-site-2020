@@ -28,7 +28,7 @@
 
         <div 
           class="xs-full s-half">          
-          <div class="badge-container h-padded">
+          <div v-if="showBadge" class="badge-container h-padded">
             <future-img
               v-if="work.badgeImg"
               :src="work.badgeImg.src" 
@@ -63,6 +63,10 @@ export default {
     i: {
       type: Number,
       default: 0
+    },
+    showBadge: {
+      type: Boolean,
+      default: false
     }
   }
 }
@@ -102,13 +106,9 @@ export default {
 
 .work-block-copy-text {
   min-height: 18rem;
-  // position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  // padding-right: 4rem;
-  // padding-bottom: 8rem;
-
   @media (min-width: $mid) {
     padding-right: 1.5rem;
   }
