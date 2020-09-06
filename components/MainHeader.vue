@@ -11,10 +11,7 @@
         </div>
         <div class="border-left border-right header-part">Friendly</div>
       </div>
-
-      <a href="" class="header-part border-right border-left">hello@futurefriendly.team</a>
-
-
+      <a id="email" href="" class="header-part border-right border-left">hello@futurefriendly.team</a>
     </div>
   </header>
 </template>
@@ -28,11 +25,19 @@ export default {
 
 
 <style lang="scss" scoped>
-#header {
-  position: fixed;
-  width: 100%;
-  z-index: 99;
+// @import '../scss/variables.scss';
+#email {
+  display: none;
+  @media (min-width: 355px) {
+    display: block;
+  }
 }
+
+// #header {
+//   position: fixed;
+//   width: 100%;
+//   z-index: 99;
+// }
 
 #header-wrapper {
   justify-content: space-between;
@@ -42,8 +47,8 @@ export default {
 
 .header-part {
   display: block;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
   padding-bottom: 0.75rem;
   text-decoration: none;
 }
