@@ -50,7 +50,7 @@
       intersection: {
         rootMargin: '-50% 0px -50% 0px'
       },
-    }" v-if="visibleAwards.length > 0" id="awardsCallout" class=" center-col v-margin-bottom-small" data-enter-background="#CCEAD0" >
+    }" v-if="visibleAwards.length > 0" id="awardsCallout" class=" center-col v-margin-bottom-small" data-enter-background="#D9F5ED" >
 
       <article class="xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small border-left border-right">
     
@@ -109,7 +109,7 @@
         },
       }"
       id="services" 
-      data-enter-background="#FFF" 
+      data-enter-background="#FCDEE1" 
       class="center-col v-margin-mega-bottom">
       <div 
         class="s-three-quarters m-two-thirds v-margin-mega" 
@@ -203,7 +203,7 @@
       }"
       id="partners" 
       class="v-margin-mega center-col"
-      data-enter-background="#FFDAE3" 
+      data-enter-background="#CDCCC4" 
     >
 
       <div class=" horizontal border-left border-right">
@@ -243,7 +243,7 @@
           rootMargin: '-50% 0px -50% 0px'
         },
       }" 
-      data-enter-background="#CDCCC4"/>
+      data-enter-background="#f05969"/>
   </div>
 </template>
 
@@ -388,6 +388,12 @@ export default {
       transform: translate3d(0, 33.33%, 0);
     }
     mix-blend-mode: multiply;
+  }
+
+  #product-delivery-image-1 {
+    mix-blend-mode: multiply;
+    // margin-right: 33.33%;
+    margin-left: 25%;
   }
 }
 
