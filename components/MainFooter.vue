@@ -14,16 +14,17 @@
       class="center-col horizontal v-padded">
       <div class="xs-full s-half footer-col v-margin-bottom-small">
         <p class="mid no-margin-top"><a href="mailto:hello@futurefriendly.team">hello@futurefriendly.team</a></p>
-        <p class="mid">Sydney <br> +61 (02) 9360 8667</p>
-        <p class="mid">Canberra <br> +61 431 277 652</p>
-        <p class="mid"><a href="https://au.linkedin.com/company/mentally-friendly" target="_blank">LinkedIn</a></p>
-        <p class="mid"><a href="https://www.instagram.com/mentallyfriendly/" target="_blank">Medium</a></p>
-        <p class="mid"><a href="https://medium.com/@MentallyFriendly" target="_blank">Instagram</a></p>
+        <p class="mid">Sydney — +61&nbsp;(02)&nbsp;9360&nbsp;8667</p>
+        <p class="mid">Canberra — +61&nbsp;431&nbsp;277&nbsp;652</p>
+        <p class="mid"><a href="https://www.linkedin.com/company/future-friendly" target="_blank">LinkedIn</a></p>
+        <p class="mid"><a href="https://www.instagram.com/future__friendly/" target="_blank">Instagram</a></p>
+        <p class="mid"><a href="https://medium.com/@MentallyFriendly" target="_blank">Medium</a></p>
+        <p class="mid"><a href="https://mentallyfriendly.activehosted.com/f/20" target="_blank">Newsletter</a></p>
       </div>
 
       <div class="xs-full s-half horizontal">
         <div class="m-half footer-col v-margin-bottom-small">
-          <p class="no-margin-top">Future Friendly is a certified b-Corp.</p>
+          <p class="no-margin-top">Future Friendly is a certified B-Corp.</p>
           <future-img :aspect="'free'" src="b-corp.png" class="flag" alt="B-Corp Logo"/>
         </div>
 
@@ -44,7 +45,9 @@
       <nav class="center-col mini">
         <a href="http://sodaspeaks.com/">We're a proud SODA member </a>
         <span>|</span>
-        <a href="https://mentallyfriendly.com/privacy">Privacy policy</a>
+        <a href="https://www.iubenda.com/privacy-policy/82308279">Privacy policy</a>
+        <span>|</span>
+        <a href="https://www.iubenda.com/terms-and-conditions/82308279">Terms & Conditions</a>
       </nav>
     </section>
   </footer>
