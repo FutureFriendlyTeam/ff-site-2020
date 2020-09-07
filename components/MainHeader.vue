@@ -37,7 +37,12 @@ export default {
 
 
 <style lang="scss" scoped>
-// @import '../scss/variables.scss';
+#header {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
 #email {
   display: none;
   @media (min-width: 355px) {

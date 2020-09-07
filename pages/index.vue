@@ -182,8 +182,9 @@
             <ul class="body no-margin">
               <li>Team formation & acceleration</li>
               <li>Product management</li>
-              <li>Product Design</li>
+              <li>Product design</li>
               <li>Product engineering</li>
+              <li>User testing</li>
               <li>MVP / First release delivery</li>
               <li>Product roadmaps</li>
             </ul>
@@ -211,7 +212,6 @@
           <h3 class="no-margin-top v-margin-bottom-small">Client partners</h3>
           <nav>
             
-            <a :class="[showClients === 'all' ? 'active' : '']" class="link partner-filter" @click="showClients = 'all'">All</a>
             <a :class="[showClients === 'gov' ? 'active' : '']" class="link partner-filter" @click="showClients = 'gov'">Public Sector</a>
             <a :class="[showClients === 'fin' ? 'active' : '']" class="link partner-filter" @click="showClients = 'fin'">Finance</a>
             <a :class="[showClients === 'health' ? 'active' : '']" class="link partner-filter" @click="showClients = 'health'">Health</a>
@@ -298,6 +298,15 @@ export default {
     }
   },
 
+  mounted() {
+    const sectors = ['gov', 'fin', 'health', 'edu']
+    setInterval(() => {
+      let curr = sectors.indexOf(this.showClients)
+      let next = curr + 1
+      this.showClients = sectors[next % sectors.length]
+    }, 2000)
+  },
+
   methods: {
     changeBackground(visible, el) {
       if (visible) {
@@ -324,10 +333,6 @@ export default {
 }
 
 #partners {
-  // .partner {
-  //   margin-bottom: 1rem;
-  // }
-
   #partner-list {
     columns: 1;
     column-fill: balance;
@@ -346,6 +351,10 @@ export default {
   .partner-filter {
     display: block;
     margin-bottom: 1em;
+
+    &.active {
+      color: $accent;
+    }
   }
 }
 

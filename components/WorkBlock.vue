@@ -22,7 +22,7 @@
           <h2 class="no-margin-top mid">{{ work.main }}</h2>
           <p 
             id="link" 
-            class="no-margin mid link">See the case study</p>
+            class="no-margin mid link">See the case study &#8594;</p>
         </div>
 
         <div 
@@ -173,5 +173,9 @@ export default {
   // @media (min-width: $mid) {
   //   width: 8rem;
   // }
+}
+
+.link {
+  text-decoration: none;
 }
 </style>
