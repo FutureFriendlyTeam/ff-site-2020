@@ -16,9 +16,9 @@
         <p class="mid no-margin-top"><a href="mailto:hello@mentallyfriendly.com">hello@mentallyfriendly.com</a></p>
         <p class="mid">Sydney — +61&nbsp;(02)&nbsp;9360&nbsp;8667</p>
         <p class="mid">Canberra — +61&nbsp;431&nbsp;277&nbsp;652</p>
-        <p class="mid"><a href="https://www.linkedin.com/company/future-friendly" target="_blank">LinkedIn</a></p>
-        <p class="mid"><a href="https://www.instagram.com/future__friendly/" target="_blank">Instagram</a></p>
-        <p class="mid"><a href="https://medium.com/@MentallyFriendly" target="_blank">Medium</a></p>
+        <p class="mid"><a href="https://www.linkedin.com/company/1061792" target="_blank">LinkedIn</a></p>
+        <p class="mid"><a href="https://instagram.com/_futurefriendly" target="_blank">Instagram</a></p>
+        <p class="mid"><a href="https://medium.com/mentally-friendly" target="_blank">Medium</a></p>
         <p class="mid"><a href="https://mentallyfriendly.activehosted.com/f/20" target="_blank">Newsletter</a></p>
       </div>
 
