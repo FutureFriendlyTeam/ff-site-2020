@@ -24,18 +24,21 @@
 
       <div class="xs-full s-half horizontal">
         <div class="m-half footer-col v-margin-bottom-small">
-          <p class="no-margin-top">Future Friendly is a certified B-Corp.</p>
+          <p class="no-margin-top">Future Friendly is a certified B-Corp since 2017.</p>
           <future-img :aspect="'free'" src="b-corp.png" class="flag" alt="B-Corp Logo"/>
         </div>
 
         <div class="m-half footer-col v-margin-bottom-small">
-          <p class="no-margin-top">We respect and honour Aboriginal and Torres Strait Islander Elders past, present and future.</p>
-          <p class="">
-            We acknowledge the stories, traditions and living cultures of Aboriginal and Torres Strait Islander peoples on this land and commit to building a brighter future together.
-          </p> 
+          <p class="no-margin-top">We acknowledge the Traditional Owners of country throughout Australia and recognise their continuing connection to land, waters and culture. We pay our respects to their Elders past, present and emerging and commit to building a brighter future together.
+          </p>
+
+          <p class="no-margin-top">Our studios sit on country of the the Gadigal people of the Eora nation in Sydney and the Ngunnawal people in Canberra.
+          </p>
+
+          
           <div class="horizontal">
             <future-img :aspect="'free'" src="australian-aboriginal-flag.png" class="flag" alt="Australian Aboriginal Flag"/>
-            <future-img :aspect="'free'" src="torres-strait-islander-flag.png" class="flag" alt="Torres Strait Islander Flag"/>
+            <!-- <future-img :aspect="'free'" src="torres-strait-islander-flag.png" class="flag" alt="Torres Strait Islander Flag"/> -->
           </div>
         </div>
       </div>
@@ -72,11 +75,11 @@ export default {
 
   .footer-col {
     box-sizing: border-box;
-    padding-right: 1rem;
+    padding-right: 1.5rem;
   }
 
   .flag {
-    width: 4.5rem;
+    width: 4rem;
     margin-right: 0.5rem;
   }
 }

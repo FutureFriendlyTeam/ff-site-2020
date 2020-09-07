@@ -22,7 +22,7 @@
           <h2 class="no-margin-top mid">{{ work.main }}</h2>
           <p 
             id="link" 
-            class="no-margin mid link">Case Study</p>
+            class="no-margin mid link">See the case study</p>
         </div>
 
         <div 
