@@ -10,6 +10,8 @@
 
       <div class="v-padded close">
         <a 
+          href="https://www.linkedin.com/pulse/mentally-friendly-now-future-nick-gower"
+          target="_blank"
           class="wrapper-link text-button mid" 
           @click="showBanner = false">
           &times;

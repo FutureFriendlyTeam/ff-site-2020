@@ -20,6 +20,9 @@
         id="hero-text" class="xs-full s-three-quarters m-two-thirds">
         <!-- <transition
           appear name="wipe-in"> -->
+
+
+
         <h1 class="no-margin indent" >Digital services have the power to change lives and build a better future.</h1>
         <!-- </transition> -->
       </div>
@@ -144,7 +147,7 @@
           </div>
 
           <div class="xs-full s-two-thirds m-third h-padded border-right service-copy v-padded-bottom-big">
-            <h2 class="no-margin-top mid">Digital service strategy — define how digital products succeed today, tomorrow, and in the future.</h2>
+            <h2 class="no-margin-top mid">Digital service strategy — define how products & services succeed today, tomorrow, and in the future.</h2>
             <ul class="body no-margin">
               <li>Proposition design </li>
               <li>Product innovation</li>
@@ -300,11 +303,11 @@ export default {
 
   mounted() {
     const sectors = ['gov', 'fin', 'health', 'edu']
-    setInterval(() => {
-      let curr = sectors.indexOf(this.showClients)
-      let next = curr + 1
-      this.showClients = sectors[next % sectors.length]
-    }, 2000)
+    // setInterval(() => {
+    //   let curr = sectors.indexOf(this.showClients)
+    //   let next = curr + 1
+    //   this.showClients = sectors[next % sectors.length]
+    // }, 2000)
   },
 
   methods: {
