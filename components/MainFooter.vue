@@ -13,7 +13,7 @@
     <section 
       class="center-col horizontal v-padded">
       <div class="xs-full s-half footer-col v-margin-bottom-small">
-        <p class="mid no-margin-top"><a href="mailto:hello@futurefriendly.team">hello@futurefriendly.team</a></p>
+        <p class="mid no-margin-top"><a href="mailto:hello@mentallyfriendly.com">hello@mentallyfriendly.com</a></p>
         <p class="mid">Sydney — +61&nbsp;(02)&nbsp;9360&nbsp;8667</p>
         <p class="mid">Canberra — +61&nbsp;431&nbsp;277&nbsp;652</p>
         <p class="mid"><a href="https://www.linkedin.com/company/future-friendly" target="_blank">LinkedIn</a></p>

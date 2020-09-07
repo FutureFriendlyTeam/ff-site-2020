@@ -23,7 +23,7 @@
         <span :style="{'--delay':'150ms', '--color':'#fff'}">Friendly</span></transition></div>
           
       </div>
-      <a id="email" href="" class="header-part border-right border-left">hello@futurefriendly.team</a>
+      <a id="email" href="mailto:hello@mentallyfriendly.com" class="header-part border-right border-left">hello@mentallyfriendly.com</a>
     </div>
   </header>
 </template>
@@ -45,7 +45,7 @@ export default {
 
 #email {
   display: none;
-  @media (min-width: 355px) {
+  @media (min-width: 372px) {
     display: block;
   }
 }
