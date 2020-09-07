@@ -6,7 +6,7 @@
         href="https://www.linkedin.com/pulse/mentally-friendly-now-future-nick-gower"
         target="_blank"
         class="wrapper-link flex v-padded">
-        <p class="mid">Mentally Friendly has changed it's name to Future Friendly &#8594;</p>
+        <p class="mid">Mentally Friendly has changed its name to Future Friendly &#8594;</p>
       </a>
 
       <div class="v-padded close">
