@@ -23,7 +23,7 @@
         <span :style="{'--delay':'150ms', '--color':'#fff'}">Friendly</span></transition></div>
           
       </div>
-      <a id="email" href="mailto:hello@mentallyfriendly.com" class="header-part border-right border-left">hello@mentallyfriendly.com</a>
+      <a id="email" href="mailto:hello@mentallyfriendly.com" class="header-part border-right border-left link">hello@mentallyfriendly.com</a>
     </div>
   </header>
 </template>
