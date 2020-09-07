@@ -144,7 +144,7 @@
           </div>
 
           <div class="xs-full s-two-thirds m-third h-padded border-right service-copy v-padded-bottom-big">
-            <h2 class="no-margin-top mid">Digital service strategy — define how digital products succeed today, tomorrow, and in the future.</h2>
+            <h2 class="no-margin-top mid">Digital service strategy — define how products & services succeed today, tomorrow, and in the future.</h2>
             <ul class="body no-margin">
               <li>Proposition design </li>
               <li>Product innovation</li>
