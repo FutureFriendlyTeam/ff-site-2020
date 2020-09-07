@@ -7,7 +7,7 @@
 
 html,
 body {
-  font-family: 'Plain';
+  font-family: 'Plain', sans-serif;
   margin: 0px;
   padding: 0px;
   -webkit-font-smoothing: antialiased;
@@ -34,7 +34,7 @@ figure {
     left: 0px;
     bottom: 0px;
     width: 1px;
-    background-color: #272727;
+    background-color: #000;
   }
 }
 
@@ -48,7 +48,7 @@ figure {
     right: -1px;
     bottom: 0px;
     width: 1px;
-    background-color: #272727;
+    background-color: #000;
   }
 }
 
@@ -68,22 +68,42 @@ figure {
 .wrapper-link {
   text-decoration: none;
   color: inherit;
-  display: block;
+
+  &:hover {
+    .hover-accent {
+      color: $accent;
+    }
+  }
 }
 
 a {
   color: inherit;
 }
 
+.link {
+  text-decoration: underline;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
 .accent {
   color: $accent;
 }
 
-// .parallax-img-wrapper {
-//   overflow: hidden;
-// }
+.inverse {
+  color: #fff;
 
-// .parallax-img-outer {
-//   // transform-origin: 100%, 0%;
-//   transform: scale(1.1);
-// }
+  .border-left {
+    &:before {
+      background-color: #fff;
+    }
+  }
+
+  .border-right {
+    &:after {
+      background-color: #fff;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+[
+  {
+    "main": "With Service NSW, we delivered a digital service to access government benefits – giving $3 billion back to NSW residents.",
+    "client": "Service NSW.",
+    "img": {
+      "src": "col-hero.jpg",
+      "aspect": "four-three",
+      "alt": "Photo showing a children's dance class"
+    },
+    "color": "#ECDFD8",
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1",
+    "awardType": "gold",
+    "badgeImg": {
+      "src": "gda-badges/gda-gold-white.svg",
+      "alt": "Good Design Award Winner – Gold"
+    }
+  },
+  {
+    "lead": "Building financial resilience.",
+    "main": "With Colonial First State, we defined a digital strategy to help Australians build financial resilience.",
+    "client": "a leading superannuation provider.",
+    "img": {
+      "src": "cfs-hero.jpg",
+      "aspect": "four-three",
+      "alt": "Illustration of the Colonial First State website"
+    },
+    "color": "#DDEEEF",
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/XnPbaMOY?search=b7d96f3ac059fe34-1",
+    "awardType": "winner",
+    "badgeImg": {
+      "src": "gda-badges/gda-winner-white.svg",
+      "alt": "Good Design Award Winner"
+    }
+  },
+  {
+    "lead": "Mitigating domestic violence.",
+    "main": "With the ACT Government's Family Safety Hub, we designed a service to recognise & respond to financial abuse. ",
+    "client": "the ACT Government's Family Safety Hub",
+    "img": {
+      "src": "fsh-hero.jpg",
+      "video": "fsh-hero.mp4",
+      "aspect": "four-three",
+      "alt": "Photo of a woman in a workshop"
+    },
+    "color": "#DFE3D6",
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/vXpKBnnD?search=2bf9ed7b2d437dc6-1",
+    "awardType": "gold",
+    "badgeImg": {
+      "src": "gda-badges/gda-gold-white.svg",
+      "alt": "Good Design Award Winner – Gold"
+    }
+  },
+  {
+    "lead": "Improving early childhood learning.",
+    "main": "With the NSW Department of Education, we built a digital service to create a safe environment for new primary school students.",
+    "client": "NSW Department of Education.",
+    "img": {
+      "src": "tts-hero.jpg",
+      "aspect": "four-three",
+      "alt": "Photo of a small child playing"
+    },
+    "color": "#EEE8F3",
+    "link": "https://awards.good-design.org/gallery/mGNXVWjB/EawRmEAB?search=4d634bc299224577-1",
+    "awardType": "winner",
+    "badgeImg": {
+      "src": "gda-badges/gda-winner-white.svg",
+      "alt": "Good Design Award Winner"
+    }
+  }
+]

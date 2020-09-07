@@ -6,14 +6,17 @@
       <div 
         :class="[visible ? 'visible' : 'invisible', scale ? 'scale-image' : '']" 
         class="future-image-effect-wrapper">
-        <img 
-          v-observe-visibility="{
-            callback: visibilityChanged,
-          }" 
-          v-lazy="src" 
-          :alt="alt"
-          class="future-image"
-        >
+        <picture v-if="src">
+          <source v-if="src.includes('.jpg') || src.includes('.png')" :data-srcset="require(`~/assets/${src}?webp`)" type="image/webp">
+          <img 
+            v-observe-visibility="{
+              callback: visibilityChanged,
+            }" 
+            :data-src="require(`~/assets/${src}`)" 
+            :alt="alt"
+            class="future-image lazyload"
+          >
+        </picture>
       </div>
     </fixed-aspect>
   </figure>
@@ -49,6 +52,14 @@ export default {
       visible: false
     }
   },
+  // computed: {
+  //   defaultSrc() {
+  //     return require(this.src)
+  //   }
+  // },
+  mounted() {
+    console.log(this.src)
+  },
   methods: {
     visibilityChanged(visible, e) {
       this.visible = visible
@@ -68,18 +79,16 @@ export default {
   height: auto;
 }
 
-img[lazy='loading'] {
-  transition: all 1000ms cubic-bezier(0.16, 1, 0.3, 1);
-  // transform: translate3d(-1rem, 0, 0);
+.lazyload,
+.lazyloading {
   opacity: 0;
 }
-img[lazy='error'] {
+
+.loading,
+.lazyload,
+.lazyloaded {
   opacity: 1;
-}
-img[lazy='loaded'] {
-  transition: all 1000ms cubic-bezier(0.16, 1, 0.3, 1);
-  // transform: translate3d(0, 0, 0);
-  opacity: 1;
+  transition: 600ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scale-image-wrapper {
@@ -93,5 +102,9 @@ img[lazy='loaded'] {
   &.visible {
     transform: scale3d(1, 1, 1);
   }
+}
+
+img {
+  color: transparent;
 }
 </style>

@@ -1,21 +1,23 @@
 @font-face {
   font-family: 'Plain';
-  src: url('../assets/fonts/Plain-Medium.woff') format('woff');
+  src: url('/fonts/Plain-Medium.woff') format('woff');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Plain';
-  src: url('../assets/fonts/Plain-Regular.woff') format('woff');
+  src: url('/fonts/Plain-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 h1,
 .mega {
   font-size: 3rem;
-  line-height: 1;
+  line-height: 0.95;
   letter-spacing: -0.01em;
   font-weight: normal;
   @media (min-width: $mid) {
@@ -53,11 +55,11 @@ h3,
 .mid {
   font-weight: normal;
   font-family: 'Plain';
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   line-height: 1.2;
   letter-spacing: -0.01em;
   @media (min-width: $mid) {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -84,7 +86,7 @@ p,
   opacity: 0.6;
 }
 
-ol {
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -106,4 +108,8 @@ ol {
 
 .indent {
   text-indent: 25%;
+}
+
+.secondary-text {
+  opacity: 0.6;
 }

@@ -10,49 +10,48 @@
       class="wrapper-link">
       <section class="work-image h-padded v-margin-bottom-small">
         <future-img 
-          :src="require(`~/assets/${work.img.src}`)" 
+          :src="work.img.src" 
           :aspect="work.img.aspect" 
+          :alt="work.img.alt"
           :scale="true"/>
       </section>
 
       <section class="work-block-copy horizontal">
         <div 
           class="xs-full s-half h-padded border-left border-right work-block-copy-text">
-          <h3 class="no-margin-top v-margin-bottom-big">{{ work.main }}</h3>
-
-          <h3 
+          <h2 class="no-margin-top mid">{{ work.main }}</h2>
+          <p 
             id="link" 
-            class="no-margin hover-accent">Case Study &#8594;</h3>
+            class="no-margin mid link">See the case study &#8594;</p>
         </div>
 
         <div 
           class="xs-full s-half">          
-          <div class="badge-container h-padded">
+          <div v-if="showBadge" class="badge-container h-padded">
             <future-img
               v-if="work.badgeImg"
-              :src="require(`~/assets/${work.badgeImg.src}`)" 
+              :src="work.badgeImg.src" 
               :aspect="'free'"
+              :alt="work.badgeImg.alt"
               class="badge "
           /></div>
         </div>
       
-        <aside id="mini-text">
+        <!-- <aside id="mini-text">
           <p 
             id="mini-text-inner" 
             class="tiny hover-accent">Lorem ipsum dolor sit amet.</p>
-        </aside>
+        </aside> -->
       </section>
     </a>
   </article>
 </template>
 
 <script>
-import FixedAspect from '~/components/FixedAspect.vue'
 import FutureImg from '~/components/FutureImg.vue'
 export default {
   name: 'WorkBlock',
   components: {
-    FixedAspect,
     FutureImg
   },
   props: {
@@ -63,6 +62,10 @@ export default {
     i: {
       type: Number,
       default: 0
+    },
+    showBadge: {
+      type: Boolean,
+      default: false
     }
   }
 }
@@ -94,12 +97,6 @@ export default {
   &:last-child {
     margin-bottom: 0px;
   }
-
-  &:hover {
-    .hover-accent {
-      color: $accent;
-    }
-  }
 }
 
 .work-block-copy {
@@ -108,16 +105,12 @@ export default {
 
 .work-block-copy-text {
   min-height: 18rem;
-  // position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  // padding-right: 4rem;
-  // padding-bottom: 8rem;
-
-  @media (min-width: $mid) {
-    padding-right: 1.5rem;
-  }
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // @media (min-width: $mid) {
+  //   padding-right: 1.5rem;
+  // }
 }
 
 .video {
@@ -165,7 +158,7 @@ export default {
 .badge-container {
   position: absolute;
   bottom: 0rem;
-  right: 0rem;
+  left: 0rem;
 
   @media (min-width: $small) {
     position: relative;
@@ -173,6 +166,16 @@ export default {
 }
 
 .badge {
-  width: 8rem;
+  width: 6rem;
+  padding: 1rem;
+  background-color: #000;
+
+  // @media (min-width: $mid) {
+  //   width: 8rem;
+  // }
+}
+
+.link {
+  text-decoration: none;
 }
 </style>

@@ -1,0 +1,63 @@
+[
+  { "name": "ABC", "tags": ["gov"] },
+  { "name": "ACT Government", "tags": ["gov"] },
+  { "name": "Ausgrid", "tags": ["gov"] },
+  { "name": "Austrade", "tags": ["gov"] },
+  { "name": "Australian Digital Health Agency", "tags": ["gov"] },
+  {
+    "name": "Australian Securities and Investments Commission",
+    "tags": ["gov"]
+  },
+  { "name": "Department of Education Skills & Employment", "tags": ["gov"] },
+  { "name": "Department of Health", "tags": ["gov"] },
+  { "name": "Digital Transformation Agency (DTA)", "tags": ["gov"] },
+  { "name": "Indigenous Business Australia", "tags": ["gov"] },
+  { "name": "IP Australia", "tags": ["gov"] },
+  { "name": "NSW Department of Education", "tags": ["gov"] },
+  {
+    "name": "NSW Department of Planning, Industry & Environment",
+    "tags": ["gov"]
+  },
+  { "name": "NSW Department of Premier & Cabinet", "tags": ["gov"] },
+  { "name": "NSW Health", "tags": ["gov"] },
+  { "name": "NSW Public Service Commission", "tags": ["gov"] },
+  { "name": "NSW Trustee & Guardian", "tags": ["gov"] },
+  { "name": "National Film & Sound Archive", "tags": ["gov"] },
+  { "name": "Royal Australian Mint", "tags": ["gov"] },
+  { "name": "Safework NSW", "tags": ["gov"] },
+  { "name": "SBS", "tags": ["gov"] },
+  { "name": "Service NSW", "tags": ["gov"] },
+  { "name": "Services Australia", "tags": ["gov"] },
+  { "name": "Sport Australia", "tags": ["gov"] },
+  { "name": "TAFE NSW", "tags": ["gov"] },
+  { "name": "Tasmanian Department of Premier & Cabinet", "tags": ["gov"] },
+
+  {
+    "name": "Australian Securities and Investments Commission",
+    "tags": ["fin"]
+  },
+  { "name": "BeemIt", "tags": ["fin"] },
+  { "name": "Colonial First State", "tags": ["fin"] },
+  { "name": "CommSec", "tags": ["fin"] },
+  { "name": "Future Super", "tags": ["fin"] },
+  { "name": "IAG", "tags": ["fin"] },
+  { "name": "Indigenous Business Australia", "tags": ["fin"] },
+  { "name": "Russell Investments", "tags": ["fin"] },
+  { "name": "Big 4 bank (long term partnership)", "tags": ["fin"] },
+
+  { "name": "AIA Vitality", "tags": ["health"] },
+  { "name": "Ally Health", "tags": ["health"] },
+  { "name": "Australian Digital Health Agency", "tags": ["health"] },
+  { "name": "Bupa", "tags": ["health"] },
+  { "name": "Department of Health", "tags": ["health"] },
+  { "name": "Medical Director ", "tags": ["health"] },
+
+  { "name": "Career HQ", "tags": ["edu"] },
+  { "name": "Department of Education Skills & Employment", "tags": ["edu"] },
+  { "name": "National Skills Commission", "tags": ["edu"] },
+  { "name": "NSW Department of Education", "tags": ["edu"] },
+  { "name": "TAFE NSW", "tags": ["edu"] },
+  { "name": "UTS", "tags": ["edu"] },
+  { "name": "UWS", "tags": ["edu"] },
+  { "name": "Tractor Design School", "tags": ["edu"] }
+]

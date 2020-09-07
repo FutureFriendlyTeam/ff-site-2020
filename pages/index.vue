@@ -4,7 +4,6 @@
     :style="{backgroundColor: backgroundColor}">
 
     <fixed-banner/>
-
     <main-header/>
 
     <section 
@@ -16,15 +15,19 @@
       }"
       id="hero"
       data-enter-background="#FFF" 
-      class="center-col horizontal v-center">
+      class="center-col v-margin-bottom-small v-center horizontal">
       <div 
-        class="s-three-quarters m-two-thirds v-margin">
-        <h1 class="no-margin indent">Digital services have the power to change lives and build a better future.</h1>
+        id="hero-text" class="xs-full s-three-quarters m-two-thirds">
+        <!-- <transition
+          appear name="wipe-in"> -->
+        <h1 class="no-margin indent" >Digital services have the power to change lives and build a better future.</h1>
+        <!-- </transition> -->
       </div>
     </section>
 
+
     <section 
-      class="center-col horizontal v-margin-small" >
+      class="center-col horizontal v-margin-bottom-small" >
       <work-block
         v-observe-visibility="{
           callback: changeBackground,
@@ -36,10 +39,67 @@
         :data-enter-background="work.color" 
         :key="`${i}-caseStudies`" 
         :work="work" 
+        :show-badge="showAwards.includes(work.awardType)"
         :i="i"
         :class="[i%2 === 0 ? 'start': 'end']"
         class="work-row" />
     </section>
+
+    <section v-observe-visibility="{
+      callback: changeBackground,
+      intersection: {
+        rootMargin: '-50% 0px -50% 0px'
+      },
+    }" v-if="visibleAwards.length > 0" id="awardsCallout" class=" center-col v-margin-bottom-small" data-enter-background="#D9F5ED" >
+
+      <article class="xs-full m-three-quarters l-two-thirds border-left border-right v-margin-bottom-small border-left border-right">
+    
+        <section class="h-padded v-margin-bottom-small">
+          <future-img 
+            :aspect="'four-three'" 
+            :scale="true"
+            src="gda-photo.jpg" 
+            alt="Photo of hand holding a Good Design Award"/>
+        </section>
+
+        <div class="horizontal border-left">
+          <section class="h-padded s-half border-right v-padded-bottom">
+            <h2 class="no-margin-top mid">Future Friendly recognised for {{ visibleAwards.length }} Good Design awards in 2020.</h2>
+            <p class="mid">Australia's annual Good Design Awards program is one of the oldest and most prestigious international design awards in the world, promoting excellence in design and innovation since 1958.</p>
+
+            <p><a href="#" class="mid link">Read the annoucement</a></p>
+          </section>
+
+          <section class="h-padded s-half">
+            <a v-for="(award, i) in visibleAwards" :key="`${i}-award`" :href="award.link" target="_blank" class="award-list-item horizontal no-wrap wrapper-link">
+              <div class="badge-wrapper">
+                <future-img
+                  v-if="award.badgeImg"  
+                  :src="`${award.badgeImg.src}`" 
+                  :aspect="'free'"
+                  :alt="award.badgeImg.alt"
+                  class="badge "
+                />
+              </div>
+              <div class="flex hover-accent">
+                <h3 class="no-margin body">{{ award.text }}<span v-if="award.client">, with {{ award.client }}</span></h3>
+                <!-- <p class="no-margin"></p> -->
+              </div>
+            </a>
+          </section>
+        </div>
+      </article>
+    </section>
+
+
+
+
+
+
+
+
+
+
 
     <section 
       v-observe-visibility="{
@@ -49,12 +109,12 @@
         },
       }"
       id="services" 
-      data-enter-background="#FFF" 
-      class="center-col v-margin-mega">
+      data-enter-background="#FCDEE1" 
+      class="center-col v-margin-mega-bottom">
       <div 
         class="s-three-quarters m-two-thirds v-margin-mega" 
       >
-        <h1>We define long term digital strategies, and support you to your first release.</h1>
+        <h1 class="indent">We define and deliver digital services that succeed today and in the future.</h1>
       </div>
 
       <div class="border-left border-right">
@@ -69,8 +129,9 @@
                 class="h-padded flex" >
 
                 <future-img 
-                  :src="require(`~/assets/strategic-design.png`)" 
                   :scale="true" 
+                  src="strategic-design.png"
+                  alt="Photo of a woman co-designing a digital service"
                   aspect="four-three"/>
               </div>
 
@@ -83,16 +144,16 @@
           </div>
 
           <div class="xs-full s-two-thirds m-third h-padded border-right service-copy v-padded-bottom-big">
-            <h3 class="no-margin-top">Digital service strategy — define how digital products succeed today, tomorrow, and in the future.</h3>
-            <ol class="body no-margin">
+            <h2 class="no-margin-top mid">Digital service strategy — define how digital products succeed today, tomorrow, and in the future.</h2>
+            <ul class="body no-margin">
               <li>Proposition design </li>
-              <li>Product innovation.</li>
-              <li>Service design.</li>
-              <li>Rapid prototyping & customer validation.</li>
-              <li>Business cases & funding.</li>
-              <li>Live trials & experimentation.</li>
-              <li>3 horizons roadmaps.</li>
-            </ol>
+              <li>Product innovation</li>
+              <li>Service design</li>
+              <li>Rapid prototyping & customer validation</li>
+              <li>Business cases & funding</li>
+              <li>Live trials & experimentation</li>
+              <li>3 horizons roadmaps</li>
+            </ul>
           </div>
         </div>
 
@@ -106,8 +167,9 @@
                 class="h-padded flex" >
   
                 <future-img 
-                  :src="require(`~/assets/product-delivery.png`)" 
                   :scale="true" 
+                  src="product-delivery.png" 
+                  alt="Photo of a developer building a new digital product"
                   aspect="four-three"/>
 
               </div>
@@ -116,15 +178,16 @@
           </div>
 
           <div class="xs-full s-two-thirds m-third h-padded border-left service-copy v-padded-bottom-big">
-            <h3 class="no-margin-top">Delivery support — work together to launch new digital products, and set internal teams up for success.</h3>
-            <ol class="body no-margin">
-              <li>Team formation & acceleration.</li>
-              <li>Product management.</li>
-              <li>Product Design.</li>
-              <li>Product engineering.</li>
-              <li>MVP / First release delivery.</li>
-              <li>Product roadmaps.</li>
-            </ol>
+            <h2 class="no-margin-top mid">Delivery support — work together to launch new digital products, and set internal teams up for success.</h2>
+            <ul class="body no-margin">
+              <li>Team formation & acceleration</li>
+              <li>Product management</li>
+              <li>Product design</li>
+              <li>Product engineering</li>
+              <li>User testing</li>
+              <li>MVP / First release delivery</li>
+              <li>Product roadmaps</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -140,27 +203,32 @@
         },
       }"
       id="partners" 
-      class="v-margin-mega"
-      data-enter-background="#FFDAE3" 
+      class="v-margin-mega center-col"
+      data-enter-background="#CDCCC4" 
     >
 
-      <div class="center-col horizontal has-grid v-padded-bottom-big">
-        <background-grid 
-          class="grid-container center-col" 
-          columns="xs-2 s-3 m-4"/>
-        <div class="xs-half s-third m-quarter h-padded">
-          <h3 class="no-margin">Client partners</h3>
+      <div class=" horizontal border-left border-right">
+        <div class="xs-full s-third m-quarter h-padded border-right v-padded-bottom-big">
+          <h3 class="no-margin-top v-margin-bottom-small">Client partners</h3>
+          <nav>
+            
+            <a :class="[showClients === 'gov' ? 'active' : '']" class="link partner-filter" @click="showClients = 'gov'">Public Sector</a>
+            <a :class="[showClients === 'fin' ? 'active' : '']" class="link partner-filter" @click="showClients = 'fin'">Finance</a>
+            <a :class="[showClients === 'health' ? 'active' : '']" class="link partner-filter" @click="showClients = 'health'">Health</a>
+            <a :class="[showClients === 'edu' ? 'active' : '']" class="link partner-filter" @click="showClients = 'edu'">Education</a>
+            
+          </nav>
         </div>
 
         <div 
           id="partner-list" 
           class="flex">
           <p 
-            v-for="(partner, i) in partners"
+            v-for="(partner, i) in visibleClients"
             :key="`${i}-partner`" 
             :delay="100+(i*50)" 
             class="h-padded partner no-margin-top mini">
-            {{ partner }}
+            {{ partner.name }}
           </p>        
         </div>
       </div>
@@ -175,16 +243,18 @@
           rootMargin: '-50% 0px -50% 0px'
         },
       }" 
-      data-enter-background="#CDCCC4"/>
-
+      data-enter-background="#f05969"/>
   </div>
 </template>
 
 <script>
+import awards from '~/data/awards.json'
+import clients from '~/data/clients.json'
+import caseStudies from '~/data/case-studies.json'
+
 import MainHeader from '~/components/MainHeader.vue'
 import MainFooter from '~/components/MainFooter.vue'
 import FutureImg from '~/components/FutureImg.vue'
-import BackgroundGrid from '~/components/BackgroundGrid.vue'
 import WorkBlock from '~/components/WorkBlock.vue'
 import ImageGrid from '~/components/ImageGrid.vue'
 import FixedBanner from '~/components/FixedBanner.vue'
@@ -193,7 +263,6 @@ export default {
   components: {
     MainHeader,
     FutureImg,
-    BackgroundGrid,
     WorkBlock,
     ImageGrid,
     MainFooter,
@@ -203,100 +272,39 @@ export default {
     return {
       backgroundColor: '#ffffff',
       showBanner: true,
-      partners: [
-        'ABC',
-        'ASIC',
-        'Ausgrid',
-        'IAG',
-        'Dept. of Education',
-        'Dept. of Premier & Cabinet',
-        'Dept. of Planning, Industry & Environment',
-        'Dept. of Health',
-        'Public Service Commission',
-        'ACT Government',
-        'Tasmanian Government',
-        'Russell Investments',
-        'Colonial First State',
-        'Frasers Property',
-        'SBS',
-        'Service NSW',
-        'National Film & Sound Archives'
-      ],
-      caseStudies: [
-        {
-          main:
-            'With Service NSW we delivered a digital service to access government benefits – giving $3 billion back to NSW residents.',
-          client: 'Service NSW.',
-          img: {
-            src: 'col-hero.jpg',
-            aspect: 'four-three'
-          },
-          color: '#ECDFD8',
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
-          badgeImg: {
-            src: 'gda-badges/gda-gold.svg',
-            alt: 'Good Design Award Winner – Gold'
-          }
-        },
-        {
-          lead: 'Building financial resiliance.',
-          main:
-            'With Colonial First State we defined a digital strategy to help Australians build financial resiliance.',
-          client: 'a leading superannuation provider.',
-          img: {
-            src: 'cfs-hero.jpg',
-            aspect: 'four-three',
-            alt: 'Foo'
-          },
-          color: '#DDEEEF',
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
-          badgeImg: {
-            src: 'gda-badges/gda-winner.svg',
-            alt: 'Good Design Award Winner'
-          }
-        },
-        {
-          lead: 'Mitigating domestic violence.',
-          main:
-            'With the ACT Government we designed a service to recognise & respond to financial abuse. ',
-          client: 'the ACT Government',
-          img: {
-            src: 'fsh-hero.jpg',
-            video: 'fsh-hero.mp4',
-            aspect: 'four-three',
-            alt: 'Foo'
-          },
-          color: '#DFE3D6',
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
-          badgeImg: {
-            src: 'gda-badges/gda-gold.svg',
-            alt: 'Good Design Award Winner – Gold'
-          }
-        },
-
-        {
-          lead: 'Improving early childhood learning.',
-          main:
-            'With the Department of Education, we built a digital service to create a safe environment for new primary school students.',
-          client: 'the Dept. of Education.',
-          img: {
-            src: 'tts-hero.jpg',
-            aspect: 'four-three',
-            alt: 'Foo'
-          },
-          color: '#EEE8F3',
-          link:
-            'https://awards.good-design.org/gallery/mGNXVWjB/mkWPRlVZ?search=0319cbe7306fc0a3-1',
-          badgeImg: {
-            src: 'gda-badges/gda-winner.svg',
-            alt: 'Good Design Award Winner'
-          }
-        }
-      ]
+      awards: awards,
+      partners: clients,
+      caseStudies: caseStudies,
+      // showAwards: ['accolade', 'winner', 'gold', 'best'],
+      showAwards: [],
+      showClients: 'gov'
     }
+  },
+
+  computed: {
+    visibleAwards() {
+      return this.awards.filter(award => {
+        return this.showAwards.includes(award.type)
+      })
+    },
+    visibleClients() {
+      return this.partners.filter(partner => {
+        if (this.showClients === 'all') {
+          return true
+        } else {
+          return partner.tags.includes(this.showClients)
+        }
+      })
+    }
+  },
+
+  mounted() {
+    const sectors = ['gov', 'fin', 'health', 'edu']
+    setInterval(() => {
+      let curr = sectors.indexOf(this.showClients)
+      let next = curr + 1
+      this.showClients = sectors[next % sectors.length]
+    }, 2000)
   },
 
   methods: {
@@ -317,27 +325,14 @@ export default {
 }
 
 #hero {
-  padding-top: 4rem;
-  min-height: 60vh;
+  // h1 {
+  //   // text-indent: 16.66%;
+  // }
+  min-height: 66.66vh;
   overflow: hidden;
-
-  #arrow {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    width: 160px;
-    height: auto;
-    transform: translate3d(-50%, 0, 0);
-    mix-blend-mode: multiply;
-    opacity: 0.5;
-  }
 }
 
 #partners {
-  .partner {
-    margin-bottom: 1rem;
-  }
-
   #partner-list {
     columns: 1;
     column-fill: balance;
@@ -351,6 +346,15 @@ export default {
     }
 
     column-gap: 0px;
+  }
+
+  .partner-filter {
+    display: block;
+    margin-bottom: 1em;
+
+    &.active {
+      color: $accent;
+    }
   }
 }
 
@@ -394,6 +398,28 @@ export default {
       transform: translate3d(0, 33.33%, 0);
     }
     mix-blend-mode: multiply;
+  }
+
+  #product-delivery-image-1 {
+    mix-blend-mode: multiply;
+    // margin-right: 33.33%;
+    margin-left: 25%;
+  }
+}
+
+.award-list-item {
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+
+  @media (min-width: $mid) {
+    margin-bottom: 3rem;
+  }
+
+  .badge-wrapper {
+    width: 6rem;
+    margin-right: 1.5rem;
+    padding: 1rem;
+    background-color: #000;
   }
 }
 </style>

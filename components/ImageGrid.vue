@@ -9,7 +9,8 @@
         class="image-grid-tile xs-half" >
         <future-img 
           v-if="img != 'blank'" 
-          :src ="require(`~/assets/${img}`)" 
+          :src ="img" 
+          alt="Small photo of workshop "
           aspect="four-three"/>
       </div>
     </div>
