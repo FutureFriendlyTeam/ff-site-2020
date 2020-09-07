@@ -32,7 +32,7 @@
           <p class="no-margin-top">We acknowledge the Traditional Owners of country throughout Australia and recognise their continuing connection to land, waters and culture. We pay our respects to their Elders past, present and emerging and commit to building a brighter future together.
           </p>
 
-          <p class="no-margin-top">Our studios sit on country of the the Gadigal people of the Eora nation in Sydney and the Ngunnawal people in Canberra.
+          <p class="no-margin-top">Our studios sit on country of the the Gadigal people of the Eora nation in Sydney and Ngunnawal people in Canberra.
           </p>
 
           
