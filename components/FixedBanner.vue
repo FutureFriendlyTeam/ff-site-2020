@@ -3,15 +3,15 @@
     v-if="showBanner" id="banner">
     <div class="center-col  horizontal v-center">
       <a 
-        href="#" 
+        href="https://www.linkedin.com/pulse/mentally-friendly-now-future-nick-gower"
+        target="_blank"
         class="wrapper-link flex v-padded">
         <p class="mid">Mentally Friendly has changed it's name to Future Friendly &#8594;</p>
       </a>
 
       <div class="v-padded close">
         <a 
-          href="https://www.linkedin.com/pulse/mentally-friendly-now-future-nick-gower"
-          target="_blank"
+
           class="wrapper-link text-button mid" 
           @click="showBanner = false">
           &times;
