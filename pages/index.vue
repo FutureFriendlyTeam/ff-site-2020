@@ -278,8 +278,7 @@ export default {
       awards: awards,
       partners: clients,
       caseStudies: caseStudies,
-      // showAwards: ['accolade', 'winner', 'gold', 'best'],
-      showAwards: [],
+      showAwards: ['accolade', 'winner', 'gold', 'best'],
       showClients: 'gov'
     }
   },
