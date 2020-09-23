@@ -100,7 +100,7 @@
 
     <section>
       <div class="center-col">
-        <div class="horizontal border-right">
+        <div class="horizontal">
 
           <article class="xs-full s-two-thirds v-padding-right v-margin-bottom">
             <fixed-aspect :aspect="'four-three'">
@@ -114,7 +114,7 @@
             </fixed-aspect>
           </article>
 
-          <div class="h-padding flex self-end v-margin-bottom">
+          <div id="quote-image" class="h-padding flex self-end border-block v-margin-bottom">
             <future-img :aspect="'square'"/>
           </div>
         </div>
@@ -144,11 +144,6 @@
 </template>
 
 <script>
-import awards from '~/data/awards.json'
-import partners from '~/data/partners.json'
-import work from '~/data/work.json'
-import news from '~/data/news.json'
-
 import FutureImg from '~/components/FutureImg.vue'
 import FixedAspect from '~/components/FixedAspect.vue'
 
@@ -158,22 +153,22 @@ export default {
     FixedAspect
   },
   data() {
-    return {
-      partners: partners,
-      work: work,
-      news: news
-    }
+    return {}
   },
 
-  methods: {
-    changeBackground(visible, el) {
-      if (visible) {
-        this.backgroundColor = el.target.getAttribute('data-enter-background')
-      }
-    }
-  }
+  methods: {}
 }
 </script>
 
 <style lang="scss" scoped>
+@import '../scss/variables.scss';
+@import '../scss/borders.scss';
+
+#quote-image {
+  @media (min-width: $small) {
+    &:before {
+      display: none;
+    }
+  }
+}
 </style>

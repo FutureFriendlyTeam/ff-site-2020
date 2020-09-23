@@ -7,8 +7,9 @@
         <span class="logo-part border-left border-right v-padding-bottom-tiny">Friendly</span>
       </nuxt-link>
 
-      <nav id="nav" class="m-half border-block v-padding-bottom-tiny">
+      <nav id="nav" class="m-half border-block v-padding-bottom-tiny horizontal between">
         <nuxt-link to="/us">Who we are</nuxt-link>
+        <nuxt-link to="/services">Services</nuxt-link>
       </nav>
     </div>
     <!-- <div id="header-wrapper" class="center-col horizontal">
@@ -65,7 +66,7 @@ export default {
 #nav {
   display: none;
   @media (min-width: $mid) {
-    display: block;
+    display: flex;
   }
 }
 
