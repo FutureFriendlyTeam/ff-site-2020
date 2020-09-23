@@ -10,6 +10,7 @@
       <nav id="nav" class="m-half border-block v-padding-bottom-tiny horizontal between">
         <nuxt-link to="/us">Who we are</nuxt-link>
         <nuxt-link to="/services">Services</nuxt-link>
+        <nuxt-link to="/work">Work</nuxt-link>
       </nav>
     </div>
     <!-- <div id="header-wrapper" class="center-col horizontal">

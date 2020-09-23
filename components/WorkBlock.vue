@@ -1,35 +1,35 @@
 <template>
 
   <article
-    :class="i%2 === 0 ? 'start': 'end'" 
-    class="work-block border-block h-padding-none xs-full m-three-quarters l-two-thirds v-margin-bottom">
+    :class="sizeClasses" 
+    class="work-block border-block xs-full v-margin-bottom v-padding-bottom-mega">
 
     <a 
       :href="work.link"
       target="_blank" 
       class="wrapper-link">
 
-      <section class="h-padding v-margin-bottom">
-        <future-img 
-          :src="work.img.src" 
-          :aspect="work.img.aspect" 
-          :alt="work.img.alt"
-          :scale="true"/>
-      </section>
+      
+      <future-img 
+        :src="work.img.src" 
+        :aspect="work.img.aspect" 
+        :alt="work.img.alt"
+        :scale="true"
+        class="v-margin-bottom"/>
+      
 
-      <section class="horizontal">
-        <div class="border-block xs-full s-half v-padding-bottom-big">
-          <h2 class="mid v-margin-top-none">{{ work.client }}</h2>
-          <p class="mid v-margin-top-none">{{ work.text }}</p>
-          <p class="mid v-margin-top-none">{{ work.tag }}</p>
-        </div>
-        <div class="border-block xs-full s-half">
-          <div class="badge-container h-padding"><future-img
-            v-if="work.award"
-            :aspect="'free'"
-            class="badge "
-          /></div>
-        </div>
+      <section>
+
+        <h2 class="body v-margin-top-none">{{ work.client }}</h2>
+        <p class="body v-margin-top-none">{{ work.text }}</p>
+        <p class="body v-margin-top-none">{{ work.tag }}</p>
+        
+        <div class="badge-container h-padding"><future-img
+          v-if="work.award"
+          :aspect="'free'"
+          class="badge "
+        /></div>
+        
       </section>
     </a>
   </article>
@@ -50,10 +50,16 @@ export default {
     i: {
       type: Number,
       default: 0
-    },
-    showBadge: {
-      type: Boolean,
-      default: false
+    }
+  },
+  computed: {
+    sizeClasses() {
+      const c = {
+        small: 'xs-full s-third m-quarter',
+        mid: 'xs-full s-half',
+        big: 'xs-full s-two-thirds m-three-quarters'
+      }
+      return c[this.work.size]
     }
   }
 }

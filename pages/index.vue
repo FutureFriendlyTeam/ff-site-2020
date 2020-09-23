@@ -18,15 +18,15 @@
             <future-img 
               :aspect="'four-three'"/>
           </article>
-          
+
         </div>
       </div>
     </section>
 
     <section class="v-padding-bottom-mega">
       <div class="center-col">
-        <work-block
-          v-for="(work, i) in work"
+        <homepage-work-block
+          v-for="(work, i) in work.filter(item => item.homepage)"
           :key="`work-${i}`" 
           :work="work" 
           :i="i"
@@ -47,15 +47,6 @@
       </div>
     </section>
 
-
-    <!-- <main-footer 
-      v-observe-visibility="{
-        callback: changeBackground,
-        intersection: {
-          rootMargin: '-50% 0px -50% 0px'
-        },
-      }" 
-      data-enter-background="#f05969"/>  -->
   </div>
 </template>
 
@@ -68,7 +59,7 @@ import news from '~/data/news.json'
 import MainHeader from '~/components/MainHeader.vue'
 import MainFooter from '~/components/MainFooter.vue'
 import FutureImg from '~/components/FutureImg.vue'
-import WorkBlock from '~/components/WorkBlock.vue'
+import HomepageWorkBlock from '~/components/HomepageWorkBlock.vue'
 import ImageGrid from '~/components/ImageGrid.vue'
 import FixedBanner from '~/components/FixedBanner.vue'
 
@@ -76,7 +67,7 @@ export default {
   components: {
     MainHeader,
     FutureImg,
-    WorkBlock,
+    HomepageWorkBlock,
     ImageGrid,
     MainFooter,
     FixedBanner
