@@ -3,8 +3,8 @@
     :class="[scale ? 'scale-image-wrapper' : '']" 
     class="future-image-wrapper">
     <fixed-aspect :aspect="aspect">
-      <div class="future-image"/>
-      <!-- <div 
+      <!-- <div class="future-image"/>
+      <div 
         :class="[visible ? 'visible' : 'invisible', scale ? 'scale-image' : '']" 
         class="future-image-effect-wrapper">
         <picture v-if="src">

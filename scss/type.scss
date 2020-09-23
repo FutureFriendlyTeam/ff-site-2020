@@ -14,6 +14,27 @@
   font-display: swap;
 }
 
+.super {
+  font-size: 6rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-weight: normal;
+  margin-bottom: 1em;
+
+  @media (min-width: $mid) {
+    font-size: 7rem;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: $big) {
+    font-size: 8rem;
+  }
+
+  @media (min-width: $max) {
+    font-size: 9rem;
+  }
+}
+
 .mega {
   font-size: 3rem;
   line-height: 1;

@@ -4,8 +4,8 @@
 // $h-spacing-mid: #000000;
 
 .center-col {
-  max-width: 1800px;
-  margin: 0 auto;
+  // max-width: 1800px;
+  // margin: 0 auto;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 
@@ -315,21 +315,20 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  // align-items: stretch;
 
   &.reverse {
     flex-direction: row-reverse;
   }
 
-  &.v-center {
+  &.center {
     align-items: center;
   }
 
-  &.v-start {
+  &.start {
     align-items: flex-start;
   }
 
-  &.v-end {
+  &.end {
     align-items: flex-end;
   }
 
@@ -337,10 +336,65 @@
     flex-wrap: nowrap;
   }
 
+  &.between {
+    justify-content: space-between;
+  }
+
   .flex {
     flex: 1;
   }
+
+  .self-start {
+    align-self: flex-start;
+  }
+
+  .self-center {
+    align-self: center;
+  }
+
+  .self-end {
+    align-self: flex-end;
+  }
 }
+
+.vertical {
+  @extend .horizontal;
+  flex-direction: column;
+
+  &.reverse {
+    flex-direction: column-reverse;
+  }
+}
+
+// .horizontal {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+
+//   &.reverse {
+//     flex-direction: row-reverse;
+//   }
+
+//   &.v-center {
+//     align-items: center;
+//   }
+
+//   &.v-start {
+//     align-items: flex-start;
+//   }
+
+//   &.v-end {
+//     align-items: flex-end;
+//   }
+
+//   &.no-wrap {
+//     flex-wrap: nowrap;
+//   }
+
+//   .flex {
+//     flex: 1;
+//   }
+// }
 
 // .cell {
 //   @extend .h-padded;

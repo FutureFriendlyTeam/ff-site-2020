@@ -83,6 +83,27 @@ a {
   color: inherit;
 }
 
+.big-quote {
+  padding: 1.5rem;
+  background-color: black;
+  color: #fff;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 8rem;
+  blockquote {
+    margin: 0px;
+  }
+
+  .quote-attribution {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+}
+
 // .link {
 //   text-decoration: underline;
 

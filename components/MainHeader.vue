@@ -2,13 +2,13 @@
   <header 
     id="header" class="v-padding-top v-padding-bottom">
     <div class="center-col horizontal">
-      <div id="logo" class="horizontal">
+      <nuxt-link id="logo" to="/" class="horizontal">
         <span class="logo-part border-left border-right v-padding-bottom-tiny">Future</span>
         <span class="logo-part border-left border-right v-padding-bottom-tiny">Friendly</span>
-      </div>
+      </nuxt-link>
 
       <nav id="nav" class="m-half border-block v-padding-bottom-tiny">
-        <a href="">Who we are</a>
+        <nuxt-link to="/us">Who we are</nuxt-link>
       </nav>
     </div>
     <!-- <div id="header-wrapper" class="center-col horizontal">
@@ -56,16 +56,16 @@ export default {
   > .horizontal {
     justify-content: space-between;
   }
+
+  a {
+    text-decoration: none;
+  }
 }
 
 #nav {
   display: none;
   @media (min-width: $mid) {
     display: block;
-  }
-
-  a {
-    text-decoration: none;
   }
 }
 
