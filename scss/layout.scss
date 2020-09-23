@@ -1,9 +1,13 @@
 @import 'variables.scss';
+
+// $h-spacing-small: #000000;
+// $h-spacing-mid: #000000;
+
 .center-col {
   max-width: 1800px;
   margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 
   @media (min-width: $small) {
     padding-left: 1rem;
@@ -21,10 +25,15 @@
   }
 }
 
-.h-padded {
+.h-padding-none {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.h-padding {
+  box-sizing: border-box;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-  box-sizing: border-box;
 
   @media (min-width: $small) {
     padding-left: 1rem;
@@ -42,75 +51,226 @@
   }
 }
 
-.v-padded {
+.h-padding-left {
+  box-sizing: border-box;
+  padding-left: 0.75rem;
+
+  @media (min-width: $small) {
+    padding-left: 1rem;
+  }
+
+  @media (min-width: $mid) {
+    padding-left: 1.25rem;
+  }
+
+  @media (min-width: $big) {
+    padding-left: 1.5rem;
+  }
+}
+
+.h-padding-right {
+  box-sizing: border-box;
+  padding-right: 0.75rem;
+
+  @media (min-width: $small) {
+    padding-right: 1rem;
+  }
+
+  @media (min-width: $mid) {
+    padding-right: 1.25rem;
+  }
+
+  @media (min-width: $big) {
+    padding-right: 1.5rem;
+  }
+}
+
+.h-padding {
+  box-sizing: border-box;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+
+  @media (min-width: $small) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: $mid) {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  @media (min-width: $big) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.v-padding-top-none {
+  padding-top: 0rem;
+}
+
+.v-padding-top-tiny {
+  padding-top: 0.75rem;
+}
+
+.v-padding-top {
   padding-top: 1.5rem;
+}
+
+.v-padding-top-mid {
+  padding-top: 3rem;
+}
+
+.v-padding-top-big {
+  padding-top: 6rem;
+}
+
+.v-padding-top-mega {
+  padding-top: 20vh;
+}
+
+.v-padding-bottom-none {
+  padding-bottom: 0rem;
+}
+
+.v-padding-bottom-tiny {
+  padding-bottom: 0.75rem;
+}
+
+.v-padding-bottom {
   padding-bottom: 1.5rem;
-  box-sizing: border-box;
 }
 
-.v-padded-bottom {
-  padding-bottom: 1.5rem;
-  box-sizing: border-box;
+.v-padding-bottom-mid {
+  padding-bottom: 3rem;
 }
 
-.v-padded-big {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  @media (min-width: $mid) {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
+.v-padding-bottom-big {
+  padding-bottom: 6rem;
 }
 
-.v-padded-bottom-big {
-  padding-bottom: 4rem;
-  @media (min-width: $mid) {
-    padding-bottom: 8rem;
-  }
+.v-padding-bottom-mega {
+  padding-bottom: 20vh;
 }
 
-.v-padded-top-big {
-  padding-top: 4rem;
-  @media (min-width: $mid) {
-    padding-top: 8rem;
-  }
+.v-margin-top-none {
+  margin-top: 0rem;
 }
 
-.v-margin-small {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.v-margin-bottom-small {
-  margin-bottom: 1.5rem;
-}
-
-.v-margin-top-small {
-  margin-top: 1.5rem;
-}
-
-.v-margin {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  @media (min-width: $mid) {
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-  }
-}
-
-.v-margin-bottom {
-  margin-bottom: 4rem;
-  @media (min-width: $mid) {
-    margin-bottom: 8rem;
-  }
+.v-margin-top-tiny {
+  margin-top: 0.75rem;
 }
 
 .v-margin-top {
-  margin-top: 4rem;
-  @media (min-width: $mid) {
-    margin-top: 8rem;
-  }
+  margin-top: 1.5rem;
 }
+
+.v-margin-top-mid {
+  margin-top: 3rem;
+}
+
+.v-margin-top-big {
+  margin-top: 6rem;
+}
+
+.v-margin-top-mega {
+  margin-top: 20vh;
+}
+
+.v-margin-bottom-none {
+  margin-bottom: 0rem;
+}
+
+.v-margin-bottom-tiny {
+  margin-bottom: 0.75rem;
+}
+
+.v-margin-bottom {
+  margin-bottom: 1.5rem;
+}
+
+.v-margin-bottom-mid {
+  margin-bottom: 3rem;
+}
+
+.v-margin-bottom-big {
+  margin-bottom: 6rem;
+}
+
+.v-margin-bottom-mega {
+  margin-bottom: 20vh;
+}
+
+// .v-padded {
+//   padding-top: 1.5rem;
+//   padding-bottom: 1.5rem;
+//   box-sizing: border-box;
+// }
+
+// .v-padded-bottom {
+//   padding-bottom: 1.5rem;
+//   box-sizing: border-box;
+// }
+
+// .v-padded-big {
+//   padding-top: 4rem;
+//   padding-bottom: 4rem;
+//   @media (min-width: $mid) {
+//     padding-top: 8rem;
+//     padding-bottom: 8rem;
+//   }
+// }
+
+// .v-padded-bottom-big {
+//   padding-bottom: 4rem;
+//   @media (min-width: $mid) {
+//     padding-bottom: 8rem;
+//   }
+// }
+
+// .v-padded-top-big {
+//   padding-top: 4rem;
+//   @media (min-width: $mid) {
+//     padding-top: 8rem;
+//   }
+// }
+
+// .v-margin-small {
+//   margin-top: 1.5rem;
+//   margin-bottom: 1.5rem;
+// }
+
+// .v-margin-bottom-small {
+//   margin-bottom: 1.5rem;
+// }
+
+// .v-margin-top-small {
+//   margin-top: 1.5rem;
+// }
+
+// .v-margin {
+//   margin-top: 4rem;
+//   margin-bottom: 4rem;
+//   @media (min-width: $mid) {
+//     margin-top: 8rem;
+//     margin-bottom: 8rem;
+//   }
+// }
+
+// .v-margin-bottom {
+//   margin-bottom: 4rem;
+//   @media (min-width: $mid) {
+//     margin-bottom: 8rem;
+//   }
+// }
+
+// .v-margin-top {
+//   margin-top: 4rem;
+//   @media (min-width: $mid) {
+//     margin-top: 8rem;
+//   }
+// }
 
 // .v-margin-big {
 //   margin-top: 8rem;
@@ -125,31 +285,31 @@
 //   margin-top: 8rem;
 // }
 
-.v-margin-mega {
-  margin-top: 25vh;
-  margin-bottom: 25vh;
-}
+// .v-margin-mega {
+//   margin-top: 25vh;
+//   margin-bottom: 25vh;
+// }
 
-.v-margin-mega-top {
-  margin-top: 25vh;
-}
+// .v-margin-mega-top {
+//   margin-top: 25vh;
+// }
 
-.v-margin-mega-bottom {
-  margin-bottom: 25vh;
-}
+// .v-margin-mega-bottom {
+//   margin-bottom: 25vh;
+// }
 
-.no-margin {
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-}
+// .no-margin {
+//   margin-top: 0rem;
+//   margin-bottom: 0rem;
+// }
 
-.no-margin-top {
-  margin-top: 0rem;
-}
+// .no-margin-top {
+//   margin-top: 0rem;
+// }
 
-.no-margin-bottom {
-  margin-bottom: 0rem;
-}
+// .no-margin-bottom {
+//   margin-bottom: 0rem;
+// }
 
 .horizontal {
   display: flex;
@@ -182,13 +342,13 @@
   }
 }
 
-.cell {
-  @extend .h-padded;
-}
+// .cell {
+//   @extend .h-padded;
+// }
 
-.row {
-  @extend .h-padded;
-}
+// .row {
+//   @extend .h-padded;
+// }
 
 .full-height {
   min-height: 100vh;
@@ -257,6 +417,10 @@
 }
 
 @media (min-width: $mid) {
+  .m-sixth {
+    width: 16.6%;
+  }
+
   .m-quarter {
     width: 25%;
   }

@@ -1,0 +1,55 @@
+[
+  {
+    "text": "We delivered a digital service to access government benefits – giving $3 billion back to NSW residents.",
+    "client": "Service NSW.",
+    "tag": "Public Sector — Finance",
+    "img": {
+      "src": "col-hero.jpg",
+      "aspect": "four-three",
+      "alt": "Photo showing a children's dance class"
+    },
+    "color": "#ECDFD8",
+    "link": "https://good-design.org/projects/savings-finder-giving-1-5-billion-back-to-the-community/",
+    "award": "gda-gold"
+  },
+  {
+    "text": "We defined a digital strategy to help Australians build financial resilience.",
+    "client": "Colonial First State",
+    "tag": "Finance",
+    "img": {
+      "src": "cfs-hero.jpg",
+      "aspect": "four-three",
+      "alt": "Illustration of the Colonial First State website"
+    },
+    "color": "#DDEEEF",
+    "link": "https://good-design.org/projects/colonial-first-state-helping-australians-build-financial-resilience/",
+    "award": "gda-winner"
+  },
+  {
+    "text": "We designed a service to recognise & respond to financial abuse. ",
+    "client": "the ACT Government's Family Safety Hub",
+    "tag": "Public Sector — Finance",
+    "img": {
+      "src": "fsh-hero.jpg",
+      "video": "fsh-hero.mp4",
+      "aspect": "four-three",
+      "alt": "Photo of a woman in a workshop"
+    },
+    "color": "#DFE3D6",
+    "link": "https://good-design.org/projects/lowering-barriers-to-access-redesigning-financial-abuse-services/",
+    "award": "gda-gold"
+  },
+  {
+    "text": "We built a digital service to create a safe environment for new primary school students.",
+    "client": "NSW Department of Education.",
+    "tag": "Public Sector — Education",
+    "img": {
+      "src": "tts-hero.jpg",
+      "aspect": "four-three",
+      "alt": "Photo of a small child playing"
+    },
+    "color": "#EEE8F3",
+    "link": "https://good-design.org/projects/transforming-the-form-for-a-better-transition-to-school/",
+    "award": "gda-winner"
+  }
+]

@@ -1,8 +1,17 @@
 <template>
   <header 
-    id="header" 
-    class="v-padded">
-    <div id="header-wrapper" class="center-col horizontal">
+    id="header" class="v-padding-top v-padding-bottom">
+    <div class="center-col horizontal">
+      <div id="logo" class="horizontal">
+        <span class="logo-part border-left border-right v-padding-bottom-tiny">Future</span>
+        <span class="logo-part border-left border-right v-padding-bottom-tiny">Friendly</span>
+      </div>
+
+      <nav id="nav" class="m-half border-block v-padding-bottom-tiny">
+        <a href="">Who we are</a>
+      </nav>
+    </div>
+    <!-- <div id="header-wrapper" class="center-col horizontal">
       <div 
         id="logo" 
         class="horizontal border-right">
@@ -24,7 +33,7 @@
           
       </div>
       <a id="email" href="mailto:hello@futurefriendly.team" class="header-part border-right border-left link">hello@futurefriendly.team</a>
-    </div>
+    </div> -->
   </header>
 </template>
 
@@ -37,30 +46,53 @@ export default {
 
 
 <style lang="scss" scoped>
+@import '../scss/variables.scss';
+
 #header {
   position: fixed;
   width: 100%;
   z-index: 999;
-}
 
-#email {
-  display: none;
-  @media (min-width: 372px) {
-    display: block;
+  > .horizontal {
+    justify-content: space-between;
   }
 }
 
-#header-wrapper {
-  justify-content: space-between;
-  font-size: 1rem;
-  line-height: 1.2;
+#nav {
+  display: none;
+  @media (min-width: $mid) {
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+  }
 }
 
-.header-part {
+.logo-part {
   display: block;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-bottom: 0.75rem;
-  text-decoration: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
+
+// #email {
+//   display: none;
+//   @media (min-width: 372px) {
+//     display: block;
+//   }
+// }
+
+// #header-wrapper {
+//   justify-content: space-between;
+//   font-size: 1rem;
+//   line-height: 1.2;
+// }
+
+// .header-part {
+//   display: block;
+//   padding-left: 0.25rem;
+//   padding-right: 0.25rem;
+//   padding-bottom: 0.75rem;
+//   text-decoration: none;
+// }
 </style>

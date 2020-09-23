@@ -1,35 +1,59 @@
 <template>
   <div 
-    id="page" 
-    :style="{backgroundColor: backgroundColor}">
+    id="page">
 
-    <fixed-banner/>
     <main-header/>
 
     <section 
-      v-observe-visibility="{
-        callback: changeBackground,
-        intersection: {
-          rootMargin: '-50% 0px -50% 0px'
-        },
-      }"
-      id="hero"
-      data-enter-background="#FFF" 
-      class="center-col v-margin-bottom-small v-center horizontal">
-      <div 
-        id="hero-text" class="xs-full s-three-quarters m-two-thirds">
-        <!-- <transition
-          appear name="wipe-in"> -->
-
-
-
-        <h1 class="no-margin indent" >Digital services have the power to change lives and build a better future.</h1>
-        <!-- </transition> -->
+      class="v-padding-top-mega v-padding-bottom-mega">
+      <div class="center-col">
+        <h1 class="mega xs-full s-three-quarters no-margin">Digital services have the power to change lives and build a better future.</h1>
       </div>
     </section>
 
+    <section class="v-padding-bottom-mega">
+      <div class="center-col">
+        <h2 class="big v-margin-top-none v-margin-bottom-big">Client partners</h2>
+        <div class="horizontal">
+          <article v-for="(partner, i) in partners.slice(0, valueFromMq({tiny:3, small:3, mid: 4, big: 6, max: 6}))" :key="`partners-${i}`" class="border-block v-padding-bottom-mid xs-third s-quarter m-sixth l-sixth">
+            <future-img 
+              :aspect="'four-three'"/>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <section 
+    <section class="v-padding-bottom-mega">
+      <div class="center-col">
+        <work-block
+          v-for="(work, i) in work"
+          :key="`work-${i}`" 
+          :work="work" 
+          :i="i"
+          :class="[i%2 === 0 ? 'start': 'end']" />
+      </div>
+    </section>
+
+    <section class="v-padding-bottom-mega">
+      <div class="center-col">
+        <h2 class="big v-margin-top-none v-margin-bottom-big">News</h2>
+        <div class="horizontal">
+          <article v-for="(article, i) in news" :key="`news-${i}`" class="border-block xs-full m-third v-margin-bottom">
+            <h2 class="mid v-margin-top-none v-margin-bottom">{{ article.text }}</h2>
+            <future-img 
+              :aspect="article.img.aspect"/>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <main-footer/>
+
+
+
+
+
+    <!-- <section 
       class="center-col horizontal v-margin-bottom-small" >
       <work-block
         v-observe-visibility="{
@@ -86,7 +110,6 @@
               </div>
               <div class="flex hover-accent">
                 <h3 class="no-margin body">{{ award.text }}<span v-if="award.client">, with {{ award.client }}</span></h3>
-                <!-- <p class="no-margin"></p> -->
               </div>
             </a>
           </section>
@@ -145,6 +168,7 @@
               </div>
             </div>
           </div>
+
 
           <div class="xs-full s-two-thirds m-third h-padded border-right service-copy v-padded-bottom-big">
             <h2 class="no-margin-top mid">Digital service strategy — define how products & services succeed today, tomorrow, and in the future.</h2>
@@ -246,14 +270,15 @@
           rootMargin: '-50% 0px -50% 0px'
         },
       }" 
-      data-enter-background="#f05969"/>
+      data-enter-background="#f05969"/> -->
   </div>
 </template>
 
 <script>
 import awards from '~/data/awards.json'
-import clients from '~/data/clients.json'
-import caseStudies from '~/data/case-studies.json'
+import partners from '~/data/partners.json'
+import work from '~/data/work.json'
+import news from '~/data/news.json'
 
 import MainHeader from '~/components/MainHeader.vue'
 import MainFooter from '~/components/MainFooter.vue'
@@ -273,40 +298,10 @@ export default {
   },
   data() {
     return {
-      backgroundColor: '#ffffff',
-      showBanner: true,
-      awards: awards,
-      partners: clients,
-      caseStudies: caseStudies,
-      showAwards: ['accolade', 'winner', 'gold', 'best'],
-      showClients: 'gov'
+      partners: partners,
+      work: work,
+      news: news
     }
-  },
-
-  computed: {
-    visibleAwards() {
-      return this.awards.filter(award => {
-        return this.showAwards.includes(award.type)
-      })
-    },
-    visibleClients() {
-      return this.partners.filter(partner => {
-        if (this.showClients === 'all') {
-          return true
-        } else {
-          return partner.tags.includes(this.showClients)
-        }
-      })
-    }
-  },
-
-  mounted() {
-    const sectors = ['gov', 'fin', 'health', 'edu']
-    // setInterval(() => {
-    //   let curr = sectors.indexOf(this.showClients)
-    //   let next = curr + 1
-    //   this.showClients = sectors[next % sectors.length]
-    // }, 2000)
   },
 
   methods: {
@@ -360,7 +355,7 @@ export default {
   }
 }
 
-.work-row {
+.work-block {
   &.end {
     @media (min-width: $mid) {
       margin-left: 25%;

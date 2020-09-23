@@ -52,58 +52,61 @@ figure {
   }
 }
 
-.has-grid {
-  position: relative;
+.border-block {
+  @extend .h-padding, .border-left, .border-right;
+
+  &.h-padding-none {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
-.grid-container {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-  height: 100%;
-}
+// .has-grid {
+//   position: relative;
+// }
+
+// .grid-container {
+//   position: absolute;
+//   top: 0px;
+//   left: 0px;
+//   bottom: 0px;
+//   right: 0px;
+//   height: 100%;
+// }
 
 .wrapper-link {
   text-decoration: none;
   color: inherit;
-
-  &:hover {
-    .hover-accent {
-      color: $accent;
-    }
-  }
 }
 
 a {
   color: inherit;
 }
 
-.link {
-  text-decoration: underline;
+// .link {
+//   text-decoration: underline;
 
-  &:hover {
-    color: $accent;
-  }
-}
+//   &:hover {
+//     color: $accent;
+//   }
+// }
 
-.accent {
-  color: $accent;
-}
+// .accent {
+//   color: $accent;
+// }
 
-.inverse {
-  color: #fff;
+// .inverse {
+//   color: #fff;
 
-  .border-left {
-    &:before {
-      background-color: #fff;
-    }
-  }
+//   .border-left {
+//     &:before {
+//       background-color: #fff;
+//     }
+//   }
 
-  .border-right {
-    &:after {
-      background-color: #fff;
-    }
-  }
-}
+//   .border-right {
+//     &:after {
+//       background-color: #fff;
+//     }
+//   }
+// }
