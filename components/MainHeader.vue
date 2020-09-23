@@ -12,6 +12,7 @@
         <nuxt-link to="/services">Services</nuxt-link>
         <nuxt-link to="/work">Work</nuxt-link>
         <nuxt-link to="/contact">Contact</nuxt-link>
+        <nuxt-link to="/careers">Careers</nuxt-link>
       </nav>
     </div>
     <!-- <div id="header-wrapper" class="center-col horizontal">
