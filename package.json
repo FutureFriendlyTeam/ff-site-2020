@@ -18,7 +18,9 @@
     "cross-env": "^5.2.0",
     "lazysizes": "^5.2.2",
     "nuxt": "^2.0.0",
+    "nuxt-mq": "^2.0.1",
     "object-fit-images": "^3.2.4",
+    "vue-mq": "^1.0.1",
     "vue-observe-visibility": "^0.4.6",
     "vue-window-size": "^0.6.1"
   },
