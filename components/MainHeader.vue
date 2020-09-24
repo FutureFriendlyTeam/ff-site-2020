@@ -83,8 +83,6 @@ export default {
 }
 
 #mobile-nav {
-  // display: none;
-
   z-index: 998;
   position: fixed;
   bottom: 0px;

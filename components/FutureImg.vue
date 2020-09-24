@@ -3,22 +3,19 @@
     :class="[scale ? 'scale-image-wrapper' : '']" 
     class="future-image-wrapper">
     <fixed-aspect :aspect="aspect">
-      <!-- <div class="future-image"/>
-      <div 
-        :class="[visible ? 'visible' : 'invisible', scale ? 'scale-image' : '']" 
-        class="future-image-effect-wrapper">
-        <picture v-if="src">
-          <source v-if="src.includes('.jpg') || src.includes('.png')" :data-srcset="require(`~/assets/${src}?webp`)" type="image/webp">
-          <img 
-            v-observe-visibility="{
-              callback: visibilityChanged,
-            }" 
-            :data-src="require(`~/assets/${src}`)" 
-            :alt="alt"
-            class="future-image lazyload"
-          >
-        </picture>
-      </div> -->
+
+
+
+      <picture v-if="src" class="future-image">
+        <source v-if="src.includes('.jpg') || src.includes('.png')" :data-srcset="require(`~/assets/${src}?webp`)" type="image/webp">
+        <img 
+          :data-src="require(`~/assets/${src}`)" 
+          :alt="alt"
+          class="future-image lazyload"
+        >
+      </picture>
+     
+
     </fixed-aspect>
   </figure>
 </template>
