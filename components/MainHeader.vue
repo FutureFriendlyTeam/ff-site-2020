@@ -1,7 +1,7 @@
 <template>
   <div>
     <header 
-      id="header" class="v-padding-top v-padding-bottom">
+      id="header" :style="{backgroundColor: backgroundColor}" class="v-padding-top v-padding-bottom color-background" >
       <div class="center-col horizontal">
         <nuxt-link id="logo" to="/" class="horizontal" @click="mobileNavOpen = false">
           <span class="logo-part border-left border-right v-padding-bottom-tiny">Future</span>
@@ -42,6 +42,12 @@
 export default {
   name: 'MainHeader',
   components: {},
+  props: {
+    backgroundColor: {
+      type: String,
+      default: '#ffffff'
+    }
+  },
   data() {
     return {
       mobileNavOpen: false
@@ -83,8 +89,6 @@ export default {
 }
 
 #mobile-nav {
-  // display: none;
-
   z-index: 998;
   position: fixed;
   bottom: 0px;

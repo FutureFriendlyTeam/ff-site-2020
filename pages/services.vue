@@ -1,6 +1,5 @@
 <template>
-  <div 
-    id="page">
+  <future-div id="page" :background-color="'accentLight'">
 
     <section 
       class="v-padding-top-mega v-padding-bottom-big">
@@ -15,7 +14,7 @@
 
           <article class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom">
             <h2 class="big v-margin-top-none v-margin-bottom">01. Service Strategy</h2>
-            <future-img :aspect="'three-four'" class="v-margin-bottom"/>
+            <future-img :aspect="'three-four'" class="v-margin-bottom multiply" src="services/design.jpg"/>
             <p class="big">Define how products & services succeed today and in the future.</p>
             <ul class="body">
               <li>Proposition design</li>
@@ -30,7 +29,7 @@
 
           <article :class="valueFromMq({tiny:'', small:'', mid: 'v-padding-top-mega', big: 'v-padding-top-mega', max: 'v-padding-top-mega'})" class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom">
             <h2 class="big v-margin-top-none v-margin-bottom">02. Delivery Support</h2>
-            <future-img :aspect="'three-four'" class="v-margin-bottom"/>
+            <future-img :aspect="'three-four'" class="v-margin-bottom multiply" src="services/build.jpg"/>
             <p class="big">Work together to launch new services, and set internal teams up for success.</p>
             <ul class="body">
               <li>Team formation & acceleration</li>
@@ -52,7 +51,7 @@
       <div class="center-col">
         <div class="horizontal reverse">
 
-          <article class="xs-full s-two-thirds v-padding-right v-margin-bottom">
+          <article class="xs-full s-two-thirds v-padding-right v-margin-bottom multiply">
             <fixed-aspect :aspect="'four-three'">
               <div class="big-quote">
                 <blockquote class="big">“The best thing about this whole process is that we’ve taken customer research, and then actually validated something tangible. It’s not just all talk, it’s not just high level stuff. The results have been really positive.”</blockquote>
@@ -76,11 +75,11 @@
         <div class="xs-full vertical between">
 
           <div class="xs-third gridbreaker-left v-margin-bottom">
-            <future-img :aspect="'four-three'"/>
+            <future-img :aspect="'four-three'" src="services/one.jpg" class="multiply"/>
           </div>
 
           <div class="xs-half v-margin-bottom self-end">
-            <future-img :aspect="'four-three'"/>
+            <future-img :aspect="'four-three'" src="services/two.jpg" class="multiply"/>
           </div>
 
         </div>
@@ -135,18 +134,12 @@
       </div>
     </section>
 
-  </div>
+  </future-div>
 </template>
 
 <script>
-import FutureImg from '~/components/FutureImg.vue'
-import FixedAspect from '~/components/FixedAspect.vue'
-
 export default {
-  components: {
-    FutureImg,
-    FixedAspect
-  },
+  components: {},
   data() {
     return {}
   },
