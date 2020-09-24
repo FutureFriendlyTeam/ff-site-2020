@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="badge-wrapper">
+    <div class="badge-wrapper multiply">
       <future-img :aspect="'free'" :src="`shared/${awardType}.svg`"/>
     </div>
   </div>

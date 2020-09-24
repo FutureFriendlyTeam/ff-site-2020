@@ -1,6 +1,5 @@
 <template>
-  <div 
-    id="page">
+  <future-div id="page" :background-color="'extended3Light'">
 
     <section 
       class="v-padding-top-mega v-padding-bottom-big">
@@ -40,7 +39,7 @@
         <div class="horizontal">
 
           <article class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom">
-            <future-img :aspect="'three-four'" class="v-margin-bottom"/>
+            <future-img :aspect="'three-four'" class="v-margin-bottom multiply" src="contact/sydney.jpg"/>
             <h2 class="big v-margin-top-none v-margin-bottom">Sydney.</h2>
             <p class="body v-margin-top-none">199 Cleveland Street, Redfern, Sydney, NSW, 2016</p>
             <p class="body"><a href="mailto:sydney@futurefriendly.team">sydney@futurefriendly.team</a></p>
@@ -48,7 +47,7 @@
           </article>
 
           <article class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom">
-            <future-img :aspect="'three-four'" class="v-margin-bottom"/>
+            <future-img :aspect="'three-four'" class="v-margin-bottom multiply" src="contact/canberra.jpg"/>
             <h2 class="big v-margin-top-none v-margin-bottom">Canberra.</h2>
             <p class="body"><a href="mailto:canberra@futurefriendly.team">canberra@futurefriendly.team</a></p>
             <p class="body">+61&nbsp;431&nbsp;277&nbsp;652</p>
@@ -60,18 +59,12 @@
     </section>
 
 
-  </div>
+  </future-div>
 </template>
 
 <script>
-import FutureImg from '~/components/FutureImg.vue'
-import FixedAspect from '~/components/FixedAspect.vue'
-
 export default {
-  components: {
-    FutureImg,
-    FixedAspect
-  },
+  components: {},
   data() {
     return {}
   },

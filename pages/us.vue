@@ -1,6 +1,5 @@
 <template>
-  <div 
-    id="page">
+  <future-div id="page" :background-color="'extended1Light'">
 
     <!-- <main-header/> -->
 
@@ -17,11 +16,11 @@
 
           <div class="border-block xs-full s-half m-half vertical between v-margin-bottom">
             <div class="xs-third self-end v-margin-bottom">
-              <future-img :aspect="'square'"/>
+              <future-img :aspect="'square'" src="us/one.jpg" class="multiply"/>
             </div>
 
             <div class="xs-half gridbreaker-left">
-              <future-img :aspect="'four-three'"/>
+              <future-img :aspect="'four-three'" src="us/two.jpg" class="multiply"/>
             </div>
           </div>
 
@@ -42,7 +41,7 @@
       <div class="center-col v-margin-bottom">
         <div class="horizontal border-right">
           <div class="xs-full s-three-quarters v-padding-right">
-            <future-img :aspect="'four-three'"/>
+            <future-img :aspect="'four-three'" src="us/studio.jpg" class="multiply"/>
           </div>
         </div>
       </div>
@@ -58,11 +57,11 @@
             </div>
 
             <div class="xs-third self-end v-margin-bottom">
-              <future-img :aspect="'square'"/>
+              <future-img :aspect="'square'" src="us/sydney.jpg" class="multiply"/>
             </div>
 
             <div class="xs-half gridbreaker-left v-margin-bottom">
-              <future-img :aspect="'four-three'"/>
+              <future-img :aspect="'four-three'" src="us/canberra.jpg" class="multiply"/>
             </div>
 
             <div class="self-end">
@@ -103,7 +102,7 @@
         <div class="horizontal">
 
           <article class="xs-full s-two-thirds v-padding-right v-margin-bottom">
-            <fixed-aspect :aspect="'four-three'">
+            <fixed-aspect :aspect="'four-three'" class="multiply">
               <div class="big-quote">
                 <blockquote class="big">“It's very rare you get external consultants who come in and not just understand your industry, but can teach you things about it. It makes your work very credible.”</blockquote>
 
@@ -140,18 +139,11 @@
         </div>
       </div>
     </section>
-  </div>
+  </future-div>
 </template>
 
 <script>
-import FutureImg from '~/components/FutureImg.vue'
-import FixedAspect from '~/components/FixedAspect.vue'
-
 export default {
-  components: {
-    FutureImg,
-    FixedAspect
-  },
   data() {
     return {}
   },

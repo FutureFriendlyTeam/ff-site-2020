@@ -1,6 +1,5 @@
 <template>
-  <div 
-    id="page">
+  <future-div id="page" :background-color="'extended2Light'">
 
     <!-- <main-header/> -->
 
@@ -120,7 +119,7 @@
 
 
 
-  </div>
+  </future-div>
 </template>
 
 <script>

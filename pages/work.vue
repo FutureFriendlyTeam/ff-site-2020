@@ -1,6 +1,5 @@
 <template>
-  <div 
-    id="page">
+  <future-div id="page" :background-color="'light'">
 
     <!-- <main-header/> -->
 
@@ -25,7 +24,7 @@
 
 
 
-  </div>
+  </future-div>
 </template>
 
 <script>

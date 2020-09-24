@@ -1,7 +1,8 @@
 <template>
 
-  <article
+  <future-div
     :class="i%2 === 0 ? 'start': 'end'" 
+    :background-color="work.background"
     class="work-block border-block h-padding-none xs-full m-three-quarters l-two-thirds v-margin-bottom">
 
     <a 
@@ -32,16 +33,14 @@
         </div>
       </section>
     </a>
-  </article>
+  </future-div>
 </template>
 
 <script>
-import FutureImg from '~/components/FutureImg.vue'
 import AwardBadge from '~/components/AwardBadge.vue'
 export default {
   name: 'HomepageWorkBlock',
   components: {
-    FutureImg,
     AwardBadge
   },
   props: {
