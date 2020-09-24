@@ -4,8 +4,6 @@
     class="future-image-wrapper">
     <fixed-aspect :aspect="aspect">
 
-
-
       <picture v-if="src" class="future-image">
         <source v-if="src.includes('.jpg') || src.includes('.png')" :data-srcset="require(`~/assets/${src}?webp`)" type="image/webp">
         <img 
@@ -15,7 +13,6 @@
         >
       </picture>
      
-
     </fixed-aspect>
   </figure>
 </template>

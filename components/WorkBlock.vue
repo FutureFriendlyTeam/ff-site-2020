@@ -24,11 +24,11 @@
         <p class="body v-margin-top-none">{{ work.text }}</p>
         <p class="body v-margin-top-none">{{ work.tag }}</p>
         
-        <div class="badge-container h-padding"><future-img
-          v-if="work.award"
-          :aspect="'free'"
-          class="badge "
+        <div v-if="work.award" class="badge-container h-padding"><award-badge
+          :award-type="work.award"
         /></div>
+
+
         
       </section>
     </a>
@@ -37,10 +37,12 @@
 
 <script>
 import FutureImg from '~/components/FutureImg.vue'
+import AwardBadge from '~/components/AwardBadge.vue'
 export default {
   name: 'WorkBlock',
   components: {
-    FutureImg
+    FutureImg,
+    AwardBadge
   },
   props: {
     work: {
@@ -70,12 +72,6 @@ export default {
   position: absolute;
   bottom: 0rem;
   right: 0rem;
-}
-
-.badge {
-  width: 6rem;
-  padding: 1rem;
-  background-color: #000;
 }
 
 .link {
