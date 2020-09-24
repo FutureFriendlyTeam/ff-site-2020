@@ -11,15 +11,7 @@
 
     <section class="v-padding-bottom-mega">
       <div class="center-col">
-        <h2 class="big v-margin-top-none v-margin-bottom-big">Client partners</h2>
-        <div class="horizontal">
-          
-          <article v-for="(partner, i) in partners.slice(0, valueFromMq({tiny:3, small:3, mid: 4, big: 6, max: 6}))" :key="`partners-${i}`" class="border-block v-padding-bottom-mid xs-third s-quarter m-sixth l-sixth">
-            <future-img 
-              :aspect="'four-three'"/>
-          </article>
-
-        </div>
+        <logo-section/>
       </div>
     </section>
 
@@ -41,7 +33,7 @@
           <article v-for="(article, i) in news" :key="`news-${i}`" class="border-block xs-full m-third v-margin-bottom">
             <h2 class="mid v-margin-top-none v-margin-bottom">{{ article.text }}</h2>
             <future-img 
-              :aspect="article.img.aspect"/>
+              :aspect="article.img.aspect" :src="article.img.src"/>
           </article>
         </div>
       </div>
@@ -61,7 +53,8 @@ import MainFooter from '~/components/MainFooter.vue'
 import FutureImg from '~/components/FutureImg.vue'
 import HomepageWorkBlock from '~/components/HomepageWorkBlock.vue'
 import ImageGrid from '~/components/ImageGrid.vue'
-import FixedBanner from '~/components/FixedBanner.vue'
+
+import LogoSection from '~/components/LogoSection.vue'
 
 export default {
   components: {
@@ -70,11 +63,11 @@ export default {
     HomepageWorkBlock,
     ImageGrid,
     MainFooter,
-    FixedBanner
+    LogoSection
   },
   data() {
     return {
-      partners: partners,
+      partners: ['asic', 'cba', 'x15', 'nsw-gov', 'ausgrid', 'abc'],
       work: work,
       news: news
     }

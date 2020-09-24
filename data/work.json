@@ -54,7 +54,6 @@
     "link": "https://good-design.org/projects/triple-j-saving-radio-from-streaming/"
   },
   {
-    "homepage": true,
     "text": "Designing teams for a better experience for schools",
     "client": "NSW Department of Education",
     "award": "gda-winner",
@@ -83,6 +82,7 @@
     "link": "https://good-design.org/projects/colonial-first-state-helping-australians-build-financial-resilience/"
   },
   {
+    "homepage": true,
     "text": "Transforming the form, for a better transition to school",
     "client": "NSW Department of Education",
     "award": "gda-winner",

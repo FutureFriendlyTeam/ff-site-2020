@@ -2,7 +2,7 @@
   {
     "text": "Mentally Friendly rebrands as Future Friendly.",
     "img": {
-      "src": "",
+      "src": "news/rebrand.png",
       "aspect": "four-three",
       "alt": ""
     },
@@ -11,7 +11,7 @@
   {
     "text": "Future Friendly recognised for 9 Good Design Awards, 2020",
     "img": {
-      "src": "",
+      "src": "news/awards.png",
       "aspect": "three-four",
       "alt": ""
     },
@@ -20,7 +20,7 @@
   {
     "text": "Future Friendly invests $500,000 in Ally Health.",
     "img": {
-      "src": "",
+      "src": "news/ally.png",
       "aspect": "square",
       "alt": ""
     },
