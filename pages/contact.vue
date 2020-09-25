@@ -62,7 +62,7 @@
 
     </future-div>
 
-    <super-footer :background-color="'extended2'" :color="'dark'"/>
+    <super-footer :background-color="'extended2'" :text-color="'extended2Light'" :hover-color="'accent'"/>
   </div>
 </template>
 

@@ -16,6 +16,7 @@ body {
   backface-visibility: hidden;
   color: $dark;
   --textColor: $dark;
+  --hoverColor: $accent;
 }
 
 img {
@@ -44,7 +45,7 @@ a {
   transition: color 300ms ease;
   color: inherit;
   &:hover {
-    color: $accent;
+    color: var(--hoverColor);
   }
 }
 

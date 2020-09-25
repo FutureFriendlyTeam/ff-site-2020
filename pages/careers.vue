@@ -99,7 +99,7 @@
 
 
     </future-div>
-    <super-footer :background-color="'extended3'" :color="'dark'"/>
+    <super-footer :background-color="'extended3'" :text-color="'dark'" :hover-color="'extended3Light'"/>
   </div>
 </template>
 

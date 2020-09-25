@@ -74,7 +74,7 @@
 
               <article class="xs-full m-half h-padding v-padding-bottom-mega">
                 <h2 class="big v-margin-top-none v-margin-bottom">Studios in Sydney and Canberra.</h2>
-                <p class="body">While we work across Australia, we started in Sydney and felt so strongly about the Government and policy work we do that we opened a full time space in Canberra.  </p>
+                <!-- <p class="body">While we work across Australia, we started in Sydney and felt so strongly about the Government and policy work we do that we opened a full time space in Canberra.  </p> -->
               </article>
 
               <article class="xs-full m-half h-padding v-padding-bottom-mega">
@@ -138,7 +138,7 @@
 
     
     </future-div>
-    <super-footer :background-color="'extended1'" :color="'extended1Light'"/>
+    <super-footer :background-color="'extended1'" :text-color="'extended1Light'" :hover-color="'accent'"/>
   </div>
 </template>
 

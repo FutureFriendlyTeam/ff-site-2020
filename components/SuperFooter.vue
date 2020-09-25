@@ -1,6 +1,6 @@
 <template>
-  <future-div :background-color="backgroundColor" :text-color="color">
-    <footer :style="{'--activeColor':$theme[color]}" class="v-padding-bottom-big">
+  <future-div :background-color="backgroundColor" :text-color="textColor" :hover-color="hoverColor">
+    <footer class="v-padding-bottom-big">
       <div id="future" class="center-col horizontal">
         <div class="border-block xs-full s-half horizontal">
           <h1 class="mega v-margin-top-none">The future isn't something you wait for.</h1>
@@ -21,7 +21,11 @@ export default {
       type: String,
       default: 'accent'
     },
-    color: {
+    textColor: {
+      type: String,
+      default: 'dark'
+    },
+    hoverColor: {
       type: String,
       default: 'accentLight'
     }
@@ -33,19 +37,5 @@ export default {
 <style lang="scss" scoped>
 #future {
   min-height: 90vh;
-
-  // h1 {
-  //   color: var(--activeColor);
-  // }
-
-  // .border-block {
-  //   &::before {
-  //     background-color: var(--activeColor);
-  //   }
-
-  //   &::after {
-  //     background-color: var(--activeColor);
-  //   }
-  // }
 }
 </style>
