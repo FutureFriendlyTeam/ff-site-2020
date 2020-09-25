@@ -1,66 +1,125 @@
 <template>
-  <header 
-    id="header" 
-    class="v-padded">
-    <div id="header-wrapper" class="center-col horizontal">
-      <div 
-        id="logo" 
-        class="horizontal border-right">
-        
-        <div class="border-left header-part">
-          <transition
-            appear
-            name="wipe-in">
-            <span :style="{'--delay':'50ms', '--color':'#fff'}" >
-              Future
-            </span>
-          </transition>
-        </div>
-        <div class="border-left border-right header-part">
-          <transition
-            appear
-            name="wipe-in">
-        <span :style="{'--delay':'150ms', '--color':'#fff'}">Friendly</span></transition></div>
-          
+  <div>
+    <header 
+      id="header" class="v-padding-top v-padding-bottom color-background" >
+      <div class="center-col horizontal">
+        <nuxt-link id="logo" to="/" class="horizontal" @click="mobileNavOpen = false">
+          <span class="logo-part border-left border-right v-padding-bottom-tiny">Future</span>
+          <span class="logo-part border-left border-right v-padding-bottom-tiny">Friendly</span>
+        </nuxt-link>
+
+        <nav id="nav" class="m-half border-block v-padding-bottom-tiny horizontal between">
+          <nuxt-link to="/us">Who we are</nuxt-link>
+          <nuxt-link to="/services">Services</nuxt-link>
+          <nuxt-link to="/work">Work</nuxt-link>
+          <nuxt-link to="/contact">Contact</nuxt-link>
+          <nuxt-link to="/careers">Careers</nuxt-link>
+        </nav>
+
+
+        <nav id="mobile-nav-button" class="m-half border-block v-padding-bottom-tiny horizontal between">
+          <a @click="mobileNavOpen = !mobileNavOpen">{{ mobileNavOpen ? 'Close' : 'Menu' }}</a>
+        </nav>
+
       </div>
-      <a id="email" href="mailto:hello@futurefriendly.team" class="header-part border-right border-left link">hello@futurefriendly.team</a>
-    </div>
-  </header>
+    </header>
+
+    <transition name="quick-fade" mode="out-in">
+      <div v-if="mobileNavOpen" id="mobile-nav">
+        <div id="mobile-nav-inner" class="horizontal color-background">
+          <nav class="self-end h-padding v-padding-top-big v-padding-bottom xs-full">
+            <nuxt-link class="big v-margin-bottom" to="/us">Who we are</nuxt-link>
+            <nuxt-link class="big v-margin-bottom" to="/services">Services</nuxt-link>
+            <nuxt-link class="big v-margin-bottom" to="/work">Work</nuxt-link>
+            <nuxt-link class="big v-margin-bottom" to="/contact">Contact</nuxt-link>
+            <nuxt-link class="big v-margin-bottom" to="/careers">Careers</nuxt-link>
+          </nav>
+        </div>
+
+      </div>
+    </transition>
+
+  </div>
 </template>
 
 <script>
 export default {
   name: 'MainHeader',
-  components: {}
+  components: {},
+  data() {
+    return {
+      mobileNavOpen: false
+    }
+  },
+  watch: {
+    $route(to, from) {
+      window.setTimeout(() => {
+        this.mobileNavOpen = false
+      }, 300)
+    }
+  }
 }
 </script>
 
 
 <style lang="scss" scoped>
+@import '../scss/variables.scss';
+
 #header {
   position: fixed;
   width: 100%;
   z-index: 999;
-}
 
-#email {
-  display: none;
-  @media (min-width: 372px) {
-    display: block;
+  > .horizontal {
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: $accent;
+    }
   }
 }
 
-#header-wrapper {
-  justify-content: space-between;
-  font-size: 1rem;
-  line-height: 1.2;
+#nav {
+  display: none;
+  @media (min-width: $mid) {
+    display: flex;
+  }
 }
 
-.header-part {
+#mobile-nav-button {
   display: block;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-bottom: 0.75rem;
-  text-decoration: none;
+  @media (min-width: $mid) {
+    display: none;
+  }
+}
+
+#mobile-nav {
+  z-index: 998;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  // background-color: #fff;
+
+  a {
+    display: block;
+    text-align: right;
+  }
+}
+
+#mobile-nav-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.logo-part {
+  display: block;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 </style>

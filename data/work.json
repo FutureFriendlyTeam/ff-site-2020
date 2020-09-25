@@ -1,0 +1,119 @@
+[
+  {
+    "text": "ABC Kids app – designing with kids for kids",
+    "client": "ABC",
+    "award": "gda-winner",
+    "size": "mid",
+    "tag": "Public Sector — Education",
+    "img": {
+      "src": "work/abc-kids/hero.jpg",
+      "aspect": "four-three",
+      "alt": ""
+    },
+    "background": "extended3Light",
+    "link": "https://good-design.org/projects/abc-kids-designed-with-kids-for-kids/"
+  },
+  {
+    "homepage": true,
+    "text": "Recognising & responding to financial abuse",
+    "client": "ACT Government's Family Safety Hub",
+    "award": "gda-gold",
+    "size": "mid",
+    "tag": "Public Sector — Finance",
+    "img": {
+      "src": "work/family-safety-hub/hero.jpg",
+      "aspect": "four-three",
+      "alt": ""
+    },
+    "background": "extended3Light",
+    "link": "https://good-design.org/projects/lowering-barriers-to-access-redesigning-financial-abuse-services/"
+  },
+  {
+    "homepage": true,
+    "text": "Savings Finder – giving $1.5 billion back to the community",
+    "client": "Service NSW",
+    "award": "gda-gold",
+    "size": "big",
+    "tag": "Public Sector",
+    "img": {
+      "src": "work/cost-of-living/hero.png",
+      "aspect": "four-three",
+      "alt": ""
+    },
+    "background": "extended1Light",
+    "link": "https://good-design.org/projects/savings-finder-giving-1-5-billion-back-to-the-community/"
+  },
+  {
+    "text": "Saving radio from streaming",
+    "award": "gda-best",
+    "client": "triple j",
+    "size": "mid",
+    "tag": "Public Sector",
+    "img": {
+      "src": "work/triple-j/hero.jpg",
+      "aspect": "four-three",
+      "alt": ""
+    },
+    "background": "extended3Light",
+    "link": "https://good-design.org/projects/triple-j-saving-radio-from-streaming/"
+  },
+  {
+    "text": "Designing teams for a better experience for schools",
+    "client": "NSW Department of Education",
+    "award": "gda-winner",
+    "size": "small",
+    "tag": "Public Sector — Education",
+    "img": {
+      "src": "work/dept-of-education/hero.png",
+      "aspect": "four-three",
+      "alt": ""
+    },
+    "background": "extended3Light",
+    "link": "https://good-design.org/projects/designing-systems-and-teams-for-a-better-experience-for-schools/"
+  },
+
+  {
+    "homepage": true,
+    "text": "Helping australians build financial resilience",
+    "client": "Colonial First State",
+    "award": "gda-winner",
+    "size": "big",
+    "tag": "Finance",
+    "img": {
+      "src": "work/colonial-first-state/hero.png",
+      "aspect": "four-three",
+      "alt": ""
+    },
+    "background": "extended2Light",
+    "link": "https://good-design.org/projects/colonial-first-state-helping-australians-build-financial-resilience/"
+  },
+  {
+    "homepage": true,
+    "text": "Transforming the form, for a better transition to school",
+    "client": "NSW Department of Education",
+    "award": "gda-winner",
+    "size": "mid",
+    "tag": "Public Sector — Education",
+    "img": {
+      "src": "work/transition-to-school/hero.jpg",
+      "aspect": "four-three",
+      "alt": ""
+    },
+    "background": "accentLight",
+    "link": "https://good-design.org/projects/transforming-the-form-for-a-better-transition-to-school/"
+  },
+  {
+    "text": "Helping seniors reconnect with Australian pastimes",
+    "client": "National Film & Sound Archives",
+    "award": "gda-winner",
+    "size": "mid",
+    "tag": "Public Sector",
+    "img": {
+      "src": "work/nfsa/hero.png",
+      "aspect": "four-three",
+      "alt": ""
+    },
+    "background": "extended3Light",
+    "link": "https://good-design.org/projects/nfsa-helping-seniors-reconnect-with-australian-pastimes/"
+  }
+]

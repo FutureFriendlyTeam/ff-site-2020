@@ -4,6 +4,7 @@
 @import 'layout.scss';
 @import 'images.scss';
 @import 'animations.scss';
+@import 'borders.scss';
 
 html,
 body {
@@ -24,86 +25,46 @@ figure {
   margin: 0px;
 }
 
-.border-left {
-  position: relative;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    width: 1px;
-    background-color: #000;
-  }
-}
-
-.border-right {
-  position: relative;
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0px;
-    right: -1px;
-    bottom: 0px;
-    width: 1px;
-    background-color: #000;
-  }
-}
-
-.has-grid {
-  position: relative;
-}
-
-.grid-container {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-  height: 100%;
+.color-background {
+  background-color: var(--backgroundColor);
+  transition: background-color 600ms ease;
 }
 
 .wrapper-link {
   text-decoration: none;
   color: inherit;
-
-  &:hover {
-    .hover-accent {
-      color: $accent;
-    }
-  }
 }
 
 a {
+  transition: color 300ms ease;
   color: inherit;
-}
-
-.link {
-  text-decoration: underline;
-
   &:hover {
     color: $accent;
   }
 }
 
-.accent {
-  color: $accent;
+.big-quote-wrapper {
+  background-color: black;
 }
 
-.inverse {
+.big-quote {
+  padding: 1.5rem;
+  background-color: black;
   color: #fff;
-
-  .border-left {
-    &:before {
-      background-color: #fff;
-    }
+  box-sizing: border-box;
+  height: 100%;
+  padding-bottom: 8rem;
+  blockquote {
+    margin: 0px;
   }
 
-  .border-right {
-    &:after {
-      background-color: #fff;
-    }
+  .quote-attribution {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
   }
+}
+
+.multiply {
+  mix-blend-mode: multiply;
 }

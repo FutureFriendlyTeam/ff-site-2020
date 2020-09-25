@@ -3,21 +3,18 @@
     :class="[scale ? 'scale-image-wrapper' : '']" 
     class="future-image-wrapper">
     <fixed-aspect :aspect="aspect">
-      <div 
-        :class="[visible ? 'visible' : 'invisible', scale ? 'scale-image' : '']" 
-        class="future-image-effect-wrapper">
-        <picture v-if="src">
-          <source v-if="src.includes('.jpg') || src.includes('.png')" :data-srcset="require(`~/assets/${src}?webp`)" type="image/webp">
-          <img 
-            v-observe-visibility="{
-              callback: visibilityChanged,
-            }" 
-            :data-src="require(`~/assets/${src}`)" 
-            :alt="alt"
-            class="future-image lazyload"
-          >
-        </picture>
-      </div>
+      <!-- <transition name="fade"> -->
+      <picture class="future-image">
+        <source v-if="image.webp" :data-srcset="image.webp" type="image/webp">
+        <source :data-srcset="image.opt" type="image/jpg">
+        <img
+          :src="image.opt"
+          :data-src="image.opt"
+          class="lazyload future-image"
+        >
+      </picture>
+      <!-- </transition> -->
+     
     </fixed-aspect>
   </figure>
 </template>
@@ -52,6 +49,29 @@ export default {
       visible: false
     }
   },
+
+  computed: {
+    image() {
+      if (!this.src) {
+        return ''
+      }
+      try {
+        const isRaster = this.src.includes('.jpg') || this.src.includes('.png')
+        const isSvg = this.src.includes('.svg')
+
+        const images = {
+          opt: require(`~/assets/images/${this.src}`),
+          webp: isRaster ? require(`~/assets/images/${this.src}?webp`) : null
+        }
+
+        return images
+      } catch (e) {
+        console.error('Couldn`t load images', e)
+        return 'err.jpg'
+      }
+    }
+  },
+
   // computed: {
   //   defaultSrc() {
   //     return require(this.src)
@@ -72,37 +92,40 @@ export default {
 .future-image-wrapper {
   width: 100%;
   height: auto;
+  display: block;
+  // background-color: #fff;
 }
 
 .future-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  // background-color: black;
 }
 
-.lazyload,
-.lazyloading {
-  opacity: 0;
-}
+// .lazyload,
+// .lazyloading {
+//   opacity: 0;
+// }
 
-.loading,
-.lazyload,
-.lazyloaded {
-  opacity: 1;
-  transition: 600ms cubic-bezier(0.16, 1, 0.3, 1);
-}
+// .loading,
+// .lazyload,
+// .lazyloaded {
+//   opacity: 1;
+//   transition: 1600ms cubic-bezier(0.16, 1, 0.3, 1);
+// }
 
-.scale-image-wrapper {
-  overflow: hidden;
-}
+// .scale-image-wrapper {
+//   overflow: hidden;
+// }
 
-.scale-image {
-  transition: all 50000ms cubic-bezier(0.16, 1, 0.3, 1);
-  transform: scale3d(1.1, 1.1, 1.1);
+// .scale-image {
+//   transition: all 50000ms cubic-bezier(0.16, 1, 0.3, 1);
+//   transform: scale3d(1.1, 1.1, 1.1);
 
-  &.visible {
-    transform: scale3d(1, 1, 1);
-  }
-}
+//   &.visible {
+//     transform: scale3d(1, 1, 1);
+//   }
+// }
 
 img {
   color: transparent;
