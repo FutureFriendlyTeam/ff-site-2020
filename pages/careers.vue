@@ -28,7 +28,7 @@
             <p class="big v-margin-top-none">Our goal is to create a place where you can do the best work of your career. Every day.</p>
             <p class="big v-margin-top-none">A sustainable and supporting workplace — dedicated to the well-being, quality of life, and inclusivity of the team.</p>
 
-            <p class="big v-margin-top-none"><a target="_blank" href="http://handbook.mentallyfriendly.com/">Read our employee handbook</a></p>
+            <p class="big v-margin-top-none"><a target="_blank" href="http://handbook.mentallyfriendly.com/">Read our team handbook</a></p>
           </article>
         </div>
       </div>

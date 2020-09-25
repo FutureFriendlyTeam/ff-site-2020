@@ -54,11 +54,16 @@
           <article class="xs-full s-two-thirds v-padding-right v-margin-bottom multiply">
             <fixed-aspect :aspect="'four-three'" class="big-quote-wrapper">
               <div class="big-quote">
-                <blockquote class="big">“The best thing about this whole process is that we’ve taken customer research, and then actually validated something tangible. It’s not just all talk, it’s not just high level stuff. The results have been really positive.”</blockquote>
+                <blockquote >
+                  <p class="big v-margin-top-none v-margin-bottom">“Future Friendly are exceptional problem solvers and strategic thinkers.</p>
+                  <p class="mid">Their team worked in a transparent and collaborative manner alongside our own team members, engaging with a wide and diverse stakeholder group to redefine, prototype and roadmap a 5-year vision for our digital experience.</p>
+                  <p class="mid">This vision encompassed the use of digital within a self-service & assisted context while integrating bot design, personalisation & machine learning to ensure the bank remains customer-centric for years to come.</p>
+                  <p class="mid">Their highly effective, practical design methodology delivered tangible outcomes over a challenging time frame.”</p>
+                </blockquote>
 
-                <p class="body quote-attribution v-margin-bottom-none">
-                  — Jeremy Chee,<br> Director of Customer Strategy & Transformation,<br>  Ausgrid
-                </p>
+                <footer class="body quote-attribution v-margin-bottom-none">
+                  — General Manager Digital Platforms,<br>Big 4 Bank
+                </footer>
               </div>
             </fixed-aspect>
           </article>

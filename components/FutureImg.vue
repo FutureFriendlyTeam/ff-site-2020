@@ -64,6 +64,7 @@ export default {
           webp: isRaster ? require(`~/assets/images/${this.src}?webp`) : null
         }
 
+        // console.log(images)
         return images
       } catch (e) {
         console.error('Couldn`t load images', e)

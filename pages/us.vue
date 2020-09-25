@@ -53,7 +53,7 @@
 
           <div class="border-block xs-full s-half m-half vertical between v-margin-bottom">
             <div>
-              <span class="super v-margin-top-none">2004 —</span>
+              <span class="big v-margin-top-none">Founded in 2004.</span>
             </div>
 
             <div class="xs-third self-end v-margin-bottom color-background">
@@ -65,16 +65,16 @@
             </div>
 
             <div class="self-end">
-              <span class="super v-margin-bottom-none">— 2020</span>
+              <!-- <span class="super v-margin-bottom-none">— 2020</span> -->
             </div>
           </div>
 
           <div class="border-block h-padding-none xs-full s-half m-half v-margin-bottom">
 
-            <article class="xs-full m-half h-padding v-padding-bottom-mega">
+            <!-- <article class="xs-full m-half h-padding v-padding-bottom-mega">
               <h2 class="big v-margin-top-none v-margin-bottom">Founded in 2004.</h2>
               <p class="body">Over 15 years we have come to understand what we are good at and what we aren’t. When we commit to helping an organisation we bring all 15 years of that experience to making sure we add value from day 1.</p>
-            </article>
+            </article> -->
 
             <article class="xs-full m-half h-padding v-padding-bottom-mega">
               <h2 class="big v-margin-top-none v-margin-bottom">Studios in Sydney and Canberra.</h2>
@@ -83,12 +83,12 @@
 
             <article class="xs-full m-half h-padding v-padding-bottom-mega">
               <h2 class="big v-margin-top-none v-margin-bottom">B-Corp Certified.</h2>
-              <p class="body">While we work across Australia, we started in Sydney and felt so strongly about the Government and policy work we do that we opened a full time space in Canberra.  </p>
+              <p class="body">We are committed to running an ethical and sustainable business. Future Friendly has been B Corp certified for 5 years and plays an active role in the Sydney B Corp community. </p>
             </article>
 
             <article class="xs-full m-half h-padding v-padding-bottom-mega">
               <h2 class="big v-margin-top-none v-margin-bottom">Independently and Australian owned.</h2>
-              <p class="body">While we work across Australia, we started in Sydney and felt so strongly about the Government and policy work we do that we opened a full time space in Canberra.  </p>
+              <p class="body">We are owned by the original founders and a team of partners. We all work in the business and we are all passionate about making things that matter.</p>
             </article>
 
           </div>
@@ -97,7 +97,7 @@
     </section>
 
 
-    <section>
+    <!-- <section>
       <div class="center-col">
         <div class="horizontal">
 
@@ -113,12 +113,12 @@
             </fixed-aspect>
           </article>
 
-          <!-- <div id="quote-image" class="h-padding flex self-end border-block v-margin-bottom">
+          <div id="quote-image" class="h-padding flex self-end border-block v-margin-bottom">
             <future-img :aspect="'square'"/>
-          </div> -->
+          </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
 
     <section>
@@ -130,8 +130,8 @@
 
             <div class="horizontal h-padding-left">
 
-              <div v-for="(portrait, i) in [...Array(30)]" :key="`${i}-portrait`" class="xs-third h-padding-right v-margin-bottom color-background">
-                <future-img :aspect="'square'" class="multiply"/>
+              <div v-for="(portrait, i) in team" :key="`${i}-portrait`" class="xs-third h-padding-right v-margin-bottom color-background">
+                <future-img :aspect="'square'" :src="`team/${portrait.name.toLowerCase().replace(' ', '-')}.jpg`" class="multiply"/>
               </div>
             </div>
 
@@ -143,10 +143,13 @@
 </template>
 
 <script>
+import team from '~/data/team.json'
 export default {
   transition: 'fade',
   data() {
-    return {}
+    return {
+      team: team
+    }
   },
 
   methods: {}
