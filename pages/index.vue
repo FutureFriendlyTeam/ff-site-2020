@@ -31,9 +31,11 @@
         <h2 class="big v-margin-top-none v-margin-bottom-big">News</h2>
         <div class="horizontal">
           <article v-for="(article, i) in news" :key="`news-${i}`" class="border-block xs-full m-third v-margin-bottom">
-            <h2 class="mid v-margin-top-none v-margin-bottom">{{ article.text }}</h2>
-            <future-img 
-              :aspect="article.img.aspect" :src="article.img.src"/>
+            <a :href="article.link" class="wrapper-link" target="_blank">
+              <h2 class="mid v-margin-top-none v-margin-bottom">{{ article.text }}</h2>
+              <future-img 
+                :aspect="article.img.aspect" :src="article.img.src"/>
+            </a>
           </article>
         </div>
       </div>
@@ -53,6 +55,7 @@ import HomepageWorkBlock from '~/components/HomepageWorkBlock.vue'
 import LogoSection from '~/components/LogoSection.vue'
 
 export default {
+  transition: 'fade',
   components: {
     HomepageWorkBlock,
     LogoSection

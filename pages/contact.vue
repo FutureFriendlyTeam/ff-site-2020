@@ -64,6 +64,7 @@
 
 <script>
 export default {
+  transition: 'fade',
   components: {},
   data() {
     return {}

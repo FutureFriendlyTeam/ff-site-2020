@@ -15,12 +15,12 @@
         <div class="horizontal">
 
           <div class="border-block xs-full s-half m-half vertical between v-margin-bottom">
-            <div class="xs-third self-end v-margin-bottom">
-              <future-img :aspect="'square'"/>
+            <div class="xs-half self-end v-margin-bottom">
+              <future-img :aspect="'four-three'" src="careers/one.jpg" class="multiply"/>
             </div>
 
-            <div class="xs-half gridbreaker-left">
-              <future-img :aspect="'four-three'"/>
+            <div class="xs-two-thirds  gridbreaker-left">
+              <future-img :aspect="'four-three'" src="careers/two.jpg" class="multiply"/>
             </div>
           </div>
 
@@ -28,7 +28,7 @@
             <p class="big v-margin-top-none">Our goal is to create a place where you can do the best work of your career. Every day.</p>
             <p class="big v-margin-top-none">A sustainable and supporting workplace — dedicated to the well-being, quality of life, and inclusivity of the team.</p>
 
-            <p class="big v-margin-top-none"><a href="">Read our employee handbook</a></p>
+            <p class="big v-margin-top-none"><a target="_blank" href="http://handbook.mentallyfriendly.com/">Read our employee handbook</a></p>
           </article>
         </div>
       </div>
@@ -38,7 +38,7 @@
       <div class="center-col v-margin-bottom">
         <div class="horizontal border-right">
           <div class="xs-full s-three-quarters v-padding-right">
-            <future-img :aspect="'four-three'"/>
+            <future-img :aspect="'four-three'" src="careers/three.jpg" class="multiply"/>
           </div>
         </div>
       </div>
@@ -51,19 +51,14 @@
           <div class="border-block xs-full s-half m-half vertical between v-margin-bottom">
             <div class="v-margin-bottom">
               <h2 class="big v-margin-top-none v-margin-bottom-none">Our promise is to help you grow and leave us more confident, experienced and highly skilled than when you started.</h2>
-              <!-- <span class="super v-margin-top-none">2004 —</span> -->
             </div>
 
             <div class="xs-third self-end v-margin-bottom">
-              <future-img :aspect="'square'"/>
+              <future-img :aspect="'four-three'" src="careers/four.jpg" class="multiply"/>
             </div>
 
-            <div class="xs-half gridbreaker-left v-margin-bottom">
-              <future-img :aspect="'four-three'"/>
-            </div>
-
-            <div class="self-end">
-              <!-- <span class="super v-margin-bottom-none">— 2020</span> -->
+            <div class="xs-half gridbreaker-left">
+              <future-img :aspect="'four-three'" src="careers/five.jpg" class="multiply"/>
             </div>
           </div>
 
@@ -93,28 +88,11 @@
               <h2 class="big v-margin-top-none v-margin-bottom">Growth plans</h2>
               <p class="body">We are proud of the growth tools and career progression we offer within the business. Team members have gone on to lead their departments, set up new departments and even set up new studios and businesses within Mentally Friendly.</p>
             </article>
-
           </div>
         </div>
       </div>
     </section>
 
-
-    <section>
-      <div class="center-col">
-        <div class="xs-full vertical between">
-
-          <div class="xs-third gridbreaker-left v-margin-bottom">
-            <future-img :aspect="'four-three'"/>
-          </div>
-
-          <div class="xs-half v-margin-bottom self-end">
-            <future-img :aspect="'four-three'"/>
-          </div>
-
-        </div>
-      </div>
-    </section>
 
 
 
@@ -127,6 +105,7 @@ import FutureImg from '~/components/FutureImg.vue'
 import FixedAspect from '~/components/FixedAspect.vue'
 
 export default {
+  transition: 'fade',
   components: {
     FutureImg,
     FixedAspect
