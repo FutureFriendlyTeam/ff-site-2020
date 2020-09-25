@@ -16,6 +16,8 @@ Vue.component('future-div', FutureDiv)
 Vue.component('future-img', FutureImg)
 Vue.component('fixed-aspect', FixedAspect)
 
+// Vue.prototype.$backgroundColor = '#ffffff'
+
 Vue.use(VueObserveVisibility)
 Vue.use(VueMq, {
   breakpoints: {
@@ -28,6 +30,11 @@ Vue.use(VueMq, {
 })
 
 Vue.mixin({
+  // data() {
+  //   return {
+  //     activeBackgroundColor: '#ffffff'
+  //   }
+  // },
   methods: {
     valueFromMq(value) {
       if (!value) return null

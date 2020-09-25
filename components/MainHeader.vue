@@ -1,7 +1,7 @@
 <template>
   <div>
     <header 
-      id="header" :style="{backgroundColor: backgroundColor}" class="v-padding-top v-padding-bottom color-background" >
+      id="header" class="v-padding-top v-padding-bottom color-background" >
       <div class="center-col horizontal">
         <nuxt-link id="logo" to="/" class="horizontal" @click="mobileNavOpen = false">
           <span class="logo-part border-left border-right v-padding-bottom-tiny">Future</span>
@@ -24,16 +24,20 @@
       </div>
     </header>
 
-    <div v-if="mobileNavOpen" id="mobile-nav" class=" horizontal" @click="mobileNavOpen = false">
-      <nav class="self-end h-padding v-padding-top-big v-padding-bottom xs-full">
-        <nuxt-link class="big v-margin-bottom" to="/us">Who we are</nuxt-link>
-        <nuxt-link class="big v-margin-bottom" to="/services">Services</nuxt-link>
-        <nuxt-link class="big v-margin-bottom" to="/work">Work</nuxt-link>
-        <nuxt-link class="big v-margin-bottom" to="/contact">Contact</nuxt-link>
-        <nuxt-link class="big v-margin-bottom" to="/careers">Careers</nuxt-link>
-      </nav>
+    <transition name="quick-fade" mode="out-in">
+      <div v-if="mobileNavOpen" id="mobile-nav">
+        <div id="mobile-nav-inner" class="horizontal color-background">
+          <nav class="self-end h-padding v-padding-top-big v-padding-bottom xs-full">
+            <nuxt-link class="big v-margin-bottom" to="/us">Who we are</nuxt-link>
+            <nuxt-link class="big v-margin-bottom" to="/services">Services</nuxt-link>
+            <nuxt-link class="big v-margin-bottom" to="/work">Work</nuxt-link>
+            <nuxt-link class="big v-margin-bottom" to="/contact">Contact</nuxt-link>
+            <nuxt-link class="big v-margin-bottom" to="/careers">Careers</nuxt-link>
+          </nav>
+        </div>
 
-    </div>
+      </div>
+    </transition>
 
   </div>
 </template>
@@ -42,15 +46,16 @@
 export default {
   name: 'MainHeader',
   components: {},
-  props: {
-    backgroundColor: {
-      type: String,
-      default: '#ffffff'
-    }
-  },
   data() {
     return {
       mobileNavOpen: false
+    }
+  },
+  watch: {
+    $route(to, from) {
+      window.setTimeout(() => {
+        this.mobileNavOpen = false
+      }, 300)
     }
   }
 }
@@ -99,12 +104,17 @@ export default {
   left: 0px;
   right: 0px;
   top: 0px;
-  background-color: #fff;
+  // background-color: #fff;
 
   a {
     display: block;
     text-align: right;
   }
+}
+
+#mobile-nav-inner {
+  width: 100%;
+  height: 100%;
 }
 
 .logo-part {

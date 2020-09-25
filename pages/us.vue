@@ -15,11 +15,11 @@
         <div class="horizontal">
 
           <div class="border-block xs-full s-half m-half vertical between v-margin-bottom">
-            <div class="xs-third self-end v-margin-bottom">
+            <div class="xs-third self-end v-margin-bottom color-background">
               <future-img :aspect="'square'" src="us/one.jpg" class="multiply"/>
             </div>
 
-            <div class="xs-half gridbreaker-left">
+            <div class="xs-half gridbreaker-left color-background">
               <future-img :aspect="'four-three'" src="us/two.jpg" class="multiply"/>
             </div>
           </div>
@@ -40,7 +40,7 @@
     <section>
       <div class="center-col v-margin-bottom">
         <div class="horizontal border-right">
-          <div class="xs-full s-three-quarters v-padding-right">
+          <div class="xs-full s-three-quarters v-padding-right color-background">
             <future-img :aspect="'four-three'" src="us/team.jpg" class="multiply"/>
           </div>
         </div>
@@ -56,11 +56,11 @@
               <span class="super v-margin-top-none">2004 —</span>
             </div>
 
-            <div class="xs-third self-end v-margin-bottom">
+            <div class="xs-third self-end v-margin-bottom color-background">
               <future-img :aspect="'square'" src="us/sydney.jpg" class="multiply"/>
             </div>
 
-            <div class="xs-half gridbreaker-left v-margin-bottom">
+            <div class="xs-half gridbreaker-left v-margin-bottom color-background">
               <future-img :aspect="'four-three'" src="us/canberra.jpg" class="multiply"/>
             </div>
 
@@ -113,9 +113,9 @@
             </fixed-aspect>
           </article>
 
-          <div id="quote-image" class="h-padding flex self-end border-block v-margin-bottom">
+          <!-- <div id="quote-image" class="h-padding flex self-end border-block v-margin-bottom">
             <future-img :aspect="'square'"/>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -130,8 +130,8 @@
 
             <div class="horizontal h-padding-left">
 
-              <div v-for="(portrait, i) in [...Array(30)]" :key="`${i}-portrait`" class="xs-third h-padding-right v-margin-bottom">
-                <future-img :aspect="'square'"/>
+              <div v-for="(portrait, i) in [...Array(30)]" :key="`${i}-portrait`" class="xs-third h-padding-right v-margin-bottom color-background">
+                <future-img :aspect="'square'" class="multiply"/>
               </div>
             </div>
 

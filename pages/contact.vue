@@ -1,5 +1,5 @@
 <template>
-  <future-div id="page" :background-color="'extended3Light'">
+  <future-div id="page" :background-color="'extended3Light'" class="color-background">
 
     <section 
       class="v-padding-top-mega v-padding-bottom-big">
@@ -36,7 +36,7 @@
     
     <section>
       <div class="center-col">
-        <div class="horizontal">
+        <div class="horizontal color-background">
 
           <article class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom">
             <future-img :aspect="'three-four'" class="v-margin-bottom multiply" src="contact/sydney.jpg"/>

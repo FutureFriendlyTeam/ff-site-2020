@@ -1,5 +1,5 @@
 <template>
-  <future-div id="page" :background-color="'extended2Light'">
+  <future-div id="page" :background-color="'extended2Light'" class="color-background">
 
     <!-- <main-header/> -->
 
@@ -15,11 +15,11 @@
         <div class="horizontal">
 
           <div class="border-block xs-full s-half m-half vertical between v-margin-bottom">
-            <div class="xs-half self-end v-margin-bottom">
+            <div class="xs-half self-end v-margin-bottom color-background">
               <future-img :aspect="'four-three'" src="careers/one.jpg" class="multiply"/>
             </div>
 
-            <div class="xs-two-thirds  gridbreaker-left">
+            <div class="xs-two-thirds  gridbreaker-left color-background">
               <future-img :aspect="'four-three'" src="careers/two.jpg" class="multiply"/>
             </div>
           </div>
@@ -37,7 +37,7 @@
     <section>
       <div class="center-col v-margin-bottom">
         <div class="horizontal border-right">
-          <div class="xs-full s-three-quarters v-padding-right">
+          <div class="xs-full s-three-quarters v-padding-right color-background">
             <future-img :aspect="'four-three'" src="careers/three.jpg" class="multiply"/>
           </div>
         </div>
@@ -53,11 +53,11 @@
               <h2 class="big v-margin-top-none v-margin-bottom-none">Our promise is to help you grow and leave us more confident, experienced and highly skilled than when you started.</h2>
             </div>
 
-            <div class="xs-third self-end v-margin-bottom">
+            <div class="xs-third self-end v-margin-bottom color-background">
               <future-img :aspect="'four-three'" src="careers/four.jpg" class="multiply"/>
             </div>
 
-            <div class="xs-half gridbreaker-left">
+            <div class="xs-half gridbreaker-left color-background">
               <future-img :aspect="'four-three'" src="careers/five.jpg" class="multiply"/>
             </div>
           </div>

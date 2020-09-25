@@ -12,7 +12,7 @@
       <div class="center-col">
         <div class="horizontal">
 
-          <article class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom">
+          <article class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom color-background">
             <h2 class="big v-margin-top-none v-margin-bottom">01. Strategic Design.</h2>
             <future-img :aspect="'three-four'" class="v-margin-bottom multiply" src="services/design.jpg"/>
             <p class="big">Working with organisations and communities to define strategies for today and the future.</p>
@@ -27,8 +27,8 @@
             </ul>
           </article>
 
-          <article :class="valueFromMq({tiny:'', small:'', mid: 'v-padding-top-mega', big: 'v-padding-top-mega', max: 'v-padding-top-mega'})" class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom">
-            <h2 class="big v-margin-top-none v-margin-bottom">02. Product and service delivery.</h2>
+          <article :class="valueFromMq({tiny:'', small:'', mid: 'v-padding-top-mega', big: 'v-padding-top-mega', max: 'v-padding-top-mega'})" class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom color-background">
+            <h2 class="big v-margin-top-none v-margin-bottom ">02. Product and service delivery.</h2>
             <future-img :aspect="'three-four'" class="v-margin-bottom multiply" src="services/build.jpg"/>
             <p class="big">Working with organisations to launch new services, and set internal teams up for success.</p>
             <ul class="body">
@@ -49,7 +49,7 @@
 
     <section>
       <div class="center-col">
-        <div class="horizontal reverse">
+        <div class="horizontal reverse color-background">
 
           <article class="xs-full s-two-thirds v-padding-right v-margin-bottom multiply">
             <fixed-aspect :aspect="'four-three'" class="big-quote-wrapper">
@@ -74,11 +74,11 @@
       <div class="center-col">
         <div class="xs-full vertical between">
 
-          <div class="xs-third gridbreaker-left v-margin-bottom">
+          <div class="xs-third gridbreaker-left v-margin-bottom color-background">
             <future-img :aspect="'four-three'" src="services/one.jpg" class="multiply"/>
           </div>
 
-          <div class="xs-half v-margin-bottom self-end">
+          <div class="xs-half v-margin-bottom self-end color-background">
             <future-img :aspect="'four-three'" src="services/two.jpg" class="multiply"/>
           </div>
 

@@ -1,6 +1,6 @@
 <template>
-  <div :style="{backgroundColor: backgroundColor}" class="color-background">
-    <main-header :background-color="backgroundColor"/>
+  <div :style="{'--backgroundColor': activeBackgroundColor}" class="color-background">
+    <main-header/>
     <nuxt/>
     <main-footer/>
   </div>
@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      backgroundColor: '#ffffff'
+      activeBackgroundColor: '#ffffff'
     }
   },
   mounted() {
@@ -43,8 +43,14 @@ export default {
         extended3Light: '#fffacc'
       }
 
-      console.log('backgroundChange', e)
-      this.backgroundColor = colors[e] || '#ffffff'
+      // this.$backgroundColor = 'red'
+
+      // this.$set(this, 'activeBackgroundColor', colors[e] || )
+
+      // console.log('backgroundChange', e, this.backgroundColor)
+      this.activeBackgroundColor = colors[e] || '#ffffff'
+
+      // window.backgroundColor = colors[e] || '#ffffff'
     })
   }
 }

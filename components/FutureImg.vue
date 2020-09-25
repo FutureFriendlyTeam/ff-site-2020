@@ -3,7 +3,7 @@
     :class="[scale ? 'scale-image-wrapper' : '']" 
     class="future-image-wrapper">
     <fixed-aspect :aspect="aspect">
-
+      <!-- <transition name="fade"> -->
       <picture class="future-image">
         <source v-if="image.webp" :data-srcset="image.webp" type="image/webp">
         <source :data-srcset="image.opt" type="image/jpg">
@@ -13,25 +13,7 @@
           class="lazyload future-image"
         >
       </picture>
-
-      
-      <!-- <img
-        v-else
-        :src="image.placeholder"
-        :data-src="image.opt"
-        class="lazyload a-fadein"
-      > -->
-
-      <!-- <LazyImage :use-lqip="false" data-src="us/canberra.jpg"/> -->
-
-      <!-- <picture v-if="src" class="future-image">
-        <source v-if="src.includes('.jpg') || src.includes('.png')" :data-srcset="require(`~/assets/${src}?webp`)" type="image/webp">
-        <img 
-          :data-src="require(`~/assets/${src}`)" 
-          :alt="alt"
-          class="future-image lazyload"
-        >
-      </picture> -->
+      <!-- </transition> -->
      
     </fixed-aspect>
   </figure>
@@ -70,6 +52,9 @@ export default {
 
   computed: {
     image() {
+      if (!this.src) {
+        return ''
+      }
       try {
         const isRaster = this.src.includes('.jpg') || this.src.includes('.png')
         const isSvg = this.src.includes('.svg')
@@ -108,6 +93,7 @@ export default {
   width: 100%;
   height: auto;
   display: block;
+  // background-color: #fff;
 }
 
 .future-image {

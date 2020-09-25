@@ -26,21 +26,9 @@ figure {
 }
 
 .color-background {
+  background-color: var(--backgroundColor);
   transition: background-color 600ms ease;
 }
-
-// .has-grid {
-//   position: relative;
-// }
-
-// .grid-container {
-//   position: absolute;
-//   top: 0px;
-//   left: 0px;
-//   bottom: 0px;
-//   right: 0px;
-//   height: 100%;
-// }
 
 .wrapper-link {
   text-decoration: none;
@@ -48,7 +36,11 @@ figure {
 }
 
 a {
+  transition: color 300ms ease;
   color: inherit;
+  &:hover {
+    color: $accent;
+  }
 }
 
 .big-quote-wrapper {
@@ -76,31 +68,3 @@ a {
 .multiply {
   mix-blend-mode: multiply;
 }
-
-// .link {
-//   text-decoration: underline;
-
-//   &:hover {
-//     color: $accent;
-//   }
-// }
-
-// .accent {
-//   color: $accent;
-// }
-
-// .inverse {
-//   color: #fff;
-
-//   .border-left {
-//     &:before {
-//       background-color: #fff;
-//     }
-//   }
-
-//   .border-right {
-//     &:after {
-//       background-color: #fff;
-//     }
-//   }
-// }
