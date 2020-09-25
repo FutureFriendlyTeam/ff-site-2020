@@ -15,12 +15,24 @@ export default {
     backgroundColor: {
       type: String,
       default: 'light'
+    },
+    textColor: {
+      type: String,
+      default: 'dark'
+    },
+    hoverColor: {
+      type: String,
+      default: 'accent'
     }
   },
   methods: {
     onVisible(visible) {
       if (visible) {
-        this.$root.$emit('backgroundChange', this.backgroundColor)
+        this.$root.$emit('colorChange', {
+          backgroundColor: this.backgroundColor,
+          textColor: this.textColor,
+          hoverColor: this.hoverColor
+        })
       }
     }
   }

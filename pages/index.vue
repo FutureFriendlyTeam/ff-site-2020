@@ -41,6 +41,8 @@
       </div>
     </future-div>
 
+    <super-footer :background-color="'accent'" :color="'accentLight'"/>
+
   </div>
 </template>
 

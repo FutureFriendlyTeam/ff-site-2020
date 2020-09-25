@@ -1,5 +1,5 @@
 <template>
-  <div :style="{'--backgroundColor': activeBackgroundColor}" class="color-background">
+  <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor, '--hoverColor': activeHoverColor} " class="color-background">
     <main-header/>
     <nuxt/>
     <main-footer/>
@@ -12,45 +12,26 @@
 <script>
 import MainHeader from '~/components/MainHeader.vue'
 import MainFooter from '~/components/MainFooter.vue'
+import SuperFooter from '~/components/SuperFooter.vue'
 
 export default {
   components: {
     MainHeader,
-    MainFooter
+    MainFooter,
+    SuperFooter
   },
   data() {
     return {
-      activeBackgroundColor: '#ffffff'
+      activeBackgroundColor: '#ffffff',
+      activeTextColor: '#000000',
+      activeHoverColor: '#F05969'
     }
   },
   mounted() {
-    this.$root.$on('backgroundChange', e => {
-      const colors = {
-        light: '#ffffff',
-        light2: '#edefed',
-        dark: '#000000',
-
-        accent: '#f05969',
-        accentLight: '#fcdee0',
-
-        extended1: '#4a29f0',
-        extended1Light: '#d1e5ff',
-
-        extended2: '#45d1a6',
-        extended2Light: '#d9f5ed',
-
-        extended3: '#fbe704',
-        extended3Light: '#fffacc'
-      }
-
-      // this.$backgroundColor = 'red'
-
-      // this.$set(this, 'activeBackgroundColor', colors[e] || )
-
-      // console.log('backgroundChange', e, this.backgroundColor)
-      this.activeBackgroundColor = colors[e] || '#ffffff'
-
-      // window.backgroundColor = colors[e] || '#ffffff'
+    this.$root.$on('colorChange', e => {
+      this.activeBackgroundColor = this.$theme[e.backgroundColor] || '#ffffff'
+      this.activeTextColor = this.$theme[e.textColor] || '#000000'
+      this.activeHoverColor = this.$theme[e.hoverColor] || '#F05969'
     })
   }
 }

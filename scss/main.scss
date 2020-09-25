@@ -15,6 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
   color: $dark;
+  --textColor: $dark;
 }
 
 img {
@@ -23,6 +24,10 @@ img {
 
 figure {
   margin: 0px;
+}
+
+#site {
+  color: var(--textColor);
 }
 
 .color-background {
