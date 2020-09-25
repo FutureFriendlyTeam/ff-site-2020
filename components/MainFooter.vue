@@ -9,8 +9,7 @@
         <p class="mid"><a href="https://instagram.com/_futurefriendly" target="_blank">Instagram</a></p>
         <p class="mid"><a href="https://medium.com/mentally-friendly" target="_blank">Medium</a></p>
         <p class="mid"><a href="https://mentallyfriendly.activehosted.com/f/20" target="_blank">Newsletter</a></p>
-        <p class="body"><a href="" target="_blank">Privacy Policy</a></p>
-        <p class="body"><a href="" target="_blank">Terms & Conditions</a></p>
+        <p class="body"><a href="/Mentally Friendly - Privacy Policy.200827.EXT.pdf" target="_blank">Privacy Policy</a></p>
 
       </div>
 
