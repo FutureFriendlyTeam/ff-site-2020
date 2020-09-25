@@ -2,6 +2,12 @@ import Vue from 'vue'
 import VueMq from 'vue-mq'
 import VueObserveVisibility from 'vue-observe-visibility'
 
+// import locomotiveScroll from 'locomotive-scroll'
+
+// Object.defineProperty(Vue.prototype, 'locomotiveScroll', {
+//   value: locomotiveScroll
+// })
+
 import FutureImg from '~/components/FutureImg.vue'
 import FutureDiv from '~/components/FutureDiv.vue'
 import FixedAspect from '~/components/FixedAspect.vue'

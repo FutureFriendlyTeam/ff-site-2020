@@ -20,7 +20,6 @@ export default {
 <style scoped lang="scss">
 @mixin aspect-ratio($width, $height) {
   position: relative;
-  background-color: black;
 
   &:before {
     content: '';

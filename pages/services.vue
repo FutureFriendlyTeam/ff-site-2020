@@ -13,9 +13,9 @@
         <div class="horizontal">
 
           <article class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom">
-            <h2 class="big v-margin-top-none v-margin-bottom">01. Service Strategy</h2>
+            <h2 class="big v-margin-top-none v-margin-bottom">01. Strategic Design.</h2>
             <future-img :aspect="'three-four'" class="v-margin-bottom multiply" src="services/design.jpg"/>
-            <p class="big">Define how products & services succeed today and in the future.</p>
+            <p class="big">Working with organisations and communities to define strategies for today and the future.</p>
             <ul class="body">
               <li>Proposition design</li>
               <li>Product innovation</li>
@@ -28,9 +28,9 @@
           </article>
 
           <article :class="valueFromMq({tiny:'', small:'', mid: 'v-padding-top-mega', big: 'v-padding-top-mega', max: 'v-padding-top-mega'})" class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom">
-            <h2 class="big v-margin-top-none v-margin-bottom">02. Delivery Support</h2>
+            <h2 class="big v-margin-top-none v-margin-bottom">02. Product and service delivery.</h2>
             <future-img :aspect="'three-four'" class="v-margin-bottom multiply" src="services/build.jpg"/>
-            <p class="big">Work together to launch new services, and set internal teams up for success.</p>
+            <p class="big">Working with organisations to launch new services, and set internal teams up for success.</p>
             <ul class="body">
               <li>Team formation & acceleration</li>
               <li>Product management</li>
@@ -52,7 +52,7 @@
         <div class="horizontal reverse">
 
           <article class="xs-full s-two-thirds v-padding-right v-margin-bottom multiply">
-            <fixed-aspect :aspect="'four-three'">
+            <fixed-aspect :aspect="'four-three'" class="big-quote-wrapper">
               <div class="big-quote">
                 <blockquote class="big">“The best thing about this whole process is that we’ve taken customer research, and then actually validated something tangible. It’s not just all talk, it’s not just high level stuff. The results have been really positive.”</blockquote>
 

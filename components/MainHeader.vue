@@ -71,6 +71,10 @@ export default {
 
   a {
     text-decoration: none;
+
+    &:hover {
+      color: $accent;
+    }
   }
 }
 

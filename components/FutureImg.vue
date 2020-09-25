@@ -4,14 +4,34 @@
     class="future-image-wrapper">
     <fixed-aspect :aspect="aspect">
 
-      <picture v-if="src" class="future-image">
+      <picture class="future-image">
+        <source v-if="image.webp" :data-srcset="image.webp" type="image/webp">
+        <source :data-srcset="image.opt" type="image/jpg">
+        <img
+          :src="image.opt"
+          :data-src="image.opt"
+          class="lazyload future-image"
+        >
+      </picture>
+
+      
+      <!-- <img
+        v-else
+        :src="image.placeholder"
+        :data-src="image.opt"
+        class="lazyload a-fadein"
+      > -->
+
+      <!-- <LazyImage :use-lqip="false" data-src="us/canberra.jpg"/> -->
+
+      <!-- <picture v-if="src" class="future-image">
         <source v-if="src.includes('.jpg') || src.includes('.png')" :data-srcset="require(`~/assets/${src}?webp`)" type="image/webp">
         <img 
           :data-src="require(`~/assets/${src}`)" 
           :alt="alt"
           class="future-image lazyload"
         >
-      </picture>
+      </picture> -->
      
     </fixed-aspect>
   </figure>
@@ -47,6 +67,26 @@ export default {
       visible: false
     }
   },
+
+  computed: {
+    image() {
+      try {
+        const isRaster = this.src.includes('.jpg') || this.src.includes('.png')
+        const isSvg = this.src.includes('.svg')
+
+        const images = {
+          opt: require(`~/assets/images/${this.src}`),
+          webp: isRaster ? require(`~/assets/images/${this.src}?webp`) : null
+        }
+
+        return images
+      } catch (e) {
+        console.error('Couldn`t load images', e)
+        return 'err.jpg'
+      }
+    }
+  },
+
   // computed: {
   //   defaultSrc() {
   //     return require(this.src)
@@ -73,7 +113,7 @@ export default {
 .future-image {
   width: 100%;
   height: 100%;
-  background-color: black;
+  // background-color: black;
 }
 
 // .lazyload,
@@ -85,7 +125,7 @@ export default {
 // .lazyload,
 // .lazyloaded {
 //   opacity: 1;
-//   transition: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+//   transition: 1600ms cubic-bezier(0.16, 1, 0.3, 1);
 // }
 
 // .scale-image-wrapper {

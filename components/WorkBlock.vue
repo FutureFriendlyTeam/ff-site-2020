@@ -20,15 +20,13 @@
 
       <section>
 
-        <h2 class="body v-margin-top-none">{{ work.client }}</h2>
-        <p class="body v-margin-top-none">{{ work.text }}</p>
+        <h2 class="body v-margin-top-none">{{ work.text }}</h2>
+        <p class="body v-margin-top-none">With {{ work.client }}</p>
         <p class="body v-margin-top-none">{{ work.tag }}</p>
         
         <div v-if="work.award" class="badge-container h-padding"><award-badge
           :award-type="work.award"
         /></div>
-
-
         
       </section>
     </a>

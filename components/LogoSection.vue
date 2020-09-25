@@ -1,23 +1,15 @@
 <template>
   <div>
     <h2 class="big v-margin-top-none v-margin-bottom-big">Client partners</h2>
-    <div id="logos" class="horizontal">
+    <div id="logos" class="horizontal" @click="currentPage++">
 
-      <!-- <transition-group  > -->
       <article v-for="(partner, i) in partners.slice(startIndex, startIndex+visibleCount)" :key="`partners-${partner}`" class="border-block v-padding-bottom-mid xs-third s-quarter m-sixth l-sixth">
-        <!-- <transition appear name="fade"> -->
         <future-img 
-          :style="{transitionDelay:`${i*10}ms`}"
-          :key="`img-partners-${partner}`" 
+          :key="`img-partners-${i}`" 
           :src="`clients/${partner}.svg`"
           :aspect="'four-three'"
           class="multiply"/>
-          <!-- </transition> -->
       </article>
-      <!-- </transition-group> -->
-
-      <div id="logos-back" @click="currentPage--"/>
-      <div id="logos-next" @click="currentPage++"/>
           
     </div>
   </div>
@@ -72,7 +64,7 @@ export default {
     bottom: 0px;
     left: 0px;
     right: 50%;
-    cursor: url(~assets/shared/arrow-left.svg), pointer;
+    // cursor: url(~assets/shared/arrow-left.svg), pointer;
   }
 
   #logos-next {
@@ -81,7 +73,7 @@ export default {
     bottom: 0px;
     right: 0px;
     left: 50%;
-    cursor: url(~assets/shared/arrow-right.svg), pointer;
+    // cursor: url(~assets/shared/arrow-right.svg), pointer;
   }
 }
 </style>

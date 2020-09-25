@@ -6,7 +6,7 @@
     <section 
       class="v-padding-top-mega v-padding-bottom-big">
       <div class="center-col">
-        <h1 class="mega xs-full s-three-quarters no-margin">We are future friendly.</h1>
+        <h1 class="mega xs-full s-three-quarters no-margin">We are Future Friendly.</h1>
       </div>
     </section>
 
@@ -25,13 +25,13 @@
           </div>
 
           <article class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom">
-            <p class="big v-margin-top-none">Global warming,
-            financial wellbeing, 
-            mental health, 
-            diversity and inclusion, education, 
-            housing stability,
-            and rising cost of living — are all affected by the products and services we use everyday.</p>
-            <p class="big v-margin-top-none">The way we build these services can change people's lives. </p>
+            <p class="big v-margin-top-none">Global warming,<br>
+              financial wellbeing, <br>
+              mental health, <br>
+              diversity and inclusion, education, <br>
+              housing stability,<br>
+              and rising cost of living — are all affected by the products and services we use everyday.</p>
+            <p class="big v-margin-top-none">Digital services have the power to change lives and build a better future.</p>
           </article>
         </div>
       </div>
@@ -41,7 +41,7 @@
       <div class="center-col v-margin-bottom">
         <div class="horizontal border-right">
           <div class="xs-full s-three-quarters v-padding-right">
-            <future-img :aspect="'four-three'" src="us/studio.jpg" class="multiply"/>
+            <future-img :aspect="'four-three'" src="us/team.jpg" class="multiply"/>
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@
         <div class="horizontal">
 
           <article class="xs-full s-two-thirds v-padding-right v-margin-bottom">
-            <fixed-aspect :aspect="'four-three'" class="multiply">
+            <fixed-aspect :aspect="'four-three'" class="multiply big-quote-wrapper">
               <div class="big-quote">
                 <blockquote class="big">“It's very rare you get external consultants who come in and not just understand your industry, but can teach you things about it. It makes your work very credible.”</blockquote>
 
