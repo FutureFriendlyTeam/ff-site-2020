@@ -30,7 +30,7 @@
       <div class="center-col">
         <h2 class="big v-margin-top-none v-margin-bottom-big">News</h2>
         <div class="horizontal">
-          <article v-for="(article, i) in news" :key="`news-${i}`" class="border-block xs-full s-half m-quarter v-margin-bottom">
+          <article v-for="(article, i) in news" :key="`news-${i}`" class="border-block xs-half s-half m-quarter v-margin-bottom">
             <a :href="article.link" class="wrapper-link" target="_blank">
               <h2 class="mid v-margin-top-none v-margin-bottom">{{ article.text }}</h2>
               <future-img 
