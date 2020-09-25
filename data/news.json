@@ -8,6 +8,7 @@
     },
     "link": "https://www.linkedin.com/pulse/mentally-friendly-now-future-nick-gower/?trackingId=ZyWDhjKCRj2kHj6LaBQbkQ%3D%3D"
   },
+
   {
     "text": "Future Friendly recognised for 9 Good Design Awards, 2020",
     "img": {
@@ -25,5 +26,14 @@
       "alt": ""
     },
     "link": "https://allyhealth.com.au/"
+  },
+  {
+    "text": "We are proud to release the first episode of the Future Friendly Podcast.",
+    "img": {
+      "src": "news/podcast.jpg",
+      "aspect": "square",
+      "alt": ""
+    },
+    "link": "https://open.spotify.com/show/7z5CPhuVlzDMgnTWeVPdmn?si=EwOcQYdvR86XcaoSwVMCFQ"
   }
 ]
