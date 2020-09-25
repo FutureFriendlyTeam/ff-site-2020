@@ -21,7 +21,7 @@
       <section class="horizontal">
         <div class="border-block xs-full s-half v-padding-bottom-big">
           <h2 class="mid v-margin-top-none">{{ work.text }}</h2>
-          <p class="mid v-margin-top-none">With {{ work.client }}</p>
+          <p class="mid v-margin-top-none">With {{ work.client }}.</p>
           <p class="mid v-margin-top-none">{{ work.tag }}</p>
         </div>
         <div class="border-block xs-full s-half">

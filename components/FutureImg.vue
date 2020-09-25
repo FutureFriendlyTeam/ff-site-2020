@@ -63,7 +63,6 @@ export default {
           opt: require(`~/assets/images/${this.src}`),
           webp: isRaster ? require(`~/assets/images/${this.src}?webp`) : null
         }
-
         return images
       } catch (e) {
         console.error('Couldn`t load images', e)
@@ -72,14 +71,6 @@ export default {
     }
   },
 
-  // computed: {
-  //   defaultSrc() {
-  //     return require(this.src)
-  //   }
-  // },
-  mounted() {
-    console.log(this.src)
-  },
   methods: {
     visibilityChanged(visible, e) {
       this.visible = visible
@@ -93,13 +84,11 @@ export default {
   width: 100%;
   height: auto;
   display: block;
-  // background-color: #fff;
 }
 
 .future-image {
   width: 100%;
   height: 100%;
-  // background-color: black;
 }
 
 // .lazyload,

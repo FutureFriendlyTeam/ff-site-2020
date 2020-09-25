@@ -1,5 +1,5 @@
 <template>
-  <footer class="v-padding-top-mega v-padding-bottom-mega">
+  <footer class="v-padding-bottom">
     <div class="center-col horizontal">
       <div class="xs-full s-half v-margin-bottom h-padding-right">
         <p class="mid no-margin-top"><a href="mailto:hello@futurefriendly.team">hello@futurefriendly.team</a></p>
