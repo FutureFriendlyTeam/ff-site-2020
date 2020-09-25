@@ -93,6 +93,10 @@ module.exports = {
       {
         src:
           '//cdn.polyfill.io/v2/polyfill.js?features=es2017,IntersectionObserver,|gated&flags=gated&unknown=polyfill&callback=onPolyfillsLoad'
+      },
+      {
+        src:
+          'https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js'
       }
     ]
   },

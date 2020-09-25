@@ -11,9 +11,9 @@
 
       <section>
         <div class="center-col">
-          <div class="horizontal">
+          <div class="horizontal color-background">
 
-            <article class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom color-background">
+            <article class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom ">
               <h2 class="big v-margin-top-none v-margin-bottom">01. Strategic Design.</h2>
               <future-img :aspect="'three-four'" class="v-margin-bottom multiply" src="services/design.jpg"/>
               <p class="big">Working with organisations and communities to define strategies for today and the future.</p>
@@ -28,7 +28,7 @@
               </ul>
             </article>
 
-            <article :class="valueFromMq({tiny:'', small:'', mid: 'v-padding-top-mega', big: 'v-padding-top-mega', max: 'v-padding-top-mega'})" class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom color-background">
+            <article :class="valueFromMq({tiny:'', small:'', mid: 'v-padding-top-mega', big: 'v-padding-top-mega', max: 'v-padding-top-mega'})" class="border-block xs-full s-half m-half v-padding-bottom-mega v-margin-bottom ">
               <h2 class="big v-margin-top-none v-margin-bottom ">02. Product and service delivery.</h2>
               <future-img :aspect="'three-four'" class="v-margin-bottom multiply" src="services/build.jpg"/>
               <p class="big">Working with organisations to launch new services, and set internal teams up for success.</p>
