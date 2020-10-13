@@ -44,6 +44,7 @@ export default {
   },
   watch: {
     $route(to, from) {
+      console.log('route change', from, to)
       window.setTimeout(() => {
         this.mobileNavOpen = false
       }, 300)

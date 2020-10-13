@@ -15,25 +15,6 @@ export default {
       type: Object,
       default: null
     }
-  },
-  mounted() {
-    console.log('Image mounted', this.blok)
-  },
-  methods: {
-    transformImage(image, isGrayscale) {
-      if (!image) return ''
-      const isRaster = image.includes('.jpg') || image.includes('.png')
-
-      let option = `${isRaster || isGrayscale ? 'filters' : ''}${
-        isRaster ? ':format(webp)' : ''
-      }${isGrayscale ? ':grayscale()' : ''}`
-
-      let imageService = 'https://img2.storyblok.com/'
-      let path = image.replace('https://a.storyblok.com', '')
-
-      console.log(imageService + option + path)
-      return imageService + option + path
-    }
   }
 }
 </script>
