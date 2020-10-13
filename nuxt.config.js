@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const axios = require('axios')
 
 const robots = {
   prevent: {
@@ -137,10 +138,10 @@ module.exports = {
       const version = 'published'
       let cache_version = 0
 
-      // let toIgnore = ['home', 'en/settings']
+      let toIgnore = ['global', 'global/globals', 'articles', 'case-studies']
 
       // other routes that are not in Storyblok with their slug.
-      // let routes = ['/'] // adds / directly
+      let routes = [] // adds / directly
 
       // Load space and receive latest cache version key to improve performance
       axios
