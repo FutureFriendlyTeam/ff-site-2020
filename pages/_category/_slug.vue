@@ -13,10 +13,11 @@ export default {
     return { story: { content: {} } }
   },
   asyncData(context) {
-    let version =
-      context.query._storyblok || context.isDev ? 'draft' : 'published'
+    // let version =
+    //   context.query._storyblok || context.isDev ? 'draft' : 'published'
 
-    console.log(context)
+    // TODO Figure out a better way to deal with this
+    let version = 'draft'
     // Load the JSON from the API
     return context.app.$storyapi
       .get(
