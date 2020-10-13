@@ -1,5 +1,5 @@
 <template>
-  <footer class="v-padding-bottom">
+  <footer id="footer" class="v-padding-top-big v-padding-bottom-big">
     <div class="center-col horizontal">
       <div class="xs-full s-half v-margin-bottom h-padding-right">
         <p class="mid no-margin-top"><a href="mailto:hello@futurefriendly.team">hello@futurefriendly.team</a></p>
@@ -16,7 +16,7 @@
       <div class="xs-full s-half horizontal">
         <div class="m-half v-margin-bottom h-padding-right">
           <p class="no-margin-top body">Future Friendly is a certified B-Corp since 2017.</p>
-          <future-img :aspect="'free'" src="shared/b-corp-logo.png" class="flag" alt="B-Corp Logo"/>
+          <!-- <future-img :aspect="'free'" src="shared/b-corp-logo.png" class="flag" alt="B-Corp Logo"/> -->
         </div>
 
         <div class="m-half v-margin-bottom h-padding-right">
@@ -25,7 +25,7 @@
 
           <p class="no-margin-top body">Our studios sit on country of the Gadigal people of the Eora nation in Sydney and the Ngunnawal people in Canberra.
           </p>
-          <future-img :aspect="'free'" src="shared/aboriginal-flag.svg" class="flag" alt="Australian Aboriginal Flag"/>
+          <!-- <future-img :aspect="'free'" src="shared/aboriginal-flag.svg" class="flag" alt="Australian Aboriginal Flag"/> -->
         </div>
       </div>
     </div>
@@ -46,5 +46,10 @@ export default {
 <style lang="scss" scoped>
 .flag {
   width: 4rem;
+}
+
+#footer {
+  background-color: #000;
+  color: #fff;
 }
 </style>

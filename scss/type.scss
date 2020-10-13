@@ -36,6 +36,7 @@
 }
 
 .mega {
+  display: block;
   font-size: 3rem;
   line-height: 1;
   letter-spacing: -0.01em;
@@ -57,6 +58,7 @@
 }
 
 .big {
+  display: block;
   font-weight: normal;
   font-family: 'Plain';
   font-size: 2rem;
@@ -74,6 +76,7 @@
 }
 
 .mid {
+  display: block;
   font-weight: normal;
   font-family: 'Plain';
   font-size: 1.25rem;
@@ -86,6 +89,7 @@
 }
 
 .body {
+  display: block;
   font-weight: normal;
   font-family: 'Plain';
   font-size: 1rem;
@@ -132,3 +136,25 @@ ul {
 // .secondary-text {
 //   opacity: 0.6;
 // }
+
+.richtext {
+  > *:first-child {
+    margin-top: 0px;
+    span {
+      margin-top: 0px;
+    }
+  }
+
+  > *:last-child {
+    margin-bottom: 0px;
+    span {
+      margin-bottom: 0px;
+    }
+  }
+
+  &.compact {
+    * {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

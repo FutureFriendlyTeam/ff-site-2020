@@ -1,5 +1,5 @@
 <template>
-  <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor, '--hoverColor': activeHoverColor} " class="color-background">
+  <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor, '--hoverColor': activeHoverColor}" class="color-background">
     <main-header/>
     <nuxt/>
     <main-footer/>
@@ -12,13 +12,11 @@
 <script>
 import MainHeader from '~/components/MainHeader.vue'
 import MainFooter from '~/components/MainFooter.vue'
-import SuperFooter from '~/components/SuperFooter.vue'
 
 export default {
   components: {
     MainHeader,
-    MainFooter,
-    SuperFooter
+    MainFooter
   },
   data() {
     return {

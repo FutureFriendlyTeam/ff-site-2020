@@ -1,5 +1,5 @@
 <template>
-  <future-div :background-color="backgroundColor" :text-color="textColor" :hover-color="hoverColor">
+  <future-div v-editable="blok" :background-color="blok.background_color" :text-color="blok.text_color">
     <footer class="v-padding-bottom-big">
       <div id="future" class="center-col horizontal">
         <div class="border-block xs-full s-half horizontal">
@@ -17,17 +17,9 @@
 export default {
   name: 'SuperFooter',
   props: {
-    backgroundColor: {
-      type: String,
-      default: 'accent'
-    },
-    textColor: {
-      type: String,
-      default: 'dark'
-    },
-    hoverColor: {
-      type: String,
-      default: 'accentLight'
+    blok: {
+      type: Object,
+      default: null
     }
   }
 }

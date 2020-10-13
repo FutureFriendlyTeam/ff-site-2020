@@ -11,12 +11,34 @@ import VueObserveVisibility from 'vue-observe-visibility'
 import FutureImg from '~/components/FutureImg.vue'
 import FutureDiv from '~/components/FutureDiv.vue'
 import FixedAspect from '~/components/FixedAspect.vue'
-import SuperFooter from '~/components/SuperFooter.vue'
+
+import Page from '@/components/bloks/Page.vue'
+import CaseStudy from '@/components/bloks/CaseStudy.vue'
+import Grid from '@/components/bloks/Grid.vue'
+import Column from '@/components/bloks/Column.vue'
+import Richtext from '@/components/bloks/Richtext.vue'
+import BlokImage from '@/components/bloks/BlokImage.vue'
+import StoryBlokImage from '@/components/StoryBlokImage.vue'
+import SuperFooter from '~/components/bloks/SuperFooter.vue'
+import CaseStudyList from '~/components/bloks/CaseStudyList.vue'
+import HomepageCaseStudyList from '~/components/bloks/HomepageCaseStudyList.vue'
+import HomepageArticleList from '~/components/bloks/HomepageArticleList.vue'
 
 Vue.component('future-div', FutureDiv)
 Vue.component('future-img', FutureImg)
 Vue.component('fixed-aspect', FixedAspect)
 Vue.component('super-footer', SuperFooter)
+Vue.component('page', Page)
+Vue.component('case-study', CaseStudy)
+Vue.component('grid', Grid)
+Vue.component('column', Column)
+Vue.component('richtext', Richtext)
+Vue.component('blok-image', BlokImage)
+Vue.component('story-blok-image', StoryBlokImage)
+Vue.component('super-footer', SuperFooter)
+Vue.component('case-study-list', CaseStudyList)
+Vue.component('homepage-case-study-list', HomepageCaseStudyList)
+Vue.component('homepage-article-list', HomepageArticleList)
 
 Vue.prototype.$theme = {
   light: '#ffffff',

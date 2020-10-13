@@ -1,29 +1,19 @@
 <template>
 
   <article v-editable="story" v-if="story"
-           :class="story.content.thumbnail_size" 
-           class="work-block border-block xs-full v-margin-bottom v-padding-bottom-mega">
-
-    <nuxt-link 
-      :to="`/${story.full_slug}`"
+           class="border-block xs-full s-half m-quarter v-margin-bottom">
+    <a 
+      :href="story.content.external_link.linktype === 'url' ? story.content.external_link.url : `/${story.full_slug}`"
       class="wrapper-link">
-
-      <story-blok-image :filename="story.content.image.filename" aspect="four-three" class="v-margin-bottom"/>
-      <section>
-        <h2 class="body v-margin-top-none">{{ story.content.title }}</h2>
-        <p class="body v-margin-top-none">With {{ story.content.client }}</p>
-      </section>
-    </nuxt-link>
+      <h2 class="mid v-margin-top-none v-margin-bottom">{{ story.name }}</h2>
+      <story-blok-image :filename="story.content.image.filename" :aspect="story.content.aspect" class=""/>
+    </a>
   </article>
 </template>
 
 <script>
-import AwardBadge from '~/components/AwardBadge.vue'
 export default {
-  name: 'WorkBlock',
-  components: {
-    AwardBadge
-  },
+  name: 'HomepageArticleBlock',
   props: {
     uuid: {
       type: String,

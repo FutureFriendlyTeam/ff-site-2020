@@ -119,7 +119,17 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: ['@nuxtjs/google-analytics', 'nuxt-compress'],
+  modules: [
+    '@nuxtjs/google-analytics',
+    'nuxt-compress',
+    [
+      'storyblok-nuxt',
+      {
+        accessToken: 'kDWQn9yqch6ilLrLHTt0QAtt',
+        cacheProvider: 'memory'
+      }
+    ]
+  ],
 
   googleAnalytics: {
     id: 'UA-1790615-74'
