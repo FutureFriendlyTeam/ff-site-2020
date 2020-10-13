@@ -1,6 +1,5 @@
 <template>
-  <div :class="[aspect, aspect ? 'fixed-aspect' : '' ]">
-
+  <div :class="[aspect, aspect ? 'fixed-aspect' : '' ]" class="aspect-wrapper">
     <slot />
   </div>
 </template>
@@ -18,9 +17,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@mixin aspect-ratio($width, $height) {
+.aspect-wrapper {
   position: relative;
+}
 
+@mixin aspect-ratio($width, $height) {
   &:before {
     content: '';
     display: block;

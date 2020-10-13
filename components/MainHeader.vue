@@ -8,14 +8,9 @@
           <span class="logo-part border-left border-right v-padding-bottom-tiny">Friendly</span>
         </nuxt-link>
 
-        <nav id="nav" class="m-half border-block v-padding-bottom-tiny horizontal between">
-          <nuxt-link to="/us">Who we are</nuxt-link>
-          <nuxt-link to="/services">Services</nuxt-link>
-          <nuxt-link to="/work">Work</nuxt-link>
-          <nuxt-link to="/contact">Contact</nuxt-link>
-          <nuxt-link to="/careers">Careers</nuxt-link>
+        <nav id="nav" class=" horizontal between">
+          <nuxt-link v-for="item in story.content.header_links" :key="item._uid" :to="`/${item.link.cached_url}`" class="border-block v-padding-bottom-tiny">{{ item.text }}</nuxt-link>
         </nav>
-
 
         <nav id="mobile-nav-button" class="m-half border-block v-padding-bottom-tiny horizontal between">
           <a @click="mobileNavOpen = !mobileNavOpen">{{ mobileNavOpen ? 'Close' : 'Menu' }}</a>
@@ -28,13 +23,8 @@
       <div v-if="mobileNavOpen" id="mobile-nav">
         <div id="mobile-nav-inner" class="horizontal color-background">
           <nav class="self-end h-padding v-padding-top-big v-padding-bottom xs-full">
-            <nuxt-link class="big v-margin-bottom" to="/us">Who we are</nuxt-link>
-            <nuxt-link class="big v-margin-bottom" to="/services">Services</nuxt-link>
-            <nuxt-link class="big v-margin-bottom" to="/work">Work</nuxt-link>
-            <nuxt-link class="big v-margin-bottom" to="/contact">Contact</nuxt-link>
-            <nuxt-link class="big v-margin-bottom" to="/careers">Careers</nuxt-link>
-          </nav>
-        </div>
+            <nuxt-link v-for="item in story.content.header_links" :key="item._uid" :to="`/${item.link.cached_url}`" class="big v-margin-bottom">{{ item.text }}</nuxt-link>
+        </nav></div>
 
       </div>
     </transition>
@@ -48,7 +38,8 @@ export default {
   components: {},
   data() {
     return {
-      mobileNavOpen: false
+      mobileNavOpen: false,
+      story: { content: {} }
     }
   },
   watch: {
@@ -57,6 +48,21 @@ export default {
         this.mobileNavOpen = false
       }, 300)
     }
+  },
+  async fetch() {
+    let version =
+      this.$nuxt.context.query._storyblok || this.$nuxt.context.isDev
+        ? 'draft'
+        : 'published'
+
+    return this.$storyapi
+      .get(`cdn/stories/global/globals`, {
+        version: version
+      })
+      .then(res => {
+        this.$set(this, 'story', res.data.story)
+        console.log(this.story)
+      })
   }
 }
 </script>
@@ -66,7 +72,7 @@ export default {
 @import '../scss/variables.scss';
 
 #header {
-  position: fixed;
+  // position: fixed;
   width: 100%;
   z-index: 999;
 

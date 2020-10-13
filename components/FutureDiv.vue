@@ -20,18 +20,18 @@ export default {
       type: String,
       default: 'dark'
     },
-    hoverColor: {
-      type: String,
-      default: 'accent'
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
     onVisible(visible) {
-      if (visible) {
+      if (visible && !this.disabled) {
         this.$root.$emit('colorChange', {
           backgroundColor: this.backgroundColor,
-          textColor: this.textColor,
-          hoverColor: this.hoverColor
+          textColor: this.textColor
+          // hoverColor: this.hoverColor
         })
       }
     }
