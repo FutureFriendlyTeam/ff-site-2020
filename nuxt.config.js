@@ -141,7 +141,7 @@ module.exports = {
       let toIgnore = ['global', 'global/globals', 'articles', 'case-studies']
 
       // other routes that are not in Storyblok with their slug.
-      let routes = [] // adds / directly
+      let routes = ['/'] // adds / directly
 
       // Load space and receive latest cache version key to improve performance
       axios
