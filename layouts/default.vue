@@ -1,8 +1,8 @@
 <template>
   <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor, '--hoverColor': activeHoverColor}" class="color-background">
     <main-header/>
-    <nuxt/>
-    <main-footer/>
+    <nuxt keep-alive/>
+    <!-- <main-footer/> -->
   </div>
 </template>
 

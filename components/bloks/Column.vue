@@ -8,7 +8,7 @@
 
 
 
-  <div v-editable="blok" :class="[blok.layout, blok.borders]" class="xs-full v-margin-bottom vertical">
+  <div v-storyblok-editable="blok" :class="[blok.layout, blok.borders]" class="xs-full v-margin-bottom vertical">
     <component v-for="blok in blok.blocks" :key="blok._uid" :blok="blok" :is="blok.component"/>
   </div>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <header 
-      id="header" class="v-padding-top v-padding-bottom color-background" >
+      v-if="globals" id="header" class="v-padding-top v-padding-bottom color-background">
       <div class="center-col horizontal">
         <nuxt-link id="logo" to="/" class="horizontal" @click="mobileNavOpen = false">
           <span class="logo-part border-left border-right v-padding-bottom-tiny">Future</span>
@@ -9,7 +9,7 @@
         </nuxt-link>
 
         <nav id="nav" class=" horizontal between">
-          <nuxt-link v-for="item in story.content.header_links" :key="item._uid" :to="`/${item.link.cached_url}`" class="border-block v-padding-bottom-tiny">{{ item.text }}</nuxt-link>
+          <nuxt-link v-for="item in globals.content.header_links" :key="item._uid" :to="`/${item.link.cached_url}`" class="border-block v-padding-bottom-tiny">{{ item.text }}</nuxt-link>
         </nav>
 
         <nav id="mobile-nav-button" class="m-half border-block v-padding-bottom-tiny horizontal between">
@@ -19,15 +19,15 @@
       </div>
     </header>
 
-    <transition name="quick-fade" mode="out-in">
+    <!-- <transition name="quick-fade" mode="out-in">
       <div v-if="mobileNavOpen" id="mobile-nav">
         <div id="mobile-nav-inner" class="horizontal color-background">
           <nav class="self-end h-padding v-padding-top-big v-padding-bottom xs-full">
-            <nuxt-link v-for="item in story.content.header_links" :key="item._uid" :to="`/${item.link.cached_url}`" class="big v-margin-bottom">{{ item.text }}</nuxt-link>
+            <nuxt-link v-for="item in globals.content.header_links" :key="item._uid" :to="`/${item.link.cached_url}`" class="big v-margin-bottom">{{ item.text }}</nuxt-link>
         </nav></div>
 
       </div>
-    </transition>
+    </transition> -->
 
   </div>
 </template>
@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       mobileNavOpen: false,
-      story: { content: {} }
+      globals: null
     }
   },
   watch: {
@@ -50,9 +50,15 @@ export default {
       }, 300)
     }
   },
+  activated() {
+    if (this.$route.query._storyblok || window.Storyblok) {
+      console.log('is in editor')
+      this.$fetch()
+    }
+  },
   async fetch() {
     let version =
-      this.$nuxt.context.query._storyblok || this.$nuxt.context.isDev
+      this.$route.query._storyblok || this.$nuxt.context.isDev
         ? 'draft'
         : 'published'
 
@@ -61,8 +67,7 @@ export default {
         version: version
       })
       .then(res => {
-        this.$set(this, 'story', res.data.story)
-        console.log(this.story)
+        this.$set(this, 'globals', res.data.story)
       })
   }
 }

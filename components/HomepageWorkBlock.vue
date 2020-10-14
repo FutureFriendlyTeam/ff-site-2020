@@ -1,5 +1,8 @@
 <template>
-
+  <!-- <div>
+    <h2 class="mid v-margin-top-none">{{ uuid }}</h2>
+    <h2 v-if="story.content" class="mid v-margin-top-none">{{ story.content.title }}</h2>
+  </div> -->
   <future-div v-if="story"
               :class="i%2 === 0 ? 'start': 'end'" 
               class="work-block border-block h-padding-none xs-full m-three-quarters l-two-thirds v-margin-bottom">
@@ -18,7 +21,7 @@
           <p class="mid v-margin-top-none">With {{ story.content.client }}.</p>
         </div>
         <div class="border-block xs-full s-half">
-
+          
           <!-- <div v-if="work.award" class="badge-container h-padding"><award-badge
             :award-type="work.award"
           /></div> -->
@@ -51,18 +54,33 @@ export default {
       story: null
     }
   },
+  watch: {
+    uuid() {
+      console.log('uuid changed')
+      this.$fetch()
+    }
+  },
+  mounted() {
+    if (
+      this.$route.query._storyblok ||
+      window.Storyblok ||
+      this.$nuxt.context.isDev ||
+      this.uuid != this.story.uuid
+    ) {
+      this.$fetch()
+    }
+  },
   async fetch() {
-    let version =
-      this.$nuxt.context.query._storyblok || this.$nuxt.context.isDev
-        ? 'draft'
-        : 'published'
+    let version = this.$route.query._storyblok ? 'draft' : 'published'
+
+    console.log('loading item', version)
 
     return this.$storyapi
       .get(`cdn/stories/${this.uuid}?find_by=uuid`, {
         version: version
       })
       .then(res => {
-        this.$set(this, 'story', res.data.story)
+        this.$set(this, 'story', { ...{}, ...res.data.story })
       })
   }
 }

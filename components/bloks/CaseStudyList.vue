@@ -4,8 +4,8 @@
     <section class="v-padding-bottom-mega">
       <div class="center-col horizontal">
         <work-block
-          v-for="(link, i) in links"
-          :key="`work-${i}`" 
+          v-for="(link) in links"
+          :key="link.uuid" 
           :uuid="link.uuid"/>
       </div>
     </section>
@@ -31,13 +31,23 @@ export default {
       links: []
     }
   },
+  mounted() {
+    if (
+      this.$route.query._storyblok ||
+      window.Storyblok ||
+      this.$nuxt.context.isDev ||
+      this.uuid === []
+    ) {
+      this.$fetch()
+    }
+  },
   async fetch() {
     console.log(this.$nuxt)
 
-    let version =
-      this.$nuxt.context.query._storyblok || this.$nuxt.context.isDev
-        ? 'draft'
-        : 'published'
+    let version = this.$route.query._storyblok ? 'draft' : 'published'
+    // this.$nuxt.context.query._storyblok || this.$nuxt.context.isDev
+    //   ? 'draft'
+    //   : 'published'
 
     return this.$storyapi
       .get(`cdn/links/?starts_with=case-studies/`, {
