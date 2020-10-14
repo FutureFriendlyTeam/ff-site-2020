@@ -1,9 +1,5 @@
 <template>
-  <!-- <div>
-    <h2 class="mid v-margin-top-none">{{ uuid }}</h2>
-    <h2 v-if="story.content" class="mid v-margin-top-none">{{ story.content.title }}</h2>
-  </div> -->
-  <future-div v-if="story"
+  <future-div v-if="story.content"
               :class="i%2 === 0 ? 'start': 'end'" 
               class="work-block border-block h-padding-none xs-full m-three-quarters l-two-thirds v-margin-bottom">
 
@@ -40,48 +36,14 @@ export default {
     AwardBadge
   },
   props: {
-    uuid: {
-      type: String,
+    story: {
+      type: Object,
       default: null
     },
     i: {
       type: Number,
       default: 0
     }
-  },
-  data() {
-    return {
-      story: null
-    }
-  },
-  watch: {
-    uuid() {
-      console.log('uuid changed')
-      this.$fetch()
-    }
-  },
-  mounted() {
-    if (
-      this.$route.query._storyblok ||
-      window.Storyblok ||
-      this.$nuxt.context.isDev ||
-      this.uuid != this.story.uuid
-    ) {
-      this.$fetch()
-    }
-  },
-  async fetch() {
-    let version = this.$route.query._storyblok ? 'draft' : 'published'
-
-    console.log('loading item', version)
-
-    return this.$storyapi
-      .get(`cdn/stories/${this.uuid}?find_by=uuid`, {
-        version: version
-      })
-      .then(res => {
-        this.$set(this, 'story', { ...{}, ...res.data.story })
-      })
   }
 }
 </script>

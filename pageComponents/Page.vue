@@ -1,6 +1,7 @@
 <template>
   <div id="page" >
     <section>
+      <!-- <h1>Page</h1> -->
       <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"/>
     </section>
   </div>
@@ -13,14 +14,29 @@ export default {
     return { story: { content: {} } }
   },
   async asyncData(context, version = 'published') {
+    // version = 'draft'
+
+    console.log('loading live data', version, context.route.path)
+    // Load the JSON from the API
     return context.app.$storyapi
-      .get(`cdn/stories/${context.params.slug || 'home'}`, {
-        version: version,
-        resolve_relations:
-          'homepage-case-study-list.case_studies,homepage-article-list.articles'
-      })
+      .get(
+        `cdn/stories/${
+          context.route.path === '/' ? 'home' : context.route.path
+        }`,
+        {
+          version: version,
+          resolve_relations:
+            'homepage-case-study-list.case_studies,homepage-article-list.articles'
+        }
+      )
       .then(res => {
         return res.data
+      })
+      .catch(res => {
+        context.error({
+          statusCode: res.response.status,
+          message: res.response.data
+        })
       })
   },
   async activated() {
@@ -42,6 +58,7 @@ export default {
           console.log('updated page', window)
 
           // Manually calling as $storybridge is buggy AF
+          window.Storyblok.addComments(event.story.content, event.story.id)
           window.Storyblok.resolveRelations(
             event.story,
             [

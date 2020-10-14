@@ -2,7 +2,7 @@
   <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor, '--hoverColor': activeHoverColor}" class="color-background">
     <main-header/>
     <nuxt keep-alive/>
-    <!-- <main-footer/> -->
+    <main-footer/>
   </div>
 </template>
 

@@ -15,38 +15,10 @@
 export default {
   name: 'HomepageArticleBlock',
   props: {
-    uuid: {
-      type: String,
+    story: {
+      type: Object,
       default: null
     }
-  },
-  data() {
-    return {
-      story: null
-    }
-  },
-  mounted() {
-    if (
-      this.$route.query._storyblok ||
-      window.Storyblok ||
-      this.$nuxt.context.isDev ||
-      this.uuid != this.story.uuid
-    ) {
-      this.$fetch()
-    }
-  },
-  async fetch() {
-    let version = this.$route.query._storyblok ? 'draft' : 'published'
-
-    console.log('loading item', version)
-
-    return this.$storyapi
-      .get(`cdn/stories/${this.uuid}?find_by=uuid`, {
-        version: version
-      })
-      .then(res => {
-        this.$set(this, 'story', { ...{}, ...res.data.story })
-      })
   }
 }
 </script>

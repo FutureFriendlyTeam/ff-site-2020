@@ -4,9 +4,9 @@
     <section>
       <div class="center-col horizontal">
         <homepage-work-block
-          v-for="(uuid, i) in blok.case_studies"
-          :key="`homepage-case-study-${uuid}`" 
-          :uuid="uuid" 
+          v-for="(story, i) in blok.case_studies"
+          :key="`homepage-case-study-${i}`" 
+          :story="story" 
           :class="[i%2 === 0 ? 'start': 'end']"
           class="work-block" />
       </div>
