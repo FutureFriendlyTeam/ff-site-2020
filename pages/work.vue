@@ -1,34 +1,30 @@
 <template>
-  <div id="page" >
-    <future-div :background-color="'light'">
+  <future-div id="page" :background-color="'light'">
 
-      <!-- <main-header/> -->
+    <!-- <main-header/> -->
 
-      <section 
-        class="v-padding-top-mega v-padding-bottom-big">
-        <div class="center-col">
-          <h1 class="mega xs-full s-three-quarters no-margin">Selected work.</h1>
-        </div>
-      </section>
-
-
-      <section class="v-padding-bottom-mega">
-        <div class="center-col horizontal">
-          <work-block
-            v-for="(work, i) in work"
-            :key="`work-${i}`" 
-            :work="work" 
-            :i="i"
-            :class="[i%2 === 0 ? 'start': 'end']" />
-        </div>
-      </section>
+    <section 
+      class="v-padding-top-mega v-padding-bottom-big">
+      <div class="center-col">
+        <h1 class="mega xs-full s-three-quarters no-margin">Selected work.</h1>
+      </div>
+    </section>
 
 
+    <section class="v-padding-bottom-mega">
+      <div class="center-col horizontal">
+        <work-block
+          v-for="(work, i) in work"
+          :key="`work-${i}`" 
+          :work="work" 
+          :i="i"
+          :class="[i%2 === 0 ? 'start': 'end']" />
+      </div>
+    </section>
 
-    </future-div>
 
-    <super-footer :background-color="'accent'" :text-color="'dark'" :hover-color="'accentLight'"/>
-  </div>
+
+  </future-div>
 </template>
 
 <script>

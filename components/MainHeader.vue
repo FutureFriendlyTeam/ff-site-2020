@@ -78,7 +78,7 @@ export default {
     text-decoration: none;
 
     &:hover {
-      color: var(--hoverColor);
+      color: $accent;
     }
   }
 }
