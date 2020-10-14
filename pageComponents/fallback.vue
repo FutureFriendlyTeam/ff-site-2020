@@ -13,34 +13,14 @@ export default {
   data() {
     return { story: { content: {} } }
   },
-  async asyncData(context, version = 'published') {
-    version = 'draft'
 
-    console.log('loading live data', version, context.route.path)
-    // Load the JSON from the API
-    return context.app.$storyapi
-      .get(`cdn/stories/${context.route.path}`, {
-        version: version,
-        resolve_relations:
-          'homepage-case-study-list.case_studies,homepage-article-list.articles'
-      })
-      .then(res => {
-        return res.data
-      })
-      .catch(res => {
-        context.error({
-          statusCode: res.response.status,
-          message: res.response.data
-        })
-      })
-  },
   async activated() {
     if (
       this.$route.query._storyblok ||
       window.Storyblok ||
       this.$nuxt.context.isDev
     ) {
-      let data = await this.$options.asyncData(
+      let data = await this.loadFallbackContent(
         this.$root.$options.context,
         'draft'
       )
@@ -69,6 +49,29 @@ export default {
         window.location.reload()
       }
     })
+  },
+  methods: {
+    async loadFallbackContent(context, version = 'published') {
+      version = 'draft'
+
+      console.log('loading live data', version, context.route.path)
+      // Load the JSON from the API
+      return context.app.$storyapi
+        .get(`cdn/stories/${context.route.path}`, {
+          version: version,
+          resolve_relations:
+            'homepage-case-study-list.case_studies,homepage-article-list.articles'
+        })
+        .then(res => {
+          return res.data
+        })
+        .catch(res => {
+          context.error({
+            statusCode: res.response.status,
+            message: res.response.data
+          })
+        })
+    }
   }
 }
 </script>
