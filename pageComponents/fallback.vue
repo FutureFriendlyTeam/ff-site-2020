@@ -1,7 +1,7 @@
 <template>
   <div id="page" >
     <section>
-      <h1>Fallback</h1>
+      <!-- <h1>Fallback</h1> -->
       <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"/>
     </section>
   </div>

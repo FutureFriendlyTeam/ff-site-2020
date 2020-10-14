@@ -11,7 +11,7 @@ const addClass = function(el, className) {
 }
 
 const updateEditable = function(el, binding) {
-  console.log('directive called', el, binding.value)
+  // console.log('directive called', el, binding.value)
   if (
     typeof binding.value._editable === 'undefined' ||
     binding.value._editable === null

@@ -1,6 +1,6 @@
 <template>
   <future-div v-storyblok-editable="blok" :background-color="blok.background_color" :text-color="blok.text_color">
-    <footer class="v-padding-bottom-big">
+    <footer class="v-padding-bottom">
       <div id="future" class="center-col horizontal">
         <div class="border-block xs-full s-half horizontal">
           <h1 class="mega v-margin-top-none">The future isn't something you wait for.</h1>

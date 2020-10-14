@@ -23,6 +23,8 @@ import SuperFooter from '~/components/bloks/SuperFooter.vue'
 import CaseStudyList from '~/components/bloks/CaseStudyList.vue'
 import HomepageCaseStudyList from '~/components/bloks/HomepageCaseStudyList.vue'
 import HomepageArticleList from '~/components/bloks/HomepageArticleList.vue'
+import CtaButton from '~/components/bloks/CtaButton.vue'
+import Quote from '~/components/bloks/Quote.vue'
 
 Vue.component('future-div', FutureDiv)
 Vue.component('future-img', FutureImg)
@@ -39,6 +41,8 @@ Vue.component('super-footer', SuperFooter)
 Vue.component('case-study-list', CaseStudyList)
 Vue.component('homepage-case-study-list', HomepageCaseStudyList)
 Vue.component('homepage-article-list', HomepageArticleList)
+Vue.component('cta-button', CtaButton)
+Vue.component('quote', Quote)
 
 Vue.prototype.$theme = {
   light: '#ffffff',
