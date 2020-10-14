@@ -1,5 +1,5 @@
 <template>
-  <future-div v-editable="blok" :background-color="blok.background_color" :text-color="blok.text_color">
+  <future-div v-storyblok-editable="blok" :background-color="blok.background_color" :text-color="blok.text_color">
     <footer class="v-padding-bottom-big">
       <div id="future" class="center-col horizontal">
         <div class="border-block xs-full s-half horizontal">

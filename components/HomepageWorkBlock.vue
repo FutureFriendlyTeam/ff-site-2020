@@ -1,6 +1,5 @@
 <template>
-
-  <future-div v-if="story"
+  <future-div v-if="story.content"
               :class="i%2 === 0 ? 'start': 'end'" 
               class="work-block border-block h-padding-none xs-full m-three-quarters l-two-thirds v-margin-bottom">
 
@@ -18,7 +17,7 @@
           <p class="mid v-margin-top-none">With {{ story.content.client }}.</p>
         </div>
         <div class="border-block xs-full s-half">
-
+          
           <!-- <div v-if="work.award" class="badge-container h-padding"><award-badge
             :award-type="work.award"
           /></div> -->
@@ -37,33 +36,14 @@ export default {
     AwardBadge
   },
   props: {
-    uuid: {
-      type: String,
+    story: {
+      type: Object,
       default: null
     },
     i: {
       type: Number,
       default: 0
     }
-  },
-  data() {
-    return {
-      story: null
-    }
-  },
-  async fetch() {
-    let version =
-      this.$nuxt.context.query._storyblok || this.$nuxt.context.isDev
-        ? 'draft'
-        : 'published'
-
-    return this.$storyapi
-      .get(`cdn/stories/${this.uuid}?find_by=uuid`, {
-        version: version
-      })
-      .then(res => {
-        this.$set(this, 'story', res.data.story)
-      })
   }
 }
 </script>

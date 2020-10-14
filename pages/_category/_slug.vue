@@ -12,12 +12,10 @@ export default {
   data() {
     return { story: { content: {} } }
   },
-  asyncData(context) {
+  async asyncData(context, version = 'published') {
     // let version =
     //   context.query._storyblok || context.isDev ? 'draft' : 'published'
-
-    // TODO Figure out a better way to deal with this
-    let version = 'draft'
+    console.log('loading live data', version)
     // Load the JSON from the API
     return context.app.$storyapi
       .get(
@@ -37,11 +35,28 @@ export default {
         })
       })
   },
-  mounted() {
+  async activated() {
+    console.log('page', this.$route.query, window)
+
+    if (
+      this.$route.query._storyblok ||
+      window.Storyblok ||
+      this.$nuxt.context.isDev
+    ) {
+      console.log('is in editor')
+      let data = await this.$options.asyncData(
+        this.$root.$options.context,
+        'draft'
+      )
+      console.log('live data is', data)
+      this.$set(this, 'story', { ...{}, ...data.story })
+    }
+
     this.$storybridge.on(['input', 'published', 'change'], event => {
       if (event.action == 'input') {
         if (event.story.id === this.story.id) {
-          this.story.content = event.story.content
+          console.log('updated page', event.story)
+          this.$set(this, 'story', { ...{}, ...event.story })
         }
       } else {
         window.location.reload()

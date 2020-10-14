@@ -1,5 +1,5 @@
 <template>
-  <future-div v-editable="blok" :background-color="blok.background_color" :text-color="blok.text_color" :disabled = "blok.no_margin">
+  <future-div v-storyblok-editable="blok" :background-color="blok.background_color" :text-color="blok.text_color" :disabled = "blok.no_margin">
     <div :class="blok.no_margin ? '' : 'center-col'">
       <div class="horizontal">
         <component v-for="col in blok.columns" :key="col._uid" :blok="col" :is="col.component" :class="classes"/>

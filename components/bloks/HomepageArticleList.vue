@@ -5,9 +5,9 @@
       <h2 class="big v-margin-top-none v-margin-bottom-big">News</h2>
       <div class="horizontal">
         <homepage-article-block
-          v-for="(uuid, i) in blok.articles"
+          v-for="(story, i) in blok.articles"
           :key="`article-${i}`" 
-          :uuid="uuid" />
+          :story="story" />
       </div>
     </div>
 

@@ -4,9 +4,9 @@
     <section class="v-padding-bottom-mega">
       <div class="center-col horizontal">
         <work-block
-          v-for="(link, i) in links"
-          :key="`work-${i}`" 
-          :uuid="link.uuid"/>
+          v-for="(story, i) in work"
+          :key="`case-study-${i}`" 
+          :story="story"/>
       </div>
     </section>
 
@@ -28,24 +28,27 @@ export default {
   },
   data() {
     return {
-      links: []
+      work: []
     }
+  },
+  mounted() {
+    this.$fetch()
   },
   async fetch() {
     console.log(this.$nuxt)
 
-    let version =
-      this.$nuxt.context.query._storyblok || this.$nuxt.context.isDev
-        ? 'draft'
-        : 'published'
+    let version = this.$route.query._storyblok ? 'draft' : 'published'
+    // this.$nuxt.context.query._storyblok || this.$nuxt.context.isDev
+    //   ? 'draft'
+    //   : 'published'
 
     return this.$storyapi
-      .get(`cdn/links/?starts_with=case-studies/`, {
+      .get(`cdn/stories/?starts_with=case-studies/`, {
         version: version
       })
       .then(res => {
         console.log(res)
-        this.$set(this, 'links', res.data.links)
+        this.$set(this, 'work', res.data.stories)
         // console.log(this.links)
       })
   }

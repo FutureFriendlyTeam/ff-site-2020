@@ -1,5 +1,5 @@
 <template>  
-  <figure v-editable="blok" :class="[blok.size, blok.top_spacing, blok.bottom_spacing]" class="color-background">
+  <figure v-storyblok-editable="blok" :class="[blok.size, blok.top_spacing, blok.bottom_spacing]" class="color-background">
     <story-blok-image :aspect="blok.aspect" :filename="blok.image.filename" :grayscale="blok.grayscale"/>
   </figure>
 </template>

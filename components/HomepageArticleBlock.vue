@@ -15,30 +15,10 @@
 export default {
   name: 'HomepageArticleBlock',
   props: {
-    uuid: {
-      type: String,
+    story: {
+      type: Object,
       default: null
     }
-  },
-  data() {
-    return {
-      story: null
-    }
-  },
-  async fetch() {
-    let version =
-      this.$nuxt.context.query._storyblok || this.$nuxt.context.isDev
-        ? 'draft'
-        : 'published'
-
-    return this.$storyapi
-      .get(`cdn/stories/${this.uuid}?find_by=uuid`, {
-        version: version
-      })
-      .then(res => {
-        console.log(res)
-        this.$set(this, 'story', res.data.story)
-      })
   }
 }
 </script>

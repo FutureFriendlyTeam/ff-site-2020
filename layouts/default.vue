@@ -1,7 +1,7 @@
 <template>
   <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor, '--hoverColor': activeHoverColor}" class="color-background">
     <main-header/>
-    <nuxt/>
+    <nuxt keep-alive/>
     <main-footer/>
   </div>
 </template>

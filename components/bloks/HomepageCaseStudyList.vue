@@ -1,12 +1,12 @@
 <template>
-  <future-div :background-color="'light'">
+  <future-div v-storyblok-editable="blok" :background-color="'light'">
 
     <section>
       <div class="center-col horizontal">
         <homepage-work-block
-          v-for="(uuid, i) in blok.case_studies"
-          :key="`work-${i}`" 
-          :uuid="uuid" 
+          v-for="(story, i) in blok.case_studies"
+          :key="`homepage-case-study-${i}`" 
+          :story="story" 
           :class="[i%2 === 0 ? 'start': 'end']"
           class="work-block" />
       </div>
@@ -27,6 +27,9 @@ export default {
       type: Object,
       default: null
     }
+  },
+  mounted() {
+    console.log('homepage case study list', this.blok)
   }
 }
 </script>
