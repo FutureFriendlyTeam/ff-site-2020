@@ -62,16 +62,12 @@ export default {
         ? 'draft'
         : 'published'
 
-    return this.$storyapi
-      .get(`cdn/stories/global/globals`, {
-        version: version
-      })
-      .then(res => {
-        this.$set(this, 'globals', res.data.story)
-      })
+    return this.$storyblok.get(`cdn/stories/global/globals`).then(res => {
+      this.$set(this, 'globals', res.data.story)
+    })
   }
 }
-</script>
+</script> 
 
 
 <style lang="scss" scoped>

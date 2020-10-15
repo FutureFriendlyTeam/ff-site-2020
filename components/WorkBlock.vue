@@ -1,6 +1,6 @@
 <template>
 
-  <article v-editable="story" v-if="story"
+  <article v-if="story"
            :class="story.content.thumbnail_size" 
            class="work-block border-block xs-full v-margin-bottom v-padding-bottom-mega">
 

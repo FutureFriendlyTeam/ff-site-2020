@@ -16,6 +16,7 @@ const updateEditable = function(el, binding) {
     typeof binding.value._editable === 'undefined' ||
     binding.value._editable === null
   ) {
+    // console.log('not editable', binding.value)
     return
   }
 
@@ -30,10 +31,16 @@ const updateEditable = function(el, binding) {
 }
 
 Vue.directive('storyblok-editable', {
+  bind: function(el, binding) {
+    // console.log('bind')
+    updateEditable(el, binding)
+  },
   inserted: function(el, binding) {
+    // console.log('inserted')
     updateEditable(el, binding)
   },
   update: function(el, binding) {
+    // console.log('updated')
     updateEditable(el, binding)
   }
 })

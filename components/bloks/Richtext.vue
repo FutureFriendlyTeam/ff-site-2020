@@ -1,7 +1,6 @@
 <template>
   <div>
     <div v-storyblok-editable="blok" :class="[blok.size, blok.top_spacing, blok.bottom_spacing, blok.compact_text ? 'compact' : '']" class="richtext" v-html="richtext" /> 
-    <!-- <p>{{ blok._editable }}</p> -->
   </div>
 </template>
 
@@ -15,7 +14,7 @@ export default {
   },
   computed: {
     richtext() {
-      return this.$storyapi.richTextResolver.render(this.blok.text)
+      return this.$storyblok.client.richTextResolver.render(this.blok.text)
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
 
-  <article v-editable="story" v-if="story"
+  <article v-storyblok-editable="story" v-if="story"
            class="border-block xs-full s-half m-quarter v-margin-bottom">
     <a 
       :href="story.content.external_link.linktype === 'url' ? story.content.external_link.url : `/${story.full_slug}`"

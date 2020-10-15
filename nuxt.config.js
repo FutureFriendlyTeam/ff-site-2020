@@ -123,6 +123,7 @@ module.exports = {
   */
   plugins: [
     '@/plugins/plugins.js',
+    '@/plugins/storyblok-service.js',
     '@/plugins/storyblok-editable-directive.js',
     '@plugins/vue-lazysizes.client.js'
   ],
@@ -133,13 +134,13 @@ module.exports = {
   modules: [
     '@nuxtjs/google-analytics',
     'nuxt-compress',
-    [
-      'storyblok-nuxt',
-      {
-        accessToken: 'kDWQn9yqch6ilLrLHTt0QAtt',
-        cacheProvider: 'memory'
-      }
-    ],
+    // [
+    //   'storyblok-nuxt',
+    //   {
+    //     accessToken: 'kDWQn9yqch6ilLrLHTt0QAtt',
+    //     cacheProvider: 'memory'
+    //   }
+    // ],
     [
       '@wearewondrous/nuxt-storyblok-router',
       {

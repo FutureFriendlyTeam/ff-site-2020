@@ -35,17 +35,8 @@ export default {
     this.$fetch()
   },
   async fetch() {
-    console.log(this.$nuxt)
-
-    let version = this.$route.query._storyblok ? 'draft' : 'published'
-    // this.$nuxt.context.query._storyblok || this.$nuxt.context.isDev
-    //   ? 'draft'
-    //   : 'published'
-
-    return this.$storyapi
-      .get(`cdn/stories/?starts_with=case-studies/`, {
-        version: version
-      })
+    return this.$storyblok
+      .get(`cdn/stories/?starts_with=case-studies/`)
       .then(res => {
         console.log(res)
         this.$set(this, 'work', res.data.stories)

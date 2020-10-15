@@ -13,18 +13,14 @@ export default {
   data() {
     return { story: { content: {} } }
   },
-  async asyncData(context, version = 'published') {
-    // version = 'draft'
-
-    console.log('loading live data', version, context.route.path)
-    // Load the JSON from the API
-    return context.app.$storyapi
+  async asyncData(context) {
+    context.$storyblok.setQuery(context.query)
+    return context.$storyblok
       .get(
         `cdn/stories/${
           context.route.path === '/' ? 'home' : context.route.path
         }`,
         {
-          version: version,
           resolve_relations:
             'homepage-case-study-list.case_studies,homepage-article-list.articles'
         }
@@ -32,48 +28,9 @@ export default {
       .then(res => {
         return res.data
       })
-      .catch(res => {
-        context.error({
-          statusCode: res.response.status,
-          message: res.response.data
-        })
-      })
   },
   async activated() {
-    if (
-      this.$route.query._storyblok ||
-      window.Storyblok ||
-      this.$nuxt.context.isDev
-    ) {
-      let data = await this.$options.asyncData(
-        this.$root.$options.context,
-        'draft'
-      )
-      this.$set(this, 'story', { ...{}, ...data.story })
-    }
-
-    this.$storybridge.on(['input', 'published', 'change'], event => {
-      if (event.action === 'input') {
-        if (event.story.id === this.story.id) {
-          console.log('updated page', window)
-
-          // Manually calling as $storybridge is buggy AF
-          window.Storyblok.resolveRelations(
-            event.story,
-            [
-              'homepage-case-study-list.case_studies',
-              'homepage-article-list.articles'
-            ],
-            data => {
-              console.log('resolved', data)
-              this.$set(this.story, 'content', { ...{}, ...data })
-            }
-          )
-        }
-      } else {
-        window.location.reload()
-      }
-    })
+    this.$storyblok.initEditor(this)
   }
 }
 </script>

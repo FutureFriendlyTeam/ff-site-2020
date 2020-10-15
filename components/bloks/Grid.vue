@@ -18,9 +18,7 @@ export default {
   },
   methods: {
     getSizeClasses(col) {
-      console.log(col)
       if (col.size === 'xs-auto' || !col.size) {
-        console.log('auto size')
         let cols = this.blok.columns.length
         return `xs-full ${cols === 2 ? 's-half' : ''} ${
           cols === 3 ? 's-third' : ''
