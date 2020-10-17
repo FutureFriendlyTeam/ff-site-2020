@@ -2,7 +2,6 @@
   <future-div :background-color="'light'">
 
     <div class="center-col">
-      <h2 class="big v-margin-top-none v-margin-bottom-big">News</h2>
       <div class="horizontal">
         <homepage-article-block
           v-for="(story, i) in blok.articles"

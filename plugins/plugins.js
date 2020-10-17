@@ -25,6 +25,9 @@ import HomepageCaseStudyList from '~/components/bloks/HomepageCaseStudyList.vue'
 import HomepageArticleList from '~/components/bloks/HomepageArticleList.vue'
 import CtaButton from '~/components/bloks/CtaButton.vue'
 import Quote from '~/components/bloks/Quote.vue'
+import VimeoEmbed from '~/components/bloks/VimeoEmbed.vue'
+import TeamProfileList from '~/components/bloks/TeamProfileList.vue'
+import ClientList from '~/components/bloks/ClientList.vue'
 
 Vue.component('future-div', FutureDiv)
 Vue.component('future-img', FutureImg)
@@ -43,6 +46,9 @@ Vue.component('homepage-case-study-list', HomepageCaseStudyList)
 Vue.component('homepage-article-list', HomepageArticleList)
 Vue.component('cta-button', CtaButton)
 Vue.component('quote', Quote)
+Vue.component('vimeo-embed', VimeoEmbed)
+Vue.component('team-profile-list', TeamProfileList)
+Vue.component('client-list', ClientList)
 
 Vue.prototype.$theme = {
   light: '#ffffff',

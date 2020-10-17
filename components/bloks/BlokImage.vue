@@ -1,6 +1,10 @@
 <template>  
-  <figure v-storyblok-editable="blok" :class="[blok.size, blok.top_spacing, blok.bottom_spacing]" class="color-background">
-    <story-blok-image :aspect="blok.aspect" :filename="blok.image.filename" :grayscale="blok.grayscale"/>
+  <figure v-storyblok-editable="blok" :class="[
+            blok.size,
+            `v-margin-top-${blok.top_spacing}`,
+            `v-margin-bottom-${blok.bottom_spacing}`]" 
+          class="color-background">
+    <story-blok-image :aspect="blok.aspect" :filename="blok.image.filename" :grayscale="blok.grayscale" :blend="blok.blend"/>
   </figure>
 </template>
 

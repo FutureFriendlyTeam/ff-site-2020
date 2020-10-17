@@ -1,7 +1,13 @@
 <template>
-  <div>
-    <div v-storyblok-editable="blok" :class="[blok.size, blok.top_spacing, blok.bottom_spacing, blok.compact_text ? 'compact' : '']" class="richtext" v-html="richtext" /> 
-  </div>
+  <!-- <div> -->
+  <div v-storyblok-editable="blok" 
+       :class="[
+         blok.size,
+         `v-margin-top-${blok.top_spacing}`,
+         `v-margin-bottom-${blok.bottom_spacing}`,
+         blok.compact_spacing ? 'compact':'']" 
+       class="richtext" v-html="richtext" /> 
+       <!-- </div> -->
 </template>
 
 <script>

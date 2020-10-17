@@ -5,8 +5,9 @@
     <a 
       :href="story.content.external_link.linktype === 'url' ? story.content.external_link.url : `/${story.full_slug}`"
       class="wrapper-link">
-      <h2 class="mid v-margin-top-none v-margin-bottom">{{ story.name }}</h2>
-      <story-blok-image :filename="story.content.image.filename" :aspect="story.content.aspect" class=""/>
+      <story-blok-image :filename="story.content.image.filename" :aspect="story.content.aspect" class="v-margin-bottom"/>
+      <h2 class="mid v-margin-top-none">{{ story.name }}</h2>
+      
     </a>
   </article>
 </template>

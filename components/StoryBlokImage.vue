@@ -1,5 +1,5 @@
 <template>  
-  <fixed-aspect :aspect="aspect || 'free'" class="multiply">
+  <fixed-aspect :aspect="aspect || 'free'" :class="[grayscale ? blend === 'normal' ? 'multiply' : blend : blend ]">
 
     <div :class="aspect != 'free' ? 'future-image-wrapper' : ''">
       <picture class="future-image">
@@ -32,6 +32,10 @@ export default {
     grayscale: {
       type: Boolean,
       default: false
+    },
+    blend: {
+      type: String,
+      default: 'normal'
     }
   },
   methods: {

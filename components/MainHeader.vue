@@ -19,7 +19,7 @@
       </div>
     </header>
 
-    <!-- <transition name="quick-fade" mode="out-in">
+    <transition name="quick-fade" mode="out-in">
       <div v-if="mobileNavOpen" id="mobile-nav">
         <div id="mobile-nav-inner" class="horizontal color-background">
           <nav class="self-end h-padding v-padding-top-big v-padding-bottom xs-full">
@@ -27,7 +27,7 @@
         </nav></div>
 
       </div>
-    </transition> -->
+    </transition>
 
   </div>
 </template>

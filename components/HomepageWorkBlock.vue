@@ -1,6 +1,7 @@
 <template>
   <future-div v-if="story.content"
               :class="i%2 === 0 ? 'start': 'end'" 
+              :background-color="story.content.background_color" 
               class="work-block border-block h-padding-none xs-full m-three-quarters l-two-thirds v-margin-bottom">
 
     <nuxt-link 
@@ -18,9 +19,9 @@
         </div>
         <div class="border-block xs-full s-half">
           
-          <!-- <div v-if="work.award" class="badge-container h-padding"><award-badge
-            :award-type="work.award"
-          /></div> -->
+          <div v-if="story.content.award !== 'none'" class="badge-container h-padding"><award-badge
+            :award-type="story.content.award"
+          /></div>
 
         </div>
       </section>

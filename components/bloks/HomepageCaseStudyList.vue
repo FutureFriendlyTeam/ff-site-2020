@@ -3,11 +3,14 @@
 
     <section>
       <div class="center-col horizontal">
+        <div class="xs-full m-quarter l-third">
+          <component v-for="blok in blok.blocks" :key="blok._uid" :blok="blok" :is="blok.component"/>
+        </div>
         <homepage-work-block
           v-for="(story, i) in blok.case_studies"
           :key="`homepage-case-study-${i}`" 
           :story="story" 
-          :class="[i%2 === 0 ? 'start': 'end']"
+          :class="[i !== 0 ? i%2 === 1 ? 'start': 'end': '']"
           class="work-block" />
       </div>
     </section>

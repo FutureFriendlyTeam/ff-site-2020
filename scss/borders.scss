@@ -2,6 +2,7 @@
 
 .border-left {
   position: relative;
+  @extend .h-padding-left;
 
   &:before {
     content: '';
@@ -16,6 +17,7 @@
 
 .border-right {
   position: relative;
+  @extend .h-padding-right;
 
   &:after {
     content: '';
@@ -28,8 +30,9 @@
   }
 }
 
-.border-block {
-  @extend .h-padding, .border-left, .border-right;
+.border-block,
+.border-both {
+  @extend .border-left, .border-right;
 
   &.h-padding-none {
     padding-left: 0px;

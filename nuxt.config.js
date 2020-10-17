@@ -146,7 +146,7 @@ module.exports = {
       {
         accessToken: 'kDWQn9yqch6ilLrLHTt0QAtt',
         contentTypeDir: 'pageComponents',
-        exclude: ['globals'],
+        exclude: ['global', 'team', 'clients'],
         useFallback: true
       }
     ]

@@ -35,7 +35,8 @@
   }
 }
 
-.mega {
+.mega,
+h1 {
   display: block;
   font-size: 3rem;
   line-height: 1;
@@ -57,7 +58,8 @@
   }
 }
 
-.big {
+.big,
+h2 {
   display: block;
   font-weight: normal;
   font-family: 'Plain';
@@ -71,11 +73,12 @@
   }
 
   @media (min-width: $big) {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 }
 
-.mid {
+.mid,
+h3 {
   display: block;
   font-weight: normal;
   font-family: 'Plain';
@@ -86,14 +89,23 @@
   @media (min-width: $mid) {
     font-size: 1.5rem;
   }
+
+  @media (min-width: $big) {
+    font-size: 1.75rem;
+  }
 }
 
-.body {
+.body,
+p {
   display: block;
   font-weight: normal;
   font-family: 'Plain';
   font-size: 1rem;
   line-height: 1.25;
+
+  @media (min-width: $mid) {
+    font-size: 1.25rem;
+  }
 }
 
 .mini {
@@ -106,7 +118,7 @@
   font-family: 'Plain';
   font-size: 0.75rem;
   line-height: 1;
-  opacity: 0.6;
+  // opacity: 0.6;
 }
 
 ul {
@@ -118,13 +130,14 @@ ul {
     position: relative;
     padding-left: 2rem;
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75em;
 
     &:before {
       content: '\00AC';
       color: inherit;
       position: absolute;
       left: 0px;
+      top: 0.2em;
     }
   }
 }
@@ -154,7 +167,7 @@ ul {
 
   &.compact {
     * {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
   }
 }
