@@ -96,6 +96,7 @@ const StoryblokService = class {
             ],
             data => {
               page.$set(page.story, 'content', { ...{}, ...data })
+              page.$root.$emit('layoutUpdate')
             }
           )
         }

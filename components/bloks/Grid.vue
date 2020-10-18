@@ -1,10 +1,12 @@
 <template>
   <future-div v-storyblok-editable="blok" :background-color="blok.background_color" :text-color="blok.text_color" :disabled = "!blok.color_fade">
+
     <div :class="blok.no_margin ? '' : 'center-col'">
-      <div :class="[blok.reverse ? 'reverse' : '', `v-margin-top-${blok.top_spacing}`, `v-margin-bottom-${blok.bottom_spacing}`, blok.no_border_offset ? 'h-offset-margin-right' : '']" class="horizontal">
+      <div :class="[blok.reverse ? 'reverse' : '', `v-padding-top-${blok.top_spacing}`, `v-padding-bottom-${blok.bottom_spacing}`, blok.no_border_offset ? 'h-offset-margin-right' : '']" class="horizontal">
         <component v-for="col in blok.columns" :key="col._uid" :blok="col" :is="col.component" :class="[getSizeClasses(col), col.custom_classes]"/>
       </div>
     </div>
+
   </future-div>
 </template>
 

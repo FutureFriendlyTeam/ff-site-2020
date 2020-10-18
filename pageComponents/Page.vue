@@ -28,8 +28,10 @@ export default {
         return res.data
       })
   },
-  async activated() {
-    this.$storyblok.initEditor(this)
+  async mounted() {
+    this.$root.$emit('layoutUpdate')
+    await this.$storyblok.initEditor(this)
+    this.$root.$emit('layoutUpdate')
   }
 }
 </script>

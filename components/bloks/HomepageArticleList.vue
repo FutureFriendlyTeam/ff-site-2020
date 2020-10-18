@@ -1,8 +1,8 @@
 <template>
-  <future-div :background-color="'light'">
+  <future-div :background-color="'light2'" :text-color="'dark'" >
 
     <div class="center-col">
-      <div class="horizontal">
+      <div class="horizontal v-padding-bottom-mega">
         <homepage-article-block
           v-for="(story, i) in blok.articles"
           :key="`article-${i}`" 

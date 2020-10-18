@@ -29,11 +29,12 @@ figure {
 
 #site {
   color: var(--textColor);
+  // transition: color 300ms ease;
 }
 
 .color-background {
   background-color: var(--backgroundColor);
-  transition: background-color 600ms ease;
+  transition: background-color 600ms ease, color 300ms ease;
 }
 
 .wrapper-link {

@@ -1,5 +1,5 @@
 <template>
-  <future-div v-storyblok-editable="blok" :background-color="'light'">
+  <future-div v-storyblok-editable="blok" :background-color="blok.background_color">
 
     <section>
       <div class="center-col horizontal">

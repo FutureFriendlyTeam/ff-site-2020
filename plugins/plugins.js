@@ -1,12 +1,16 @@
 import Vue from 'vue'
-import VueMq from 'vue-mq'
+// import VueMq from 'vue-mq'
+
+// import { IntersectDirective } from 'vue-intersect-directive'
+
+// Vue.use(VueIntersect)
 import VueObserveVisibility from 'vue-observe-visibility'
 
 // import locomotiveScroll from 'locomotive-scroll'
 
 // Object.defineProperty(Vue.prototype, 'locomotiveScroll', {
 //   value: locomotiveScroll
-// })
+// })s
 
 import FutureImg from '~/components/FutureImg.vue'
 import FutureDiv from '~/components/FutureDiv.vue'
@@ -69,15 +73,15 @@ Vue.prototype.$theme = {
 }
 
 Vue.use(VueObserveVisibility)
-Vue.use(VueMq, {
-  breakpoints: {
-    tiny: 0,
-    small: 640,
-    mid: 960,
-    big: 1200,
-    max: Infinity
-  }
-})
+// Vue.use(VueMq, {
+//   breakpoints: {
+//     tiny: 0,
+//     small: 640,
+//     mid: 960,
+//     big: 1200,
+//     max: Infinity
+//   }
+// })
 
 Vue.mixin({
   // data() {

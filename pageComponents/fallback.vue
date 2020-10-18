@@ -22,11 +22,12 @@ export default {
     }
   },
 
-  async activated() {
+  async mounted() {
     console.log('fallback called')
     let data = await this.loadFallbackData()
     this.$set(this, 'story', { ...{}, ...data.story })
     this.$storyblok.initEditor(this)
+    this.$root.$emit('layoutUpdate')
   },
   methods: {
     async loadFallbackData() {

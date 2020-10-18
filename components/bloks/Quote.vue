@@ -10,7 +10,7 @@
           <blockquote class="big">
             {{ blok.text }}
           </blockquote>
-          <cite class="caption quote-attribution"> — {{ blok.attribution_name }}<br>{{ blok.attribution_title }}</cite>
+          <cite class="caption quote-attribution"> — {{ blok.attribution_name }}<span v-if="blok.attribution_title"><br>{{ blok.attribution_title }}</span></cite>
         </div>
       </fixed-aspect>
     </div>

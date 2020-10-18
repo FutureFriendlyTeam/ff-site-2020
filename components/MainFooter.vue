@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer" class="v-padding-top-big v-padding-bottom-big">
+  <footer id="footer" class="v-padding-top-big v-padding-bottom-big" data-scroll-section>
     <div class="center-col horizontal">
       <div class="xs-full s-half v-margin-bottom h-padding-right">
         <p class="mid no-margin-top"><a href="mailto:hello@futurefriendly.team">hello@futurefriendly.team</a></p>

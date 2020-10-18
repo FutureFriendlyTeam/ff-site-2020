@@ -1,7 +1,7 @@
 <template>
-  <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor, '--hoverColor': activeHoverColor}" class="color-background">
+  <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor, '--hoverColor': activeHoverColor}" class="color-background" data-scroll-container>
     <main-header/>
-    <nuxt keep-alive/>
+    <nuxt/>
     <main-footer/>
   </div>
 </template>
@@ -27,10 +27,19 @@ export default {
   },
   mounted() {
     this.$root.$on('colorChange', e => {
-      this.activeBackgroundColor = this.$theme[e.backgroundColor] || '#ffffff'
-      this.activeTextColor = this.$theme[e.textColor] || '#000000'
-      this.activeHoverColor = this.$theme[e.hoverColor] || '#F05969'
+      this.updateColors(e.backgroundColor, e.textColor)
     })
+  },
+  methods: {
+    updateColors(backgroundColor, textColor) {
+      if (this.activeBackgroundColor !== this.$theme[backgroundColor]) {
+        this.activeBackgroundColor = this.$theme[backgroundColor] || '#ffffff'
+      }
+
+      if (this.activeTextColor !== this.$theme[textColor]) {
+        this.activeTextColor = this.$theme[textColor] || '#000'
+      }
+    }
   }
 }
 </script>

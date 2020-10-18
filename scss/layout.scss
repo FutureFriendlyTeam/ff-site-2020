@@ -234,15 +234,15 @@
   }
 
   &.center {
-    align-items: center;
+    justify-content: center;
   }
 
   &.start {
-    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   &.end {
-    align-items: flex-end;
+    justify-content: flex-end;
   }
 
   &.no-wrap {
@@ -276,6 +276,7 @@
 
 .vertical {
   @extend .horizontal;
+  flex-wrap: nowrap;
   flex-direction: column;
 
   &.reverse {

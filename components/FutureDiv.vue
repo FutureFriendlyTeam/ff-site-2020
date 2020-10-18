@@ -1,12 +1,12 @@
 <template>
-  <div v-observe-visibility="{
+  <section v-observe-visibility="{
     callback: onVisible,
     intersection: {
       rootMargin: '-50% 0px -50% 0px'
     },
-  }">
+  }" >
     <slot/>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -25,19 +25,21 @@ export default {
       default: false
     }
   },
+
+  data() {
+    return {
+      isVisible: false
+    }
+  },
   methods: {
-    onVisible(visible) {
-      if (visible && !this.disabled) {
+    onVisible(isVisible, entry) {
+      if (isVisible && !this.disabled) {
         this.$root.$emit('colorChange', {
           backgroundColor: this.backgroundColor,
           textColor: this.textColor
-          // hoverColor: this.hoverColor
         })
       }
     }
   }
 }
 </script>
-
-<style scoped lang="scss">
-</style>
