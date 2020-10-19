@@ -47,7 +47,7 @@ const StoryblokService = class {
       return true
     }
 
-    return typeof window === 'undefined' ? false : true
+    // return typeof window === 'undefined' ? false : true
   }
 
   async initEditor(page) {
@@ -56,6 +56,8 @@ const StoryblokService = class {
     if (typeof window === 'undefined' || !this.isEditorMode()) {
       return
     }
+
+    console.log('is in editor mode')
 
     if (!window?.storyblok) {
       this.loadEditorScript(
