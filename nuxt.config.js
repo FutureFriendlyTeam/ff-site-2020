@@ -125,6 +125,7 @@ module.exports = {
     '@/plugins/plugins.js',
     '@/plugins/storyblok-service.js',
     '@/plugins/storyblok-editable-directive.js',
+    '@/plugins/vue-content-link-directive.js',
     '@plugins/vue-lazysizes.client.js'
   ],
 
