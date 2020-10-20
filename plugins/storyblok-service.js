@@ -104,12 +104,14 @@ const StoryblokService = class {
             ],
             data => {
               page.$set(page.story, 'content', { ...{}, ...data })
-              page.$root.$emit('layoutUpdate')
+              // page.$root.$emit('layoutUpdate')
             }
           )
         }
       } else {
-        window.location.reload()
+        page.$router.go()
+        this.initEditor(page)
+        // window.location.reload()
       }
     })
   }
