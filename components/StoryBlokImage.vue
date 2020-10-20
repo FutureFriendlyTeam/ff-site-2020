@@ -3,7 +3,7 @@
 
     <div v-observe-visibility="{
       callback: onObserverHandler,
-    }" :class="[aspect != 'free' ? 'fixed-aspect-inner' : '']">
+    }" :class="[aspect != 'free' ? 'fixed-aspect-inner' : '', inview ? 'inview' : '']">
 
       <div :class="[grayscale ? blend === 'normal' ? 'multiply' : blend : blend ]" class="future-image-inner" >
         <picture class="future-image">
@@ -76,7 +76,7 @@ export default {
   },
   watch: {
     filepaths() {
-      console.log(this.$refs)
+      // console.log(this.$refs)
       this.$refs.img.classList.add('lazyload')
     }
   },
@@ -132,14 +132,14 @@ export default {
   transform: scale3d(0, 1, 1);
 }
 
-.loaded.scale.future-image-wrapper .future-image-inner {
+.scale.future-image-wrapper .future-image-inner {
   width: 100%;
   height: 100%;
   transform: scale(1.2);
   transition: transform 0ms cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.loaded.scale.future-image-wrapper .inview .future-image-inner {
+.scale.future-image-wrapper .inview .future-image-inner {
   transform: scale(1);
   transition-delay: 0ms;
   transition-duration: 20000ms;

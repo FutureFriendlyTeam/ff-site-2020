@@ -91,9 +91,22 @@ Vue.mixin({
       this.$nextTick(() => {
         if (isVisible && !entry.target.classList.contains('inview')) {
           entry.target.classList.add('inview')
+          this.inview = true
         } else if (!isVisible && entry.target.classList.contains('inview')) {
           entry.target.classList.remove('inview')
+          this.inview = false
         }
+        if (cb) {
+          this[cb](isVisible, entry)
+        }
+        // this.inview = isVisible
+        // if (isVisible && !entry.target.classList.contains('inview')) {
+        //   entry.target.classList.add('inview')
+        //   this.inview = true
+        // } else if (!isVisible && entry.target.classList.contains('inview')) {
+        //   entry.target.classList.remove('inview')
+        //   this.inview = false
+        // }
         if (cb) {
           this[cb](isVisible, entry)
         }
