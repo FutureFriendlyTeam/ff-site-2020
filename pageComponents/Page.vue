@@ -29,9 +29,7 @@ export default {
       })
   },
   async mounted() {
-    this.$root.$emit('layoutUpdate')
     await this.$storyblok.initEditor(this)
-    this.$root.$emit('layoutUpdate')
   }
 }
 </script>
