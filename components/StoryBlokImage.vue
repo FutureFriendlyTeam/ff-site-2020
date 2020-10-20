@@ -10,7 +10,7 @@
           <source v-if="filepaths.webp" :data-srcset="filepaths.webp" type="image/webp">
           <source :data-srcset="filepaths.default">
           <img
-            ref="img" :data-src="filepaths.default" class="future-image lazyload" @load="onLoad"
+            ref="img" :data-src="filepaths.default" :alt="alt" class="future-image lazyload" @load="onLoad"
           >
         </picture>
       </div>
@@ -46,6 +46,10 @@ export default {
     noScale: {
       type: Boolean,
       default: false
+    },
+    alt: {
+      type: String,
+      default: ''
     }
   },
   data() {
