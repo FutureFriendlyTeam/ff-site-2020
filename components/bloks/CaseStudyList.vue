@@ -1,7 +1,7 @@
 <template>
   <future-div :background-color="'light'">
 
-    <section class="v-padding-bottom-mega">
+    <section id="case-studies" class="v-padding-bottom-mega">
       <div class="center-col horizontal">
         <work-block
           v-for="(story, i) in work"
@@ -45,3 +45,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+#case-studies {
+  min-height: 100vh;
+}
+</style>
