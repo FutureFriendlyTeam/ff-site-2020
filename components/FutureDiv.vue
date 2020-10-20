@@ -1,10 +1,11 @@
 <template>
-  <section v-observe-visibility="{
-    callback: onVisible,
+  <section v-observe-visibility="observerRoot ? {
+    callback: (isVisible, entry) => onObserverHandler(isVisible, entry, 'onVisible'),
     intersection: {
+      root: observerRoot,
       rootMargin: '-50% 0px -50% 0px'
     },
-  }" >
+  } : false">
     <slot/>
   </section>
 </template>
@@ -28,11 +29,13 @@ export default {
 
   data() {
     return {
-      isVisible: false
+      isVisible: false,
+      root: null
     }
   },
   methods: {
     onVisible(isVisible, entry) {
+      // console.log(isVisible, entry.target)
       if (isVisible && !this.disabled) {
         this.$root.$emit('colorChange', {
           backgroundColor: this.backgroundColor,
@@ -43,3 +46,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+// .inview {
+//   // background-color: red;
+// }
+</style>
