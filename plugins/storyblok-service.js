@@ -28,6 +28,7 @@ const StoryblokService = class {
     }
 
     script.onload = function() {
+      window.isInStoryblok = true
       cb()
     }
 
@@ -47,6 +48,11 @@ const StoryblokService = class {
       return true
     }
 
+    if (typeof window !== 'undefined') {
+      return window.isInStoryblok
+    }
+
+    return false
     // return typeof window === 'undefined' ? false : true
   }
 
