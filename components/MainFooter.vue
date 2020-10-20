@@ -16,7 +16,7 @@
       <div class="xs-full s-half horizontal">
         <div class="m-half v-margin-bottom h-padding-right">
           <p class="no-margin-top body">Future Friendly is a certified B-Corp since 2017.</p>
-          <!-- <future-img :aspect="'free'" src="shared/b-corp-logo.png" class="flag" alt="B-Corp Logo"/> -->
+          <story-blok-image :aspect="'free'" :no-scale="false" filename="https://a.storyblok.com/f/94997/64x96/fcaf6c4a90/b-corp-logo.png" class="flag" alt="B-Corp Logo"/>
         </div>
 
         <div class="m-half v-margin-bottom h-padding-right">
@@ -25,6 +25,7 @@
 
           <p class="no-margin-top body">Our studios sit on country of the Gadigal people of the Eora nation in Sydney and the Ngunnawal people in Canberra.
           </p>
+          <story-blok-image :aspect="'free'" :no-scale="false" filename="https://a.storyblok.com/f/94997/160x96/7956ea89d7/aboriginal-flag.png" class="flag" alt="B-Corp Logo"/>
           <!-- <future-img :aspect="'free'" src="shared/aboriginal-flag.svg" class="flag" alt="Australian Aboriginal Flag"/> -->
         </div>
       </div>

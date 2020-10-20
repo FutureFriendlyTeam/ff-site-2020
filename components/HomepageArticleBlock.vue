@@ -3,10 +3,10 @@
   <article v-storyblok-editable="story" v-if="story"
            class="border-block xs-full s-half m-quarter v-margin-bottom">
     <a 
-      :href="story.content.external_link.linktype === 'url' ? story.content.external_link.url : `/${story.full_slug}`"
+      :href="story.content.external_link.linktype === 'url' ? story.content.external_link.url : `/${story.full_slug}`" target="_blank"
       class="wrapper-link">
-      <story-blok-image :filename="story.content.image.filename" :aspect="story.content.aspect" class="v-margin-bottom"/>
-      <h2 class="mid v-margin-top-none">{{ story.name }}</h2>
+      <story-blok-image :filename="story.content.image.filename" :aspect="story.content.aspect" :no-scale="true" class="v-margin-bottom"/>
+      <h2 class="mid v-margin-top-none v-margin-bottom-big">{{ story.name }}</h2>
       
     </a>
   </article>
