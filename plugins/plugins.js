@@ -32,6 +32,7 @@ import Quote from '~/components/bloks/Quote.vue'
 import VimeoEmbed from '~/components/bloks/VimeoEmbed.vue'
 import TeamProfileList from '~/components/bloks/TeamProfileList.vue'
 import ClientList from '~/components/bloks/ClientList.vue'
+import ReadNext from '~/components/bloks/ReadNext.vue'
 
 Vue.component('future-div', FutureDiv)
 Vue.component('future-img', FutureImg)
@@ -53,6 +54,7 @@ Vue.component('quote', Quote)
 Vue.component('vimeo-embed', VimeoEmbed)
 Vue.component('team-profile-list', TeamProfileList)
 Vue.component('client-list', ClientList)
+Vue.component('read-next', ReadNext)
 
 Vue.prototype.$theme = {
   light: '#ffffff',
@@ -73,31 +75,26 @@ Vue.prototype.$theme = {
 }
 
 Vue.use(VueObserveVisibility)
-// Vue.use(VueMq, {
-//   breakpoints: {
-//     tiny: 0,
-//     small: 640,
-//     mid: 960,
-//     big: 1200,
-//     max: Infinity
-//   }
-// })
 
 Vue.mixin({
-  // data() {
-  //   return {
-  //     activeBackgroundColor: '#ffffff'
-  //   }
-  // },
+  data() {
+    return {
+      observerRoot: null
+    }
+  },
+  mounted() {
+    this.observerRoot = window.document
+  },
   methods: {
-    valueFromMq(value) {
-      if (!value) return null
-      return value[this.$mq]
+    onObserverHandler(isVisible, entry, cb) {
+      if (isVisible && !entry.target.classList.contains('inview')) {
+        entry.target.classList.add('inview')
+      } else if (!isVisible && entry.target.classList.contains('inview')) {
+        entry.target.classList.remove('inview')
+      }
+      if (cb) {
+        this[cb](isVisible, entry)
+      }
     }
   }
 })
-
-// Vue.filter('valueFromMq', value => {
-//   if (!value) return null
-//   return value[this.$mq]
-// })

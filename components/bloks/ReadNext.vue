@@ -1,14 +1,15 @@
 <template>
-  <future-div :background-color="'light2'">
+  <future-div>
 
     <section class="v-margin-bottom">
       <div class="center-col">
-        <div id="team-list" class="horizontal h-offset-margin-right">
+        <h1>Read next →</h1>
+        <!-- <div id="team-list" class="horizontal h-offset-margin-right">
           <client-block
             v-for="(client, i) in blok.client_logos"
             :key="`client-${i}`" 
             :client="client"/>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -16,12 +17,12 @@
 </template>
 
 <script>
-import ClientBlock from '~/components/ClientBlock.vue'
+// import ClientBlock from '~/components/ClientBlock.vue'
 
 export default {
-  components: {
-    ClientBlock
-  },
+  // components: {
+  //   ClientBlock
+  // },
   props: {
     blok: {
       type: Object,
