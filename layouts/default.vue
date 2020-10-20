@@ -1,5 +1,5 @@
 <template>
-  <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor, '--hoverColor': activeHoverColor}" class="color-background" data-scroll-container>
+  <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor, '--hoverColor': activeHoverColor}" :class="disableBackgroundAnimations ? 'no-background-animation' : ''" class="color-background">
     <main-header/>
     <nuxt/>
   </div>
@@ -19,10 +19,13 @@ export default {
     return {
       activeBackgroundColor: '#ffffff',
       activeTextColor: '#000000',
-      activeHoverColor: '#F05969'
+      activeHoverColor: '#F05969',
+      disableBackgroundAnimations: true
     }
   },
   mounted() {
+    // this.updateColors(this.activeBackgroundColor, this.activeTextColor)
+
     this.$root.$on('colorChange', e => {
       this.updateColors(e.backgroundColor, e.textColor)
     })
@@ -30,7 +33,7 @@ export default {
   methods: {
     updateColors(backgroundColor, textColor) {
       console.log('updating colors', backgroundColor, textColor)
-      backgroundColor = this.getColor(backgroundColor, '#FFFFFF')
+      backgroundColor = this.getColor(backgroundColor, '#ffffff')
       textColor = this.getColor(textColor, '#000000')
 
       if (this.activeBackgroundColor !== backgroundColor) {
@@ -40,6 +43,9 @@ export default {
       if (this.activeTextColor !== textColor) {
         this.activeTextColor = textColor
       }
+      window.setTimeout(() => {
+        this.disableBackgroundAnimations = false
+      }, 1)
     },
     getColor(color, fallback) {
       if (color.includes('#')) {

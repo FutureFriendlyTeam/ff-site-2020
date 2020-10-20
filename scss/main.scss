@@ -30,13 +30,23 @@ figure {
 
 #site {
   color: var(--textColor);
+  background-color: var(--backgroundColor, '#ffffff');
   // transition: color 300ms ease;
 }
 
+.no-background-animation.color-background,
+.no-background-animation .color-background {
+  transition: none; //background-color 600ms ease;
+}
+
 .color-background {
-  background-color: var(--backgroundColor);
+  background-color: var(--backgroundColor, '#ffffff');
   transition: background-color 600ms ease;
 }
+
+// .animated-background {
+
+// }
 
 .wrapper-link {
   text-decoration: none;

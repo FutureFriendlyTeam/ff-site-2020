@@ -25,7 +25,6 @@
           <nav class="self-end h-padding v-padding-top-big v-padding-bottom xs-full">
             <nuxt-link v-for="item in globals.content.header_links" :key="item._uid" :to="`/${item.link.cached_url}`" class="big v-margin-bottom">{{ item.text }}</nuxt-link>
         </nav></div>
-
       </div>
     </transition>
 

@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="future-image-mask color-background"/>
+    <div class="future-image-mask"/>
   </fixed-aspect>
 </template>
 
@@ -123,9 +123,14 @@ export default {
   overflow: hidden;
   transform-origin: 100% 0%;
   opacity: 1;
-
+  background-color: var(--backgroundColor, '#ffffff');
+  z-index: 999;
   transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1),
     background-color 600ms ease;
+}
+
+.no-background-animation .future-image-mask {
+  transition: none; //background-color 600ms ease;
 }
 
 .loaded.future-image-wrapper .future-image-mask {
