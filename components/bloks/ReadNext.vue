@@ -1,28 +1,20 @@
 <template>
-  <future-div>
+  <!-- <future-div > -->
 
-    <section class="v-margin-bottom">
-      <div class="center-col">
-        <h1>Read next →</h1>
-        <!-- <div id="team-list" class="horizontal h-offset-margin-right">
-          <client-block
-            v-for="(client, i) in blok.client_logos"
-            :key="`client-${i}`" 
-            :client="client"/>
-        </div> -->
-      </div>
-    </section>
+  <nuxt-link id="next" :to="`/${blok.link.cached_url}`" class="v-padding-top-mid v-padding-bottom-mid wrapper-link">
+    <div class="center-col">
+      <p class="caption">Read next.</p>
+      <h2>{{ blok.text }} →</h2>
+    </div>
+  </nuxt-link>
 
-  </future-div>
+  <!-- </future-div> -->
 </template>
 
 <script>
 // import ClientBlock from '~/components/ClientBlock.vue'
 
 export default {
-  // components: {
-  //   ClientBlock
-  // },
   props: {
     blok: {
       type: Object,
@@ -31,3 +23,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+#next {
+  display: block;
+  background-color: #000;
+  color: #fff;
+
+  &:hover {
+    color: var(--hoverColor);
+  }
+}
+</style>
