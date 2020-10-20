@@ -3,6 +3,7 @@
     <section>
       <!-- <h1>Case Study</h1> -->
       <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"/>
+      <read-next-case-studies :story="story"/>
     </section>
     <main-footer/>
   </div>

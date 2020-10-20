@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     updateColors(backgroundColor, textColor) {
-      console.log('updating colors', backgroundColor, textColor)
+      // console.log('updating colors', backgroundColor, textColor)
       backgroundColor = this.getColor(backgroundColor, '#ffffff')
       textColor = this.getColor(textColor, '#000000')
 

@@ -35,6 +35,7 @@ import VimeoEmbed from '~/components/bloks/VimeoEmbed.vue'
 import TeamProfileList from '~/components/bloks/TeamProfileList.vue'
 import ClientList from '~/components/bloks/ClientList.vue'
 import ReadNext from '~/components/bloks/ReadNext.vue'
+import ReadNextCaseStudies from '~/components/bloks/ReadNextCaseStudies.vue'
 
 Vue.component('main-footer', MainFooter)
 Vue.component('future-div', FutureDiv)
@@ -58,6 +59,7 @@ Vue.component('vimeo-embed', VimeoEmbed)
 Vue.component('team-profile-list', TeamProfileList)
 Vue.component('client-list', ClientList)
 Vue.component('read-next', ReadNext)
+Vue.component('read-next-case-studies', ReadNextCaseStudies)
 
 Vue.prototype.$theme = {
   light: '#ffffff',

@@ -40,7 +40,6 @@ export default {
       .then(res => {
         console.log(res)
         this.$set(this, 'work', res.data.stories)
-        // console.log(this.links)
       })
   }
 }

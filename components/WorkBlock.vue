@@ -1,8 +1,8 @@
 <template>
 
   <article v-if="story"
-           :class="story.content.thumbnail_size" 
-           class="work-block border-block xs-full v-margin-bottom v-padding-bottom-mega">
+           :class="!compact ? story.content.thumbnail_size : 'xs-full s-third'" 
+           class="work-block border-block xs-full v-margin-bottom v-padding-bottom-big">
 
     <nuxt-link 
       :to="`/${story.full_slug}`"
@@ -28,6 +28,10 @@ export default {
     story: {
       type: Object,
       default: null
+    },
+    compact: {
+      type: Boolean,
+      default: false
     }
   }
 }
