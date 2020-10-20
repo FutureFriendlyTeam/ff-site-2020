@@ -15,6 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
   color: $dark;
+  --backgroundColor: $light;
   --textColor: $dark;
   --hoverColor: $accent;
 }
@@ -34,7 +35,7 @@ figure {
 
 .color-background {
   background-color: var(--backgroundColor);
-  transition: background-color 600ms ease, color 300ms ease;
+  transition: background-color 600ms ease;
 }
 
 .wrapper-link {

@@ -10,11 +10,12 @@
           <source v-if="filepaths.webp" :data-srcset="filepaths.webp" type="image/webp">
           <source :data-srcset="filepaths.default">
           <img
-            ref="img" :data-src="filepaths.default" class="future-image lazyload" data-expand="-20" @load="loaded = true"
+            ref="img" :data-src="filepaths.default" class="future-image lazyload" @load="onLoad"
           >
         </picture>
       </div>
     </div>
+
     <div class="future-image-mask color-background"/>
   </fixed-aspect>
 </template>
@@ -91,15 +92,10 @@ export default {
       let path = image.replace('https://a.storyblok.com', '')
 
       return imageService + option + path
+    },
+    onLoad() {
+      this.loaded = true
     }
-
-    // onVisible(isVisible, entry) {
-    //   if (isVisible && !entry.target.classList.contains('inview')) {
-    //     entry.target.classList.add('inview')
-    //   } else if (!isVisible && entry.target.classList.contains('inview')) {
-    //     entry.target.classList.remove('inview')
-    //   }
-    // }
   }
 }
 </script>
@@ -126,6 +122,8 @@ export default {
   right: -1px;
   overflow: hidden;
   transform-origin: 100% 0%;
+  opacity: 1;
+
   transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1),
     background-color 600ms ease;
 }
@@ -134,14 +132,14 @@ export default {
   transform: scale3d(0, 1, 1);
 }
 
-.scale .future-image-inner {
+.loaded.scale.future-image-wrapper .future-image-inner {
   width: 100%;
   height: 100%;
   transform: scale(1.2);
   transition: transform 0ms cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.loaded.scale.future-image-wrapper .future-image-inner {
+.loaded.scale.future-image-wrapper .inview .future-image-inner {
   transform: scale(1);
   transition-delay: 0ms;
   transition-duration: 20000ms;
@@ -153,8 +151,4 @@ export default {
   display: block;
   object-fit: cover;
 }
-
-// img {
-//   color: transparent;
-// }
 </style>
