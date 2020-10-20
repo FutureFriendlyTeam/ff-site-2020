@@ -1,12 +1,12 @@
 <template>  
   <fixed-aspect v-observe-visibility="{
-    callback: onVisible,
-    once: true,
-  }" :aspect="aspect || 'free'" class="future-image-scroll-wrapper">
+    callback: onObserverHandler,
+    once: false,
+  }" :aspect="aspect || 'free'" :class="[noScale ? '' : 'scale']" class="future-image-wrapper">
 
     <div v-observe-visibility="{
-      callback: onVisible,
-    }" :class="[aspect != 'free' ? 'future-image-wrapper' : '']">
+      callback: onObserverHandler,
+    }" :class="[aspect != 'free' ? 'fixed-aspect-inner' : '']">
 
       <div :class="[grayscale ? blend === 'normal' ? 'multiply' : blend : blend ]" class="future-image-inner" >
         <picture class="future-image">
@@ -47,6 +47,10 @@ export default {
     blend: {
       type: String,
       default: 'normal'
+    },
+    noScale: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -88,15 +92,15 @@ export default {
       let path = image.replace('https://a.storyblok.com', '')
 
       return imageService + option + path
-    },
-
-    onVisible(isVisible, entry) {
-      if (isVisible && !entry.target.classList.contains('inview')) {
-        entry.target.classList.add('inview')
-      } else if (!isVisible && entry.target.classList.contains('inview')) {
-        entry.target.classList.remove('inview')
-      }
     }
+
+    // onVisible(isVisible, entry) {
+    //   if (isVisible && !entry.target.classList.contains('inview')) {
+    //     entry.target.classList.add('inview')
+    //   } else if (!isVisible && entry.target.classList.contains('inview')) {
+    //     entry.target.classList.remove('inview')
+    //   }
+    // }
   }
 }
 </script>
@@ -104,6 +108,11 @@ export default {
 
 <style scoped lang="scss">
 .future-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.fixed-aspect-inner {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -122,20 +131,18 @@ export default {
     background-color 600ms ease;
 }
 
-.future-image-scroll-wrapper.inview .future-image-mask {
+.future-image-wrapper.inview .future-image-mask {
   transform: scale3d(0, 1, 1);
 }
 
-.future-image-inner {
-  position: absolute;
+.scale .future-image-inner {
   width: 100%;
   height: 100%;
-  overflow: hidden;
   transform: scale(1.2);
   transition: transform 0ms cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.future-image-wrapper.inview .future-image-inner {
+.scale.future-image-wrapper.inview .future-image-inner {
   transform: scale(1);
   transition-delay: 0ms;
   transition-duration: 20000ms;
