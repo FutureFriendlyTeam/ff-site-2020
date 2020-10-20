@@ -51,24 +51,24 @@ a {
 }
 
 .big-quote-wrapper {
-  background-color: black;
-}
+  background-color: var(--textColor);
 
-.big-quote {
-  padding: 1.5rem;
-  background-color: black;
-  color: var(--backgroundColor);
-  box-sizing: border-box;
-  height: 100%;
-  padding-bottom: 8rem;
-  blockquote {
-    margin: 0px;
-  }
+  .big-quote {
+    padding: 1.5rem;
+    background-color: var(--textColor);
+    color: var(--backgroundColor);
+    box-sizing: border-box;
+    height: 100%;
+    padding-bottom: 8rem;
+    blockquote {
+      margin: 0px;
+    }
 
-  .quote-attribution {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 1.5rem;
+    .quote-attribution {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+    }
   }
 }
 

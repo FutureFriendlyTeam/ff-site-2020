@@ -3,6 +3,7 @@
   src: url('/fonts/Plain-Medium.woff') format('woff');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -10,17 +11,18 @@
   src: url('/fonts/Plain-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 .super {
-  font-size: 6rem;
+  font-size: 4rem;
   line-height: 1;
   letter-spacing: -0.02em;
   font-weight: normal;
   margin-bottom: 1em;
 
   @media (min-width: $mid) {
-    font-size: 7rem;
+    font-size: 6rem;
     letter-spacing: -0.02em;
   }
 
