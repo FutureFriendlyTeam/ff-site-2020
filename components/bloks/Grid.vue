@@ -1,5 +1,5 @@
 <template>
-  <future-div v-storyblok-editable="blok" :background-color="blok.background_color" :text-color="blok.text_color" :disabled = "!blok.color_fade">
+  <future-div v-storyblok-editable="blok" :background-color="blok.custom_background_color || blok.background_color" :text-color="blok.text_color" :disabled = "!blok.color_fade">
 
     <div :class="blok.no_margin ? '' : 'center-col'">
       <div :class="[blok.reverse ? 'reverse' : '', `v-padding-top-${blok.top_spacing}`, `v-padding-bottom-${blok.bottom_spacing}`, blok.no_border_offset ? 'h-offset-margin-right' : '']" class="horizontal">
