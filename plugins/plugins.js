@@ -79,7 +79,8 @@ Vue.use(VueObserveVisibility)
 Vue.mixin({
   data() {
     return {
-      observerRoot: null
+      observerRoot: null,
+      inview: false
     }
   },
   mounted() {
@@ -87,14 +88,16 @@ Vue.mixin({
   },
   methods: {
     onObserverHandler(isVisible, entry, cb) {
-      if (isVisible && !entry.target.classList.contains('inview')) {
-        entry.target.classList.add('inview')
-      } else if (!isVisible && entry.target.classList.contains('inview')) {
-        entry.target.classList.remove('inview')
-      }
-      if (cb) {
-        this[cb](isVisible, entry)
-      }
+      this.$nextTick(() => {
+        if (isVisible && !entry.target.classList.contains('inview')) {
+          entry.target.classList.add('inview')
+        } else if (!isVisible && entry.target.classList.contains('inview')) {
+          entry.target.classList.remove('inview')
+        }
+        if (cb) {
+          this[cb](isVisible, entry)
+        }
+      })
     }
   }
 })

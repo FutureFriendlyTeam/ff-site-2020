@@ -1,8 +1,5 @@
 <template>  
-  <fixed-aspect v-observe-visibility="{
-    callback: onObserverHandler,
-    once: false,
-  }" :aspect="aspect || 'free'" :class="[noScale ? '' : 'scale']" class="future-image-wrapper">
+  <fixed-aspect :aspect="aspect || 'free'" :class="[noScale ? '' : 'scale', loaded ? 'loaded' : '']" class="future-image-wrapper">
 
     <div v-observe-visibility="{
       callback: onObserverHandler,
@@ -13,13 +10,10 @@
           <source v-if="filepaths.webp" :data-srcset="filepaths.webp" type="image/webp">
           <source :data-srcset="filepaths.default">
           <img
-            ref="img" :data-src="filepaths.default" class="future-image lazyload"
+            ref="img" :data-src="filepaths.default" class="future-image lazyload" data-expand="-20" @load="loaded = true"
           >
         </picture>
       </div>
-
-      
-
     </div>
     <div class="future-image-mask color-background"/>
   </fixed-aspect>
@@ -51,6 +45,11 @@ export default {
     noScale: {
       type: Boolean,
       default: false
+    }
+  },
+  data() {
+    return {
+      loaded: false
     }
   },
   computed: {
@@ -131,7 +130,7 @@ export default {
     background-color 600ms ease;
 }
 
-.future-image-wrapper.inview .future-image-mask {
+.loaded.future-image-wrapper .future-image-mask {
   transform: scale3d(0, 1, 1);
 }
 
@@ -142,7 +141,7 @@ export default {
   transition: transform 0ms cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.scale.future-image-wrapper.inview .future-image-inner {
+.loaded.scale.future-image-wrapper.inview .future-image-inner {
   transform: scale(1);
   transition-delay: 0ms;
   transition-duration: 20000ms;
@@ -155,7 +154,7 @@ export default {
   object-fit: cover;
 }
 
-img {
-  color: transparent;
-}
+// img {
+//   color: transparent;
+// }
 </style>
