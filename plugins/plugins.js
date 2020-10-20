@@ -12,6 +12,8 @@ import VueObserveVisibility from 'vue-observe-visibility'
 //   value: locomotiveScroll
 // })s
 
+import MainFooter from '~/components/MainFooter.vue'
+
 import FutureImg from '~/components/FutureImg.vue'
 import FutureDiv from '~/components/FutureDiv.vue'
 import FixedAspect from '~/components/FixedAspect.vue'
@@ -34,6 +36,7 @@ import TeamProfileList from '~/components/bloks/TeamProfileList.vue'
 import ClientList from '~/components/bloks/ClientList.vue'
 import ReadNext from '~/components/bloks/ReadNext.vue'
 
+Vue.component('main-footer', MainFooter)
 Vue.component('future-div', FutureDiv)
 Vue.component('future-img', FutureImg)
 Vue.component('fixed-aspect', FixedAspect)

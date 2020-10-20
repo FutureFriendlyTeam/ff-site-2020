@@ -2,7 +2,6 @@
   <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor, '--hoverColor': activeHoverColor}" class="color-background" data-scroll-container>
     <main-header/>
     <nuxt/>
-    <main-footer/>
   </div>
 </template>
 
@@ -11,12 +10,10 @@
 
 <script>
 import MainHeader from '~/components/MainHeader.vue'
-import MainFooter from '~/components/MainFooter.vue'
 
 export default {
   components: {
-    MainHeader,
-    MainFooter
+    MainHeader
   },
   data() {
     return {
