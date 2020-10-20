@@ -32,13 +32,23 @@ export default {
   },
   methods: {
     updateColors(backgroundColor, textColor) {
-      if (this.activeBackgroundColor !== this.$theme[backgroundColor]) {
-        this.activeBackgroundColor = this.$theme[backgroundColor] || '#ffffff'
+      console.log('updating colors', backgroundColor, textColor)
+      backgroundColor = this.getColor(backgroundColor, '#FFFFFF')
+      textColor = this.getColor(textColor, '#000000')
+
+      if (this.activeBackgroundColor !== backgroundColor) {
+        this.activeBackgroundColor = backgroundColor
       }
 
-      if (this.activeTextColor !== this.$theme[textColor]) {
-        this.activeTextColor = this.$theme[textColor] || '#000'
+      if (this.activeTextColor !== textColor) {
+        this.activeTextColor = textColor
       }
+    },
+    getColor(color, fallback) {
+      if (color.includes('#')) {
+        return color
+      }
+      return this.$theme[color] || fallback
     }
   }
 }
