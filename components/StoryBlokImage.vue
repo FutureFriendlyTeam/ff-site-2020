@@ -141,7 +141,7 @@ export default {
   transition: transform 0ms cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.loaded.scale.future-image-wrapper.inview .future-image-inner {
+.loaded.scale.future-image-wrapper .future-image-inner {
   transform: scale(1);
   transition-delay: 0ms;
   transition-duration: 20000ms;
