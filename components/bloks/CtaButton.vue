@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a class="cta-button body">{{ blok.text }}</a>
+    <a :class="!blok.mini ? 'body' : 'mini'" class="cta-button">{{ blok.text }}</a>
   </div>
 </template>
 
@@ -17,10 +17,15 @@ export default {
 
 <style lang="scss" scoped>
 .cta-button {
-  display: block;
-  background-color: #000;
+  display: inline-block;
+  background-color: var(--textColor);
   padding: 1rem 1.5rem;
-  color: #fff;
+  color: var(--backgroundColor);
   border: none;
+
+  &:hover {
+    background-color: var(--hoverColor);
+    color: var(--textColor);
+  }
 }
 </style>
