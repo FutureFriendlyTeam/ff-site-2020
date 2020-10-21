@@ -16,7 +16,7 @@
         <div class="border-block xs-full s-half v-padding-bottom-big">
           <h2 class="mid v-margin-top-none">{{ story.content.title }}</h2>
           <p class="mid v-margin-top-none">With {{ story.content.client }}.</p>
-          <p class="mid v-margin-top-none">Read case study.</p>
+          <p class="mid v-margin-top-none underline">Read case study.</p>
         </div>
         <div class="border-block xs-full s-half">
           
