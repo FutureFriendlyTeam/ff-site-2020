@@ -84,12 +84,14 @@ Vue.use(VueObserveVisibility)
 Vue.mixin({
   data() {
     return {
+      hasObserverRoot: false,
       observerRoot: null,
       inview: false
     }
   },
   mounted() {
-    this.observerRoot = window.document
+    this.observerRoot = null //this. ? window.document
+    this.hasObserverRoot = true
   },
   methods: {
     onObserverHandler(isVisible, entry, cb) {

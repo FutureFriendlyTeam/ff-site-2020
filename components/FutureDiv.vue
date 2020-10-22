@@ -1,5 +1,5 @@
 <template>
-  <section v-observe-visibility="observerRoot ? {
+  <section v-observe-visibility="hasObserverRoot ? {
     callback: (isVisible, entry) => onObserverHandler(isVisible, entry, 'onVisible'),
     intersection: {
       root: observerRoot,
