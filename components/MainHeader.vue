@@ -73,7 +73,7 @@ export default {
 @import '../scss/variables.scss';
 
 #header {
-  // position: fixed;
+  background-color: transparent;
   width: 100%;
   z-index: 999;
 

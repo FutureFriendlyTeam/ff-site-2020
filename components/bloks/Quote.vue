@@ -5,14 +5,14 @@
 
   <div>
     <div>
-      <fixed-aspect class="big-quote-wrapper" aspect="four-three">
+      <div class="big-quote-wrapper">
         <div class="big-quote">
-          <blockquote class="big">
+          <blockquote class="big color-text">
             {{ blok.text }}
           </blockquote>
-          <cite class="caption quote-attribution"> — {{ blok.attribution_name }}<span v-if="blok.attribution_title"><br>{{ blok.attribution_title }}</span></cite>
+          <cite class="caption quote-attribution color-text"> — {{ blok.attribution_name }}<span v-if="blok.attribution_title"><br>{{ blok.attribution_title }}</span></cite>
         </div>
-      </fixed-aspect>
+      </div>
     </div>
   </div>
 </template>

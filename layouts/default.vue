@@ -1,5 +1,5 @@
 <template>
-  <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor, '--hoverColor': activeHoverColor}" :class="disableBackgroundAnimations ? 'no-background-animation' : ''" class="color-background">
+  <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor,'backgroundColor': activeBackgroundColor, 'color': activeTextColor, }" :class="disableBackgroundAnimations ? 'no-background-animation' : ''" class="color-background">
     <main-header/>
     <nuxt/>
   </div>
@@ -24,15 +24,12 @@ export default {
     }
   },
   mounted() {
-    // this.updateColors(this.activeBackgroundColor, this.activeTextColor)
-
     this.$root.$on('colorChange', e => {
       this.updateColors(e.backgroundColor, e.textColor)
     })
   },
   methods: {
     updateColors(backgroundColor, textColor) {
-      // console.log('updating colors', backgroundColor, textColor)
       backgroundColor = this.getColor(backgroundColor, '#ffffff')
       textColor = this.getColor(textColor, '#000000')
 
@@ -46,6 +43,24 @@ export default {
       window.setTimeout(() => {
         this.disableBackgroundAnimations = false
       }, 1)
+
+      // Polyfill for CSS variables
+      if (!(window.CSS && CSS.supports('color', 'var(--primary)'))) {
+        let backgroundColorElements = window.document.querySelectorAll(
+          '.color-background'
+        )
+        let colorElements = window.document.querySelectorAll('.color-text')
+        console.log(colorElements)
+        for (let i = 0; i < backgroundColorElements.length; ++i) {
+          backgroundColorElements[
+            i
+          ].style.backgroundColor = this.activeBackgroundColor
+        }
+
+        for (let i = 0; i < colorElements.length; ++i) {
+          colorElements[i].style.color = this.activeBackgroundColor
+        }
+      }
     },
     getColor(color, fallback) {
       if (color.includes('#')) {

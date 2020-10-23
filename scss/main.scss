@@ -15,6 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
   color: $dark;
+  background-color: $light;
   --backgroundColor: $light;
   --textColor: $dark;
   --hoverColor: $accent;
@@ -29,24 +30,23 @@ figure {
 }
 
 #site {
-  color: var(--textColor);
-  background-color: var(--backgroundColor, '#ffffff');
-  // transition: color 300ms ease;
+  color: currentColor;
+  background-color: var(--backgroundColor, $light);
 }
 
 .no-background-animation.color-background,
 .no-background-animation .color-background {
-  transition: none; //background-color 600ms ease;
+  transition: none;
 }
 
 .color-background {
-  background-color: var(--backgroundColor, '#ffffff');
+  background-color: var(--backgroundColor, $light);
   transition: background-color 600ms ease;
 }
 
-// .animated-background {
-
-// }
+.color-text {
+  color: currentColor;
+}
 
 .wrapper-link {
   text-decoration: none;
@@ -57,17 +57,18 @@ a {
   transition: color 300ms ease;
   color: inherit;
   &:hover {
-    color: var(--hoverColor);
+    color: $accent;
   }
 }
 
 .big-quote-wrapper {
-  background-color: var(--textColor);
+  background-color: currentColor;
 
   .big-quote {
+    position: relative;
     padding: 1.5rem;
-    background-color: var(--textColor);
-    color: var(--backgroundColor);
+    color: $light;
+    color: var(--backgroundColor, $light);
     box-sizing: border-box;
     height: 100%;
     padding-bottom: 8rem;

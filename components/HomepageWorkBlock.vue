@@ -2,6 +2,7 @@
   <future-div v-if="story.content"
               :class="i%2 === 0 ? 'start': 'end'" 
               :background-color="story.content.background_color" 
+              :text-color="story.content.text_color"
               class="work-block border-block h-padding-none xs-full m-three-quarters l-two-thirds v-margin-bottom">
 
     <nuxt-link 
@@ -26,7 +27,10 @@
 
         </div>
       </section>
+
+
     </nuxt-link>
+
   </future-div>
 </template>
 

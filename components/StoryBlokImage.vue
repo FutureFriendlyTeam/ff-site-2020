@@ -6,6 +6,7 @@
     }" :class="[aspect != 'free' ? 'fixed-aspect-inner' : '', inview ? 'inview' : '']">
 
       <div :class="[grayscale ? blend === 'normal' ? 'multiply' : blend : blend ]" class="future-image-inner" >
+
         <picture class="future-image">
           <source v-if="filepaths.webp" :data-srcset="filepaths.webp" type="image/webp">
           <source :data-srcset="filepaths.default">
@@ -16,7 +17,7 @@
       </div>
     </div>
 
-    <div class="future-image-mask"/>
+    <div class="future-image-mask color-background"/>
   </fixed-aspect>
 </template>
 
@@ -128,14 +129,13 @@ export default {
   overflow: hidden;
   transform-origin: 100% 0%;
   opacity: 1;
-  background-color: var(--backgroundColor, '#ffffff');
   z-index: 999;
   transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1),
     background-color 600ms ease;
 }
 
 .no-background-animation .future-image-mask {
-  transition: none; //background-color 600ms ease;
+  transition: none;
 }
 
 .loaded.future-image-wrapper .future-image-mask {
@@ -157,7 +157,7 @@ export default {
 
 .future-image {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
   object-fit: cover;
 }
