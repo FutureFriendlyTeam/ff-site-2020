@@ -73,7 +73,7 @@ export default {
 @import '../scss/variables.scss';
 
 #header {
-  background-color: transparent;
+  position: fixed;
   width: 100%;
   z-index: 999;
 
@@ -83,6 +83,7 @@ export default {
 
   a {
     text-decoration: none;
+    color: currentColor;
 
     &:hover {
       color: var(--hoverColor);
@@ -105,13 +106,13 @@ export default {
 }
 
 #mobile-nav {
-  z-index: 998;
+  z-index: 99;
   position: fixed;
   bottom: 0px;
   left: 0px;
   right: 0px;
   top: 0px;
-  // background-color: #fff;
+  background-color: #fff;
 
   a {
     display: block;
