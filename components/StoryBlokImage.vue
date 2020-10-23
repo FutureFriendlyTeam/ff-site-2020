@@ -109,6 +109,7 @@ export default {
 .future-image-wrapper {
   position: relative;
   overflow: hidden;
+  // background-color: red;
 }
 
 .fixed-aspect-inner {

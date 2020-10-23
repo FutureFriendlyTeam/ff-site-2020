@@ -1,5 +1,5 @@
 <template>
-  <future-div :background-color="'extended1Light'" :text-color="'dark'">
+  <future-div :background-color="'light2'" :text-color="'dark'">
 
     <section class="v-margin-bottom">
       <div class="center-col">

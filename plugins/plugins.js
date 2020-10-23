@@ -90,7 +90,7 @@ Vue.mixin({
     }
   },
   mounted() {
-    this.observerRoot = null //this. ? window.document
+    this.observerRoot = window.document
     this.hasObserverRoot = true
   },
   methods: {

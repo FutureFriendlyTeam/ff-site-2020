@@ -17,10 +17,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.aspect-wrapper {
-  position: relative;
-}
-
 @mixin aspect-ratio($width, $height) {
   &:before {
     content: '';
