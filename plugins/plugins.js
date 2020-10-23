@@ -90,7 +90,11 @@ Vue.mixin({
     }
   },
   mounted() {
-    this.observerRoot = null //window.document
+    console.log(this.$route.query._storyblok || window.isInStoryblok)
+    this.observerRoot =
+      this.$route.query._storyblok || window.isInStoryblok
+        ? window.document
+        : null //
     this.hasObserverRoot = true
   },
   methods: {
