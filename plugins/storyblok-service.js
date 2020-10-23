@@ -53,7 +53,6 @@ const StoryblokService = class {
     }
 
     return false
-    // return typeof window === 'undefined' ? false : true
   }
 
   async initEditor(page) {
@@ -110,7 +109,10 @@ const StoryblokService = class {
         }
       } else {
         page.$router.go()
-        this.initEditor(page)
+        page.$nextTick(() => {
+          this.initEditor(page)
+        })
+
         // window.location.reload()
       }
     })
