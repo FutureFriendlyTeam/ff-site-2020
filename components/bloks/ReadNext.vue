@@ -31,7 +31,8 @@ export default {
   color: #fff;
 
   &:hover {
-    color: var(--hoverColor);
+    color: #f05969;
+    color: var(--hoverColor, #f05969);
   }
 }
 </style>
