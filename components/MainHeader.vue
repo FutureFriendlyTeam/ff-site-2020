@@ -72,6 +72,10 @@ export default {
 
   a {
     text-decoration: none;
+
+    &:hover {
+      z-index: 1;
+    }
     // color: currentColor;
   }
 }
@@ -80,6 +84,11 @@ export default {
   display: none;
   @media (min-width: $mid) {
     display: flex;
+  }
+
+  .nuxt-link-exact-active {
+    color: $accent;
+    z-index: 1;
   }
 }
 
@@ -102,6 +111,11 @@ export default {
   a {
     display: block;
     text-align: right;
+  }
+
+  .nuxt-link-exact-active {
+    color: $accent;
+    z-index: 1;
   }
 }
 
