@@ -8,7 +8,7 @@
       :to="`/${story.full_slug}`"
       class="wrapper-link">
 
-      <story-blok-image :filename="story.content.image.filename" aspect="four-three" class="v-margin-bottom"/>
+      <story-blok-image :filename="story.content.image.filename" :alt="story.content.image.alt" aspect="four-three" class="v-margin-bottom"/>
       <section class="xs-full">
         <h2 class="mid highlight v-margin-top-none">{{ story.content.title }}</h2>
         <p class="mid highlight v-margin-top-none">With {{ story.content.client }}</p>
