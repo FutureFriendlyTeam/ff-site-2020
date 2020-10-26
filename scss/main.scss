@@ -51,10 +51,17 @@ figure {
 .wrapper-link {
   text-decoration: none;
   color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+
+  &:hover .highlight {
+    color: $accent;
+  }
 }
 
 a {
-  transition: color 300ms ease;
   color: inherit;
   &:hover {
     color: $accent;

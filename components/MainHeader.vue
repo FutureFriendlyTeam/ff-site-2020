@@ -72,11 +72,7 @@ export default {
 
   a {
     text-decoration: none;
-    color: currentColor;
-
-    &:hover {
-      color: var(--hoverColor);
-    }
+    // color: currentColor;
   }
 }
 

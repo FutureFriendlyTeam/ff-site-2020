@@ -10,9 +10,9 @@
 
       <story-blok-image :filename="story.content.image.filename" aspect="four-three" class="v-margin-bottom"/>
       <section class="xs-full">
-        <h2 class="mid v-margin-top-none">{{ story.content.title }}</h2>
-        <p class="mid v-margin-top-none">With {{ story.content.client }}</p>
-        <p class="mid v-margin-top-none underline">Read case study.</p>
+        <h2 class="mid highlight v-margin-top-none">{{ story.content.title }}</h2>
+        <p class="mid highlight v-margin-top-none">With {{ story.content.client }}</p>
+        <p class="mid highlight v-margin-top-none underline">Read case study.</p>
       </section>
     </nuxt-link>
   </article>
