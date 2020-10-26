@@ -38,7 +38,7 @@ export default {
   },
   async fetch() {
     return this.$storyblok
-      .get(`cdn/stories/?starts_with=team/&per_page=100`)
+      .get(`cdn/stories/?starts_with=team/&per_page=100&sort_by=name:asc`)
       .then(res => {
         console.log(res)
         this.$set(this, 'team', res.data.stories)
