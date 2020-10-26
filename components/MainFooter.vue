@@ -5,7 +5,7 @@
 
         <p v-for="item in globals.content.footer_links" :key="item._uid" :class="item.secondary ? 'body' : 'mid'" class="no-margin-top">
           <nuxt-link v-if="item.link.cached_url !== '' && item.link.linktype === 'story'" :to="`/${item.link.cached_url}`">{{ item.text }}</nuxt-link>
-          <a v-else-if="item.link.cached_url !== '' && item.link.linktype === 'url'" :href="`${item.link.cached_url}`" target="_blank">{{ item.text }}</a>
+          <a v-else-if="item.link.cached_url !== '' && item.link.linktype !== 'story'" :href="`${item.link.cached_url}`" target="_blank">{{ item.text }}</a>
           <span v-else>{{ item.text }}</span>
         </p>
 
