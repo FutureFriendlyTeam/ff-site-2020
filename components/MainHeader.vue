@@ -49,18 +49,7 @@ export default {
       }, 300)
     }
   },
-  activated() {
-    if (this.$route.query._storyblok || window.Storyblok) {
-      console.log('is in editor')
-      this.$fetch()
-    }
-  },
   async fetch() {
-    let version =
-      this.$route.query._storyblok || this.$nuxt.context.isDev
-        ? 'draft'
-        : 'published'
-
     return this.$storyblok.get(`cdn/stories/global/globals`).then(res => {
       this.$set(this, 'globals', res.data.story)
     })

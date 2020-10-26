@@ -28,7 +28,6 @@ const StoryblokService = class {
     }
 
     script.onload = function() {
-      window.isInStoryblok = true
       cb()
     }
 
@@ -44,12 +43,9 @@ const StoryblokService = class {
   }
 
   isEditorMode() {
-    if (this.getQuery('_storyblok')) {
+    console.log(this)
+    if (this.getQuery('_storyblok') || this.isInStoryblok) {
       return true
-    }
-
-    if (typeof window !== 'undefined') {
-      return window.isInStoryblok
     }
 
     return false
@@ -57,12 +53,14 @@ const StoryblokService = class {
 
   async initEditor(page) {
     this.setQuery(page.$root.$options.context.query)
+    console.log('try init editor')
 
     if (typeof window === 'undefined' || !this.isEditorMode()) {
+      console.log('not in editor')
       return
     }
 
-    console.log('is in editor mode')
+    console.log('is in storyblock')
 
     if (!window?.storyblok) {
       this.loadEditorScript(
@@ -89,6 +87,9 @@ const StoryblokService = class {
         storyblok.enterEditmode()
       }
     })
+
+    console.log('editor started')
+    this.isInStoryblok = true
 
     window.storyblok.on(['input', 'published', 'change'], event => {
       if (event.action === 'input') {
@@ -123,6 +124,7 @@ const StoryblokService = class {
     //
     if (this.isEditorMode()) {
       params.version = 'draft'
+      console.log('loading draft content')
     }
     return this.client.get(slug, params)
     // }

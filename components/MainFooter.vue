@@ -1,17 +1,15 @@
 <template>
-  <footer id="footer" class="v-padding-top-big v-padding-bottom-big" data-scroll-section>
+  <footer id="footer" class="v-padding-top-big v-padding-bottom-big">
     <div class="center-col horizontal">
-      <div class="xs-full s-half v-margin-bottom h-padding-right">
-        <p class="mid no-margin-top"><a href="mailto:hello@futurefriendly.team">hello@futurefriendly.team</a></p>
-        <p class="mid">Sydney — +61&nbsp;(02)&nbsp;9360&nbsp;8667</p>
-        <p class="mid">Canberra — +61&nbsp;431&nbsp;277&nbsp;652</p>
-        <p class="mid"><a href="https://www.linkedin.com/company/1061792" target="_blank">LinkedIn</a></p>
-        <p class="mid"><a href="https://instagram.com/_futurefriendly" target="_blank">Instagram</a></p>
-        <p class="mid"><a href="https://medium.com/mentally-friendly" target="_blank">Medium</a></p>
-        <p class="mid"><a href="https://mentallyfriendly.activehosted.com/f/20" target="_blank">Newsletter</a></p>
-        <p class="body"><a href="/Mentally Friendly - Privacy Policy.200827.EXT.pdf" target="_blank">Privacy Policy</a></p>
+      <nav v-if="globals" class="xs-full s-half v-margin-bottom h-padding-right">
 
-      </div>
+        <p v-for="item in globals.content.footer_links" :key="item._uid" :class="item.secondary ? 'body' : 'mid'" class="no-margin-top">
+          <nuxt-link v-if="item.link.cached_url !== '' && item.link.linktype === 'story'" :to="`/${item.link.cached_url}`">{{ item.text }}</nuxt-link>
+          <a v-else-if="item.link.cached_url !== '' && item.link.linktype === 'url'" :href="`${item.link.cached_url}`" target="_blank">{{ item.text }}</a>
+          <span v-else>{{ item.text }}</span>
+        </p>
+
+      </nav>
 
       <div class="xs-full s-half horizontal">
         <div class="m-half v-margin-bottom h-padding-right">
@@ -34,11 +32,17 @@
 </template>
 
 <script>
-import FutureImg from '~/components/FutureImg.vue'
 export default {
   name: 'MainFooter',
-  components: {
-    FutureImg
+  data() {
+    return {
+      globals: null
+    }
+  },
+  async fetch() {
+    return this.$storyblok.get(`cdn/stories/global/globals`).then(res => {
+      this.$set(this, 'globals', res.data.story)
+    })
   }
 }
 </script>
