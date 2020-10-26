@@ -10,7 +10,7 @@
       class="wrapper-link">
 
       <section class="h-padding v-margin-bottom">
-        <story-blok-image :filename="story.content.image.filename" :alt="story.content.image.alt" aspect="four-three" class="v-margin-bottom"/>
+        <story-blok-image :filename="story.content.image.filename" :alt="story.content.image.name" aspect="four-three" class="v-margin-bottom"/>
       </section>
 
       <section class="horizontal">
