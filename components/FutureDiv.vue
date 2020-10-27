@@ -35,7 +35,6 @@ export default {
   },
   methods: {
     onVisible(isVisible, entry) {
-      // console.log(isVisible, entry.target)
       if (isVisible && !this.disabled) {
         this.$root.$emit('colorChange', {
           backgroundColor: this.backgroundColor,
@@ -46,9 +45,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-// .inview {
-//   // background-color: red;
-// }
-</style>

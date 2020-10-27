@@ -81,7 +81,6 @@ export default {
   },
   watch: {
     filepaths() {
-      // console.log(this.$refs)
       this.$refs.img.classList.add('lazyload')
     }
   },

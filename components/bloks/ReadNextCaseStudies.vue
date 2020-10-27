@@ -36,7 +36,6 @@ export default {
     }
   },
   mounted() {
-    console.log('foo', this.story)
     this.$fetch()
   },
   async fetch() {
@@ -52,7 +51,6 @@ export default {
           'work',
           res.data.stories.sort(() => Math.random() - Math.random()).slice(0, 3)
         )
-        console.log(this.work)
       })
   }
 }

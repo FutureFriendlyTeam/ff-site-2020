@@ -10,7 +10,6 @@ export default ({ app: { router } }) => {
         const href = event.currentTarget.getAttribute('href')
         if (href && href[0] === '/') {
           event.preventDefault()
-          console.log('internal link')
           router.push(href)
         }
       }

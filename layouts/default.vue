@@ -50,7 +50,6 @@ export default {
           '.color-background'
         )
         let colorElements = window.document.querySelectorAll('.color-text')
-        console.log(colorElements)
         for (let i = 0; i < backgroundColorElements.length; ++i) {
           backgroundColorElements[
             i

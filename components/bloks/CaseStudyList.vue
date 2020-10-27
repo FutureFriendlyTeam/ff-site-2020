@@ -38,7 +38,6 @@ export default {
     return this.$storyblok
       .get(`cdn/stories/?starts_with=case-studies/`)
       .then(res => {
-        console.log(res)
         this.$set(this, 'work', res.data.stories)
       })
   }
