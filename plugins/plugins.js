@@ -62,6 +62,23 @@ Vue.component('read-next', ReadNext)
 Vue.component('read-next-case-studies', ReadNextCaseStudies)
 
 // Vue.prototype.$backgroundColor = '#ffffff'
+Vue.prototype.$theme = {
+  light: '#ffffff',
+  light2: '#edefed',
+  dark: '#000000',
+
+  accent: '#f05969',
+  accentLight: '#fcdee0',
+
+  extended1: '#4a29f0',
+  extended1Light: '#d1e5ff',
+
+  extended2: '#45d1a6',
+  extended2Light: '#d9f5ed',
+
+  extended3: '#fbe704',
+  extended3Light: '#fffacc'
+}
 
 Vue.use(VueObserveVisibility)
 
