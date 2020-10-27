@@ -72,14 +72,6 @@ export default {
     }
   },
 
-  // computed: {
-  //   defaultSrc() {
-  //     return require(this.src)
-  //   }
-  // },
-  mounted() {
-    console.log(this.src)
-  },
   methods: {
     visibilityChanged(visible, e) {
       this.visible = visible

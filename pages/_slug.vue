@@ -39,8 +39,6 @@ export default {
     this.$storybridge.on(['input', 'published', 'change'], event => {
       if (event.action === 'input') {
         if (event.story.id === this.story.id) {
-          console.log('updated page', window)
-
           // Manually calling as $storybridge is buggy AF
           window.Storyblok.resolveRelations(
             event.story,
@@ -49,7 +47,6 @@ export default {
               'homepage-article-list.articles'
             ],
             data => {
-              console.log('resolved', data)
               this.$set(this.story, 'content', { ...{}, ...data })
             }
           )

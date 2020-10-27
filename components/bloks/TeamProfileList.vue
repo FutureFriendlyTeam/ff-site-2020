@@ -40,17 +40,7 @@ export default {
     return this.$storyblok
       .get(`cdn/stories/?starts_with=team/&per_page=100&sort_by=name:asc`)
       .then(res => {
-        console.log(res)
         this.$set(this, 'team', res.data.stories)
-
-        console.log('team loaded')
-        this.$root.$emit('layoutUpdate')
-
-        // this.$nextTick(() => {
-
-        // })
-
-        // console.log(this.links)
       })
   }
 }

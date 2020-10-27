@@ -43,7 +43,6 @@ const StoryblokService = class {
   }
 
   isEditorMode() {
-    console.log(this)
     if (this.getQuery('_storyblok') || this.isInStoryblok) {
       return true
     }

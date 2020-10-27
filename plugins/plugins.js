@@ -91,7 +91,6 @@ Vue.mixin({
     }
   },
   mounted() {
-    console.log(this.$route.query._storyblok || window.isInStoryblok)
     this.observerRoot =
       this.$route.query._storyblok || window.isInStoryblok
         ? window.document

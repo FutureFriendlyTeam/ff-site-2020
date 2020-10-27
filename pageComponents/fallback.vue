@@ -18,17 +18,14 @@ export default {
     async $route(to, from) {
       let data = await this.loadFallbackData()
       this.$set(this, 'story', { ...{}, ...data.story })
-      console.log('fallback data changed')
       this.$storyblok.initEditor(this)
     }
   },
 
   async mounted() {
-    console.log('fallback called')
     let data = await this.loadFallbackData()
     this.$set(this, 'story', { ...{}, ...data.story })
     this.$storyblok.initEditor(this)
-    this.$root.$emit('layoutUpdate')
   },
   methods: {
     async loadFallbackData() {
@@ -39,7 +36,6 @@ export default {
             'homepage-case-study-list.case_studies,homepage-article-list.articles'
         })
         .then(res => {
-          console.log('loaded', res.data)
           return res.data
         })
     }

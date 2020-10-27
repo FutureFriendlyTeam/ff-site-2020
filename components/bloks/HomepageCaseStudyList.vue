@@ -26,9 +26,6 @@ export default {
       type: Object,
       default: null
     }
-  },
-  mounted() {
-    console.log('homepage case study list', this.blok)
   }
 }
 </script>
