@@ -1,8 +1,7 @@
 <template>
-  <div :style="{'--backgroundColor': activeBackgroundColor}" class="color-background">
+  <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor,'backgroundColor': activeBackgroundColor, 'color': activeTextColor, }" :class="disableBackgroundAnimations ? 'no-background-animation' : ''" class="color-background">
     <main-header/>
     <nuxt/>
-    <main-footer/>
   </div>
 </template>
 
@@ -11,47 +10,64 @@
 
 <script>
 import MainHeader from '~/components/MainHeader.vue'
-import MainFooter from '~/components/MainFooter.vue'
 
 export default {
   components: {
-    MainHeader,
-    MainFooter
+    MainHeader
   },
   data() {
     return {
-      activeBackgroundColor: '#ffffff'
+      activeBackgroundColor: '#ffffff',
+      activeTextColor: '#000000',
+      activeHoverColor: '#F05969',
+      disableBackgroundAnimations: true
     }
   },
   mounted() {
-    this.$root.$on('backgroundChange', e => {
-      const colors = {
-        light: '#ffffff',
-        light2: '#edefed',
-        dark: '#000000',
+    this.$root.$on('colorChange', e => {
+      this.updateColors(e.backgroundColor, e.textColor)
+    })
+  },
+  methods: {
+    updateColors(backgroundColor, textColor) {
+      backgroundColor = this.getColor(backgroundColor, '#ffffff')
+      textColor = this.getColor(textColor, '#000000')
 
-        accent: '#f05969',
-        accentLight: '#fcdee0',
-
-        extended1: '#4a29f0',
-        extended1Light: '#d1e5ff',
-
-        extended2: '#45d1a6',
-        extended2Light: '#d9f5ed',
-
-        extended3: '#fbe704',
-        extended3Light: '#fffacc'
+      if (this.activeBackgroundColor !== backgroundColor) {
+        this.activeBackgroundColor = backgroundColor
       }
 
-      // this.$backgroundColor = 'red'
+      if (this.activeTextColor !== textColor) {
+        this.activeTextColor = textColor
+      }
+      window.setTimeout(() => {
+        this.disableBackgroundAnimations = false
+      }, 1)
 
-      // this.$set(this, 'activeBackgroundColor', colors[e] || )
+      // Polyfill for CSS variables
+      if (!(window.CSS && CSS.supports('color', 'var(--primary)'))) {
+        let backgroundColorElements = window.document.querySelectorAll(
+          '.color-background'
+        )
+        let colorElements = window.document.querySelectorAll('.color-text')
+        console.log(colorElements)
+        for (let i = 0; i < backgroundColorElements.length; ++i) {
+          backgroundColorElements[
+            i
+          ].style.backgroundColor = this.activeBackgroundColor
+        }
 
-      // console.log('backgroundChange', e, this.backgroundColor)
-      this.activeBackgroundColor = colors[e] || '#ffffff'
-
-      // window.backgroundColor = colors[e] || '#ffffff'
-    })
+        for (let i = 0; i < colorElements.length; ++i) {
+          colorElements[i].style.color = this.activeBackgroundColor
+        }
+      }
+    },
+    getColor(color, fallback) {
+      if (color.includes('#')) {
+        return color
+      }
+      return this.$theme[color] || fallback
+    }
   }
 }
 </script>

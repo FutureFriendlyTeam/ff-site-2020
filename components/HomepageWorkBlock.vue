@@ -1,38 +1,36 @@
 <template>
+  <future-div v-if="story.content"
+              :class="i%2 === 0 ? 'start': 'end'" 
+              :background-color="story.content.background_color" 
+              :text-color="story.content.text_color"
+              class="work-block border-block h-padding-none xs-full m-three-quarters l-two-thirds v-margin-bottom">
 
-  <future-div
-    :class="i%2 === 0 ? 'start': 'end'" 
-    :background-color="work.background"
-    class="work-block border-block h-padding-none xs-full m-three-quarters l-two-thirds v-margin-bottom">
-
-    <a 
-      :href="work.link"
-      target="_blank" 
+    <nuxt-link 
+      :to="`/${story.full_slug}`"
       class="wrapper-link">
 
       <section class="h-padding v-margin-bottom">
-        <future-img 
-          :src="work.img.src" 
-          :aspect="work.img.aspect" 
-          :alt="work.img.alt"
-          :scale="true"/>
+        <story-blok-image :filename="story.content.image.filename" :alt="story.content.image.name" aspect="four-three" class="v-margin-bottom"/>
       </section>
 
       <section class="horizontal">
         <div class="border-block xs-full s-half v-padding-bottom-big">
-          <h2 class="mid v-margin-top-none">{{ work.text }}</h2>
-          <p class="mid v-margin-top-none">With {{ work.client }}</p>
-          <p class="mid v-margin-top-none">{{ work.tag }}</p>
+          <h2 class="mid highlight v-margin-top-none">{{ story.content.title }}</h2>
+          <p class="mid highlight v-margin-top-none">With {{ story.content.client }}.</p>
+          <p class="mid highlight v-margin-top-none underline">Read case study.</p>
         </div>
         <div class="border-block xs-full s-half">
-
-          <div v-if="work.award" class="badge-container h-padding"><award-badge
-            :award-type="work.award"
+          
+          <div v-if="story.content.award !== 'none'" class="badge-container h-padding"><award-badge
+            :award-type="story.content.award"
           /></div>
 
         </div>
       </section>
-    </a>
+
+
+    </nuxt-link>
+
   </future-div>
 </template>
 
@@ -44,7 +42,7 @@ export default {
     AwardBadge
   },
   props: {
-    work: {
+    story: {
       type: Object,
       default: null
     },

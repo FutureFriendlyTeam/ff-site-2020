@@ -1,65 +1,38 @@
 <template>
 
-  <article
-    :class="sizeClasses" 
-    class="work-block border-block xs-full v-margin-bottom v-padding-bottom-mega">
+  <article v-if="story"
+           :class="!compact ? story.content.thumbnail_size : 'xs-full s-third'" 
+           class="work-block border-block xs-full v-margin-bottom v-padding-bottom-big">
 
-    <a 
-      :href="work.link"
-      target="_blank" 
+    <nuxt-link 
+      :to="`/${story.full_slug}`"
       class="wrapper-link">
 
-      
-      <future-img 
-        :src="work.img.src" 
-        :aspect="work.img.aspect" 
-        :alt="work.img.alt"
-        :scale="true"
-        class="v-margin-bottom"/>
-      
-
-      <section>
-
-        <h2 class="body v-margin-top-none">{{ work.text }}</h2>
-        <p class="body v-margin-top-none">With {{ work.client }}</p>
-        <p class="body v-margin-top-none">{{ work.tag }}</p>
-        
-        <div v-if="work.award" class="badge-container h-padding"><award-badge
-          :award-type="work.award"
-        /></div>
-        
+      <story-blok-image :filename="story.content.image.filename" :alt="story.content.image.name" aspect="four-three" class="v-margin-bottom"/>
+      <section class="xs-full">
+        <h2 class="mid highlight v-margin-top-none">{{ story.content.title }}</h2>
+        <p class="mid highlight v-margin-top-none">With {{ story.content.client }}</p>
+        <p class="mid highlight v-margin-top-none underline">Read case study.</p>
       </section>
-    </a>
+    </nuxt-link>
   </article>
 </template>
 
 <script>
-import FutureImg from '~/components/FutureImg.vue'
 import AwardBadge from '~/components/AwardBadge.vue'
 export default {
   name: 'WorkBlock',
   components: {
-    FutureImg,
     AwardBadge
   },
   props: {
-    work: {
+    story: {
       type: Object,
       default: null
     },
-    i: {
-      type: Number,
-      default: 0
-    }
-  },
-  computed: {
-    sizeClasses() {
-      const c = {
-        small: 'xs-full s-third m-quarter',
-        mid: 'xs-full s-half',
-        big: 'xs-full s-two-thirds m-three-quarters'
-      }
-      return c[this.work.size]
+    compact: {
+      type: Boolean,
+      default: false
     }
   }
 }

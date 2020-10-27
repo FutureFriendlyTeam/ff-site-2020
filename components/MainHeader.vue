@@ -1,21 +1,16 @@
 <template>
   <div>
     <header 
-      id="header" class="v-padding-top v-padding-bottom color-background" >
+      v-if="globals" id="header" class="v-padding-top v-padding-bottom color-background">
       <div class="center-col horizontal">
         <nuxt-link id="logo" to="/" class="horizontal" @click="mobileNavOpen = false">
           <span class="logo-part border-left border-right v-padding-bottom-tiny">Future</span>
           <span class="logo-part border-left border-right v-padding-bottom-tiny">Friendly</span>
         </nuxt-link>
 
-        <nav id="nav" class="m-half border-block v-padding-bottom-tiny horizontal between">
-          <nuxt-link to="/us">Who we are</nuxt-link>
-          <nuxt-link to="/services">Services</nuxt-link>
-          <nuxt-link to="/work">Work</nuxt-link>
-          <nuxt-link to="/contact">Contact</nuxt-link>
-          <nuxt-link to="/careers">Careers</nuxt-link>
+        <nav id="nav" class=" horizontal between">
+          <nuxt-link v-for="item in globals.content.header_links" :key="item._uid" :to="`/${item.link.cached_url}`" class="border-block v-padding-bottom-tiny">{{ item.text }}</nuxt-link>
         </nav>
-
 
         <nav id="mobile-nav-button" class="m-half border-block v-padding-bottom-tiny horizontal between">
           <a @click="mobileNavOpen = !mobileNavOpen">{{ mobileNavOpen ? 'Close' : 'Menu' }}</a>
@@ -28,14 +23,8 @@
       <div v-if="mobileNavOpen" id="mobile-nav">
         <div id="mobile-nav-inner" class="horizontal color-background">
           <nav class="self-end h-padding v-padding-top-big v-padding-bottom xs-full">
-            <nuxt-link class="big v-margin-bottom" to="/us">Who we are</nuxt-link>
-            <nuxt-link class="big v-margin-bottom" to="/services">Services</nuxt-link>
-            <nuxt-link class="big v-margin-bottom" to="/work">Work</nuxt-link>
-            <nuxt-link class="big v-margin-bottom" to="/contact">Contact</nuxt-link>
-            <nuxt-link class="big v-margin-bottom" to="/careers">Careers</nuxt-link>
-          </nav>
-        </div>
-
+            <nuxt-link v-for="item in globals.content.header_links" :key="item._uid" :to="`/${item.link.cached_url}`" class="big v-margin-bottom">{{ item.text }}</nuxt-link>
+        </nav></div>
       </div>
     </transition>
 
@@ -48,18 +37,25 @@ export default {
   components: {},
   data() {
     return {
-      mobileNavOpen: false
+      mobileNavOpen: false,
+      globals: null
     }
   },
   watch: {
     $route(to, from) {
+      console.log('route change', from, to)
       window.setTimeout(() => {
         this.mobileNavOpen = false
       }, 300)
     }
+  },
+  async fetch() {
+    return this.$storyblok.get(`cdn/stories/global/globals`).then(res => {
+      this.$set(this, 'globals', res.data.story)
+    })
   }
 }
-</script>
+</script> 
 
 
 <style lang="scss" scoped>
@@ -78,8 +74,9 @@ export default {
     text-decoration: none;
 
     &:hover {
-      color: $accent;
+      z-index: 1;
     }
+    // color: currentColor;
   }
 }
 
@@ -87,6 +84,11 @@ export default {
   display: none;
   @media (min-width: $mid) {
     display: flex;
+  }
+
+  .nuxt-link-exact-active {
+    color: $accent;
+    z-index: 1;
   }
 }
 
@@ -98,17 +100,22 @@ export default {
 }
 
 #mobile-nav {
-  z-index: 998;
+  z-index: 99;
   position: fixed;
   bottom: 0px;
   left: 0px;
   right: 0px;
   top: 0px;
-  // background-color: #fff;
+  background-color: #fff;
 
   a {
     display: block;
     text-align: right;
+  }
+
+  .nuxt-link-exact-active {
+    color: $accent;
+    z-index: 1;
   }
 }
 

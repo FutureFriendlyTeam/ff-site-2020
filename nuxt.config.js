@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const axios = require('axios')
 
 const robots = {
   prevent: {
@@ -49,8 +50,14 @@ const defaultMeta = [
 ]
 
 module.exports = {
-  mode: 'spa',
+  target: 'static',
   telemetry: false,
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
+  },
 
   /*
   ** Headers of the page
@@ -90,6 +97,10 @@ module.exports = {
       { name: 'theme-color', content: '#ffffff' }
     ],
     script: [
+      // {
+      //   src:
+      //     'https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js'
+      // },
       {
         src:
           '//cdn.polyfill.io/v2/polyfill.js?features=es2017,IntersectionObserver,|gated&flags=gated&unknown=polyfill&callback=onPolyfillsLoad'
@@ -110,12 +121,108 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/plugins.js', '@plugins/vue-lazysizes.client.js'],
+  plugins: [
+    '@/plugins/plugins.js',
+    '@/plugins/storyblok-service.js',
+    '@/plugins/storyblok-editable-directive.js',
+    '@/plugins/vue-content-link-directive.js',
+    '@plugins/vue-lazysizes.client.js'
+  ],
 
   /*
   ** Nuxt.js modules
   */
-  modules: ['@nuxtjs/google-analytics', 'nuxt-compress'],
+  modules: [
+    '@nuxtjs/google-analytics',
+    'nuxt-compress',
+    // [
+    //   'storyblok-nuxt',
+    //   {
+    //     accessToken: 'kDWQn9yqch6ilLrLHTt0QAtt',
+    //     cacheProvider: 'memory'
+    //   }
+    // ],
+    [
+      '@wearewondrous/nuxt-storyblok-router',
+      {
+        accessToken: 'kDWQn9yqch6ilLrLHTt0QAtt',
+        contentTypeDir: 'pageComponents',
+        exclude: ['global', 'team', 'clients'],
+        useFallback: true
+      }
+    ]
+  ],
+
+  // generate: {
+  //   routes: function(callback) {
+  //     const token = `kDWQn9yqch6ilLrLHTt0QAtt`
+  //     const per_page = 10
+  //     const version = 'published'
+  //     let cache_version = 0
+
+  //     let page = 1
+
+  //     // other routes that are not in Storyblok with their slug.
+  //     let routes = ['/'] // adds home directly but with / instead of /home
+
+  //     // Load space and receive latest cache version key to improve performance
+  //     axios
+  //       .get(`https://api.storyblok.com/v1/cdn/spaces/me?token=${token}`)
+  //       .then(space_res => {
+  //         // timestamp of latest publish
+  //         cache_version = space_res.data.space.version
+
+  //         // Call first Page of the Stories
+  //         axios
+  //           .get(
+  //             `https://api.storyblok.com/v1/cdn/stories?token=${token}&version=${version}&per_page=${per_page}&page=${page}&cv=${cache_version}`
+  //           )
+  //           .then(res => {
+  //             res.data.stories.forEach(story => {
+  //               if (story.full_slug != 'home') {
+  //                 routes.push('/' + story.full_slug)
+  //               }
+  //             })
+
+  //             // Check if there are more pages available otherwise execute callback with current routes.
+  //             const total = res.headers.total
+  //             const maxPage = Math.ceil(total / per_page)
+  //             if (maxPage <= 1) {
+  //               callback(null, routes)
+  //               return
+  //             }
+
+  //             // Since we know the total we now can pregenerate all requests we need to get all stories
+  //             let contentRequests = []
+  //             for (let page = 2; page <= maxPage; page++) {
+  //               contentRequests.push(
+  //                 axios.get(
+  //                   `https://api.storyblok.com/v1/cdn/stories?token=${token}&version=${version}&per_page=${per_page}&page=${page}`
+  //                 )
+  //               )
+  //             }
+
+  //             // Axios allows us to exectue all requests using axios.spread we will than generate our routes and execute the callback
+  //             axios
+  //               .all(contentRequests)
+  //               .then(
+  //                 axios.spread((...responses) => {
+  //                   responses.forEach(response => {
+  //                     response.data.stories.forEach(story => {
+  //                       if (story.full_slug != 'home') {
+  //                         routes.push('/' + story.full_slug)
+  //                       }
+  //                     })
+  //                   })
+
+  //                   callback(null, routes)
+  //                 })
+  //               )
+  //               .catch(callback)
+  //           })
+  //       })
+  //   }
+  // },
 
   googleAnalytics: {
     id: 'UA-1790615-74'
@@ -124,8 +231,8 @@ module.exports = {
   buildModules: ['@aceforth/nuxt-optimized-images'],
 
   optimizedImages: {
-    optimizeImages: true,
-    optimizeImagesInDev: true
+    optimizeImages: false,
+    optimizeImagesInDev: false
   },
 
   /*

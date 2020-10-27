@@ -1,0 +1,65 @@
+<template>
+  <future-div :background-color="'light2'">
+
+    <section id="case-studies" class="v-padding-bottom-mega v-padding-top-mega">
+      <div class="center-col">
+        <h2>Read next.</h2>
+        <div class="horizontal">
+          <work-block
+            v-for="(story, i) in work"
+            :key="`case-study-${i}`" 
+            :compact="true"
+            :story="story"/>
+        </div>
+      </div>
+    </section>
+
+  </future-div>
+</template>
+
+<script>
+import WorkBlock from '~/components/WorkBlock.vue'
+
+export default {
+  components: {
+    WorkBlock
+  },
+  props: {
+    story: {
+      type: Object,
+      default: null
+    }
+  },
+  data() {
+    return {
+      work: []
+    }
+  },
+  mounted() {
+    console.log('foo', this.story)
+    this.$fetch()
+  },
+  async fetch() {
+    return this.$storyblok
+      .get(
+        `cdn/stories/?starts_with=case-studies/&excluding_ids=${this.story.id}`
+      )
+      .then(res => {
+        // array
+
+        this.$set(
+          this,
+          'work',
+          res.data.stories.sort(() => Math.random() - Math.random()).slice(0, 3)
+        )
+        console.log(this.work)
+      })
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+#case-studies {
+  min-height: 60vh;
+}
+</style>

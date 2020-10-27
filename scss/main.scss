@@ -15,6 +15,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
   color: $dark;
+  background-color: $light;
+  --backgroundColor: $light;
+  --textColor: $dark;
+  --hoverColor: $accent;
 }
 
 img {
@@ -25,18 +29,39 @@ figure {
   margin: 0px;
 }
 
+#site {
+  color: currentColor;
+  background-color: var(--backgroundColor, $light);
+}
+
+.no-background-animation.color-background,
+.no-background-animation .color-background {
+  transition: none;
+}
+
 .color-background {
-  background-color: var(--backgroundColor);
+  background-color: var(--backgroundColor, $light);
   transition: background-color 600ms ease;
+}
+
+.color-text {
+  color: currentColor;
 }
 
 .wrapper-link {
   text-decoration: none;
   color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+
+  &:hover .highlight {
+    color: $accent;
+  }
 }
 
 a {
-  transition: color 300ms ease;
   color: inherit;
   &:hover {
     color: $accent;
@@ -44,27 +69,32 @@ a {
 }
 
 .big-quote-wrapper {
-  background-color: black;
-}
+  background-color: currentColor;
 
-.big-quote {
-  padding: 1.5rem;
-  background-color: black;
-  color: #fff;
-  box-sizing: border-box;
-  height: 100%;
-  padding-bottom: 8rem;
-  blockquote {
-    margin: 0px;
-  }
+  .big-quote {
+    position: relative;
+    padding: 1.5rem;
+    color: $light;
+    color: var(--backgroundColor, $light);
+    box-sizing: border-box;
+    height: 100%;
+    padding-bottom: 16rem;
+    blockquote {
+      margin: 0px;
+    }
 
-  .quote-attribution {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 1.5rem;
+    .quote-attribution {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+    }
   }
 }
 
 .multiply {
   mix-blend-mode: multiply;
+}
+
+.screen {
+  mix-blend-mode: screen;
 }

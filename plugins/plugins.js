@@ -1,49 +1,99 @@
 import Vue from 'vue'
-import VueMq from 'vue-mq'
+// import VueMq from 'vue-mq'
+
+// import { IntersectDirective } from 'vue-intersect-directive'
+
+// Vue.use(VueIntersect)
 import VueObserveVisibility from 'vue-observe-visibility'
 
 // import locomotiveScroll from 'locomotive-scroll'
 
 // Object.defineProperty(Vue.prototype, 'locomotiveScroll', {
 //   value: locomotiveScroll
-// })
+// })s
+
+import MainFooter from '~/components/MainFooter.vue'
 
 import FutureImg from '~/components/FutureImg.vue'
 import FutureDiv from '~/components/FutureDiv.vue'
 import FixedAspect from '~/components/FixedAspect.vue'
 
+import Page from '@/components/bloks/Page.vue'
+import CaseStudy from '@/components/bloks/CaseStudy.vue'
+import Grid from '@/components/bloks/Grid.vue'
+import Column from '@/components/bloks/Column.vue'
+import Richtext from '@/components/bloks/Richtext.vue'
+import BlokImage from '@/components/bloks/BlokImage.vue'
+import StoryBlokImage from '@/components/StoryBlokImage.vue'
+import SuperFooter from '~/components/bloks/SuperFooter.vue'
+import CaseStudyList from '~/components/bloks/CaseStudyList.vue'
+import HomepageCaseStudyList from '~/components/bloks/HomepageCaseStudyList.vue'
+import HomepageArticleList from '~/components/bloks/HomepageArticleList.vue'
+import CtaButton from '~/components/bloks/CtaButton.vue'
+import Quote from '~/components/bloks/Quote.vue'
+import VimeoEmbed from '~/components/bloks/VimeoEmbed.vue'
+import TeamProfileList from '~/components/bloks/TeamProfileList.vue'
+import ClientList from '~/components/bloks/ClientList.vue'
+import ReadNext from '~/components/bloks/ReadNext.vue'
+import ReadNextCaseStudies from '~/components/bloks/ReadNextCaseStudies.vue'
+
+Vue.component('main-footer', MainFooter)
 Vue.component('future-div', FutureDiv)
 Vue.component('future-img', FutureImg)
 Vue.component('fixed-aspect', FixedAspect)
+Vue.component('super-footer', SuperFooter)
+Vue.component('page', Page)
+Vue.component('case-study', CaseStudy)
+Vue.component('grid', Grid)
+Vue.component('column', Column)
+Vue.component('richtext', Richtext)
+Vue.component('blok-image', BlokImage)
+Vue.component('story-blok-image', StoryBlokImage)
+Vue.component('super-footer', SuperFooter)
+Vue.component('case-study-list', CaseStudyList)
+Vue.component('homepage-case-study-list', HomepageCaseStudyList)
+Vue.component('homepage-article-list', HomepageArticleList)
+Vue.component('cta-button', CtaButton)
+Vue.component('quote', Quote)
+Vue.component('vimeo-embed', VimeoEmbed)
+Vue.component('team-profile-list', TeamProfileList)
+Vue.component('client-list', ClientList)
+Vue.component('read-next', ReadNext)
+Vue.component('read-next-case-studies', ReadNextCaseStudies)
 
 // Vue.prototype.$backgroundColor = '#ffffff'
 
 Vue.use(VueObserveVisibility)
-Vue.use(VueMq, {
-  breakpoints: {
-    tiny: 0,
-    small: 640,
-    mid: 960,
-    big: 1200,
-    max: Infinity
-  }
-})
 
 Vue.mixin({
-  // data() {
-  //   return {
-  //     activeBackgroundColor: '#ffffff'
-  //   }
-  // },
+  data() {
+    return {
+      hasObserverRoot: false,
+      observerRoot: null,
+      inview: false
+    }
+  },
+  mounted() {
+    console.log(this.$route.query._storyblok || window.isInStoryblok)
+    this.observerRoot =
+      this.$route.query._storyblok || window.isInStoryblok
+        ? window.document
+        : null //
+    this.hasObserverRoot = true
+  },
   methods: {
-    valueFromMq(value) {
-      if (!value) return null
-      return value[this.$mq]
+    onObserverHandler(isVisible, entry, cb) {
+      // this.$nextTick(() => {
+      if (isVisible && !entry.target.classList.contains('inview')) {
+        entry.target.classList.add('inview')
+        this.inview = true
+      } else if (!isVisible && entry.target.classList.contains('inview')) {
+        entry.target.classList.remove('inview')
+        this.inview = false
+      }
+      if (cb) {
+        this[cb](isVisible, entry)
+      }
     }
   }
 })
-
-// Vue.filter('valueFromMq', value => {
-//   if (!value) return null
-//   return value[this.$mq]
-// })

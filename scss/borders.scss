@@ -2,6 +2,7 @@
 
 .border-left {
   position: relative;
+  @extend .h-padding-left;
 
   &:before {
     content: '';
@@ -10,12 +11,14 @@
     left: 0px;
     bottom: 0px;
     width: 1px;
-    background-color: #000;
+    background-color: currentcolor;
+    // z-index: 999;
   }
 }
 
 .border-right {
   position: relative;
+  @extend .h-padding-right;
 
   &:after {
     content: '';
@@ -24,12 +27,14 @@
     right: -1px;
     bottom: 0px;
     width: 1px;
-    background-color: #000;
+    background-color: currentcolor;
+    // z-index: 999;
   }
 }
 
-.border-block {
-  @extend .h-padding, .border-left, .border-right;
+.border-block,
+.border-both {
+  @extend .border-left, .border-right;
 
   &.h-padding-none {
     padding-left: 0px;
