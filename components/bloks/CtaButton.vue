@@ -1,6 +1,11 @@
 <template>
   <div>
-    <a :class="!blok.mini ? 'body' : 'mini'" class="cta-button">{{ blok.text }}</a>
+    <component :is="wrapperComponent" 
+               :class="!blok.mini ? 'body' : 'mini'" 
+               :href="wrapperComponent === 'a' ? blok.link.cached_url : false" 
+               :target="wrapperComponent === 'a' ? '_blank' : false"
+               :to="wrapperComponent === 'nuxt-link' ? blok.link.cached_url : false"
+               class="cta-button">{{ blok.text }}</component>
   </div>
 </template>
 
@@ -10,6 +15,21 @@ export default {
     blok: {
       type: Object,
       default: null
+    }
+  },
+  computed: {
+    wrapperComponent() {
+      if (!this.blok.link) {
+        return 'div'
+      }
+
+      if (this.blok.link.linktype === 'story') {
+        return 'nuxt-link'
+      }
+
+      if (this.blok.link.linktype !== 'story') {
+        return 'a'
+      }
     }
   }
 }
@@ -22,10 +42,10 @@ export default {
   padding: 1rem 1.5rem;
   color: var(--backgroundColor);
   border: none;
+  text-decoration: none;
 
   &:hover {
-    background-color: var(--hoverColor);
-    color: var(--textColor);
+    background-color: #f05969;
   }
 }
 </style>
