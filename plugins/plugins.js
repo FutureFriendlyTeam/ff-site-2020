@@ -91,10 +91,11 @@ Vue.mixin({
     }
   },
   mounted() {
-    this.observerRoot =
-      window.location.ancestorOrigins[0] === 'http://app.storyblok.com'
-        ? window.document
-        : null //
+    this.observerRoot = window.location.ancestorOrigins[0].includes(
+      'app.storyblok.com'
+    )
+      ? window.document
+      : null //
     this.hasObserverRoot = true
   },
   methods: {
