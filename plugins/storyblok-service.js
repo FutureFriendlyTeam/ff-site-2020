@@ -51,7 +51,10 @@ const StoryblokService = class {
 
   isEditorMode() {
     if (typeof window !== 'undefined') {
-      return window.location.ancestorOrigins[0].includes('app.storyblok.com')
+      return (
+        window.location.ancestorOrigins[0] &&
+        window.location.ancestorOrigins[0].includes('app.storyblok.com')
+      )
     }
     return false
   }
