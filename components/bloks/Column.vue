@@ -12,7 +12,7 @@
              :target="wrapperComponent === 'a' ? '_blank' : false"
              :to="wrapperComponent === 'nuxt-link' ? blok.extra_link.cached_url : false"
              class="vertical wrapper-link">
-    <component v-for="inner in blok.blocks" :key="inner._uid" :blok="inner" :is="inner.component" :class="[blok.extra_link ? 'highlight' : '']"/>
+    <component v-for="inner in blok.blocks" :key="inner._uid" :blok="inner" :is="inner.component" :class="[wrapperComponent === 'a' || wrapperComponent === 'nuxt-link' ? 'highlight' : '']"/>
   </component>
 
 </template>
@@ -27,17 +27,23 @@ export default {
   },
   computed: {
     wrapperComponent() {
-      if (!this.blok.extra_link) {
-        return 'div'
+      if (this.blok.extra_link) {
+        if (
+          this.blok.extra_link.linktype === 'story' &&
+          this.blok.extra_link.url !== ''
+        ) {
+          return 'nuxt-link'
+        }
+
+        if (
+          this.blok.extra_link.linktype !== 'story' &&
+          this.blok.extra_link.url !== ''
+        ) {
+          return 'a'
+        }
       }
 
-      if (this.blok.extra_link.linktype === 'story') {
-        return 'nuxt-link'
-      }
-
-      if (this.blok.extra_link.linktype !== 'story') {
-        return 'a'
-      }
+      return 'div'
     }
   }
 }
