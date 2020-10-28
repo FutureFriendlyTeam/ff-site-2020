@@ -99,13 +99,15 @@ export default {
 }
 
 #mobile-nav {
-  z-index: 99;
+  z-index: 999;
   position: fixed;
   bottom: 0px;
   left: 0px;
   right: 0px;
   top: 0px;
   background-color: #fff;
+  // pointer-events: none;
+  // overscroll-behavior: contain;
 
   a {
     display: block;
