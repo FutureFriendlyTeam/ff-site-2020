@@ -63,7 +63,7 @@ export default {
 #header {
   position: fixed;
   width: 100%;
-  z-index: 999;
+  z-index: 9999;
 
   > .horizontal {
     justify-content: space-between;
