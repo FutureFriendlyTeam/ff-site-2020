@@ -27,18 +27,20 @@ export default {
   },
   computed: {
     wrapperComponent() {
-      if (
-        this.blok.extra_link.linktype === 'story' &&
-        this.blok.extra_link.url !== ''
-      ) {
-        return 'nuxt-link'
-      }
+      if (this.blok.extra_link) {
+        if (
+          this.blok.extra_link.linktype === 'story' &&
+          this.blok.extra_link.url !== ''
+        ) {
+          return 'nuxt-link'
+        }
 
-      if (
-        this.blok.extra_link.linktype !== 'story' &&
-        this.blok.extra_link.url !== ''
-      ) {
-        return 'a'
+        if (
+          this.blok.extra_link.linktype !== 'story' &&
+          this.blok.extra_link.url !== ''
+        ) {
+          return 'a'
+        }
       }
 
       return 'div'

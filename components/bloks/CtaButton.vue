@@ -19,12 +19,14 @@ export default {
   },
   computed: {
     wrapperComponent() {
-      if (this.blok.link.linktype === 'story' && this.blok.link.url !== '') {
-        return 'nuxt-link'
-      }
+      if (this.blok.link) {
+        if (this.blok.link.linktype === 'story' && this.blok.link.url !== '') {
+          return 'nuxt-link'
+        }
 
-      if (this.blok.link.linktype !== 'story' && this.blok.link.url !== '') {
-        return 'a'
+        if (this.blok.link.linktype !== 'story' && this.blok.link.url !== '') {
+          return 'a'
+        }
       }
 
       return 'div'
