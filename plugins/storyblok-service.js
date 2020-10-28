@@ -34,24 +34,32 @@ const StoryblokService = class {
     document.getElementsByTagName('head')[0].appendChild(script)
   }
 
-  setQuery(query) {
-    this.query = query
-  }
+  // setQuery(query) {
+  //   this.query = query
+  // }
 
-  getQuery(param) {
-    return this.query?.[param]
-  }
+  // getQuery(param) {
+  //   // if (typeof window === 'undefined' || !this.isEditorMode())
+  //   // return this.query?.[param]
+  //   if (typeof window !== 'undefined') {
+  //     console.log(
+  //       window.location.ancestorOrigins[0] === 'http://app.storyblok.com'
+  //     )
+  //     return null
+  //   }
+  // }
 
   isEditorMode() {
-    if (this.getQuery('_storyblok') || this.isInStoryblok) {
-      return true
+    if (typeof window !== 'undefined') {
+      return (
+        window.location.ancestorOrigins[0] &&
+        window.location.ancestorOrigins[0].includes('app.storyblok.com')
+      )
     }
-
     return false
   }
 
   async initEditor(page) {
-    this.setQuery(page.$root.$options.context.query)
     console.log('try init editor')
 
     if (typeof window === 'undefined' || !this.isEditorMode()) {

@@ -24,6 +24,7 @@ export default {
     }
   },
   mounted() {
+    console.log('V 1.1')
     this.$root.$on('colorChange', e => {
       this.updateColors(e.backgroundColor, e.textColor)
     })
