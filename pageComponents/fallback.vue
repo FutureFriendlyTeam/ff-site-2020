@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     async loadFallbackData() {
-      this.$storyblok.setQuery({ _storyblok: true })
+      // this.$storyblok.setQuery({ _storyblok: true })
       return this.$storyblok
         .get(`cdn/stories/${this.$route.path}`, {
           resolve_relations:

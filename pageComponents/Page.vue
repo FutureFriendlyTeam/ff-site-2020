@@ -14,7 +14,7 @@ export default {
     return { story: { content: {} } }
   },
   async asyncData(context) {
-    context.$storyblok.setQuery(context.query)
+    // context.$storyblok.setQuery(context.query)
     return context.$storyblok
       .get(
         `cdn/stories/${

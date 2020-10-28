@@ -92,7 +92,7 @@ Vue.mixin({
   },
   mounted() {
     this.observerRoot =
-      this.$route.query._storyblok || window.isInStoryblok
+      window.location.ancestorOrigins[0] === 'http://app.storyblok.com'
         ? window.document
         : null //
     this.hasObserverRoot = true
