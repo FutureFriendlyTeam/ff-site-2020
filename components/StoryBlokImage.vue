@@ -129,7 +129,7 @@ export default {
   transform-origin: 100% 0%;
   opacity: 1;
   z-index: 999;
-  transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1),
+  transition: transform 1200ms cubic-bezier(0.16, 1, 0.3, 1),
     background-color 600ms ease;
 }
 
