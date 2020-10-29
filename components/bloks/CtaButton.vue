@@ -2,9 +2,9 @@
   <div>
     <component :is="wrapperComponent" 
                :class="!blok.mini ? 'body' : 'mini'" 
-               :href="wrapperComponent === 'a' ? blok.link.cached_url : false" 
+               :href="wrapperComponent === 'a' || wrapperComponent === 'nuxt-link' ? blok.link.cached_url : false" 
                :target="wrapperComponent === 'a' ? '_blank' : false"
-               :to="wrapperComponent === 'nuxt-link' ? blok.link.cached_url : false"
+               :to="wrapperComponent === 'a' || wrapperComponent === 'nuxt-link' ? blok.link.cached_url : false"
                class="cta-button">{{ blok.text }}</component>
   </div>
 </template>
@@ -20,11 +20,17 @@ export default {
   computed: {
     wrapperComponent() {
       if (this.blok.link) {
-        if (this.blok.link.linktype === 'story' && this.blok.link.url !== '') {
+        if (
+          this.blok.link.linktype === 'story' &&
+          this.blok.link.cached_url !== ''
+        ) {
           return 'nuxt-link'
         }
 
-        if (this.blok.link.linktype !== 'story' && this.blok.link.url !== '') {
+        if (
+          this.blok.link.linktype !== 'story' &&
+          this.blok.link.cached_url !== ''
+        ) {
           return 'a'
         }
       }
