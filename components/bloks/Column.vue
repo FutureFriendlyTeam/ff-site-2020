@@ -8,9 +8,9 @@
                `v-margin-top-${blok.top_spacing}`, 
                `v-margin-bottom-${blok.bottom_spacing}`,
                `clear-${blok.clear}`]" 
-             :href="wrapperComponent === 'a' ? blok.extra_link.cached_url : false"
+             :href="wrapperComponent === 'a' || wrapperComponent === 'nuxt-link' ? blok.extra_link.cached_url : false"
              :target="wrapperComponent === 'a' ? '_blank' : false"
-             :to="wrapperComponent === 'nuxt-link' ? blok.extra_link.cached_url : false"
+             :to="wrapperComponent === 'a' || wrapperComponent === 'nuxt-link' ? blok.extra_link.cached_url : false"
              class="vertical wrapper-link">
     <component v-for="inner in blok.blocks" :key="inner._uid" :blok="inner" :is="inner.component" :class="[wrapperComponent === 'a' || wrapperComponent === 'nuxt-link' ? 'highlight' : '']"/>
   </component>
@@ -30,14 +30,14 @@ export default {
       if (this.blok.extra_link) {
         if (
           this.blok.extra_link.linktype === 'story' &&
-          this.blok.extra_link.url !== ''
+          this.blok.extra_link.cached_url !== ''
         ) {
           return 'nuxt-link'
         }
 
         if (
           this.blok.extra_link.linktype !== 'story' &&
-          this.blok.extra_link.url !== ''
+          this.blok.extra_link.cached_url !== ''
         ) {
           return 'a'
         }
