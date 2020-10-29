@@ -11,6 +11,18 @@ export default {
       type: Object,
       default: null
     }
+  },
+  watch: {
+    blok() {
+      this.$root.$emit('setNav', {
+        navType: this.blok.standalone ? 'standalone' : 'normal'
+      })
+    }
+  },
+  mounted() {
+    this.$root.$emit('setNav', {
+      navType: this.blok.standalone ? 'standalone' : 'normal'
+    })
   }
 }
 </script>
