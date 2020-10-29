@@ -1,4 +1,5 @@
 <template>
+  <!-- <div> -->
   <div>
     <header 
       v-if="globals" id="header" class="v-padding-top v-padding-bottom color-background">
@@ -8,14 +9,23 @@
           <span class="logo-part border-left border-right v-padding-bottom-tiny">Friendly</span>
         </nuxt-link>
 
-        <nav id="nav" class=" horizontal between">
-          <nuxt-link v-for="item in globals.content.header_links" :key="item._uid" :to="`/${item.link.cached_url}`" class="border-block v-padding-bottom-tiny">{{ item.text }}</nuxt-link>
-        </nav>
+        <div v-if="navType === 'normal'">
 
-        <nav id="mobile-nav-button" class="m-half border-block v-padding-bottom-tiny horizontal between">
-          <a @click="mobileNavOpen = !mobileNavOpen">{{ mobileNavOpen ? 'Close' : 'Menu' }}</a>
-        </nav>
+          <nav class="nav horizontal between">
+            <nuxt-link v-for="item in globals.content.header_links" :key="item._uid" :to="`/${item.link.cached_url}`" class="border-block v-padding-bottom-tiny">{{ item.text }}</nuxt-link>
+          </nav>
 
+          <nav id="mobile-nav-button" class="m-half border-block v-padding-bottom-tiny horizontal between">
+            <a @click="mobileNavOpen = !mobileNavOpen">{{ mobileNavOpen ? 'Close' : 'Menu' }}</a>
+          </nav>
+
+        </div>
+
+        <div v-else-if="navType === 'standalone'">
+          <nav class="nav horizontal between">
+            <nuxt-link :to="'/'" class="border-block v-padding-bottom-tiny">Visit futurefriendly.team</nuxt-link>
+          </nav>
+        </div>
       </div>
     </header>
 
@@ -38,7 +48,8 @@ export default {
   data() {
     return {
       mobileNavOpen: false,
-      globals: null
+      globals: null,
+      navType: 'normal'
     }
   },
   watch: {
@@ -47,6 +58,11 @@ export default {
         this.mobileNavOpen = false
       }, 300)
     }
+  },
+  mounted() {
+    this.$root.$on('setNav', e => {
+      this.navType = e.navType
+    })
   },
   async fetch() {
     return this.$storyblok.get(`cdn/stories/global/globals`).then(res => {
@@ -75,11 +91,10 @@ export default {
     &:hover {
       z-index: 1;
     }
-    // color: currentColor;
   }
 }
 
-#nav {
+.nav {
   display: none;
   @media (min-width: $mid) {
     display: flex;
