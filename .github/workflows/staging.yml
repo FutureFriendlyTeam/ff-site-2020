@@ -13,7 +13,13 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          version: '12'
+      - name: Install dependencies
+        run: npm install
       - name: Build static site
-        run: npm install && npm run generate
+        run: npm run generate
       - name: Deploy static site to S3 bucket
         run: aws s3 sync dist s3://futurefriendly-staging --delete --cache-control max-age=31536000,public --exclude '.DS_Store'

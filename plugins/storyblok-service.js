@@ -60,14 +60,9 @@ const StoryblokService = class {
   }
 
   async initEditor(page) {
-    console.log('try init editor')
-
     if (typeof window === 'undefined' || !this.isEditorMode()) {
-      console.log('not in editor')
       return
     }
-
-    console.log('is in storyblock')
 
     if (!window?.storyblok) {
       this.loadEditorScript(
@@ -95,7 +90,6 @@ const StoryblokService = class {
       }
     })
 
-    console.log('editor started')
     this.isInStoryblok = true
 
     window.storyblok.on(['input', 'published', 'change'], event => {
@@ -131,7 +125,6 @@ const StoryblokService = class {
     //
     if (this.isEditorMode()) {
       params.version = 'draft'
-      console.log('loading draft content')
     }
     return this.client.get(slug, params)
     // }
