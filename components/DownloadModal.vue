@@ -75,7 +75,7 @@ export default {
   /* Probably need media queries here */
   width: 400px;
   max-width: 100%;
-  height: 620px;
+  height: 640px;
   max-height: 100%;
   position: fixed;
   z-index: 100;
