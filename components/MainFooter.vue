@@ -1,14 +1,19 @@
 <template>
   <footer id="footer" class="v-padding-top-big v-padding-bottom-big">
+    <download-modal :active="active" @close="ToggleModal"></download-modal>
+
     <div class="center-col horizontal">
       <nav v-if="globals" class="xs-full s-half v-margin-bottom h-padding-right">
-
         <p v-for="item in globals.content.footer_links" :key="item._uid" :class="item.secondary ? 'body' : 'mid'" class="no-margin-top">
-          <nuxt-link v-if="item.link.cached_url !== '' && item.link.linktype === 'story'" :to="`/${item.link.cached_url}`">{{ item.text }}</nuxt-link>
-          <a v-else-if="item.link.cached_url !== '' && item.link.linktype !== 'story'" :href="`${item.link.cached_url}`" target="_blank">{{ item.text }}</a>
-          <span v-else>{{ item.text }}</span>
+          <span v-if="item.text === 'Newsletter'">
+            <a @click.prevent="active = true" href="#">Newsletter</a>
+          </span>
+          <span v-else>
+            <nuxt-link v-if="item.link.cached_url !== '' && item.link.linktype === 'story'" :to="`/${item.link.cached_url}`">{{ item.text }}</nuxt-link>
+            <a v-else-if="item.link.cached_url !== '' && item.link.linktype !== 'story'" :href="`${item.link.cached_url}`" target="_blank">{{ item.text }}</a>
+            <span v-else>{{ item.text }}</span>
+          </span>
         </p>
-
       </nav>
 
       <div class="xs-full s-half horizontal">
@@ -32,17 +37,28 @@
 </template>
 
 <script>
+import DownloadModal from '~/components/DownloadModal.vue'
+
 export default {
   name: 'MainFooter',
+  components: {
+    DownloadModal
+  },
   data() {
     return {
-      globals: null
+      globals: null,
+      active: false
     }
   },
   async fetch() {
     return this.$storyblok.get(`cdn/stories/global/globals`).then(res => {
       this.$set(this, 'globals', res.data.story)
     })
+  },
+  methods: {
+    ToggleModal() {
+      this.active = !this.active
+    }
   }
 }
 </script>
