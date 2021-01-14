@@ -17,7 +17,7 @@ const metaData = {
     'Future Friendly (Formerly Mentally Friendly) - Digital service strategy & product delivery.',
   desc:
     'Design & innovation team in Sydney & Canberra – we create digital services that change lives and build a better future.',
-  image: ''
+  image: 'https://futurefriendly.team/future-friendly.png'
 }
 
 const defaultMeta = [
