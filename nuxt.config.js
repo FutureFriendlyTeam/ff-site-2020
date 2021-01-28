@@ -133,7 +133,7 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/google-analytics',
+    '@nuxtjs/gtm',
     'nuxt-compress',
     // [
     //   'storyblok-nuxt',
@@ -224,8 +224,9 @@ module.exports = {
   //   }
   // },
 
-  googleAnalytics: {
-    id: 'UA-1790615-74'
+  gtm: {
+    id: 'GTM-NRB2BWS',
+    enabled: true
   },
 
   buildModules: ['@aceforth/nuxt-optimized-images'],
