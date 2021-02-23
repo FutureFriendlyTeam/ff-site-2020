@@ -1,7 +1,12 @@
 <template>
   <section id="banner">
     <div class="center-col h-padded horizontal v-center">
-      <p class="wrapper-link flex v-padded mid">Mentally Friendly has changed its name to Future Friendly</p>
+      <p class="wrapper-link flex v-padded mid">
+        Mentally Friendly is now Future Friendly. <a
+          target="_blank"
+          href="https://www.linkedin.com/pulse/mentally-friendly-now-future-nick-gower"
+        >Read about it here.</a>
+      </p>
       <div
         class="v-padded self-center close"
         @click="$emit('close')">
