@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1614123644",layout:"default",error:null,state:{brandRenameBanner:{isBannerVisible:a,isFromMfReferrer:false}},serverRendered:a,routePath:"\u002Fcase-studies\u002Ffamily-safety-hub",config:{}}}(true));
