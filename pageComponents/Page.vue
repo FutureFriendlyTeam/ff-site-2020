@@ -3,29 +3,13 @@
     <section>
       <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"/>
     </section>
-    <brand-rename-banner
-      v-if="isBrandRenameBannerVisible"
-      @close="hideBrandRenameBanner"
-    />
     <main-footer/>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
   transition: 'fade',
-  methods: {
-    hideBrandRenameBanner (e) {
-      this.$store.commit('brandRenameBanner/toggleBannerState')
-    }
-  },
-  computed: {
-    ...mapGetters({
-      isBrandRenameBannerVisible: 'brandRenameBanner/isBannerVisible',
-    })
-  },
   data() {
     return { story: { content: {} } }
   },
@@ -45,14 +29,6 @@ export default {
       })
   },
   async mounted() {
-    const query = this.$route.query;
-    const {
-      utm_source,
-      utm_medium,
-    } = query;
-    const isMfReferrer = utm_source === 'mentallyfriendly.com' && utm_medium === 'website'
-    this.$store.commit('brandRenameBanner/setIsFromMfReferrer', isMfReferrer)
-
     await this.$storyblok.initEditor(this)
   }
 }

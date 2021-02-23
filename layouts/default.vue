@@ -2,6 +2,10 @@
   <div id="site" :style="{'--backgroundColor': activeBackgroundColor, '--textColor': activeTextColor,'backgroundColor': activeBackgroundColor, 'color': activeTextColor, }" :class="disableBackgroundAnimations ? 'no-background-animation' : ''" class="color-background">
     <main-header/>
     <nuxt/>
+    <brand-rename-banner
+      v-if="isBrandRenameBannerVisible"
+      @close="hideBrandRenameBanner"
+    />
   </div>
 </template>
 
@@ -10,10 +14,16 @@
 
 <script>
 import MainHeader from '~/components/MainHeader.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
     MainHeader
+  },
+  computed: {
+    ...mapGetters({
+      isBrandRenameBannerVisible: 'brandRenameBanner/isBannerVisible',
+    })
   },
   data() {
     return {
@@ -67,7 +77,21 @@ export default {
         return color
       }
       return this.$theme[color] || fallback
+    },
+    hideBrandRenameBanner (e) {
+      this.$store.commit('brandRenameBanner/toggleBannerState')
     }
+  },
+  async mounted() {
+    const query = this.$route.query;
+    const {
+      utm_source,
+      utm_medium,
+    } = query;
+    const isMfReferrer = utm_source === 'mentallyfriendly.com' && utm_medium === 'website'
+    this.$store.commit('brandRenameBanner/setIsFromMfReferrer', isMfReferrer)
+
+    await this.$storyblok.initEditor(this)
   }
 }
 </script>
