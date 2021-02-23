@@ -36,8 +36,10 @@ import TeamProfileList from '~/components/bloks/TeamProfileList.vue'
 import ClientList from '~/components/bloks/ClientList.vue'
 import ReadNext from '~/components/bloks/ReadNext.vue'
 import ReadNextCaseStudies from '~/components/bloks/ReadNextCaseStudies.vue'
+import BrandRenameBanner from '~/components/BrandRenameBanner'
 
 Vue.component('main-footer', MainFooter)
+Vue.component('brand-rename-banner', BrandRenameBanner)
 Vue.component('future-div', FutureDiv)
 Vue.component('future-img', FutureImg)
 Vue.component('fixed-aspect', FixedAspect)
