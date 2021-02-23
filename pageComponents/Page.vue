@@ -45,7 +45,12 @@ export default {
       })
   },
   async mounted() {
-    const isMfReferrer = !!document.referrer.match('mentallyfriendly')
+    const query = this.$route.query;
+    const {
+      utm_source,
+      utm_medium,
+    } = query;
+    const isMfReferrer = utm_source === 'mentallyfriendly.com' && utm_medium === 'website'
     this.$store.commit('brandRenameBanner/setIsFromMfReferrer', isMfReferrer)
 
     await this.$storyblok.initEditor(this)
