@@ -38,6 +38,14 @@ export default {
     this.$root.$on('colorChange', e => {
       this.updateColors(e.backgroundColor, e.textColor)
     })
+
+    const query = this.$route.query;
+    const {
+      utm_source,
+      utm_medium,
+    } = query;
+    const isMfReferrer = utm_source === 'mentallyfriendly.com' && utm_medium === 'website'
+    this.$store.commit('brandRenameBanner/setIsFromMfReferrer', isMfReferrer)
   },
   methods: {
     updateColors(backgroundColor, textColor) {
@@ -82,17 +90,6 @@ export default {
       this.$store.commit('brandRenameBanner/toggleBannerState')
     }
   },
-  async mounted() {
-    const query = this.$route.query;
-    const {
-      utm_source,
-      utm_medium,
-    } = query;
-    const isMfReferrer = utm_source === 'mentallyfriendly.com' && utm_medium === 'website'
-    this.$store.commit('brandRenameBanner/setIsFromMfReferrer', isMfReferrer)
-
-    await this.$storyblok.initEditor(this)
-  }
 }
 </script>
 
