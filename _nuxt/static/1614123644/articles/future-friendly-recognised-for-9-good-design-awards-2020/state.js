@@ -1,1 +1,0 @@
-window.__NUXT__=(function(a){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1614123644",layout:"default",error:null,state:{brandRenameBanner:{isBannerVisible:a,isFromMfReferrer:false}},serverRendered:a,routePath:"\u002Farticles\u002Ffuture-friendly-recognised-for-9-good-design-awards-2020",config:{}}}(true));
