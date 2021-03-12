@@ -4,8 +4,8 @@
       <li v-for="job in filteredJobs" :key="job.shortcode" class="v-margin-top">
         <a :href="job.url" target="_blank">{{ job.title }}</a>
         <span v-if="job.employment_type" class="mini">
-          ({{ job.employment_type }})</span
-        >
+          ({{ job.employment_type }})
+        </span>
       </li>
     </ul>
   </div>
