@@ -37,6 +37,7 @@ import ClientList from '~/components/bloks/ClientList.vue'
 import ReadNext from '~/components/bloks/ReadNext.vue'
 import ReadNextCaseStudies from '~/components/bloks/ReadNextCaseStudies.vue'
 import BrandRenameBanner from '~/components/BrandRenameBanner'
+import WorkableListing from '~/components/bloks/WorkableListing'
 
 Vue.component('main-footer', MainFooter)
 Vue.component('brand-rename-banner', BrandRenameBanner)
@@ -62,6 +63,7 @@ Vue.component('team-profile-list', TeamProfileList)
 Vue.component('client-list', ClientList)
 Vue.component('read-next', ReadNext)
 Vue.component('read-next-case-studies', ReadNextCaseStudies)
+Vue.component('workable-listing', WorkableListing)
 
 // Vue.prototype.$backgroundColor = '#ffffff'
 Vue.prototype.$theme = {
