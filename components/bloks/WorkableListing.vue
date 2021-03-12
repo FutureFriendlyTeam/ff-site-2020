@@ -1,27 +1,16 @@
 <template>
-  <section
-    v-storyblok-editable="blok"
-    class="v-padding-top-big v-padding-bottom-big headline"
-  >
-    <div class="center-col">
-      <pre>Workable</pre>
-      <ul>
-        <li
-          v-for="job in jobs"
-          :key="job.shortcode"
-        >
-          <a :href="job.url" target="_blank">
-            <strong>{{ job.title }}</strong>
-            <small>
-              <span v-if="job.city">{{ job.city }}, Australia</span>
-              <span v-if="job.city && job.employment_type"> &mdash; </span>
-              <span v-if="job.employment_type">{{ job.employment_type }}</span>
-            </small>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
+  <div v-storyblok-editable="blok">
+    <ul>
+      <li
+        v-for="job in filteredJobs"
+        :key="job.shortcode"
+        class="v-margin-top"
+      >
+        <a :href="job.url" target="_blank">{{ job.title }}</a>
+        <span v-if="job.employment_type" class="mini"> ({{ job.employment_type }})</span>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -34,19 +23,38 @@ export default {
   },
   data() {
     return {
-      jobs: []
+      jobs: undefined,
     }
   },
+  computed: {
+    filteredJobs() {
+      const selectedStatus = this.blok?.status || ''
+      const selectedCity = this.blok?.city || []
+      const filterByStatus = selectedStatus !== ''
+      const filterByCity = selectedCity.length > 0
+
+      return this.jobs?.filter(({ city, employment_type }) => {
+        if (filterByStatus && selectedStatus !== employment_type.toLowerCase()) {
+          return false
+        }
+
+        if (filterByCity && !selectedCity.includes(city.toLowerCase())) {
+          return false
+        }
+
+        return true
+      }) || []
+    },
+  },
   mounted() {
-    const oldWhrcallback = window.whrcallback
+    const oldCallback = window.whrcallback
 
-    window.whrcallback = ({ jobs }) => {
-      this.$set(this, 'jobs', jobs || [])
-      console.log('jobs', jobs)
-
-      if (oldWhrcallback) {
-        oldWhrcallback(e)
+    window.whrcallback = (e) => {
+      if (oldCallback) {
+        oldCallback(e)
       }
+
+      this.$set(this, 'jobs', e.jobs)
     }
 
     const url = 'https://apply.workable.com/api/v1/widget/accounts/11883'
