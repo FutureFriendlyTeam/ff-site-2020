@@ -1,6 +1,6 @@
 <template>
   <div v-storyblok-editable="blok">
-    <ul>
+    <ul v-if="filteredJobs.length > 0">
       <li v-for="job in filteredJobs" :key="job.shortcode" class="v-margin-top">
         <a :href="job.url" target="_blank">{{ job.title }}</a>
         <span v-if="job.employment_type" class="mini">
@@ -8,6 +8,10 @@
         </span>
       </li>
     </ul>
+    <p v-else class="mini">
+      No advertised roles, but we're always looking for great people &mdash; 
+      <a href="https://apply.workable.com/j/B2871A5501">get in touch!</a>
+    </p>
   </div>
 </template>
 
