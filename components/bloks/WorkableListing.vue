@@ -16,12 +16,12 @@ export default {
   props: {
     blok: {
       type: Object,
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
-      jobs: undefined,
+      jobs: undefined
     }
   },
   computed: {
@@ -47,12 +47,12 @@ export default {
           return true
         }) || []
       )
-    },
+    }
   },
   mounted() {
     const oldCallback = window.whrcallback
 
-    window.whrcallback = (e) => {
+    window.whrcallback = e => {
       if (oldCallback) {
         oldCallback(e)
       }
@@ -68,6 +68,6 @@ export default {
 
     const headTag = document.getElementsByTagName('head')[0]
     headTag.appendChild(scriptTag)
-  },
+  }
 }
 </script>
