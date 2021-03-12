@@ -1,13 +1,11 @@
 <template>
   <div v-storyblok-editable="blok">
     <ul>
-      <li
-        v-for="job in filteredJobs"
-        :key="job.shortcode"
-        class="v-margin-top"
-      >
+      <li v-for="job in filteredJobs" :key="job.shortcode" class="v-margin-top">
         <a :href="job.url" target="_blank">{{ job.title }}</a>
-        <span v-if="job.employment_type" class="mini"> ({{ job.employment_type }})</span>
+        <span v-if="job.employment_type" class="mini">
+          ({{ job.employment_type }})</span
+        >
       </li>
     </ul>
   </div>
@@ -33,17 +31,22 @@ export default {
       const filterByStatus = selectedStatus !== ''
       const filterByCity = selectedCity.length > 0
 
-      return this.jobs?.filter(({ city, employment_type }) => {
-        if (filterByStatus && selectedStatus !== employment_type.toLowerCase()) {
-          return false
-        }
+      return (
+        this.jobs?.filter(({ city, employment_type }) => {
+          if (
+            filterByStatus &&
+            selectedStatus !== employment_type.toLowerCase()
+          ) {
+            return false
+          }
 
-        if (filterByCity && !selectedCity.includes(city.toLowerCase())) {
-          return false
-        }
+          if (filterByCity && !selectedCity.includes(city.toLowerCase())) {
+            return false
+          }
 
-        return true
-      }) || []
+          return true
+        }) || []
+      )
     },
   },
   mounted() {
