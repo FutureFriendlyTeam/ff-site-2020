@@ -72,15 +72,15 @@ export default {
   },
   methods: {
     onActivate() {
+      this.backgroundPlayer = new Vimeo.Player(this.$refs.backgroundPlayer)
+      this.activePlayer = new Vimeo.Player(this.$refs.activePlayer)
       this.backgroundPlayer.pause()
       this.activePlayer.play()
       this.active = true
     },
   },
   mounted() {
-    console.log(Vimeo)
-    this.backgroundPlayer = new Vimeo.Player(this.$refs.backgroundPlayer)
-    this.activePlayer = new Vimeo.Player(this.$refs.activePlayer)
+    // console.log(Vimeo)
   },
 }
 </script>
