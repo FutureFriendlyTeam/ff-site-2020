@@ -4,7 +4,7 @@
   </figure> -->
 
   <div class="xs-full">
-    <fixed-aspect>
+    <fixed-aspect :aspect="'sixteen-nine'">
       <div style="padding: 56.25% 0 0 0; position: relative">
         <div id="overlay" @click="onActivate" :class="active ? 'hidden' : ''">
           <a id="play">
