@@ -4,24 +4,24 @@
 // $h-spacing-mid: #000000;
 
 .center-col {
-  max-width: 1800px;
+  max-width: 1600px;
   margin: 0 auto;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 
   @media (min-width: $small) {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   @media (min-width: $mid) {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   @media (min-width: $big) {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 }
 

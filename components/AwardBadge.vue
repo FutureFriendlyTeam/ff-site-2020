@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="badge-wrapper multiply">
-      <future-img :aspect="'free'" :src="`shared/${awardType}.svg`"/>
+      <future-img :aspect="'free'" :src="`shared/${awardType}.svg`" />
     </div>
   </div>
 </template>
@@ -11,14 +11,14 @@ import FutureImg from '~/components/FutureImg.vue'
 export default {
   name: 'AwardBadge',
   components: {
-    FutureImg
+    FutureImg,
   },
   props: {
     awardType: {
       type: String,
-      default: 'gda-winner'
-    }
-  }
+      default: 'gda-winner',
+    },
+  },
 }
 </script>
 
@@ -26,6 +26,6 @@ export default {
 .badge-wrapper {
   padding: 1rem;
   background-color: #000;
-  width: 6rem;
+  width: 5rem;
 }
 </style>

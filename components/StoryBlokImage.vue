@@ -1,23 +1,54 @@
-<template>  
-  <fixed-aspect :aspect="aspect || 'free'" :class="[noScale ? '' : 'scale', loaded ? 'loaded' : '']" class="future-image-wrapper">
+<template>
+  <fixed-aspect
+    :aspect="aspect || 'free'"
+    :class="[noScale ? '' : 'scale', loaded ? 'loaded' : '']"
+    class="future-image-wrapper"
+  >
+    <div
+      v-observe-visibility="{
+        callback: onObserverHandler,
+      }"
+      :class="[
+        aspect != 'free' ? 'fixed-aspect-inner' : '',
+        inview ? 'inview' : '',
+      ]"
+    >
+      <div v-if="isVideo" class="future-image-inner">
+        <video
+          autoplay
+          loop
+          muted
+          playsinline
+          :src="filename"
+          class="future-image"
+          @canplaythrough="onLoad"
+        ></video>
+      </div>
 
-    <div v-observe-visibility="{
-      callback: onObserverHandler,
-    }" :class="[aspect != 'free' ? 'fixed-aspect-inner' : '', inview ? 'inview' : '']">
-
-      <div :class="[grayscale ? blend === 'normal' ? 'multiply' : blend : blend ]" class="future-image-inner" >
-
+      <div
+        v-else
+        :class="[grayscale ? (blend === 'normal' ? 'multiply' : blend) : blend]"
+        class="future-image-inner"
+      >
         <picture class="future-image">
-          <source v-if="filepaths.webp" :data-srcset="filepaths.webp" type="image/webp">
-          <source :data-srcset="filepaths.default">
+          <source
+            v-if="filepaths.webp"
+            :data-srcset="filepaths.webp"
+            type="image/webp"
+          />
+          <source :data-srcset="filepaths.default" />
           <img
-            ref="img" :data-src="filepaths.default" :alt="alt" class="future-image lazyload" @load="onLoad"
-          >
+            ref="img"
+            :data-src="filepaths.default"
+            :alt="alt"
+            class="future-image lazyload"
+            @load="onLoad"
+          />
         </picture>
       </div>
     </div>
 
-    <div class="future-image-mask color-background"/>
+    <div class="future-image-mask color-background" />
   </fixed-aspect>
 </template>
 
@@ -25,40 +56,45 @@
 import FixedAspect from '~/components/FixedAspect.vue'
 export default {
   components: {
-    FixedAspect
+    FixedAspect,
   },
   props: {
     aspect: {
       type: String,
-      default: 'free'
+      default: 'free',
     },
     filename: {
       type: String,
-      default: null
+      default: null,
     },
     grayscale: {
       type: Boolean,
-      default: false
+      default: false,
     },
     blend: {
       type: String,
-      default: 'normal'
+      default: 'normal',
     },
     noScale: {
       type: Boolean,
-      default: false
+      default: false,
     },
     alt: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
-      loaded: false
+      loaded: false,
     }
   },
   computed: {
+    isVideo() {
+      const isVideo =
+        this.filename.includes('.mp4') || this.filename.includes('.webm')
+      return isVideo
+    },
     filepaths() {
       if (!this.filename) {
         return ''
@@ -69,7 +105,7 @@ export default {
         this.filename.includes('.png')
 
       let paths = {
-        default: this.transformImage(this.filename, this.grayscale)
+        default: this.transformImage(this.filename, this.grayscale),
       }
 
       if (isRaster) {
@@ -77,12 +113,12 @@ export default {
       }
 
       return paths
-    }
+    },
   },
   watch: {
     filepaths() {
       this.$refs.img.classList.add('lazyload')
-    }
+    },
   },
   methods: {
     transformImage(image, isGrayscale, isWebp) {
@@ -99,8 +135,8 @@ export default {
     },
     onLoad() {
       this.loaded = true
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -144,7 +180,7 @@ export default {
 .scale.future-image-wrapper .future-image-inner {
   width: 100%;
   height: 100%;
-  transform: scale(1.2);
+  transform: scale(1);
   transition: transform 0ms cubic-bezier(0.33, 1, 0.68, 1);
 }
 
