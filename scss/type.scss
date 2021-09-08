@@ -29,11 +29,11 @@ body {
   }
 
   @media (min-width: $big) {
-    font-size: 8rem;
+    font-size: 7rem;
   }
 
   @media (min-width: $max) {
-    font-size: 9rem;
+    font-size: 8rem;
   }
 }
 
@@ -75,7 +75,7 @@ h2 {
   }
 
   @media (min-width: $big) {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
@@ -85,16 +85,17 @@ h3 {
   font-weight: normal;
   font-family: 'Plain';
   font-size: 1.25rem;
-  line-height: 1;
+  line-height: 1.25;
   letter-spacing: -0.01em;
   margin-bottom: 1em;
-  @media (min-width: $mid) {
+  @media (min-width: $big) {
     font-size: 1.5rem;
+    line-height: 1.25;
   }
 
-  @media (min-width: $big) {
-    font-size: 1.75rem;
-  }
+  // @media (min-width: $big) {
+  //   font-size: 1.75rem;
+  // }
 }
 
 .body,

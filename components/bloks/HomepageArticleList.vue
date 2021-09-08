@@ -1,15 +1,14 @@
 <template>
-  <future-div :background-color="'light2'" :text-color="'dark'" >
-
+  <future-div :background-color="'light'" :text-color="'dark'">
     <div class="center-col">
       <div class="horizontal v-padding-bottom-mega">
         <homepage-article-block
           v-for="(story, i) in blok.articles"
-          :key="`article-${i}`" 
-          :story="story" />
+          :key="`article-${i}`"
+          :story="story"
+        />
       </div>
     </div>
-
   </future-div>
 </template>
 
@@ -18,13 +17,13 @@ import HomepageArticleBlock from '~/components/HomepageArticleBlock.vue'
 
 export default {
   components: {
-    HomepageArticleBlock
+    HomepageArticleBlock,
   },
   props: {
     blok: {
       type: Object,
-      default: null
-    }
-  }
+      default: null,
+    },
+  },
 }
 </script>
