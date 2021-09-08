@@ -1,18 +1,22 @@
 <template>
-
-  <article v-if="story"
-           :class="!compact ? story.content.thumbnail_size : 'xs-full s-third'" 
-           class="work-block border-block xs-full v-margin-bottom v-padding-bottom-big">
-
-    <nuxt-link 
-      :to="`/${story.full_slug}`"
-      class="wrapper-link">
-
-      <story-blok-image :filename="story.content.image.filename" :alt="story.content.image.name" aspect="four-three" class="v-margin-bottom"/>
+  <article
+    v-if="story"
+    :class="!compact ? story.content.thumbnail_size : 'xs-full s-third'"
+    class="work-block border-block xs-full v-margin-bottom v-padding-bottom-big"
+  >
+    <nuxt-link :to="`/${story.full_slug}`" class="wrapper-link">
+      <story-blok-image
+        :filename="story.content.image.filename"
+        :alt="story.content.image.name"
+        aspect="free"
+        class="v-margin-bottom"
+      />
       <section class="xs-full">
-        <h2 class="mid highlight v-margin-top-none">{{ story.content.title }}</h2>
-        <p class="mid highlight v-margin-top-none">With {{ story.content.client }}</p>
-        <p class="mid highlight v-margin-top-none underline">Read case study.</p>
+        <h2 class="body highlight v-margin-top-none">
+          {{ story.content.title }}
+        </h2>
+        <!-- <p class="mid highlight v-margin-top-none">With {{ story.content.client }}</p> -->
+        <p class="body highlight v-margin-top-none">→ Case Study</p>
       </section>
     </nuxt-link>
   </article>
@@ -23,18 +27,18 @@ import AwardBadge from '~/components/AwardBadge.vue'
 export default {
   name: 'WorkBlock',
   components: {
-    AwardBadge
+    AwardBadge,
   },
   props: {
     story: {
       type: Object,
-      default: null
+      default: null,
     },
     compact: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 }
 </script>
 
