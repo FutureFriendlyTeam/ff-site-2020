@@ -1,19 +1,18 @@
 <template>
-  <future-div :background-color="'light2'">
-
+  <future-div :background-color="'light'">
     <section id="case-studies" class="v-padding-bottom-mega v-padding-top-mega">
       <div class="center-col">
         <h2>Read next.</h2>
         <div class="horizontal">
           <work-block
             v-for="(story, i) in work"
-            :key="`case-study-${i}`" 
+            :key="`case-study-${i}`"
             :compact="true"
-            :story="story"/>
+            :story="story"
+          />
         </div>
       </div>
     </section>
-
   </future-div>
 </template>
 
@@ -22,17 +21,17 @@ import WorkBlock from '~/components/WorkBlock.vue'
 
 export default {
   components: {
-    WorkBlock
+    WorkBlock,
   },
   props: {
     story: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
-      work: []
+      work: [],
     }
   },
   mounted() {
@@ -43,7 +42,7 @@ export default {
       .get(
         `cdn/stories/?starts_with=case-studies/&excluding_ids=${this.story.id}`
       )
-      .then(res => {
+      .then((res) => {
         // array
 
         this.$set(
@@ -52,7 +51,7 @@ export default {
           res.data.stories.sort(() => Math.random() - Math.random()).slice(0, 3)
         )
       })
-  }
+  },
 }
 </script>
 
