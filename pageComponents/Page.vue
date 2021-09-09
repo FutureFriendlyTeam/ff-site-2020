@@ -1,9 +1,15 @@
 <template>
   <div id="page">
     <section>
-      <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"/>
+      <component
+        v-if="story.content.component"
+        :key="story.content._uid"
+        :blok="story.content"
+        :storyId="story.id"
+        :is="story.content.component"
+      />
     </section>
-    <main-footer/>
+    <main-footer />
   </div>
 </template>
 
@@ -21,15 +27,15 @@ export default {
         }`,
         {
           resolve_relations:
-            'homepage-case-study-list.case_studies,homepage-article-list.articles'
+            'homepage-case-study-list.case_studies,homepage-article-list.articles',
         }
       )
-      .then(res => {
+      .then((res) => {
         return res.data
       })
   },
   async mounted() {
     await this.$storyblok.initEditor(this)
-  }
+  },
 }
 </script>
