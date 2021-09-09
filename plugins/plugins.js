@@ -20,6 +20,7 @@ import FixedAspect from '~/components/FixedAspect.vue'
 
 import Page from '@/components/bloks/Page.vue'
 import CaseStudy from '@/components/bloks/CaseStudy.vue'
+import Podcast from '@/components/bloks/Podcast.vue'
 import Grid from '@/components/bloks/Grid.vue'
 import Column from '@/components/bloks/Column.vue'
 import Richtext from '@/components/bloks/Richtext.vue'
@@ -49,6 +50,7 @@ Vue.component('fixed-aspect', FixedAspect)
 Vue.component('super-footer', SuperFooter)
 Vue.component('page', Page)
 Vue.component('case-study', CaseStudy)
+Vue.component('podcast', Podcast)
 Vue.component('grid', Grid)
 Vue.component('column', Column)
 Vue.component('richtext', Richtext)

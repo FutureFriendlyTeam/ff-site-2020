@@ -18,7 +18,7 @@ export default {
       default: null,
     },
     storyId: {
-      type: String,
+      type: Number,
       default: null,
     },
   },

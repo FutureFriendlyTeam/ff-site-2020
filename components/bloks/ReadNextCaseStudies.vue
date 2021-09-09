@@ -25,7 +25,7 @@ export default {
   },
   props: {
     storyId: {
-      type: String,
+      type: Number,
       default: null,
     },
   },
