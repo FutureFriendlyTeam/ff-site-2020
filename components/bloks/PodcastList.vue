@@ -1,10 +1,12 @@
 <template>
-  <future-div :background-color="'light'">
-    <section id="case-studies" class="v-padding-bottom-mega">
+  <future-div :background-color="'#5422C4'" :text-color="'#FFFFFF'">
+    <section id="podcasts" class="v-padding-bottom-mega">
       <div class="center-col horizontal">
-        <work-block
-          v-for="(story, i) in work"
-          :key="`case-study-${i}`"
+        <h1 class="big xs-full v-margin-bottom">More Episodes</h1>
+        <podcast-block
+          v-for="(story, i) in episodes"
+          :key="`podcast-${i}`"
+          :compact="true"
           :story="story"
         />
       </div>
@@ -13,29 +15,33 @@
 </template>
 
 <script>
-import WorkBlock from '~/components/WorkBlock.vue'
+import PodcastBlock from '~/components/PodcastBlock.vue'
 
 export default {
   components: {
-    WorkBlock,
+    PodcastBlock,
   },
   props: {
     blok: {
       type: Object,
       default: null,
     },
+    storyId: {
+      type: Number,
+      default: null,
+    },
   },
   data() {
     return {
-      work: [],
+      episodes: [],
     }
   },
   async fetch() {
     return this.$storyblok
-      .get(`cdn/stories/?starts_with=case-studies/`)
+      .get(`cdn/stories/?starts_with=podcasts/&excluding_ids=${this.storyId}`)
       .then((res) => {
         console.log('async data loaded')
-        this.$set(this, 'work', res.data.stories)
+        this.$set(this, 'episodes', res.data.stories)
       })
   },
   async mounted() {
@@ -43,10 +49,10 @@ export default {
 
     if (this.$storyblok.isEditorMode()) {
       this.$storyblok
-        .get(`cdn/stories/?starts_with=case-studies/`)
+        .get(`cdn/stories/?starts_with=podcasts/&excluding_ids=${this.storyId}`)
         .then((res) => {
           console.log('async data loaded')
-          this.$set(this, 'work', res.data.stories)
+          this.$set(this, 'episodes', res.data.stories)
         })
     }
     // await this.$storyblok.initEditor(this)
