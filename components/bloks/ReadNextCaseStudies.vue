@@ -24,8 +24,8 @@ export default {
     WorkBlock,
   },
   props: {
-    story: {
-      type: Object,
+    storyId: {
+      type: Number,
       default: null,
     },
   },
@@ -40,7 +40,7 @@ export default {
   async fetch() {
     return this.$storyblok
       .get(
-        `cdn/stories/?starts_with=case-studies/&excluding_ids=${this.story.id}`
+        `cdn/stories/?starts_with=case-studies/&excluding_ids=${this.storyId}`
       )
       .then((res) => {
         // array
