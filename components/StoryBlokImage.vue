@@ -117,7 +117,9 @@ export default {
   },
   watch: {
     filepaths() {
-      this.$refs.img.classList.add('lazyload')
+      if (this.$refs.img) {
+        this.$refs.img.classList.add('lazyload')
+      }
     },
   },
   methods: {

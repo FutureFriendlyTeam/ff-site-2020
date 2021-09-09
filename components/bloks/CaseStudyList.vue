@@ -34,8 +34,22 @@ export default {
     return this.$storyblok
       .get(`cdn/stories/?starts_with=case-studies/`)
       .then((res) => {
+        console.log('async data loaded')
         this.$set(this, 'work', res.data.stories)
       })
+  },
+  async mounted() {
+    console.log(this.$storyblok.isEditorMode())
+
+    if (this.$storyblok.isEditorMode()) {
+      this.$storyblok
+        .get(`cdn/stories/?starts_with=case-studies/`)
+        .then((res) => {
+          console.log('async data loaded')
+          this.$set(this, 'work', res.data.stories)
+        })
+    }
+    // await this.$storyblok.initEditor(this)
   },
 }
 </script>
