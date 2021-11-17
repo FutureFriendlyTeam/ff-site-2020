@@ -42,6 +42,8 @@ import WorkableListing from '~/components/bloks/WorkableListing'
 import AwardList from '~/components/bloks/AwardList'
 import AwardBadge from '~/components/AwardBadge'
 import ModalPractice from '@/components/bloks/ModalPractice'
+import FormSection from '~/components/bloks/FormSection'
+import FormInput from '~/components/bloks/FormInput'
 
 Vue.component('main-footer', MainFooter)
 Vue.component('brand-rename-banner', BrandRenameBanner)
@@ -72,6 +74,8 @@ Vue.component('workable-listing', WorkableListing)
 Vue.component('award-list', AwardList)
 Vue.component('award-badge', AwardBadge)
 Vue.component('modal-practice', ModalPractice)
+Vue.component('form-section', FormSection)
+Vue.component('form-input', FormInput)
 
 // Vue.prototype.$backgroundColor = '#ffffff'
 Vue.prototype.$theme = {
@@ -105,7 +109,7 @@ Vue.mixin({
   mounted() {
     this.observerRoot =
       window.location.ancestorOrigins[0] &&
-        window.location.ancestorOrigins[0].includes('app.storyblok.com')
+      window.location.ancestorOrigins[0].includes('app.storyblok.com')
         ? window.document
         : null //
     this.hasObserverRoot = true
