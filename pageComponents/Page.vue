@@ -5,9 +5,10 @@
         v-if="story.content.component"
         :key="story.content._uid"
         :blok="story.content"
-        :storyId="story.id"
+        :story-id="story.id"
         :is="story.content.component"
       />
+      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur consectetur id rerum quibusdam suscipit similique, necessitatibus architecto totam sapiente voluptas voluptatem error dolores perferendis perspiciatis consequatur mollitia dignissimos animi reprehenderit.</h1>
     </section>
     <main-footer />
   </div>
@@ -36,6 +37,6 @@ export default {
   },
   async mounted() {
     await this.$storyblok.initEditor(this)
-  },
+  }
 }
 </script>

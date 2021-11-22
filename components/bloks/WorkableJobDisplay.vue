@@ -1,16 +1,16 @@
 <template>
   <div v-storyblok-editable="blok">
     <client-only>
-      <workable :status="blok.status" :city="blok.city" />
+      <workable-job :status="blok.status" :city="blok.city" :department="blok.department" />
     </client-only>
   </div>
 </template>
 
 <script>
-import Workable from '~/components/Workable.vue'
+import WorkableJob from '../WorkableJob.vue'
 export default {
   components: {
-    Workable
+    WorkableJob
   },
   props: {
     blok: {

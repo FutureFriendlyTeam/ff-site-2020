@@ -2,7 +2,7 @@
   <div class="form--input-wrapper">
     <div>
       <label>{{ blok.label }}</label>
-      <input placeholder="placeholder" type="text">
+      <input :placeholder="blok.placeholder" type="text">
     </div>
   </div>
 </template>
