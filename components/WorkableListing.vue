@@ -1,10 +1,10 @@
 <template>
   <ul v-if="filteredJobs.length > 0">
     <li v-for="job in filteredJobs" :key="job.shortcode" class="v-margin-top">
-      <a href="/" >{{ job.title }}</a>
-      <p v-if="job.city">
+      <p v-if="job.city" class="mini">
         {{ job.city }}
       </p>
+      <a :href="job.url" target="_blank">{{ job.title }}</a>
     </li>
   </ul>
   <!-- <p v-else class="mini">
@@ -15,34 +15,28 @@
 
 <script>
 export default {
-  name: 'WorkableListing',
+  name: 'Workable',
   props: {
     status: {
       type: String,
-      default: ''
+      default: '',
     },
     city: {
       type: Array,
-      default: []
+      default: [],
     },
-    department: {
-      type: Array,
-      default: []
-    }
   },
   data() {
     return {
-      jobs: undefined
+      jobs: undefined,
     }
   },
   computed: {
     filteredJobs() {
       const selectedStatus = this.status || ''
       const selectedCity = this.city || []
-      const selectedDepartment = this.department || []
       const filterByStatus = selectedStatus !== ''
       const filterByCity = selectedCity.length > 0
-      const filterByDepartment = selectedDepartment.length > 0
 
       return (
         this.jobs?.filter(({ city, employment_type }) => {
@@ -57,22 +51,15 @@ export default {
             return false
           }
 
-          if (
-            filterByDepartment &&
-            !selectedDepartment.includes(department.toLowerCase())
-          ) {
-            return false
-          }
-
           return true
         }) || []
       )
-    }
+    },
   },
   mounted() {
     const oldCallback = window.whrcallback
 
-    window.whrcallback = e => {
+    window.whrcallback = (e) => {
       if (oldCallback) {
         oldCallback(e)
       }
@@ -88,6 +75,9 @@ export default {
 
     const headTag = document.getElementsByTagName('head')[0]
     headTag.appendChild(scriptTag)
-  }
+  },
 }
 </script>
+<style>
+
+</style>
