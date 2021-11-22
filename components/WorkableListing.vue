@@ -1,12 +1,14 @@
 <template>
   <ul v-if="filteredJobs.length > 0">
-    <li v-for="job in filteredJobs" :key="job.shortcode" class="v-margin-top">
-      <p v-if="job.city" class="mini">
-        {{ job.city }}
-      </p>
+    <div v-for="job in filteredJobs" :key="job.shortcode" class="v-margin-top">
+      <h3>{{ job.city }}</h3>
       <a :href="job.url" target="_blank">{{ job.title }}</a>
-    </li>
+      <span v-if="job.employment_type" class="mini">
+        ({{ job.employment_type }})
+      </span>
+    </div>
   </ul>
+  
   <!-- <p v-else class="mini">
     No advertised roles, but we're always looking for great people &mdash;
     <a href="https://apply.workable.com/j/B2871A5501">get in touch!</a>
@@ -19,16 +21,16 @@ export default {
   props: {
     status: {
       type: String,
-      default: '',
+      default: ''
     },
     city: {
       type: Array,
-      default: [],
-    },
+      default: []
+    }
   },
   data() {
     return {
-      jobs: undefined,
+      jobs: undefined
     }
   },
   computed: {
@@ -54,12 +56,12 @@ export default {
           return true
         }) || []
       )
-    },
+    }
   },
   mounted() {
     const oldCallback = window.whrcallback
 
-    window.whrcallback = (e) => {
+    window.whrcallback = e => {
       if (oldCallback) {
         oldCallback(e)
       }
@@ -75,9 +77,8 @@ export default {
 
     const headTag = document.getElementsByTagName('head')[0]
     headTag.appendChild(scriptTag)
-  },
+  }
 }
 </script>
 <style>
-
 </style>
