@@ -19,27 +19,27 @@ import PodcastBlock from '~/components/PodcastBlock.vue'
 
 export default {
   components: {
-    PodcastBlock,
+    PodcastBlock
   },
   props: {
     blok: {
       type: Object,
-      default: null,
+      default: null
     },
     storyId: {
       type: Number,
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
-      episodes: [],
+      episodes: []
     }
   },
   async fetch() {
     return this.$storyblok
       .get(`cdn/stories/?starts_with=podcasts/&excluding_ids=${this.storyId}`)
-      .then((res) => {
+      .then(res => {
         console.log('async data loaded')
         this.$set(this, 'episodes', res.data.stories)
       })
@@ -50,13 +50,13 @@ export default {
     if (this.$storyblok.isEditorMode()) {
       this.$storyblok
         .get(`cdn/stories/?starts_with=podcasts/&excluding_ids=${this.storyId}`)
-        .then((res) => {
+        .then(res => {
           console.log('async data loaded')
           this.$set(this, 'episodes', res.data.stories)
         })
     }
     // await this.$storyblok.initEditor(this)
-  },
+  }
 }
 </script>
 

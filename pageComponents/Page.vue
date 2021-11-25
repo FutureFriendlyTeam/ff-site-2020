@@ -8,7 +8,6 @@
         :story-id="story.id"
         :is="story.content.component"
       />
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur consectetur id rerum quibusdam suscipit similique, necessitatibus architecto totam sapiente voluptas voluptatem error dolores perferendis perspiciatis consequatur mollitia dignissimos animi reprehenderit.</h1>
     </section>
     <main-footer />
   </div>
@@ -28,10 +27,10 @@ export default {
         }`,
         {
           resolve_relations:
-            'homepage-case-study-list.case_studies,homepage-article-list.articles',
+            'homepage-case-study-list.case_studies,homepage-article-list.articles'
         }
       )
-      .then((res) => {
+      .then(res => {
         return res.data
       })
   },

@@ -9,10 +9,10 @@
     </div>
   </ul>
   
-  <!-- <p v-else class="mini">
+  <p v-else class="mini">
     No advertised roles, but we're always looking for great people &mdash;
     <a href="https://apply.workable.com/j/B2871A5501">get in touch!</a>
-  </p> -->
+  </p>
 </template>
 
 <script>
@@ -25,6 +25,7 @@ export default {
     },
     city: {
       type: Array,
+      // eslint-disable-next-line vue/require-valid-default-prop
       default: []
     }
   },

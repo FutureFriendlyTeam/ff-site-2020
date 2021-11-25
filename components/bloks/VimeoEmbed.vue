@@ -6,7 +6,7 @@
   <div class="xs-full">
     <fixed-aspect :aspect="'sixteen-nine'">
       <div style="padding: 56.25% 0 0 0; position: relative">
-        <div id="overlay" @click="onActivate" :class="active ? 'hidden' : ''">
+        <div id="overlay" :class="active ? 'hidden' : ''" @click="onActivate">
           <a id="play">
             <svg
               width="32"
@@ -26,10 +26,10 @@
           id="background"
           ref="backgroundPlayer"
           :src="`https://player.vimeo.com/video/${blok.vimeo_id}?autoplay=${blok.autoplay}&muted=1&background=1`"
+          :class="active ? 'hidden' : ''"
           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
           frameborder="0"
           allow="autoplay; fullscreen"
-          :class="active ? 'hidden' : ''"
           allowfullscreen
         />
 
@@ -37,10 +37,10 @@
           id="active"
           ref="activePlayer"
           :src="`https://player.vimeo.com/video/${blok.vimeo_id}`"
+          :class="!active ? 'hidden' : ''"
           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
           frameborder="0"
           allow="autoplay; fullscreen"
-          :class="!active ? 'hidden' : ''"
           allowfullscreen
         />
       </div>
@@ -55,20 +55,23 @@
 import FixedAspect from '../FixedAspect.vue'
 export default {
   components: {
-    FixedAspect,
+    FixedAspect
   },
   props: {
     blok: {
       type: Object,
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
       active: false,
       backgroundPlayer: null,
-      activePlayer: null,
+      activePlayer: null
     }
+  },
+  mounted() {
+    // console.log(Vimeo)
   },
   methods: {
     onActivate() {
@@ -77,11 +80,8 @@ export default {
       this.backgroundPlayer.pause()
       this.activePlayer.play()
       this.active = true
-    },
-  },
-  mounted() {
-    // console.log(Vimeo)
-  },
+    }
+  }
 }
 </script>
 

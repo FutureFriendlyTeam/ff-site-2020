@@ -53,15 +53,15 @@ export default {
         }`,
         {
           resolve_relations:
-            'homepage-case-study-list.case_studies,homepage-article-list.articles',
+            'homepage-case-study-list.case_studies,homepage-article-list.articles'
         }
       )
-      .then((res) => {
+      .then(res => {
         return res.data
       })
   },
   async activated() {
     this.$storyblok.initEditor(this)
-  },
+  }
 }
 </script>

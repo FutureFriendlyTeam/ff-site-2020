@@ -38,13 +38,13 @@ export default {
   props: {
     story: {
       type: Object,
-      default: null,
+      default: null
     },
     compact: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 }
 </script>
 

@@ -24,7 +24,10 @@ export default {
         let cols = this.blok.columns.length
         return `xs-full ${cols === 2 ? 's-half' : ''} ${
           cols === 3 ? 's-third' : ''
-        } ${cols >= 4 ? 's-half m-quarter' : ''}`
+        } ${cols === 4 ? 's-half m-quarter' : ''} ${
+          cols === 5 ? 's-half m-quarter lg-fifth' : ''
+        }
+          ${cols > 5 ? 's-half m-quarter' : ''}`
       } else {
         return col.size
       }

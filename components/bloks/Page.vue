@@ -14,24 +14,24 @@ export default {
   props: {
     blok: {
       type: Object,
-      default: null,
+      default: null
     },
     storyId: {
       type: Number,
-      default: null,
-    },
+      default: null
+    }
   },
   watch: {
     blok() {
       this.$root.$emit('setNav', {
-        navType: this.blok.standalone ? 'standalone' : 'normal',
+        navType: this.blok.standalone ? 'standalone' : 'normal'
       })
-    },
+    }
   },
   mounted() {
     this.$root.$emit('setNav', {
-      navType: this.blok.standalone ? 'standalone' : 'normal',
+      navType: this.blok.standalone ? 'standalone' : 'normal'
     })
-  },
+  }
 }
 </script>

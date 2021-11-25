@@ -21,13 +21,13 @@ export default {
   props: {
     blok: {
       type: Object,
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     richtext() {
       return this.$storyblok.client.richTextResolver.render(this.blok.text)
-    },
-  },
+    }
+  }
 }
 </script>
