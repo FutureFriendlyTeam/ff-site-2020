@@ -28,7 +28,7 @@
             </div>
           </div>
 
-          <div class="vertical xs-full m-half" v-if="blok.cover.filename">
+          <div v-if="blok.cover.filename" class="vertical xs-full m-half">
             <story-blok-image
               :filename="blok.cover.filename"
               :alt="blok.cover.name"
@@ -50,7 +50,7 @@
       </div>
     </future-div>
 
-    <podcast-list :storyId="storyId" />
+    <podcast-list :story-id="storyId" />
 
     <future-div :background-color="'#5422C4'" :text-color="'#FFFFFF'">
       <div class="center-col">
@@ -63,7 +63,7 @@
             </p>
 
             <a class="big" href="mailto:podcast@futurefriendly.team"
-              >→ Get in Touch</a
+            >→ Get in Touch</a
             >
           </div>
         </div>
@@ -76,36 +76,36 @@
 import PodcastList from '~/components/bloks/PodcastList.vue'
 export default {
   components: {
-    PodcastList,
+    PodcastList
   },
   props: {
     blok: {
       type: Object,
-      default: null,
+      default: null
     },
     storyId: {
       type: Number,
-      default: null,
-    },
-  },
-  watch: {
-    blok() {
-      this.$root.$emit('setNav', {
-        navType: 'normal',
-      })
-    },
+      default: null
+    }
   },
   computed: {
     richtext() {
       return this.$storyblok.client.richTextResolver.render(
         this.blok.description
       )
-    },
+    }
+  },
+  watch: {
+    blok() {
+      this.$root.$emit('setNav', {
+        navType: 'normal'
+      })
+    }
   },
   mounted() {
     this.$root.$emit('setNav', {
-      navType: 'normal',
+      navType: 'normal'
     })
-  },
+  }
 }
 </script>

@@ -6,7 +6,7 @@
         v-if="story.content.component"
         :key="story.content._uid"
         :blok="story.content"
-        :storyId="story.id"
+        :story-id="story.id"
         :is="story.content.component"
       />
     </section>
@@ -28,7 +28,7 @@ export default {
           context.route.path === '/' ? 'home' : context.route.path
         }`
       )
-      .then((res) => {
+      .then(res => {
         return res.data
       })
   },
@@ -36,6 +36,6 @@ export default {
     this.$root.$emit('layoutUpdate')
     await this.$storyblok.initEditor(this)
     this.$root.$emit('layoutUpdate')
-  },
+  }
 }
 </script>

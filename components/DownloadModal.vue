@@ -5,7 +5,7 @@
         v-if="active"
         class="relative transition-all ease-in-out duration-300"
       >
-        <div class="modal-overlay" id="modal-overlay" @click.prevent="$emit('close')"></div>
+        <div id="modal-overlay" class="modal-overlay" @click.prevent="$emit('close')"/>
         <div class="modal">
           <button
             class="close-button"
@@ -16,10 +16,7 @@
           <div class="modal-guts">
 
             <div>
-
-            </div>
-            <div>
-              <mail-chimp-form></mail-chimp-form>
+              <mail-chimp-form/>
             </div>
 
           </div>

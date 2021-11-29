@@ -1,54 +1,54 @@
 <template>
   <!-- Begin Mailchimp Signup Form -->
   <div id="mc_embed_signup">
-    <form action="https://team.us20.list-manage.com/subscribe/post?u=76870db0cc5a6b3be84b0e05b&amp;id=b7c634b868" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <form id="mc-embedded-subscribe-form" action="https://team.us20.list-manage.com/subscribe/post?u=76870db0cc5a6b3be84b0e05b&amp;id=b7c634b868" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
       <div id="mc_embed_signup_scroll">
         <h2>Subscribe.</h2>
 
         <div class="mc-field-group">
           <label for="mce-EMAIL">Email Address </label>
-          <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email" />
+          <input id="mce-EMAIL" type="email" value="" name="EMAIL" class="required email" placeholder="Email" >
         </div>
         <div class="mc-field-group">
           <label for="mce-FNAME">First Name </label>
-          <input type="text" value="" name="FNAME" class="" id="mce-FNAME" placeholder="First name" />
+          <input id="mce-FNAME" type="text" value="" name="FNAME" class="" placeholder="First name" >
         </div>
         <div class="mc-field-group">
           <label for="mce-LNAME">Last Name </label>
-          <input type="text" value="" name="LNAME" class="" id="mce-LNAME" placeholder="Last name" />
+          <input id="mce-LNAME" type="text" value="" name="LNAME" class="" placeholder="Last name" >
         </div>
         <div class="mc-field-group">
           <label for="mce-COMPANY">Company </label>
-          <input type="text" value="" name="COMPANY" class="" id="mce-COMPANY" placeholder="Company" />
+          <input id="mce-COMPANY" type="text" value="" name="COMPANY" class="" placeholder="Company" >
         </div>
         <div class="mc-field-group">
           <label for="mce-JOBTITLE">Job Title </label>
-          <input type="text" value="" name="JOBTITLE" class="" id="mce-JOBTITLE" placeholder="Job title" />
+          <input id="mce-JOBTITLE" type="text" value="" name="JOBTITLE" class="" placeholder="Job title" >
         </div>
 
         <!-- This section is hidden. The relecevent sign-up source is checked -->
         <div class="mc-field-group input-group" style="display:none">
-        <strong>Sign up source </strong>
-        <ul>
-          <li>
-            <input type="checkbox" value="1" name="group[11338][1]" id="mce-group[11338]-11338-0" checked />
-            <label for="mce-group[11338]-11338-0">Future Friendly Website</label>
-          </li>
-          <li>
-            <input type="checkbox" value="2" name="group[11338][2]" id="mce-group[11338]-11338-1" />
-            <label for="mce-group[11338]-11338-1">Team Acceleration Download</label>
-          </li>
-        </ul>
+          <strong>Sign up source </strong>
+          <ul>
+            <li>
+              <input id="mce-group[11338]-11338-0" type="checkbox" value="1" name="group[11338][1]" checked >
+              <label for="mce-group[11338]-11338-0">Future Friendly Website</label>
+            </li>
+            <li>
+              <input id="mce-group[11338]-11338-1" type="checkbox" value="2" name="group[11338][2]" >
+              <label for="mce-group[11338]-11338-1">Team Acceleration Download</label>
+            </li>
+          </ul>
         </div>
         <div id="mce-responses" class="clear">
-          <div class="response" id="mce-error-response" style="display:none"></div>
-          <div class="response" id="mce-success-response" style="display:none"></div>
+          <div id="mce-error-response" class="response" style="display:none"/>
+          <div id="mce-success-response" class="response" style="display:none"/>
         </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
         <div style="position: absolute; left: -5000px;" aria-hidden="true">
-          <input type="text" name="b_76870db0cc5a6b3be84b0e05b_b7c634b868" tabindex="-1" value="" />
+          <input type="text" name="b_76870db0cc5a6b3be84b0e05b_b7c634b868" tabindex="-1" value="" >
         </div>
         <div class="mc-field-group clear">
-          <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+          <input id="mc-embedded-subscribe" type="submit" value="Subscribe" name="subscribe" class="button">
         </div>
       </div>
     </form>

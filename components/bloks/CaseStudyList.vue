@@ -17,23 +17,23 @@ import WorkBlock from '~/components/WorkBlock.vue'
 
 export default {
   components: {
-    WorkBlock,
+    WorkBlock
   },
   props: {
     blok: {
       type: Object,
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
-      work: [],
+      work: []
     }
   },
   async fetch() {
     return this.$storyblok
       .get(`cdn/stories/?starts_with=case-studies/`)
-      .then((res) => {
+      .then(res => {
         console.log('async data loaded')
         this.$set(this, 'work', res.data.stories)
       })
@@ -44,13 +44,13 @@ export default {
     if (this.$storyblok.isEditorMode()) {
       this.$storyblok
         .get(`cdn/stories/?starts_with=case-studies/`)
-        .then((res) => {
+        .then(res => {
           console.log('async data loaded')
           this.$set(this, 'work', res.data.stories)
         })
     }
     // await this.$storyblok.initEditor(this)
-  },
+  }
 }
 </script>
 

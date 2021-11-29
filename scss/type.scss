@@ -3,6 +3,7 @@
   src: url('/fonts/Plain-Medium.woff') format('woff');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -10,10 +11,11 @@
   src: url('/fonts/Plain-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 body {
-  font-family: 'Plain', 'Helvetica', sans-serif;
+  font-family: 'Plain', 'Arial' sans-serif;
 }
 
 .super {

@@ -6,7 +6,7 @@
       :blok="blok"
       :is="blok.component"
     />
-    <read-next-case-studies :storyId="storyId" />
+    <read-next-case-studies :story-id="storyId" />
   </div>
 </template>
 
@@ -15,24 +15,24 @@ export default {
   props: {
     blok: {
       type: Object,
-      default: null,
+      default: null
     },
     storyId: {
       type: Number,
-      default: null,
-    },
+      default: null
+    }
   },
   watch: {
     blok() {
       this.$root.$emit('setNav', {
-        navType: 'normal',
+        navType: 'normal'
       })
-    },
+    }
   },
   mounted() {
     this.$root.$emit('setNav', {
-      navType: 'normal',
+      navType: 'normal'
     })
-  },
+  }
 }
 </script>

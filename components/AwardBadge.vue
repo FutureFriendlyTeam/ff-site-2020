@@ -11,14 +11,14 @@ import FutureImg from '~/components/FutureImg.vue'
 export default {
   name: 'AwardBadge',
   components: {
-    FutureImg,
+    FutureImg
   },
   props: {
     awardType: {
       type: String,
-      default: 'gda-winner',
-    },
-  },
+      default: 'gda-winner'
+    }
+  }
 }
 </script>
 
