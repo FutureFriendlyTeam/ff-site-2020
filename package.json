@@ -14,12 +14,13 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "-": "0.0.1",
     "@nuxtjs/google-analytics": "^2.2.0",
     "@nuxtjs/gtm": "^2.4.0",
     "@wearewondrous/nuxt-storyblok-router": "^1.2.5",
     "chokidar": "^3.5.2",
     "cross-env": "^5.2.0",
-    "fsevents": "^2.3.2",
+    "f": "^1.4.0",
     "imagemin": "^5.3.1",
     "lazysizes": "^5.2.2",
     "nuxt": "^2.15.8",
@@ -53,5 +54,8 @@
     "sqip-loader": "^1.0.0",
     "webp-loader": "^0.6.0",
     "webpack": "^4.46.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
