@@ -18,13 +18,17 @@ body {
   font-family: 'Plain', 'Arial' sans-serif;
 }
 
+#header {
+  font-family: 'Plain';
+}
+
 .super {
   font-size: 4rem;
   line-height: 1;
   letter-spacing: -0.02em;
   font-weight: normal;
   margin-bottom: 1em;
-
+  font-family: 'Plain';
   @media (min-width: $mid) {
     font-size: 6rem;
     letter-spacing: -0.02em;
@@ -47,6 +51,7 @@ h1 {
   letter-spacing: -0.01em;
   font-weight: normal;
   margin-bottom: 1em;
+  font-family: 'Plain';
 
   @media (min-width: $mid) {
     font-size: 4rem;
