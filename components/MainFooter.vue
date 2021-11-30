@@ -1,12 +1,12 @@
 <template>
   <footer id="footer" class="v-padding-top-big v-padding-bottom-big">
-    <download-modal :active="active" @close="ToggleModal"></download-modal>
+    <download-modal :active="active" @close="ToggleModal"/>
 
     <div class="center-col horizontal">
       <nav v-if="globals" class="xs-full s-half v-margin-bottom h-padding-right">
         <p v-for="item in globals.content.footer_links" :key="item._uid" :class="item.secondary ? 'body' : 'mid'" class="no-margin-top">
           <span v-if="item.text === 'Newsletter'">
-            <a @click.prevent="active = true" href="#">Newsletter</a>
+            <a href="#" @click.prevent="active = true">Newsletter</a>
           </span>
           <span v-else>
             <nuxt-link v-if="item.link.cached_url !== '' && item.link.linktype === 'story'" :to="`/${item.link.cached_url}`">{{ item.text }}</nuxt-link>

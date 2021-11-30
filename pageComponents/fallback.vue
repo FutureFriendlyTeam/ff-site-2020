@@ -5,7 +5,7 @@
         v-if="story.content.component"
         :key="story.content._uid"
         :blok="story.content"
-        :storyId="story.id"
+        :story-id="story.id"
         :is="story.content.component"
       />
     </section>
@@ -25,7 +25,7 @@ export default {
       let data = await this.loadFallbackData()
       this.$set(this, 'story', { ...{}, ...data.story })
       this.$storyblok.initEditor(this)
-    },
+    }
   },
 
   async mounted() {
@@ -39,12 +39,12 @@ export default {
       return this.$storyblok
         .get(`cdn/stories/${this.$route.path}`, {
           resolve_relations:
-            'homepage-case-study-list.case_studies,homepage-article-list.articles',
+            'homepage-case-study-list.case_studies,homepage-article-list.articles'
         })
-        .then((res) => {
+        .then(res => {
           return res.data
         })
-    },
-  },
+    }
+  }
 }
 </script>

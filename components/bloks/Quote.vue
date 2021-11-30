@@ -7,14 +7,14 @@
     <div>
       <div class="big-quote-wrapper">
         <div class="big-quote">
-          <blockquote class="color-text" :class="blok.font_size">
+          <blockquote :class="blok.font_size" class="color-text">
             {{ blok.text }}
           </blockquote>
           <cite class="caption quote-attribution color-text">
             — {{ blok.attribution_name
             }}<span v-if="blok.attribution_title"
-              ><br />{{ blok.attribution_title }}</span
-            ></cite
+            ><br >{{ blok.attribution_title }}</span
+          ></cite
           >
         </div>
       </div>
@@ -26,13 +26,13 @@
 import FixedAspect from '~/components/FixedAspect.vue'
 export default {
   components: {
-    FixedAspect,
+    FixedAspect
   },
   props: {
     blok: {
       type: Object,
-      default: null,
-    },
-  },
+      default: null
+    }
+  }
 }
 </script>

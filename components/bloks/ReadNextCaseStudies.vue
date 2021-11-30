@@ -21,17 +21,17 @@ import WorkBlock from '~/components/WorkBlock.vue'
 
 export default {
   components: {
-    WorkBlock,
+    WorkBlock
   },
   props: {
     storyId: {
       type: Number,
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
-      work: [],
+      work: []
     }
   },
   mounted() {
@@ -42,7 +42,7 @@ export default {
       .get(
         `cdn/stories/?starts_with=case-studies/&excluding_ids=${this.storyId}`
       )
-      .then((res) => {
+      .then(res => {
         // array
 
         this.$set(
@@ -51,7 +51,7 @@ export default {
           res.data.stories.sort(() => Math.random() - Math.random()).slice(0, 3)
         )
       })
-  },
+  }
 }
 </script>
 

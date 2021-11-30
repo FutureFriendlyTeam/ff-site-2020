@@ -14,9 +14,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          version: '12'
+          node-version: '14' 
       - name: Install dependencies
         run: npm install
       - name: Build static site

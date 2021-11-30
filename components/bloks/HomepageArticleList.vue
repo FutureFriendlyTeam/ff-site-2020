@@ -17,13 +17,13 @@ import HomepageArticleBlock from '~/components/HomepageArticleBlock.vue'
 
 export default {
   components: {
-    HomepageArticleBlock,
+    HomepageArticleBlock
   },
   props: {
     blok: {
       type: Object,
-      default: null,
-    },
-  },
+      default: null
+    }
+  }
 }
 </script>

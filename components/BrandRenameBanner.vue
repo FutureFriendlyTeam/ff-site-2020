@@ -18,27 +18,27 @@
 
 <script>
 export default {
-  name: "BannerRenamePopup"
+  name: 'BannerRenamePopup'
 }
 </script>
 
 <style scoped>
 #banner {
-    background-color: #000;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    color: #fff;
-    overflow: hidden;
-    z-index: 999;
+  background-color: #000;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  overflow: hidden;
+  z-index: 999;
 }
 
 .mid {
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.2;
-  letter-spacing: -.01em;
+  letter-spacing: -0.01em;
 }
 
 .close {
@@ -46,11 +46,11 @@ export default {
 }
 
 .text-button {
-    background-color: transparent;
-    border: none;
-    margin: 0;
-    cursor: pointer;
-    display: block;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+  display: block;
 }
 
 .wrapper-link {
