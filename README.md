@@ -195,6 +195,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Yasin Masukor - yasin@futurefriendly.team  
 Thomas Vincent - thom@futurefriendly.team
+Annabelle Caspersz - annabelle@futurefriendly.team
 
 Project Link: [https://github.com/FutureFriendlyTeam/ff-site-2020](https://github.com/FutureFriendlyTeam/ff-site-2020)
 
