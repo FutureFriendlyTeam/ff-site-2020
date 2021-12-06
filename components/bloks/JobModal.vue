@@ -102,8 +102,8 @@ export default {
   max-height: 100%;
   position: fixed;
   z-index: 100;
-  right: 0%;
-  top: 0%;
+  right: 0;
+  /* top: 0; */
   /* Use this for centering if unknown width/height */
   /* transform: translate(-50%, -50%); */
   /* If known, negative margins are probably better (less chance of blurry text). */
@@ -161,5 +161,6 @@ export default {
   border-radius: 5%;
   bottom: 0;
   font-size: 20px;
+  font-family: 'Plain';
 }
 </style>

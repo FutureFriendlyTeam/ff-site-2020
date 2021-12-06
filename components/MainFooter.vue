@@ -1,6 +1,6 @@
 <template>
   <footer id="footer" class="v-padding-top-big v-padding-bottom-big">
-    <download-modal :active="active" @close="ToggleModal"/>
+    <job-modal :active="active" @close="ToggleModal"/>
 
     <div class="center-col horizontal">
       <nav v-if="globals" class="xs-full s-half v-margin-bottom h-padding-right">
@@ -38,11 +38,13 @@
 
 <script>
 import DownloadModal from '~/components/DownloadModal.vue'
+import JobModal from '~/components/bloks/JobModal.vue'
 
 export default {
   name: 'MainFooter',
   components: {
-    DownloadModal
+    DownloadModal,
+    JobModal
   },
   data() {
     return {
