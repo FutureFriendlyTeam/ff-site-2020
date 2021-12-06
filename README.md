@@ -115,6 +115,7 @@ Follow the instructions below to get this repository working for you locally.
    ```sh
    npm install
    ```
+   **PLEASE NOTE:** *the Node-sass dependency has not yet been updated for use with node >14. Please use node 14 for this codebase until further notice after running npm install.* 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
