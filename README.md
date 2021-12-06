@@ -148,13 +148,13 @@ $ npm run generate
 <!-- ROADMAP -->
 ## Roadmap
 
-- [] Careers page & Job Description page 
-    - [] Finish job modal component. The job description page was requested to pop in from the right over the careers page, with a fraction of the page behind still visible. 
-    - [] Add clickable carousel like function for sections in job description page. see here: 
-    ![job](./static/job-desc1.png)
-    - [] if no carousel function above, create fixed positioning for apply button so that its always visible on job description page. 
-    - [] Pull all data from Workable job ad to job description page. This means that duplicating job ad data into Storyblok won't be necessary.
-    - [] Create job application form in job description page and send this data to Workable, so user never has to interact with workable at all. 
+-[ ] Careers page & Job Description page   
+    - [ ] Finish job modal component. The job description page was requested to pop in from the right over the careers page, with a fraction of the page behind still visible.  
+    - [ ] Add clickable carousel like function for sections in job description page. see here: 
+    ![job](./static/job-desc1.png)  
+    - [ ] if no carousel function above, create fixed positioning for apply button so that its always visible on job description page.   
+    - [ ] Pull all data from Workable job ad to job description page. This means that duplicating job ad data into Storyblok won't be necessary.  
+    - [ ] Create job application form in job description page and send this data to Workable, so user never has to interact with workable at all.   
 
 
 See the [open issues](https://github.com/FutureFriendlyTeam/ff-site-2020/issues) for a full list of proposed features (and known issues).
@@ -194,7 +194,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 Yasin Masukor - yasin@futurefriendly.team  
-Thomas Vincent - thom@futurefriendly.team
+Thomas Vincent - thom@futurefriendly.team  
 Annabelle Caspersz - annabelle@futurefriendly.team
 
 Project Link: [https://github.com/FutureFriendlyTeam/ff-site-2020](https://github.com/FutureFriendlyTeam/ff-site-2020)
@@ -206,9 +206,6 @@ Project Link: [https://github.com/FutureFriendlyTeam/ff-site-2020](https://githu
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
