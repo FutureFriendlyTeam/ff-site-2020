@@ -38,16 +38,11 @@ import ClientList from '~/components/bloks/ClientList.vue'
 import ReadNext from '~/components/bloks/ReadNext.vue'
 import ReadNextCaseStudies from '~/components/bloks/ReadNextCaseStudies.vue'
 import BrandRenameBanner from '~/components/BrandRenameBanner'
-import WorkableListing from '~/components/WorkableListing'
-import WorkableListingDisplay from '~/components/bloks/WorkableListingDisplay'
-import WorkableJob from '~/components/WorkableJob'
-import WorkableJobDisplay from '~/components/bloks/WorkableJobDisplay'
 import AwardList from '~/components/bloks/AwardList'
 import AwardBadge from '~/components/AwardBadge'
 import ModalPractice from '@/components/bloks/ModalPractice'
 import FormSection from '~/components/bloks/FormSection'
 import FormInput from '~/components/bloks/FormInput'
-import JobModal from '~/components/bloks/JobModal'
 
 Vue.component('main-footer', MainFooter)
 Vue.component('brand-rename-banner', BrandRenameBanner)
@@ -74,16 +69,11 @@ Vue.component('team-profile-list', TeamProfileList)
 Vue.component('client-list', ClientList)
 Vue.component('read-next', ReadNext)
 Vue.component('read-next-case-studies', ReadNextCaseStudies)
-Vue.component('workable-listing-display', WorkableListingDisplay)
 Vue.component('award-list', AwardList)
 Vue.component('award-badge', AwardBadge)
 Vue.component('modal-practice', ModalPractice)
 Vue.component('form-section', FormSection)
 Vue.component('form-input', FormInput)
-Vue.component('workable-listing', WorkableListing)
-Vue.component('workable-job', WorkableJob)
-Vue.component('workable-job-display', WorkableJobDisplay)
-Vue.component('job-modal', JobModal)
 
 // Vue.prototype.$backgroundColor = '#ffffff'
 Vue.prototype.$theme = {
