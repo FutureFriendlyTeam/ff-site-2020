@@ -1,12 +1,26 @@
 <template>
-  <ul>
-    <li v-for="job in jobs" :key="job.shortcode" class="v-margin-top">
-      <a :href="job.url" target="_blank">{{ job.title }}</a>
-      <span v-if="job.employment_type" class="mini">
-        ({{ job.employment_type }})
-      </span>
-    </li>
-  </ul>
+  <div class="vertical xs-full s-half h-padding-right clear-left">
+    <div
+      v-for="(item, key) in availableJobsByCity"
+      :key="key"
+      class="v-margin-top"
+    >
+      <h3>{{ key }}</h3>
+      <ul>
+        <li v-for="job in item" :key="job.shortcode">
+          <a href="" target="_blank">{{ job.title }}</a>
+          <span v-if="job.employment_type" class="mini">
+            ({{ job.employment_type }})
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div class="v-margin-top">
+      Want to join our team but don't see a job listing that matches? We always
+      keep our ear to the ground for great people -
+      <a href="">please get in touch!</a>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -634,8 +648,21 @@ export default {
       },
     }
   },
-  mounted() {
-    console.log('mounted')
+  computed: {
+    availableJobsByCity() {
+      const filtered = this.jobs.filter((job) => {
+        return job.state !== 'archived' && job.location.city !== null
+      })
+
+      return filtered.reduce((acc, job) => {
+        if (Object.keys(acc).includes(job.location.city)) {
+          acc[job.location.city].push(job)
+        } else {
+          acc[job.location.city] = [job]
+        }
+        return acc
+      }, {})
+    },
   },
 }
 </script>
