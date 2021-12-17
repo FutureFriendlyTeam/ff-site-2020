@@ -1,35 +1,84 @@
 <template>
-  <div v-if="isOpen" class="popout">
-    <div @click="onClose()" class="fader"></div>
-    <div class="jobpanel">
-      <h1>Test</h1>
-      <p>{{ shortcode }}</p>
-    </div>
+  <div :class="`popout ${isAnimatedOpen ? 'high' : 'low'}`">
+    <transition v-on:after-leave="onCloseComplete()" name="fade">
+      <div @click="onClose()" v-if="isOpen" class="fader"></div>
+    </transition>
+
+    <transition name="grow">
+      <div v-if="isOpen" class="jobpanel">
+        <h1>Test</h1>
+        <p>{{ shortcode }}</p>
+      </div>
+    </transition>
   </div>
 </template>
 
 <style>
 .popout {
-  display: flex;
-  flex-direction: row;
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+}
+
+.popout.high {
   z-index: 9999;
 }
-.jobpanel {
-  height: 100%;
-  width: 100%;
-  flex-grow: 2;
-  background-color: #d1e5ff;
+.popout.low {
+  z-index: -1;
 }
+
 .fader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  width: 50%;
   background-color: #000;
   opacity: 0.5;
+  z-index: 9999;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-leave,
+.fade-enter-to {
+  opacity: 0.5;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.jobpanel {
+  position: fixed;
+  top: 0;
+  left: 20%;
+  width: 80%;
+  height: 100%;
+  /* flex-grow: 2; */
+  background-color: #d1e5ff;
+  z-index: 9999;
+}
+
+.grow-enter-active,
+.grow-leave-active {
+  transition: left 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grow-leave,
+.grow-enter-to {
+  left: 20%;
+}
+
+.grow-enter,
+.grow-leave-to {
+  left: 100%;
 }
 </style>
 
@@ -44,11 +93,20 @@ export default {
       this.$emit('close')
     },
     onCloseComplete() {
+      this.isAnimatedOpen = false
       this.$emit('closecomplete')
+    },
+  },
+  watch: {
+    isOpen(val) {
+      if (val) {
+        this.isAnimatedOpen = true
+      }
     },
   },
   data() {
     return {
+      isAnimatedOpen: false,
       job: {
         id: '1aa043',
         title: 'Senior Product Manager',
