@@ -1,5 +1,11 @@
 <template>
   <div class="vertical xs-full s-half h-padding-right clear-left">
+    <workable-detail
+      :isOpen="detailOpen"
+      :shortcode="selectedShortcode"
+      @close="onClose"
+      @closecomplete="onCloseComplete"
+    />
     <div
       v-for="(item, key) in availableJobsByCity"
       :key="key"
@@ -8,7 +14,7 @@
       <h3>{{ key }}</h3>
       <ul>
         <li v-for="job in item" :key="job.shortcode" class="mini">
-          <a class="fakelink">{{ job.title }}</a>
+          <a @click="onOpen(job.shortcode)" class="fakelink">{{ job.title }}</a>
           <span v-if="job.employment_type"> ({{ job.employment_type }}) </span>
         </li>
       </ul>
@@ -26,12 +32,17 @@
 </template>
 
 <script>
+import WorkableDetail from '../WorkableDetail.vue'
+
 export default {
+  components: { WorkableDetail },
   name: 'WorkableList',
   data() {
     return {
       jobs: [],
       numJobs: 0,
+      selectedShortcode: undefined,
+      detailOpen: false,
     }
   },
   async fetch() {
@@ -40,6 +51,17 @@ export default {
     )
   },
   fetchOnServer: false,
+  methods: {
+    onOpen(shortcode) {
+      this.selectedShortcode = shortcode
+      this.detailOpen = true
+    },
+    onClose() {
+      this.selectedShortcode = undefined
+      this.detailOpen = false
+    },
+    onCloseComplete() {},
+  },
   computed: {
     availableJobsByCity() {
       const filtered = this.jobs.filter((job) => {
