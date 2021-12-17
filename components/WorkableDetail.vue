@@ -1,6 +1,6 @@
 <template>
   <div v-if="isOpen" class="popout">
-    <div @click="onClose()" class="fadeout"></div>
+    <div @click="onClose()" class="fader"></div>
     <div class="jobpanel">
       <h1>Test</h1>
       <p>{{ shortcode }}</p>
@@ -25,7 +25,7 @@
   flex-grow: 2;
   background-color: #d1e5ff;
 }
-.fadeout {
+.fader {
   height: 100%;
   width: 50%;
   background-color: #000;
