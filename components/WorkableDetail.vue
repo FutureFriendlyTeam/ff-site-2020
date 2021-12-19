@@ -1,13 +1,19 @@
 <template>
   <div :class="`popout ${isAnimatedOpen ? 'high' : 'low'}`">
-    <transition v-on:after-leave="onCloseComplete()" name="fade">
-      <div @click="onClose()" v-if="isOpen" class="fader"></div>
+    <transition name="fade" @after-leave="onCloseComplete()">
+      <div v-if="isOpen" class="fader" @click="onClose()"/>
     </transition>
 
     <transition name="grow">
       <div v-if="isOpen" class="jobpanel">
-        <h1>Test</h1>
-        <p>{{ shortcode }}</p>
+        <h2>{{ job.title }}</h2>
+        <div class="top-list">
+          <ul>
+            <li>{{ job.location.region }}</li>
+            <li>{{ job.department }}</li>
+            <li>{{ job.employment_type }}</li>
+          </ul>
+        </div>
       </div>
     </transition>
   </div>
@@ -64,6 +70,8 @@
   /* flex-grow: 2; */
   background-color: #d1e5ff;
   z-index: 9999;
+  padding: 50px 330px 50px 50px;
+  max-width: 55%;
 }
 
 .grow-enter-active,
@@ -80,29 +88,26 @@
 .grow-leave-to {
   left: 100%;
 }
+
+.top-list li::before {
+  content: none;
+}
+
+.top-list li {
+  display: inline-block;
+  text-align: center;
+  padding: 0px 5px;
+  margin: 0px 4px 40px 4px;
+  border-left: 1px solid black;
+  letter-spacing: -0.02em;
+}
 </style>
 
 <script>
 export default {
   props: {
     shortcode: String,
-    isOpen: Boolean,
-  },
-  methods: {
-    onClose() {
-      this.$emit('close')
-    },
-    onCloseComplete() {
-      this.isAnimatedOpen = false
-      this.$emit('closecomplete')
-    },
-  },
-  watch: {
-    isOpen(val) {
-      if (val) {
-        this.isAnimatedOpen = true
-      }
-    },
+    isOpen: Boolean
   },
   data() {
     return {
@@ -126,7 +131,7 @@ export default {
           region_code: 'ACT',
           city: 'Canberra',
           zip_code: '2600',
-          telecommuting: false,
+          telecommuting: false
         },
         created_at: '2021-05-12T07:07:15Z',
         full_description:
@@ -148,10 +153,34 @@ export default {
           'delivery management',
           'digital design',
           'product',
-          'product management',
-        ],
-      },
+          'product management'
+        ]
+      }
     }
   },
+  watch: {
+    isOpen(val) {
+      if (val) {
+        this.isAnimatedOpen = true
+      }
+    }
+  },
+  methods: {
+    onClose() {
+      this.$emit('close')
+    },
+    onCloseComplete() {
+      this.isAnimatedOpen = false
+      this.$emit('closecomplete')
+    }
+  },
+  methods: {
+    onClose() {
+      this.$emit('close')
+    },
+    onCloseComplete() {
+      this.$emit('closecomplete')
+    }
+  }
 }
 </script>
