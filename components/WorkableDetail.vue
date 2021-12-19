@@ -71,7 +71,7 @@
   background-color: #d1e5ff;
   z-index: 9999;
   padding: 50px 330px 50px 50px;
-  max-width: 55%;
+  max-width: 60%;
 }
 
 .grow-enter-active,
