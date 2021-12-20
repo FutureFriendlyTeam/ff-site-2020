@@ -6,52 +6,60 @@
 
     <transition name="grow">
       <div v-if="isOpen" class="jobpanel">
-        <h1>{{ job.title }}</h1>
-        <div class="horizontal anti-h3-padding tiny">
-          <div class="border-both">
-            {{ fullLocation }}
+        <div class="content">
+          <h1>{{ job.title }}</h1>
+          <div class="horizontal anti-h3-padding tiny">
+            <div class="border-both">
+              {{ fullLocation }}
+            </div>
+            <div class="border-both">{{ job.department }}</div>
+            <div class="border-both">{{ job.employment_type }}</div>
           </div>
-          <div class="border-both">{{ job.department }}</div>
-          <div class="border-both">{{ job.employment_type }}</div>
-        </div>
-        <div class="horizontal">
-          <div
-            v-for="(item, key) in jobDetailsHtml"
-            v-bind:key="key"
-            class="anchor-links"
-          >
-            <a :href="`#${key}`"
-              ><p>{{ key }}</p>
-            </a>
-          </div>
-        </div>
-        <div>
-          <div v-for="(item, key) in jobDetailsHtml" v-bind:key="key">
-            <a :id="key"
-              ><h3>{{ key }}</h3></a
+          <div class="horizontal">
+            <div
+              v-for="(item, key) in jobDetailsHtml"
+              v-bind:key="key"
+              class="anchor-links"
             >
-            <div v-html="item" class="mini"></div>
+              <a :href="`#${key}`"
+                ><p>{{ key }}</p>
+              </a>
+            </div>
           </div>
+          <div>
+            <div v-for="(item, key) in jobDetailsHtml" v-bind:key="key">
+              <a :id="key"
+                ><h3>{{ key }}</h3></a
+              >
+              <div v-html="item" class="mini"></div>
+            </div>
+          </div>
+          <div>
+            <a :href="job.application_url" class="cta-button"
+              ><p class="mini">Apply</p></a
+            >
+          </div>
+          <div class="footer-padding">&nbsp;</div>
         </div>
       </div>
     </transition>
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
 .popout {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-}
 
-.popout.high {
-  z-index: 9999;
-}
-.popout.low {
-  z-index: -1;
+  &.high {
+    z-index: 9999;
+  }
+  &.low {
+    z-index: -1;
+  }
 }
 
 .fader {
@@ -62,7 +70,6 @@
   height: 100%;
   background-color: #000;
   opacity: 0.5;
-  z-index: 9999;
 }
 
 .fade-enter-active,
@@ -81,17 +88,24 @@
 }
 
 .jobpanel {
+  display: flex;
+  flex-direction: row;
   position: fixed;
   top: 0;
-  left: 20%;
-  width: 80%;
-  height: 100%;
-  /* flex-grow: 2; */
+  left: 20vw;
+  width: 80vw;
+  max-height: calc(100vh - 90px);
   background-color: #d1e5ff;
-  z-index: 9999;
-  padding: 50px 330px 50px 50px;
-  max-width: 60%;
+  padding-top: 90px;
+  padding-left: 60px;
   overflow-y: scroll;
+
+  & .content {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    padding-bottom: 10em;
+  }
 }
 
 .grow-enter-active,
@@ -117,18 +131,36 @@
   margin-top: 5em;
   margin-right: 3em;
   opacity: 0.5;
-}
-.anchor-links:hover {
-  opacity: 1;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  & a {
+    text-decoration: none;
+
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+  }
 }
 
-.anchor-links a {
+.footer-padding {
+  height: 20em;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--textColor);
+  padding: 0.5rem 2.5rem;
+  color: var(--backgroundColor);
+  border: none;
   text-decoration: none;
-}
 
-.anchor-links a:hover {
-  color: #000;
-  text-decoration: underline;
+  &:hover {
+    background-color: #f05969;
+  }
 }
 </style>
 
