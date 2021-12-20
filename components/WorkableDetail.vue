@@ -41,6 +41,13 @@
           </div>
           <div class="footer-padding">&nbsp;</div>
         </div>
+        <div class="close-button">
+          <img
+            :src="closeButtonSource"
+            :data-src="closeButtonSource"
+            @click="onClose"
+          />
+        </div>
       </div>
     </transition>
   </div>
@@ -162,6 +169,14 @@
     background-color: #f05969;
   }
 }
+
+.close-button {
+  margin-top: 0.67em;
+
+  & img {
+    cursor: pointer;
+  }
+}
 </style>
 
 <script>
@@ -173,6 +188,7 @@ export default {
   data() {
     return {
       isAnimatedOpen: false,
+      closeButtonSource: require(`~/assets/images/ui/close.svg`),
       job: {
         id: '1aa043',
         title: 'Senior Product Manager',
@@ -231,7 +247,6 @@ export default {
     },
     jobDetailsHtml() {
       const { description, requirements, benefits } = this.job
-      console.log(description, requirements, benefits)
       return {
         'About Us': description,
         Requirements: requirements,
