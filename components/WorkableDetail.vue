@@ -18,25 +18,25 @@
           <div class="horizontal">
             <div
               v-for="(item, key) in jobDetailsHtml"
-              v-bind:key="key"
+              :key="key"
               class="anchor-links"
             >
               <a :href="`#${key}`"
-                ><p>{{ key }}</p>
+              ><p>{{ key }}</p>
               </a>
             </div>
           </div>
           <div>
-            <div v-for="(item, key) in jobDetailsHtml" v-bind:key="key">
+            <div v-for="(item, key) in jobDetailsHtml" :key="key">
               <a :id="key"
-                ><h3>{{ key }}</h3></a
+              ><h3>{{ key }}</h3></a
               >
-              <div v-html="item" class="mini"></div>
+              <div class="mini" v-html="item"/>
             </div>
           </div>
           <div>
             <a :href="job.application_url" class="cta-button"
-              ><p class="mini">Apply</p></a
+            ><p class="mini">Apply</p></a
             >
           </div>
           <div class="footer-padding">&nbsp;</div>
@@ -183,12 +183,13 @@
 export default {
   props: {
     shortcode: String,
-    isOpen: Boolean,
+    isOpen: Boolean
   },
   data() {
     return {
       isAnimatedOpen: false,
       closeButtonSource: require(`~/assets/images/ui/close.svg`),
+      body: document.querySelector('body'),
       job: {
         id: '1aa043',
         title: 'Senior Product Manager',
@@ -208,7 +209,7 @@ export default {
           region_code: 'ACT',
           city: 'Canberra',
           zip_code: '2600',
-          telecommuting: false,
+          telecommuting: false
         },
         created_at: '2021-05-12T07:07:15Z',
         full_description:
@@ -230,9 +231,9 @@ export default {
           'delivery management',
           'digital design',
           'product',
-          'product management',
-        ],
-      },
+          'product management'
+        ]
+      }
     }
   },
   computed: {
@@ -250,25 +251,29 @@ export default {
       return {
         'About Us': description,
         Requirements: requirements,
-        Benefits: benefits,
+        Benefits: benefits
       }
-    },
+    }
   },
   watch: {
     isOpen(val) {
       if (val) {
+        this.body.style.overflow = 'scroll'
+        this.body.style.position = 'fixed'
         this.isAnimatedOpen = true
       }
-    },
+    }
   },
   methods: {
     onClose() {
       this.$emit('close')
     },
     onCloseComplete() {
+      this.body.style.overflow = 'scroll'
+      this.body.style.position = 'sticky'
       this.isAnimatedOpen = false
       this.$emit('closecomplete')
-    },
-  },
+    }
+  }
 }
 </script>
