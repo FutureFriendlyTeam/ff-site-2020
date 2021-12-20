@@ -1,32 +1,48 @@
 <template>
   <div class="vertical xs-full s-half h-padding-right clear-left">
-    <workable-detail
-      :isOpen="detailOpen"
-      :shortcode="selectedShortcode"
-      @close="onClose"
-      @closecomplete="onCloseComplete"
-    />
-    <div
-      v-for="(item, key) in availableJobsByCity"
-      :key="key"
-      class="v-margin-top border-both"
-    >
-      <h3>{{ key }}</h3>
-      <ul>
-        <li v-for="job in item" :key="job.shortcode" class="mini">
-          <a @click="onOpen(job.shortcode)" class="fakelink">{{ job.title }}</a>
-          <span v-if="job.employment_type"> ({{ job.employment_type }}) </span>
-        </li>
-      </ul>
-    </div>
-    <div class="v-margin-top mini border-both">
-      <span v-if="numJobs > 0"
-        >Want to join our team but don't see a job listing that matches?
-        We</span
+    <div v-if="loaded">
+      <workable-detail
+        :isOpen="detailOpen"
+        :shortcode="selectedShortcode"
+        @close="onClose"
+        @closecomplete="onCloseComplete"
+      />
+      <div
+        v-for="(item, key) in availableJobsByCity"
+        :key="key"
+        class="v-margin-top border-both"
       >
-      <span v-else>We currently aren't advertising any jobs, but we</span>
-      always keep our ear to the ground for great people -
-      <a href="https://apply.workable.com/j/14091E408E">please get in touch!</a>
+        <h3>{{ key }}</h3>
+        <ul>
+          <li v-for="job in item" :key="job.shortcode" class="mini">
+            <a @click="onOpen(job.shortcode)" class="fakelink">{{
+              job.title
+            }}</a>
+            <span v-if="job.employment_type">
+              ({{ job.employment_type }})
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="v-margin-top mini border-both">
+        <span v-if="numJobs > 0"
+          >Want to join our team but don't see a job listing that matches?
+          We</span
+        >
+        <span v-else>We currently aren't advertising any jobs, but we</span>
+        always keep our ear to the ground for great people -
+        <a href="https://apply.workable.com/j/14091E408E"
+          >please get in touch!</a
+        >
+      </div>
+    </div>
+    <div v-else>
+      <div class="lines-spinner">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -39,6 +55,7 @@ export default {
   name: 'WorkableList',
   data() {
     return {
+      loaded: false,
       jobs: [],
       numJobs: 0,
       selectedShortcode: undefined,
@@ -49,6 +66,7 @@ export default {
     this.jobs = await this.$axios.$get(
       'https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs'
     )
+    this.loaded = true
   },
   fetchOnServer: false,
   methods: {
