@@ -9,7 +9,7 @@
     <div
       v-for="(item, key) in availableJobsByCity"
       :key="key"
-      class="v-margin-top"
+      class="v-margin-top border-both"
     >
       <h3>{{ key }}</h3>
       <ul>
@@ -19,7 +19,7 @@
         </li>
       </ul>
     </div>
-    <div class="v-margin-top mini">
+    <div class="v-margin-top mini border-both">
       <span v-if="numJobs > 0"
         >Want to join our team but don't see a job listing that matches?
         We</span

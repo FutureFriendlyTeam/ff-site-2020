@@ -1,18 +1,18 @@
 <template>
   <div :class="`popout ${isAnimatedOpen ? 'high' : 'low'}`">
     <transition name="fade" @after-leave="onCloseComplete()">
-      <div v-if="isOpen" class="fader" @click="onClose()"/>
+      <div v-if="isOpen" class="fader" @click="onClose()" />
     </transition>
 
     <transition name="grow">
       <div v-if="isOpen" class="jobpanel">
-        <h2>{{ job.title }}</h2>
-        <div class="top-list">
-          <ul>
-            <li>{{ job.location.region }}</li>
-            <li>{{ job.department }}</li>
-            <li>{{ job.employment_type }}</li>
-          </ul>
+        <h1>{{ job.title }}</h1>
+        <div class="top-list tiny">
+          <div class="border-both">
+            {{ fullLocation }}
+          </div>
+          <div class="border-both">{{ job.department }}</div>
+          <div class="border-both">{{ job.employment_type }}</div>
         </div>
       </div>
     </transition>
@@ -89,17 +89,9 @@
   left: 100%;
 }
 
-.top-list li::before {
-  content: none;
-}
-
-.top-list li {
-  display: inline-block;
-  text-align: center;
-  padding: 0px 5px;
-  margin: 0px 4px 40px 4px;
-  border-left: 1px solid black;
-  letter-spacing: -0.02em;
+.top-list {
+  display: flex;
+  flex-direction: row;
 }
 </style>
 
@@ -107,7 +99,7 @@
 export default {
   props: {
     shortcode: String,
-    isOpen: Boolean
+    isOpen: Boolean,
   },
   data() {
     return {
@@ -131,7 +123,7 @@ export default {
           region_code: 'ACT',
           city: 'Canberra',
           zip_code: '2600',
-          telecommuting: false
+          telecommuting: false,
         },
         created_at: '2021-05-12T07:07:15Z',
         full_description:
@@ -153,17 +145,28 @@ export default {
           'delivery management',
           'digital design',
           'product',
-          'product management'
-        ]
-      }
+          'product management',
+        ],
+      },
     }
+  },
+  computed: {
+    fullLocation() {
+      return (
+        this.job.location.city +
+        ', ' +
+        this.job.location.region +
+        ', ' +
+        this.job.location.country
+      )
+    },
   },
   watch: {
     isOpen(val) {
       if (val) {
         this.isAnimatedOpen = true
       }
-    }
+    },
   },
   methods: {
     onClose() {
@@ -172,15 +175,7 @@ export default {
     onCloseComplete() {
       this.isAnimatedOpen = false
       this.$emit('closecomplete')
-    }
-  },
-  methods: {
-    onClose() {
-      this.$emit('close')
     },
-    onCloseComplete() {
-      this.$emit('closecomplete')
-    }
-  }
+  },
 }
 </script>
