@@ -7,12 +7,31 @@
     <transition name="grow">
       <div v-if="isOpen" class="jobpanel">
         <h1>{{ job.title }}</h1>
-        <div class="top-list tiny">
+        <div class="horizontal anti-h3-padding tiny">
           <div class="border-both">
             {{ fullLocation }}
           </div>
           <div class="border-both">{{ job.department }}</div>
           <div class="border-both">{{ job.employment_type }}</div>
+        </div>
+        <div class="horizontal">
+          <div
+            v-for="(item, key) in jobDetailsHtml"
+            v-bind:key="key"
+            class="anchor-links"
+          >
+            <a :href="`#${key}`"
+              ><p>{{ key }}</p>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div v-for="(item, key) in jobDetailsHtml" v-bind:key="key">
+            <a :id="key"
+              ><h3>{{ key }}</h3></a
+            >
+            <div v-html="item" class="mini"></div>
+          </div>
         </div>
       </div>
     </transition>
@@ -72,6 +91,7 @@
   z-index: 9999;
   padding: 50px 330px 50px 50px;
   max-width: 60%;
+  overflow-y: scroll;
 }
 
 .grow-enter-active,
@@ -89,9 +109,26 @@
   left: 100%;
 }
 
-.top-list {
-  display: flex;
-  flex-direction: row;
+.anti-h3-padding {
+  margin-top: -3em;
+}
+
+.anchor-links {
+  margin-top: 5em;
+  margin-right: 3em;
+  opacity: 0.5;
+}
+.anchor-links:hover {
+  opacity: 1;
+}
+
+.anchor-links a {
+  text-decoration: none;
+}
+
+.anchor-links a:hover {
+  color: #000;
+  text-decoration: underline;
 }
 </style>
 
@@ -159,6 +196,15 @@ export default {
         ', ' +
         this.job.location.country
       )
+    },
+    jobDetailsHtml() {
+      const { description, requirements, benefits } = this.job
+      console.log(description, requirements, benefits)
+      return {
+        'About Us': description,
+        Requirements: requirements,
+        Benefits: benefits,
+      }
     },
   },
   watch: {
