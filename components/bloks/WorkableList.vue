@@ -4,6 +4,7 @@
       <workable-detail
         :isOpen="detailOpen"
         :shortcode="selectedShortcode"
+        :title="selectedTitle"
         @close="onClose"
         @closecomplete="onCloseComplete"
       />
@@ -59,7 +60,8 @@ export default {
       jobs: [],
       numJobs: 0,
       selectedShortcode: undefined,
-      detailOpen: false,
+      selectedTitle: undefined,
+      detailOpen: false
     }
   },
   async fetch() {
@@ -72,17 +74,20 @@ export default {
   methods: {
     onOpen(shortcode) {
       this.selectedShortcode = shortcode
+      this.selectedTitle = this.jobs.find(
+        job => job.shortcode === shortcode
+      ).title
       this.detailOpen = true
     },
     onClose() {
       this.selectedShortcode = undefined
       this.detailOpen = false
     },
-    onCloseComplete() {},
+    onCloseComplete() {}
   },
   computed: {
     availableJobsByCity() {
-      const filtered = this.jobs.filter((job) => {
+      const filtered = this.jobs.filter(job => {
         return job.city !== null
       })
       this.numJobs = filtered.length
@@ -95,7 +100,7 @@ export default {
         }
         return acc
       }, {})
-    },
-  },
+    }
+  }
 }
 </script>
