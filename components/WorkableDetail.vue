@@ -231,8 +231,6 @@ export default {
   watch: {
     async isOpen(val) {
       if (val) {
-        this.body.style.overflow = 'scroll'
-        this.body.style.position = 'fixed'
         this.isAnimatedOpen = true
         this.getJob()
       }
@@ -251,8 +249,6 @@ export default {
       this.$emit('close')
     },
     onCloseComplete() {
-      this.body.style.overflow = 'scroll'
-      this.body.style.position = 'sticky'
       this.isAnimatedOpen = false
       this.$emit('closecomplete')
     }
