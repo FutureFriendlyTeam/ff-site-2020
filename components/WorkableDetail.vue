@@ -30,7 +30,7 @@
             <div>
               <div v-for="(item, key) in jobDetailsHtml" :key="key">
                 <a :id="key" class="header-anchor">
-                <h3>{{ key }}</h3></a>
+                <h2>{{ key }}</h2></a>
                 <div class="mini" v-html="item"/>
               </div>
             </div>
