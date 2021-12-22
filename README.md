@@ -149,7 +149,7 @@ $ npm run generate
 <!-- ROADMAP -->
 ## Roadmap
 
--[ ] Careers page & Job Description page   
+- [ ] Careers page & Job Description page   
     - [x] Finish job modal component. The job description page was requested to pop in from the right over the careers page, with a fraction of the page behind still visible.  
     - [x] Add clickable carousel like function for sections in job description page. see here: 
     ![job](./static/job-desc1.png)  

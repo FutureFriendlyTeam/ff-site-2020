@@ -16,11 +16,11 @@
               <div class="border-both">{{ job.department }}</div>
               <div class="border-both">{{ job.employment_type }}</div>
             </div>
-            <div class="horizontal">
+            <div class="anchor-links">
               <div
                 v-for="(item, key) in jobDetailsHtml"
                 :key="key"
-                class="anchor-links"
+                class="anchor-link"
               >
                 <a :href="`#${key}`"
                 ><p>{{ key }}</p>
@@ -64,6 +64,16 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../scss/variables.scss';
+
+h1 {
+  font-size: 2.75rem;
+
+  @media (max-width: $mid) {
+    max-width: 80vw;
+  }
+}
+
 .popout {
   position: fixed;
   top: 0;
@@ -111,17 +121,29 @@
   top: 0;
   left: 20vw;
   width: 80vw;
-  max-height: calc(100vh - 90px);
+  max-height: calc(100vh - 5.5em);
   background-color: #d1e5ff;
-  padding-top: 90px;
-  padding-left: 60px;
+  padding-top: 5.5em;
+  padding-left: 3em;
   overflow-y: scroll;
+  
+  @media (max-width: $mid) {
+    padding: 0;
+    left: 0;
+    max-height: 100vh;
+    width: 100vw;
+  }
 
   & .content {
     display: flex;
     flex-direction: column;
     max-width: 70%;
     padding-bottom: 10em;
+
+    @media (max-width: $mid) {
+      max-width: 100%;
+      margin: 0 0.5em;
+    }
   }
 }
 
@@ -133,6 +155,10 @@
 .grow-leave,
 .grow-enter-to {
   left: 20%;
+
+  @media (max-width: $mid) {
+    left: 0;
+  }
 }
 
 .grow-enter,
@@ -146,19 +172,29 @@
 
 .anchor-links {
   margin-top: 5em;
-  margin-right: 3em;
-  opacity: 0.5;
+  display: flex;
+  flex-direction: row;
 
-  &:hover {
-    opacity: 1;
+  @media (max-width: $mid) {
+    margin-top: 2em;
+    flex-direction: column;
   }
 
-  & a {
-    text-decoration: none;
+  .anchor-link {
+    margin-right: 3em;
+    opacity: 0.5;
 
     &:hover {
-      color: #000;
-      text-decoration: underline;
+      opacity: 1;
+    }
+
+    & a {
+      text-decoration: none;
+
+      &:hover {
+        color: #000;
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -182,6 +218,13 @@
 
 .close-button {
   margin-top: 0.67em;
+
+  @media (max-width: $mid) {
+    padding: 1em;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 
   & img {
     cursor: pointer;
