@@ -115,7 +115,7 @@ Follow the instructions below to get this repository working for you locally.
    ```sh
    npm install
    ```
-   **PLEASE NOTE:** *the Node-sass dependency has not yet been updated for use with node >14. Please use node 14 for this codebase until further notice after running npm install.* 
+   **PLEASE NOTE:** *the Node-sass dependency has not yet been updated for use with node >15. Please use node 15 for this codebase until further. An `.nvmrc` file has been added to the project for people that use `nvm`.* 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -149,12 +149,12 @@ $ npm run generate
 <!-- ROADMAP -->
 ## Roadmap
 
--[ ] Careers page & Job Description page   
-    - [ ] Finish job modal component. The job description page was requested to pop in from the right over the careers page, with a fraction of the page behind still visible.  
-    - [ ] Add clickable carousel like function for sections in job description page. see here: 
+- [ ] Careers page & Job Description page   
+    - [x] Finish job modal component. The job description page was requested to pop in from the right over the careers page, with a fraction of the page behind still visible.  
+    - [x] Add clickable carousel like function for sections in job description page. see here: 
     ![job](./static/job-desc1.png)  
-    - [ ] if no carousel function above, create fixed positioning for apply button so that its always visible on job description page.   
-    - [ ] Pull all data from Workable job ad to job description page. This means that duplicating job ad data into Storyblok won't be necessary.  
+    - [x] if no carousel function above, create fixed positioning for apply button so that its always visible on job description page.   
+    - [x] Pull all data from Workable job ad to job description page. This means that duplicating job ad data into Storyblok won't be necessary.  
     - [ ] Create job application form in job description page and send this data to Workable, so user never has to interact with workable at all.   
 
 
