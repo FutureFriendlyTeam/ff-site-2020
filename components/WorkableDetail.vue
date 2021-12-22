@@ -140,7 +140,7 @@ h1 {
     padding-bottom: 10em;
 
     @media (max-width: $mid) {
-      max-width: 100%;
+      width: 100%;
       margin: 0 0.5em;
     }
   }
