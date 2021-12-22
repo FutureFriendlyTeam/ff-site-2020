@@ -29,9 +29,8 @@
             </div>
             <div>
               <div v-for="(item, key) in jobDetailsHtml" :key="key">
-                <a :id="key"
-                ><h3>{{ key }}</h3></a
-                >
+                <a :id="key" class="header-anchor">
+                <h3>{{ key }}</h3></a>
                 <div class="mini" v-html="item"/>
               </div>
             </div>
@@ -126,7 +125,7 @@ h1 {
   padding-top: 5.5em;
   padding-left: 3em;
   overflow-y: scroll;
-  
+
   @media (max-width: $mid) {
     padding: 0;
     left: 0;
@@ -137,7 +136,7 @@ h1 {
   & .content {
     display: flex;
     flex-direction: column;
-    max-width: 70%;
+    width: 70%;
     padding-bottom: 10em;
 
     @media (max-width: $mid) {
@@ -233,6 +232,10 @@ h1 {
 
 .full-height {
   height: 100vh;
+}
+
+.header-anchor:hover {
+  color: #000;
 }
 </style>
 
