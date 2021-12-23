@@ -135,6 +135,7 @@ module.exports = {
   modules: [
     '@nuxtjs/gtm',
     'nuxt-compress',
+    '@nuxtjs/axios',
     // [
     //   'storyblok-nuxt',
     //   {
