@@ -1,59 +1,60 @@
 <template>
-    <transition name="grow">
-      <div v-if="isOpen" class="jobpanel">
-        <div class="content">
-          <h1>{{ title }}</h1>
-          <div v-if="loaded">
-            <div class="horizontal anti-h3-padding tiny">
-              <div class="border-both">
-                {{ fullLocation }}
-              </div>
-              <div class="border-both">{{ job.department }}</div>
-              <div class="border-both">{{ job.employment_type }}</div>
+  <transition name="grow" v-on:after-leave="onCloseComplete">
+    <div v-if="isOpen" class="jobpanel">
+      <div class="content">
+        <h1>{{ title }}</h1>
+        <div v-if="loaded">
+          <div class="horizontal anti-h3-padding tiny">
+            <div class="border-both">
+              {{ fullLocation }}
             </div>
-            <div class="anchor-links">
-              <div
-                v-for="(item, key) in jobDetailsHtml"
-                :key="key"
-                class="anchor-link"
-              >
-                <a :href="`#${key}`"
+            <div class="border-both">{{ job.department }}</div>
+            <div class="border-both">{{ job.employment_type }}</div>
+          </div>
+          <div class="anchor-links">
+            <div
+              v-for="(item, key) in jobDetailsHtml"
+              :key="key"
+              class="anchor-link"
+            >
+              <a :href="`#${key}`"
                 ><p>{{ key }}</p>
-                </a>
-              </div>
+              </a>
             </div>
-            <div>
-              <div v-for="(item, key) in jobDetailsHtml" :key="key">
-                <a :id="key" class="header-anchor">
-                <h3>{{ key }}</h3></a>
-                <div class="mini" v-html="item"/>
-              </div>
-            </div>
-            <div>
-              <a :href="job.application_url" class="cta-button"
-              ><p class="mini">Apply</p></a
+          </div>
+          <div>
+            <div v-for="(item, key) in jobDetailsHtml" :key="key">
+              <a :id="key" class="header-anchor">
+                <h3>{{ key }}</h3></a
               >
-            </div>
-            <div class="footer-padding">&nbsp;</div>
-          </div>
-          <div v-else>
-            <div class="lines-spinner full-height">
-              <div class="line"></div>
-              <div class="line"></div>
-              <div class="line"></div>
-              <div class="line"></div>
+              <div class="mini" v-html="item" />
             </div>
           </div>
+          <div>
+            <a @click="onApplyOpen" class="cta-button"
+              ><p class="mini">Apply</p></a
+            >
+          </div>
+          <div class="footer-padding">&nbsp;</div>
         </div>
-        <div class="close-button">
-          <img
-            :src="closeButtonSource"
-            :data-src="closeButtonSource"
-            @click="onClose"
-          />
+        <div v-else>
+          <div class="lines-spinner full-height">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
         </div>
       </div>
-    </transition>
+      <div class="close-button">
+        <img
+          :src="closeButtonSource"
+          :data-src="closeButtonSource"
+          @click="onClose"
+        />
+      </div>
+    </div>
+  </transition>
 </template>
 
 <style lang="scss" scoped>
@@ -65,46 +66,6 @@ h1 {
   @media (max-width: $mid) {
     max-width: 80vw;
   }
-}
-
-.popout {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  &.high {
-    z-index: 9999;
-  }
-  &.low {
-    z-index: -1;
-  }
-}
-
-.fader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.5;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1200ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.fade-leave,
-.fade-enter-to {
-  opacity: 0.5;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
 }
 
 .jobpanel {
@@ -238,7 +199,7 @@ export default {
   props: {
     shortcode: String,
     title: String,
-    isOpen: Boolean
+    isOpen: Boolean,
   },
   data() {
     return {
@@ -246,7 +207,7 @@ export default {
       isAnimatedOpen: false,
       closeButtonSource: require(`~/assets/images/ui/close.svg`),
       body: document.querySelector('body'),
-      job: {}
+      job: {},
     }
   },
   computed: {
@@ -264,9 +225,9 @@ export default {
       return {
         'About Us': description,
         Requirements: requirements,
-        Benefits: benefits
+        Benefits: benefits,
       }
-    }
+    },
   },
   watch: {
     async isOpen(val) {
@@ -274,24 +235,27 @@ export default {
         this.isAnimatedOpen = true
         this.getJob()
       }
-    }
+    },
   },
   methods: {
     async getJob() {
       this.job = await this.$axios.$get(
-        `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${
-          this.shortcode
-        }`
+        `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${this.shortcode}`
       )
       this.loaded = true
     },
+    onApplyOpen() {
+      this.$emit('applyOpen')
+    },
     onClose() {
+      console.log('onClose')
       this.$emit('close')
     },
     onCloseComplete() {
+      console.log('onCloseComplete')
       this.isAnimatedOpen = false
       this.$emit('closecomplete')
-    }
-  }
+    },
+  },
 }
 </script>

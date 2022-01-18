@@ -6,7 +6,6 @@
         :shortcode="selectedShortcode"
         :title="selectedTitle"
         @close="onClose"
-        @closecomplete="onCloseComplete"
       />
       <div
         v-for="(item, key) in availableJobsByCity"
@@ -83,7 +82,6 @@ export default {
       this.selectedShortcode = undefined
       this.sliderOpen = false
     },
-    onCloseComplete() {}
   },
   computed: {
     availableJobsByCity() {

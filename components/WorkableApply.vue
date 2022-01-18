@@ -1,59 +1,29 @@
 <template>
-    <transition name="grow">
-      <div v-if="isOpen" class="jobpanel">
-        <div class="content">
-          <h1>{{ title }}</h1>
-          <div v-if="loaded">
-            <div class="horizontal anti-h3-padding tiny">
-              <div class="border-both">
-                {{ fullLocation }}
-              </div>
-              <div class="border-both">{{ job.department }}</div>
-              <div class="border-both">{{ job.employment_type }}</div>
-            </div>
-            <div class="anchor-links">
-              <div
-                v-for="(item, key) in jobDetailsHtml"
-                :key="key"
-                class="anchor-link"
-              >
-                <a :href="`#${key}`"
-                ><p>{{ key }}</p>
-                </a>
-              </div>
-            </div>
-            <div>
-              <div v-for="(item, key) in jobDetailsHtml" :key="key">
-                <a :id="key" class="header-anchor">
-                <h3>{{ key }}</h3></a>
-                <div class="mini" v-html="item"/>
-              </div>
-            </div>
-            <div>
-              <a :href="job.application_url" class="cta-button"
-              ><p class="mini">Apply</p></a
-              >
-            </div>
-            <div class="footer-padding">&nbsp;</div>
-          </div>
-          <div v-else>
-            <div class="lines-spinner full-height">
-              <div class="line"></div>
-              <div class="line"></div>
-              <div class="line"></div>
-              <div class="line"></div>
-            </div>
-          </div>
+  <transition name="grow" v-on:after-leave="onCloseComplete">
+    <div v-if="isOpen" class="panel">
+      <div class="content">
+        <h1>{{ title }}</h1>
+        <div v-if="loaded">
+          <h2>APPLICATION</h2>
         </div>
-        <div class="close-button">
-          <img
-            :src="closeButtonSource"
-            :data-src="closeButtonSource"
-            @click="onClose"
-          />
+        <div v-else>
+          <div class="lines-spinner full-height">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
         </div>
       </div>
-    </transition>
+      <div class="close-button">
+        <img
+          :src="closeButtonSource"
+          :data-src="closeButtonSource"
+          @click="onClose"
+        />
+      </div>
+    </div>
+  </transition>
 </template>
 
 <style lang="scss" scoped>
@@ -67,14 +37,14 @@ h1 {
   }
 }
 
-.jobpanel {
+.panel {
   display: flex;
   flex-direction: row;
   position: fixed;
   top: 0;
-  left: 20vw;
-  width: 80vw;
-  max-height: calc(100vh - 5.5em);
+  left: 30vw;
+  width: 70vw;
+  min-height: calc(100vh - 5.5em);
   background-color: $extended3-light;
   padding-top: 5.5em;
   padding-left: 3em;
@@ -90,10 +60,11 @@ h1 {
   & .content {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 70%;
     padding-bottom: 10em;
 
     @media (max-width: $mid) {
+      width: 100%;
       margin: 0 0.5em;
     }
   }
@@ -106,7 +77,7 @@ h1 {
 
 .grow-leave,
 .grow-enter-to {
-  left: 4%;
+  left: 30%;
 
   @media (max-width: $mid) {
     left: 0;
@@ -197,7 +168,7 @@ export default {
   props: {
     shortcode: String,
     title: String,
-    isOpen: Boolean
+    isOpen: Boolean,
   },
   data() {
     return {
@@ -205,42 +176,21 @@ export default {
       isAnimatedOpen: false,
       closeButtonSource: require(`~/assets/images/ui/close.svg`),
       body: document.querySelector('body'),
-      job: {}
-    }
-  },
-  computed: {
-    fullLocation() {
-      return (
-        this.job.location.city +
-        ', ' +
-        this.job.location.region +
-        ', ' +
-        this.job.location.country
-      )
-    },
-    jobDetailsHtml() {
-      const { description, requirements, benefits } = this.job
-      return {
-        'About Us': description,
-        Requirements: requirements,
-        Benefits: benefits
-      }
+      job: {},
     }
   },
   watch: {
     async isOpen(val) {
       if (val) {
         this.isAnimatedOpen = true
-        this.getJob()
+        // this.getJob()
       }
-    }
+    },
   },
   methods: {
     async getJob() {
       this.job = await this.$axios.$get(
-        `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${
-          this.shortcode
-        }`
+        `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${this.shortcode}`
       )
       this.loaded = true
     },
@@ -250,7 +200,7 @@ export default {
     onCloseComplete() {
       this.isAnimatedOpen = false
       this.$emit('closecomplete')
-    }
-  }
+    },
+  },
 }
 </script>

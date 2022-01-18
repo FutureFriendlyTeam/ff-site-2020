@@ -1,26 +1,34 @@
 <template>
-    <div>
-        <div :class="`popout ${isSliderOpen ? 'high' : 'low'}`">
-            <transition name="fade" @after-leave="onCloseComplete()">
-            <div v-if="isDetailOpen" class="fader" @click="onClose()" />
-            </transition>
-            
-          <workable-detail
-            :isOpen="isDetailOpen"
-            :shortcode="shortcode"
-            :title="title"
-            @close="onClose"
-            @closecomplete="onCloseComplete"
-          />
-        </div>
+  <div>
+    <div :class="`popout ${isSliderOpen ? 'high' : 'low'}`">
+      <transition name="fade">
+        <div v-if="isDetailOpen" class="fader" @click="onClose()" />
+      </transition>
 
-          
-        <div :class="`popout ${isApplyOpen ? 'high' : 'low'}`">
-            <transition name="fade" @after-leave="onCloseComplete()">
-            <div v-if="isOpen" class="fader" @click="onClose()" />
-            </transition>
-        </div>
+      <workable-detail
+        :isOpen="isDetailOpen"
+        :shortcode="shortcode"
+        :title="title"
+        @close="onClose"
+        @closecomplete="onCloseComplete"
+        @applyOpen="onApplyOpen"
+      />
     </div>
+
+    <div :class="`popout ${isApplySliderOpen ? 'high' : 'low'}`">
+      <transition name="fade">
+        <div v-if="isApplyOpen" class="fader" @click="onApplyClose()" />
+      </transition>
+
+      <workable-apply
+        :isOpen="isApplyOpen"
+        :shortcode="shortcode"
+        :title="title"
+        @close="onApplyClose"
+        @closecomplete="onApplyCloseComplete"
+      />
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -76,22 +84,23 @@ h1 {
 </style>
 
 <script>
-import WorkableDetail from './WorkableDetail.vue'
 import WorkableApply from './WorkableApply.vue'
+import WorkableDetail from './WorkableDetail.vue'
 
 export default {
-  components: { WorkableDetail },
+  components: { WorkableApply, WorkableDetail },
   props: {
     shortcode: String,
     title: String,
-    isOpen: Boolean
+    isOpen: Boolean,
   },
   data() {
     return {
       loaded: false,
       isSliderOpen: false,
       isDetailOpen: false,
-      isApplyOpen: false
+      isApplySliderOpen: false,
+      isApplyOpen: false,
     }
   },
   watch: {
@@ -100,7 +109,7 @@ export default {
         this.isSliderOpen = true
         this.isDetailOpen = true
       }
-    }
+    },
   },
   methods: {
     onClose() {
@@ -110,7 +119,20 @@ export default {
     onCloseComplete() {
       this.isSliderOpen = false
       this.$emit('closecomplete')
-    }
-  }
+    },
+    onApplyOpen() {
+      console.log('onApplyOpen')
+      this.isApplyOpen = true
+      this.isApplySliderOpen = true
+    },
+    onApplyClose() {
+      console.log('onApplyClose')
+      this.isApplyOpen = false
+    },
+    onApplyCloseComplete() {
+      console.log('onApplyCloseComplete')
+      this.isApplySliderOpen = false
+    },
+  },
 }
 </script>
