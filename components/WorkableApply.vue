@@ -67,46 +67,6 @@ h1 {
   }
 }
 
-.popout {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  &.high {
-    z-index: 9999;
-  }
-  &.low {
-    z-index: -1;
-  }
-}
-
-.fader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.5;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1200ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.fade-leave,
-.fade-enter-to {
-  opacity: 0.5;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-
 .jobpanel {
   display: flex;
   flex-direction: row;
@@ -115,7 +75,7 @@ h1 {
   left: 20vw;
   width: 80vw;
   max-height: calc(100vh - 5.5em);
-  background-color: #d1e5ff;
+  background-color: $extended3-light;
   padding-top: 5.5em;
   padding-left: 3em;
   overflow-y: scroll;
@@ -130,11 +90,10 @@ h1 {
   & .content {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 100%;
     padding-bottom: 10em;
 
     @media (max-width: $mid) {
-      width: 100%;
       margin: 0 0.5em;
     }
   }
@@ -147,7 +106,7 @@ h1 {
 
 .grow-leave,
 .grow-enter-to {
-  left: 20%;
+  left: 4%;
 
   @media (max-width: $mid) {
     left: 0;

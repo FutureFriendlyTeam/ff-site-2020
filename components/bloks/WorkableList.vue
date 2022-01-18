@@ -1,8 +1,8 @@
 <template>
   <div class="vertical xs-full s-half h-padding-right clear-left">
     <div v-if="loaded">
-      <workable-detail
-        :isOpen="detailOpen"
+      <workable-sliders
+        :isOpen="sliderOpen"
         :shortcode="selectedShortcode"
         :title="selectedTitle"
         @close="onClose"
@@ -49,10 +49,10 @@
 </template>
 
 <script>
-import WorkableDetail from '../WorkableDetail.vue'
+import WorkableSliders from '../WorkableSliders.vue'
 
 export default {
-  components: { WorkableDetail },
+  components: { WorkableSliders },
   name: 'WorkableList',
   data() {
     return {
@@ -61,7 +61,7 @@ export default {
       numJobs: 0,
       selectedShortcode: undefined,
       selectedTitle: undefined,
-      detailOpen: false
+      sliderOpen: false
     }
   },
   async fetch() {
@@ -77,11 +77,11 @@ export default {
       this.selectedTitle = this.jobs.find(
         job => job.shortcode === shortcode
       ).title
-      this.detailOpen = true
+      this.sliderOpen = true
     },
     onClose() {
       this.selectedShortcode = undefined
-      this.detailOpen = false
+      this.sliderOpen = false
     },
     onCloseComplete() {}
   },
