@@ -121,16 +121,13 @@ export default {
       this.$emit('closecomplete')
     },
     onApplyOpen() {
-      console.log('onApplyOpen')
       this.isApplyOpen = true
       this.isApplySliderOpen = true
     },
     onApplyClose() {
-      console.log('onApplyClose')
       this.isApplyOpen = false
     },
     onApplyCloseComplete() {
-      console.log('onApplyCloseComplete')
       this.isApplySliderOpen = false
     },
   },
