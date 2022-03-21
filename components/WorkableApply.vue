@@ -53,7 +53,6 @@
                 "
               />
             </div>
-
             <div v-if="field.key === 'experience'">
               <h4>Experience</h4>
               <button @click="addExperience">Add Entry</button>
@@ -62,11 +61,42 @@
                   .experience_entries"
                 :key="index"
                 :srcExperience="experience_entry"
-                @change="jobResponse.candidate.experience_entries[index] = $event"
+                @change="
+                  jobResponse.candidate.experience_entries[index] = $event
+                "
                 @delete="
                   jobResponse.candidate.experience_entries.splice(index, 1)
                 "
               />
+            </div>
+            <div v-if="field.key === 'summary'">
+              <h4>Summary</h4>
+              <div class="form-group">
+                <label for="summary">Summary</label>
+                <textarea
+                  id="summary"
+                  v-model="jobResponse.candidate.summary"
+                />
+              </div>
+            </div>
+
+            <div v-if="field.key === 'resume'">
+              <h4>Resume</h4>
+              <div class="form-group">
+                <label for="resume">Resume</label>
+                <input id="resume" type="file" @change="onFileUpload" />
+              </div>
+            </div>
+
+            <div v-if="field.key === 'cover_letter'">
+              <h4>Cover Letter</h4>
+              <div class="form-group">
+                <label for="cover_letter">Summary</label>
+                <textarea
+                  id="cover_letter"
+                  v-model="jobResponse.candidate.cover_letter"
+                />
+              </div>
             </div>
           </div>
           <!--<h3>Questions</h3>
@@ -254,7 +284,7 @@ const generateBlankCandidate = (applicationForm) => {
       case 'summary':
         return { ...acc, summary: '' }
       case 'headline':
-        return { ...acc, summary: '' }
+        return { ...acc, headline: '' }
       case 'resume':
         return { ...acc, resume: { name: '', data: undefined } }
       case 'cover_letter':
@@ -323,6 +353,18 @@ export default {
         end_date: '2000-01-01',
         current: false,
       })
+    },
+    onFileUpload(event) {
+      const files = event.target.files
+      let filename = files[0].name
+      const fileReader = new FileReader()
+      fileReader.addEventListener('load', () => {
+        this.jobResponse.candidate.resume = {
+          name: filename,
+          data: fileReader.result.split(',')[1],
+        }
+      })
+      fileReader.readAsDataURL(files[0])
     },
     async getJobForm() {
       const applicationForm = await this.$axios.$get(

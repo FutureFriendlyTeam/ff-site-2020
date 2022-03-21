@@ -1,32 +1,33 @@
 <template>
   <div>
     <div>
-      <label>Title</label>
-      <input type="text" v-model="experience.title" />
+      <label for="title">Title</label>
+      <input id="title" type="text" v-model="experience.title" />
     </div>
     <div>
-      <label>Company</label>
-      <input type="text" v-model="experience.company" />
+      <label for="company">Company</label>
+      <input id="company" type="text" v-model="experience.company" />
     </div>
     <div>
-      <label>Industry</label>
-      <input type="text" v-model="experience.industry" />
+      <label for="industry">Industry</label>
+      <input id="industry" type="text" v-model="experience.industry" />
     </div>
     <div>
-      <label>Summary</label>
-      <textarea v-model="experience.summary" rows="4" />
+      <label for="summary">Summary</label>
+      <textarea id="summary" v-model="experience.summary" rows="4" />
     </div>
     <div>
-      <label>I currently work here</label>
-      <input type="checkbox" v-model="experience.current" />
+      <label for="current">I currently work here</label>
+      <input id="current" type="checkbox" v-model="experience.current" />
     </div>
     <div>
-      <label>Start Date</label>
-      <input type="date" v-model.lazy="experience.start_date" />
+      <label for="start_date">Start Date</label>
+      <input id="start_date" type="date" v-model.lazy="experience.start_date" />
     </div>
     <div>
-      <label>End Date</label>
+      <label for="end_date">End Date</label>
       <input
+        id="end_date"
         type="date"
         v-model.lazy="experience.end_date"
         :disabled="experience.current"
