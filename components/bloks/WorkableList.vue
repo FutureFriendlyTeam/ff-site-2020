@@ -36,22 +36,16 @@
         >
       </div>
     </div>
-    <div v-else>
-      <div class="lines-spinner">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div>
-    </div>
+    <Loader v-else />
   </div>
 </template>
 
 <script>
+import Loader from '../Loader.vue'
 import WorkableSliders from '../WorkableSliders.vue'
 
 export default {
-  components: { WorkableSliders },
+  components: { Loader, WorkableSliders },
   name: 'WorkableList',
   data() {
     return {
@@ -60,7 +54,7 @@ export default {
       numJobs: 0,
       selectedShortcode: undefined,
       selectedTitle: undefined,
-      sliderOpen: false
+      sliderOpen: false,
     }
   },
   async fetch() {
@@ -74,7 +68,7 @@ export default {
     onOpen(shortcode) {
       this.selectedShortcode = shortcode
       this.selectedTitle = this.jobs.find(
-        job => job.shortcode === shortcode
+        (job) => job.shortcode === shortcode
       ).title
       this.sliderOpen = true
     },
@@ -85,7 +79,7 @@ export default {
   },
   computed: {
     availableJobsByCity() {
-      const filtered = this.jobs.filter(job => {
+      const filtered = this.jobs.filter((job) => {
         return job.city !== null
       })
       this.numJobs = filtered.length
@@ -98,7 +92,7 @@ export default {
         }
         return acc
       }, {})
-    }
-  }
+    },
+  },
 }
 </script>

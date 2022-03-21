@@ -37,14 +37,7 @@
           </div>
           <div class="footer-padding">&nbsp;</div>
         </div>
-        <div v-else>
-          <div class="lines-spinner full-height">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-          </div>
-        </div>
+        <Loader v-else/>
       </div>
       <div class="close-button">
         <img
@@ -195,7 +188,10 @@ h1 {
 </style>
 
 <script>
+import Loader from './Loader.vue'
+
 export default {
+  components: { Loader },
   props: {
     shortcode: String,
     title: String,
@@ -248,11 +244,9 @@ export default {
       this.$emit('applyOpen')
     },
     onClose() {
-      console.log('onClose')
       this.$emit('close')
     },
     onCloseComplete() {
-      console.log('onCloseComplete')
       this.isAnimatedOpen = false
       this.$emit('closecomplete')
     },

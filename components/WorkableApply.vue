@@ -1,6 +1,6 @@
 <template>
   <transition name="grow" v-on:after-leave="onCloseComplete">
-    <div v-if="isOpen" class="panel">
+    <div v-if="isOpen" class="applypanel">
       <div class="content">
         <h1>{{ title }}</h1>
         <div v-if="loaded">
@@ -71,50 +71,53 @@
             </div>
             <div v-if="field.key === 'summary'">
               <h4>Summary</h4>
-              <div class="form-group">
-                <label for="summary">Summary</label>
-                <textarea
-                  id="summary"
-                  v-model="jobResponse.candidate.summary"
-                />
-              </div>
+              <textarea id="summary" v-model="jobResponse.candidate.summary" />
             </div>
 
             <div v-if="field.key === 'resume'">
               <h4>Resume</h4>
-              <div class="form-group">
-                <label for="resume">Resume</label>
-                <input id="resume" type="file" @change="onFileUpload" />
-              </div>
+              <input id="resume" type="file" @change="onFileUpload" />
             </div>
 
             <div v-if="field.key === 'cover_letter'">
               <h4>Cover Letter</h4>
-              <div class="form-group">
-                <label for="cover_letter">Summary</label>
-                <textarea
-                  id="cover_letter"
-                  v-model="jobResponse.candidate.cover_letter"
-                />
-              </div>
+              <textarea
+                id="cover_letter"
+                v-model="jobResponse.candidate.cover_letter"
+              />
             </div>
           </div>
-          <!--<h3>Questions</h3>
-          <ul>
-            <li v-for="question in jobForm.questions" :key="question.id">
-              <a :href="question.url" class="fakelink">{{ question.body }}</a>
-            </li>
-          </ul> -->
-          <button @click="logData">Submit</button>
-        </div>
-        <div v-else>
-          <div class="lines-spinner full-height">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
+          <h3>Questions</h3>
+          <div v-for="question in jobForm.questions" :key="question.id">
+            <p>{{ question.body }}</p>
+            <div v-if="question.type === 'string'">
+              <input
+                type="text"
+                v-model="jobResponse.candidate.answers[question.id].value"
+              />
+            </div>
+            <div v-if="question.type === 'free_text'">
+              <textarea
+                v-model="jobResponse.candidate.answers[question.id].value"
+                rows="3"
+              />
+            </div>
+            <div v-if="question.type === 'boolean'">
+              <input
+                type="checkbox"
+                v-model="jobResponse.candidate.answers[question.id].value"
+              />
+            </div>
+            <div v-if="question.type === 'date'">
+              <input
+                type="date"
+                v-model="jobResponse.candidate.answers[question.id].value"
+              />
+            </div>
           </div>
+          <button @click="onSubmit">Submit</button>
         </div>
+        <Loader v-else />
       </div>
       <div class="close-button">
         <img
@@ -138,7 +141,7 @@ h1 {
   }
 }
 
-.panel {
+.applypanel {
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -271,6 +274,7 @@ h1 {
 <script>
 import Education from './Workablefields/Education.vue'
 import Experience from './Workablefields/Experience.vue'
+import Loader from './Loader.vue'
 
 const generateBlankCandidate = (applicationForm) => {
   const { form_fields, questions } = applicationForm
@@ -294,16 +298,41 @@ const generateBlankCandidate = (applicationForm) => {
     }
   }, {})
 
+  const answers = questions.reduce((acc, question) => {
+    switch (question.type) {
+      case 'string':
+        return { ...acc, [question.id]: { dataKey: 'body', value: '' } }
+      case 'free_text':
+        return { ...acc, [question.id]: { dataKey: 'body', value: '' } }
+      case 'boolean':
+        return { ...acc, [question.id]: { dataKey: 'body', value: false } }
+      case 'date':
+        return { ...acc, [question.id]: { dataKey: 'body', value: '' } }
+      case 'file':
+        return {
+          ...acc,
+          [question.id]: {
+            dataKey: 'file',
+            value: {
+              name: '',
+              data: undefined,
+            },
+          },
+        }
+    }
+  }, {})
+
   return {
     firstName: '',
     lastName: '',
     email: '',
+    answers,
     ...requestedFormFields,
   }
 }
 
 export default {
-  components: { Education, Experience },
+  components: { Education, Experience, Loader },
   props: {
     shortcode: String,
     title: String,
@@ -331,8 +360,24 @@ export default {
     },
   },
   methods: {
-    logData() {
-      console.log(this.jobResponse)
+    onSubmit() {
+      console.log('start process data')
+
+      console.log({
+        ...this.jobResponse,
+        candidate: {
+          ...this.jobResponse.candidate,
+          answers: Object.keys(this.jobResponse.candidate.answers).map(
+            (key) => {
+              const answer = this.jobResponse.candidate.answers[key]
+              return {
+                question_key: key,
+                [answer.dataKey]: answer.value,
+              }
+            }
+          ),
+        },
+      })
     },
     addEducation() {
       this.jobResponse.candidate.education_entries.push({
@@ -377,7 +422,6 @@ export default {
       console.log(generateBlankCandidate(applicationForm))
     },
     onClose() {
-      console.log(this.jobResponse)
       this.$emit('close')
     },
     onCloseComplete() {
