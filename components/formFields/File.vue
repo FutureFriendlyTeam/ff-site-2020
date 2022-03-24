@@ -25,9 +25,7 @@ export default {
   methods: {
     onFileUpload(event) {
       const file = event.target.files[0]
-      console.log(file)
       this.fileName = file ? file.name : ''
-      console.log('FilenameSet', file ? file.name : '')
       this.$emit('change', event)
     },
   },

@@ -419,7 +419,7 @@ export default {
     onFileUpload(event) {
       const file = event.target.files[0]
       if (file) {
-        let filename = files.name
+        let filename = file.name
         const fileReader = new FileReader()
         fileReader.addEventListener('load', () => {
           this.jobResponse.candidate.resume = {
@@ -427,7 +427,7 @@ export default {
             data: fileReader.result.split(',')[1],
           }
         })
-        fileReader.readAsDataURL(files[0])
+        fileReader.readAsDataURL(file)
       } else {
         this.jobResponse.candidate.resume = {
           name: '',
