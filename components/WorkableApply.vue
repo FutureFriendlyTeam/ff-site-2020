@@ -4,42 +4,28 @@
       <div class="content">
         <h1>{{ title }}</h1>
         <div v-if="loaded">
-          <h2>APPLICATION</h2>
-          <h3>Personal Information</h3>
-          <div class="form-group">
-            <label for="first_name"
-              >First Name<span class="required">*</span></label
-            >
-            <input
-              type="text"
-              id="first_name"
-              v-model="jobResponse.candidate.firstName"
-            />
-          </div>
-          <div class="form-group">
-            <label for="last_name"
-              >Last Name<span class="required">*</span></label
-            >
-            <input
-              type="text"
-              id="last_name"
-              v-model="jobResponse.candidate.lastName"
-            />
-          </div>
-          <div class="form-group">
-            <label for="email">Email<span class="required">*</span></label>
-            <input
-              type="email"
-              id="email"
-              v-model="jobResponse.candidate.email"
-            />
-          </div>
-
-          <h3>Fields</h3>
+          <h2>Personal Information</h2>
+          <Input
+            label="First Name"
+            id="first_name"
+            v-model="jobResponse.candidate.firstName"
+          />
+          <Input
+            label="Last Name"
+            type="text"
+            id="last_name"
+            v-model="jobResponse.candidate.lastName"
+          />
+          <Input
+            label="Email"
+            type="email"
+            id="email"
+            v-model="jobResponse.candidate.email"
+          />
           <div v-for="field in jobForm.form_fields" :key="field.key">
             <div v-if="field.key === 'education'">
-              <h4>Education</h4>
-              <button @click="addEducation">Add Entry</button>
+              <h2>Education</h2>
+              <Button @click="addEducation" text="Add Entry" />
               <Education
                 v-for="(education_entry, index) in jobResponse.candidate
                   .education_entries"
@@ -54,8 +40,8 @@
               />
             </div>
             <div v-if="field.key === 'experience'">
-              <h4>Experience</h4>
-              <button @click="addExperience">Add Entry</button>
+              <h2>Experience</h2>
+              <Button @click="addExperience" text="Add Entry" />
               <experience
                 v-for="(experience_entry, index) in jobResponse.candidate
                   .experience_entries"
@@ -70,36 +56,32 @@
               />
             </div>
             <div v-if="field.key === 'summary'">
-              <h4>Summary</h4>
-              <textarea id="summary" v-model="jobResponse.candidate.summary" />
+              <h2>Summary</h2>
+              <TextArea v-model="jobResponse.candidate.summary" />
             </div>
 
             <div v-if="field.key === 'resume'">
-              <h4>Resume</h4>
-              <input id="resume" type="file" @change="onFileUpload" />
+              <h2>Resume</h2>
+              <File @change="onFileUpload" text="Upload" />
             </div>
 
             <div v-if="field.key === 'cover_letter'">
-              <h4>Cover Letter</h4>
-              <textarea
-                id="cover_letter"
-                v-model="jobResponse.candidate.cover_letter"
-              />
+              <h2>Cover Letter</h2>
+              <TextArea v-model="jobResponse.candidate.cover_letter" />
             </div>
           </div>
-          <h3>Questions</h3>
+          <h2>Questions</h2>
           <div v-for="question in jobForm.questions" :key="question.id">
             <p>{{ question.body }}</p>
             <div v-if="question.type === 'string'">
-              <input
+              <Input
                 type="text"
                 v-model="jobResponse.candidate.answers[question.id].value"
               />
             </div>
             <div v-if="question.type === 'free_text'">
-              <textarea
+              <TextArea
                 v-model="jobResponse.candidate.answers[question.id].value"
-                rows="3"
               />
             </div>
             <div v-if="question.type === 'boolean'">
@@ -115,7 +97,22 @@
               />
             </div>
           </div>
-          <button @click="onSubmit">Submit</button>
+          <Button
+            v-if="!submitting && !submitted"
+            @click="onSubmit"
+            text="Submit"
+          />
+          <div v-if="submitted">
+            <p>Success!</p>
+          </div>
+          <div v-if="submitting">
+            <p>Submitting</p>
+            <Loader />
+          </div>
+          <div v-if="error !== ''">
+            <p>{{ error }}</p>
+          </div>
+          <div class="footer-padding">&nbsp;</div>
         </div>
         <Loader v-else />
       </div>
@@ -149,6 +146,7 @@ h1 {
   left: 30vw;
   width: 70vw;
   min-height: calc(100vh - 5.5em);
+  max-height: calc(100vh - 5.5em);
   background-color: $extended3-light;
   padding-top: 5.5em;
   padding-left: 3em;
@@ -165,7 +163,6 @@ h1 {
     display: flex;
     flex-direction: column;
     width: 70%;
-    padding-bottom: 10em;
 
     @media (max-width: $mid) {
       width: 100%;
@@ -274,6 +271,10 @@ h1 {
 <script>
 import Education from './Workablefields/Education.vue'
 import Experience from './Workablefields/Experience.vue'
+import Button from './formFields/Button.vue'
+import File from './formFields/File.vue'
+import Input from './formFields/Input.vue'
+import TextArea from './formFields/TextArea.vue'
 import Loader from './Loader.vue'
 
 const generateBlankCandidate = (applicationForm) => {
@@ -332,7 +333,7 @@ const generateBlankCandidate = (applicationForm) => {
 }
 
 export default {
-  components: { Education, Experience, Loader },
+  components: { Button, Education, File, Input, Experience, Loader, TextArea },
   props: {
     shortcode: String,
     title: String,
@@ -341,6 +342,9 @@ export default {
   data() {
     return {
       loaded: false,
+      submitting: false,
+      submitted: false,
+      error: '',
       isAnimatedOpen: false,
       closeButtonSource: require(`~/assets/images/ui/close.svg`),
       body: document.querySelector('body'),
@@ -360,10 +364,10 @@ export default {
     },
   },
   methods: {
-    onSubmit() {
-      console.log('start process data')
-
-      console.log({
+    async onSubmit() {
+      this.submitting = true
+      this.error = ''
+      const formatted = {
         ...this.jobResponse,
         candidate: {
           ...this.jobResponse.candidate,
@@ -377,7 +381,20 @@ export default {
             }
           ),
         },
-      })
+      }
+      const { data, status } = await this.$axios.$post(
+        `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${this.shortcode}`,
+        formatted
+      )
+      this.submitting = false
+
+      if (status === 200) {
+        this.success = true
+      } else if (status === 422) {
+        this.error = data.error
+      } else {
+        this.error = 'Something went wrong, please try again later'
+      }
     },
     addEducation() {
       this.jobResponse.candidate.education_entries.push({
@@ -400,26 +417,31 @@ export default {
       })
     },
     onFileUpload(event) {
-      const files = event.target.files
-      let filename = files[0].name
-      const fileReader = new FileReader()
-      fileReader.addEventListener('load', () => {
+      const file = event.target.files[0]
+      if (file) {
+        let filename = files.name
+        const fileReader = new FileReader()
+        fileReader.addEventListener('load', () => {
+          this.jobResponse.candidate.resume = {
+            name: filename,
+            data: fileReader.result.split(',')[1],
+          }
+        })
+        fileReader.readAsDataURL(files[0])
+      } else {
         this.jobResponse.candidate.resume = {
-          name: filename,
-          data: fileReader.result.split(',')[1],
+          name: '',
+          data: '',
         }
-      })
-      fileReader.readAsDataURL(files[0])
+      }
     },
     async getJobForm() {
       const applicationForm = await this.$axios.$get(
-        `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${this.shortcode}/apply-form`
+        `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${this.shortcode}/form`
       )
-      console.log(applicationForm)
       this.jobForm = applicationForm
       this.jobResponse.candidate = generateBlankCandidate(applicationForm)
       this.loaded = true
-      console.log(generateBlankCandidate(applicationForm))
     },
     onClose() {
       this.$emit('close')

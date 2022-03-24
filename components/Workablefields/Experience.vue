@@ -1,21 +1,12 @@
 <template>
   <div>
-    <div>
-      <label for="title">Title</label>
-      <input id="title" type="text" v-model="experience.title" />
-    </div>
-    <div>
-      <label for="company">Company</label>
-      <input id="company" type="text" v-model="experience.company" />
-    </div>
-    <div>
-      <label for="industry">Industry</label>
-      <input id="industry" type="text" v-model="experience.industry" />
-    </div>
-    <div>
-      <label for="summary">Summary</label>
-      <textarea id="summary" v-model="experience.summary" rows="4" />
-    </div>
+    <Input label="Title" type="text" v-model="experience.title" />
+
+    <Input label="Company" type="text" v-model="experience.company" />
+
+    <Input label="Industry" type="text" v-model="experience.industry" />
+
+    <TextArea label="Summary" v-model="experience.summary" />
     <div>
       <label for="current">I currently work here</label>
       <input id="current" type="checkbox" v-model="experience.current" />
@@ -33,16 +24,17 @@
         :disabled="experience.current"
       />
     </div>
-    <button @click="$emit('delete')">Delete Entry</button>
+    <Button @click="$emit('delete')" text="Delete" />
   </div>
 </template>
 
-<style lang="scss" scoped>
-// @import '../scss/variables.scss';
-</style>
-
 <script>
+import Button from '../formFields/Button.vue'
+import Input from '../formFields/Input.vue'
+import TextArea from '../formFields/TextArea.vue'
+
 export default {
+  components: { Button, Input, TextArea },
   props: {
     srcExperience: {
       title: String,

@@ -31,13 +31,11 @@
             </div>
           </div>
           <div>
-            <a @click="onApplyOpen" class="cta-button"
-              ><p class="mini">Apply</p></a
-            >
+            <Button @click="onApplyOpen" text="Apply" />
           </div>
           <div class="footer-padding">&nbsp;</div>
         </div>
-        <Loader v-else/>
+        <Loader v-else />
       </div>
       <div class="close-button">
         <img
@@ -85,7 +83,6 @@ h1 {
     display: flex;
     flex-direction: column;
     width: 70%;
-    padding-bottom: 10em;
 
     @media (max-width: $mid) {
       width: 100%;
@@ -188,10 +185,11 @@ h1 {
 </style>
 
 <script>
+import Button from './formFields/Button.vue'
 import Loader from './Loader.vue'
 
 export default {
-  components: { Loader },
+  components: { Button, Loader },
   props: {
     shortcode: String,
     title: String,

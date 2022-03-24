@@ -1,23 +1,14 @@
 <template>
-  <div>
-    <div>
-      <label for="school">School</label>
-      <input id="school" type="text" v-model="education.school" />
-    </div>
+  <div class="border-both section">
+    <Input type="text" label="School" v-model="education.school" />
 
-    <div>
-      <label for="degree">Degreee</label>
-      <input id="degree" type="text" v-model="education.degreee" />
-    </div>
+    <Input type="text" label="Degree" v-model="education.degreee" />
 
-    <div>
-      <label for="field_of_study">Field of study</label>
-      <input
-        id="field_of_study"
-        type="text"
-        v-model="education.field_of_study"
-      />
-    </div>
+    <Input
+      label="Field of study"
+      type="text"
+      v-model="education.field_of_study"
+    />
     <div>
       <label for="start_date">Start Date</label>
       <input id="start_date" type="date" v-model.lazy="education.start_date" />
@@ -26,16 +17,25 @@
       <label for="end_date">End Date</label>
       <input id="end_date" type="date" v-model.lazy="education.end_date" />
     </div>
-    <button @click="$emit('delete')">Delete Entry</button>
+    <Button @click="$emit('delete')" text="Delete" />
   </div>
 </template>
 
-<style lang="scss" scoped>
-// @import '../scss/variables.scss';
-</style>
 
+<style lang="scss" scoped>
+@import '../../scss/variables.scss';
+
+.section {
+  margin-top: 1.5em;
+}
+
+</style>
 <script>
+import Button from '../formFields/Button.vue'
+import Input from '../formFields/Input.vue'
+
 export default {
+  components: { Button, Input },
   props: {
     srcEducation: {
       school: String,
