@@ -8,13 +8,13 @@
           <Input
             label="First Name"
             id="first_name"
-            v-model="jobResponse.candidate.firstName"
+            v-model="jobResponse.candidate.firstname"
           />
           <Input
             label="Last Name"
             type="text"
             id="last_name"
-            v-model="jobResponse.candidate.lastName"
+            v-model="jobResponse.candidate.lastname"
           />
           <Input
             label="Email"
@@ -90,8 +90,7 @@
               />
             </div>
             <div v-if="question.type === 'date'">
-              <input
-                type="date"
+              <Date
                 v-model="jobResponse.candidate.answers[question.id].value"
               />
             </div>
@@ -272,12 +271,13 @@ import Education from './Workablefields/Education.vue'
 import Experience from './Workablefields/Experience.vue'
 import Button from './formFields/Button.vue'
 import CheckBox from './formFields/CheckBox.vue'
+import Date from './formFields/Date.vue'
 import File from './formFields/File.vue'
 import Input from './formFields/Input.vue'
 import TextArea from './formFields/TextArea.vue'
 import Loader from './Loader.vue'
 
-const generateBlankCandidate = (applicationForm) => {
+const generateBlankCandidate = applicationForm => {
   const { form_fields, questions } = applicationForm
 
   const requestedFormFields = form_fields.reduce((acc, field) => {
@@ -316,9 +316,9 @@ const generateBlankCandidate = (applicationForm) => {
             dataKey: 'file',
             value: {
               name: '',
-              data: undefined,
-            },
-          },
+              data: undefined
+            }
+          }
         }
     }
   }, {})
@@ -328,7 +328,7 @@ const generateBlankCandidate = (applicationForm) => {
     lastName: '',
     email: '',
     answers,
-    ...requestedFormFields,
+    ...requestedFormFields
   }
 }
 
@@ -336,17 +336,18 @@ export default {
   components: {
     Button,
     CheckBox,
+    Date,
     Education,
     File,
     Input,
     Experience,
     Loader,
-    TextArea,
+    TextArea
   },
   props: {
     shortcode: String,
     title: String,
-    isOpen: Boolean,
+    isOpen: Boolean
   },
   data() {
     return {
@@ -360,8 +361,8 @@ export default {
       jobForm: {},
       jobResponse: {
         sourced: false,
-        candidate: {},
-      },
+        candidate: {}
+      }
     }
   },
   watch: {
@@ -370,7 +371,7 @@ export default {
         this.isAnimatedOpen = true
         this.getJobForm()
       }
-    },
+    }
   },
   methods: {
     async onSubmit() {
@@ -380,16 +381,14 @@ export default {
         ...this.jobResponse,
         candidate: {
           ...this.jobResponse.candidate,
-          answers: Object.keys(this.jobResponse.candidate.answers).map(
-            (key) => {
-              const answer = this.jobResponse.candidate.answers[key]
-              return {
-                question_key: key,
-                [answer.dataKey]: answer.value,
-              }
+          answers: Object.keys(this.jobResponse.candidate.answers).map(key => {
+            const answer = this.jobResponse.candidate.answers[key]
+            return {
+              question_key: key,
+              [answer.dataKey]: answer.value
             }
-          ),
-        },
+          })
+        }
       }
       console.log(formatted)
       // const { data, status } = await this.$axios.$post(
@@ -412,7 +411,7 @@ export default {
         degreee: '',
         field_of_study: '',
         start_date: '2000-01-01',
-        end_date: '2000-01-01',
+        end_date: '2000-01-01'
       })
     },
     addExperience() {
@@ -423,7 +422,7 @@ export default {
         industry: '',
         start_date: '2000-01-01',
         end_date: '2000-01-01',
-        current: false,
+        current: false
       })
     },
     onFileUpload(event) {
@@ -434,20 +433,22 @@ export default {
         fileReader.addEventListener('load', () => {
           this.jobResponse.candidate.resume = {
             name: filename,
-            data: fileReader.result.split(',')[1],
+            data: fileReader.result.split(',')[1]
           }
         })
         fileReader.readAsDataURL(file)
       } else {
         this.jobResponse.candidate.resume = {
           name: '',
-          data: '',
+          data: ''
         }
       }
     },
     async getJobForm() {
       const applicationForm = await this.$axios.$get(
-        `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${this.shortcode}/form`
+        `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${
+          this.shortcode
+        }/form`
       )
       this.jobForm = applicationForm
       this.jobResponse.candidate = generateBlankCandidate(applicationForm)
@@ -459,7 +460,7 @@ export default {
     onCloseComplete() {
       this.isAnimatedOpen = false
       this.$emit('closecomplete')
-    },
-  },
+    }
+  }
 }
 </script>

@@ -22,14 +22,8 @@
   & label {
     font-family: 'Plain';
     font-weight: bold;
-    position: relative;
-    top: 1.5em;
     font-size: 1.25em;
     transition: all 0.2s;
-
-    &.active {
-      top: 0;
-    }
   }
 
   & input[type='checkbox'] {

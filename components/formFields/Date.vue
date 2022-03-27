@@ -1,17 +1,19 @@
-
 <template>
   <div class="formInput">
-    <label for="input" :class="{ active: active }">{{ label }}</label>
+    <label for="input" :class="{ active: active, disabled:disabled }">{{ label }}</label>
     <input
       id="input"
-      :class="{ active: focused }"
+      type="date"
+      :class="{ active: focused, disabled:disabled }"
       :value="value"
+      :disabled="disabled"
       @input="updateValue"
       @focus="focused = true"
       @blur="focused = false"
     />
   </div>
 </template>
+
 
 <style lang="scss" scoped>
 @import '../../scss/variables.scss';
@@ -22,13 +24,13 @@
   & label {
     font-family: 'Plain';
     font-weight: bold;
-    position: relative;
-    top: 1.5em;
+    /* position: relative;
+    top: 1.5em; */
     font-size: 1.25em;
     transition: all 0.2s;
 
-    &.active {
-      top: 0;
+    &.disabled {
+      color: #aaa;
     }
   }
 
@@ -42,6 +44,11 @@
     width: 100%;
     transition: all 0.2s;
 
+    &.disabled {
+      color: #aaa;
+      border-bottom: solid 3px #aaa;
+      border-top: solid 2px #aaa;
+    }
     &.active {
       outline: none;
       border: none;
@@ -52,25 +59,26 @@
 }
 </style>
 
+
 <script>
 export default {
-  props: ['modelValue', 'label'],
+  props: ['modelValue', 'label', 'disabled'],
   data() {
     return {
       focused: false,
-      value: this.modelValue,
+      value: this.modelValue
     }
   },
   methods: {
     updateValue(event) {
       this.value = event.target.value
       this.$emit('input', event.target.value)
-    },
+    }
   },
   computed: {
     active() {
       return this.focused || (this.value && this.value !== '')
-    },
-  },
+    }
+  }
 }
 </script>
