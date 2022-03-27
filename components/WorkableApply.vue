@@ -291,7 +291,7 @@ const generateBlankCandidate = applicationForm => {
       case 'headline':
         return { ...acc, headline: '' }
       case 'resume':
-        return { ...acc, resume: { name: '', data: undefined } }
+        return { ...acc, resume: null}
       case 'cover_letter':
         return { ...acc, cover_letter: '' }
       case 'skills':
@@ -390,20 +390,20 @@ export default {
           })
         }
       }
-      console.log(formatted)
-      // const { data, status } = await this.$axios.$post(
-      //   `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${this.shortcode}`,
-      //   formatted
-      // )
-      // this.submitting = false
+      
+      const { data, status } = await this.$axios.$post(
+        `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${this.shortcode}`,
+        formatted
+      )
+      this.submitting = false
 
-      // if (status === 200) {
-      //   this.success = true
-      // } else if (status === 422) {
-      //   this.error = data.error
-      // } else {
-      //   this.error = 'Something went wrong, please try again later'
-      // }
+      if (status === 201) {
+        this.success = true
+      } else if (status === 422) {
+        this.error = data.error
+      } else {
+        this.error = 'Something went wrong, please try again later'
+      }
     },
     addEducation() {
       this.jobResponse.candidate.education_entries.push({
@@ -438,10 +438,7 @@ export default {
         })
         fileReader.readAsDataURL(file)
       } else {
-        this.jobResponse.candidate.resume = {
-          name: '',
-          data: ''
-        }
+        this.jobResponse.candidate.resume = null
       }
     },
     async getJobForm() {
