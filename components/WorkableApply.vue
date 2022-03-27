@@ -85,8 +85,7 @@
               />
             </div>
             <div v-if="question.type === 'boolean'">
-              <input
-                type="checkbox"
+              <CheckBox
                 v-model="jobResponse.candidate.answers[question.id].value"
               />
             </div>
@@ -272,6 +271,7 @@ h1 {
 import Education from './Workablefields/Education.vue'
 import Experience from './Workablefields/Experience.vue'
 import Button from './formFields/Button.vue'
+import CheckBox from './formFields/CheckBox.vue'
 import File from './formFields/File.vue'
 import Input from './formFields/Input.vue'
 import TextArea from './formFields/TextArea.vue'
@@ -333,7 +333,16 @@ const generateBlankCandidate = (applicationForm) => {
 }
 
 export default {
-  components: { Button, Education, File, Input, Experience, Loader, TextArea },
+  components: {
+    Button,
+    CheckBox,
+    Education,
+    File,
+    Input,
+    Experience,
+    Loader,
+    TextArea,
+  },
   props: {
     shortcode: String,
     title: String,
@@ -382,19 +391,20 @@ export default {
           ),
         },
       }
-      const { data, status } = await this.$axios.$post(
-        `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${this.shortcode}`,
-        formatted
-      )
-      this.submitting = false
+      console.log(formatted)
+      // const { data, status } = await this.$axios.$post(
+      //   `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${this.shortcode}`,
+      //   formatted
+      // )
+      // this.submitting = false
 
-      if (status === 200) {
-        this.success = true
-      } else if (status === 422) {
-        this.error = data.error
-      } else {
-        this.error = 'Something went wrong, please try again later'
-      }
+      // if (status === 200) {
+      //   this.success = true
+      // } else if (status === 422) {
+      //   this.error = data.error
+      // } else {
+      //   this.error = 'Something went wrong, please try again later'
+      // }
     },
     addEducation() {
       this.jobResponse.candidate.education_entries.push({
