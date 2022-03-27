@@ -41,6 +41,12 @@
     background-color: transparent;
     border: solid 3px #555555;
 
+    &::before {
+      font-size: 1.8em;
+      line-height: 0.9em;
+      content: '✖';
+    }
+
     &.active {
       border: solid 3px #dd8822;
     }
@@ -59,14 +65,14 @@ export default {
   props: ['text', 'modelValue'],
   data() {
     return {
-      focused: false,
+      focused: false
     }
   },
   methods: {
     updateValue(event) {
       console.log(event)
       this.$emit('input', event.target.checked)
-    },
-  },
+    }
+  }
 }
 </script>
