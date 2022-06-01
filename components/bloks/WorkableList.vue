@@ -33,6 +33,7 @@
         <span v-else>We currently aren't advertising any jobs, but we</span>
         always keep our ear to the ground for great people -
         <a href="https://apply.workable.com/futurefriendly/j/B2871A5501/apply/"
+           target="_blank" rel="noreferrer noopener"
         >please get in touch!</a
         >
       </div>
