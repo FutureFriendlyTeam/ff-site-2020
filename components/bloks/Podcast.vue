@@ -8,16 +8,47 @@
             <h3>Where to listen</h3>
 
             <div class="horizontal">
-              <a href="https://podcasts.apple.com/au/podcast/future-friendly/id1532264513" target="_blank" rel="noreferrer" class="podcast-link horizontal items-center h-padding-right">
-                <img :src="applePodcastSource"
-                     :data-src="applePodcastSource" alt="Apple Podcasts logo" >
+              <a
+                href="https://podcasts.apple.com/au/podcast/future-friendly/id1532264513"
+                target="_blank"
+                rel="noreferrer"
+                class="podcast-link horizontal items-center h-padding-right"
+              >
+                <img
+                  :src="applePodcastSource"
+                  :data-src="applePodcastSource"
+                  alt="Apple Podcasts logo"
+                />
                 <span>Apple Podcasts</span>
               </a>
-              <a href="https://open.spotify.com/show/7z5CPhuVlzDMgnTWeVPdmn" target="_blank" rel="noreferrer" class="podcast-link horizontal items-center h-padding-right">
-                <img :src="spotifyPodcastSource" :data-src="spotifyPodcastSource" alt="Spotify logo" >
+              <a
+                href="https://open.spotify.com/show/7z5CPhuVlzDMgnTWeVPdmn"
+                target="_blank"
+                rel="noreferrer"
+                class="podcast-link horizontal items-center h-padding-right"
+              >
+                <img
+                  :src="spotifyPodcastSource"
+                  :data-src="spotifyPodcastSource"
+                  alt="Spotify logo"
+                />
                 <span>Spotify</span>
               </a>
 
+              <a
+                href="https://anchor.fm/s/2ebef824/podcast/rss"
+                target="_blank"
+                rel="noreferrer"
+                class="podcast-link horizontal items-center h-padding-right"
+              >
+                <img
+                  :src="rssPodcastSource"
+                  :data-src="rssPodcastSource"
+                  class="rss-img"
+                  alt="RSS logo"
+                />
+                <span>RSS Feed</span>
+              </a>
             </div>
           </div>
 
@@ -81,7 +112,7 @@
             </p>
 
             <a class="big" href="mailto:podcast@futurefriendly.team"
-            >→ Get in Touch</a
+              >→ Get in Touch</a
             >
           </div>
         </div>
@@ -94,22 +125,23 @@
 import PodcastList from '~/components/bloks/PodcastList.vue'
 export default {
   components: {
-    PodcastList
+    PodcastList,
   },
   props: {
     blok: {
       type: Object,
-      default: null
+      default: null,
     },
     storyId: {
       type: Number,
-      default: null
-    }
+      default: null,
+    },
   },
   data: () => {
     return {
       applePodcastSource: require('~/assets/images/podcasts/apple.svg'),
-      spotifyPodcastSource: require('~/assets/images/podcasts/spotify.svg')
+      spotifyPodcastSource: require('~/assets/images/podcasts/spotify.svg'),
+      rssPodcastSource: require('~/assets/images/podcasts/rss.svg'),
     }
   },
   computed: {
@@ -117,20 +149,20 @@ export default {
       return this.$storyblok.client.richTextResolver.render(
         this.blok.description
       )
-    }
+    },
   },
   watch: {
     blok() {
       this.$root.$emit('setNav', {
-        navType: 'normal'
+        navType: 'normal',
       })
-    }
+    },
   },
   mounted() {
     this.$root.$emit('setNav', {
-      navType: 'normal'
+      navType: 'normal',
     })
-  }
+  },
 }
 </script>
 
@@ -141,7 +173,15 @@ export default {
   padding-bottom: 1rem;
 
   img {
-    padding-right: 0.75rem;
+    margin-right: 0.75rem;
+
+    &.rss-img {
+      width: 38px;
+      height: 38px;
+      padding: 4px;
+      border: solid 0.1rem #fff;
+      border-radius: 25%;
+    }
   }
 
   span {
