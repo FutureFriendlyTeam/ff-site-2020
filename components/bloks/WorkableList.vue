@@ -2,7 +2,7 @@
   <div class="vertical xs-full s-half h-padding-right clear-left">
     <div v-if="loaded">
       <workable-detail
-        :isOpen="detailOpen"
+        :is-open="detailOpen"
         :shortcode="selectedShortcode"
         :title="selectedTitle"
         @close="onClose"
@@ -16,7 +16,7 @@
         <h3>{{ key }}</h3>
         <ul>
           <li v-for="job in item" :key="job.shortcode" class="mini">
-            <a @click="onOpen(job.shortcode)" class="fakelink">{{
+            <a class="fakelink" @click="onOpen(job.shortcode)">{{
               job.title
             }}</a>
             <span v-if="job.employment_type">
@@ -27,22 +27,22 @@
       </div>
       <div class="v-margin-top mini border-both">
         <span v-if="numJobs > 0"
-          >Want to join our team but don't see a job listing that matches?
-          We</span
+        >Want to join our team but don't see a job listing that matches?
+        We</span
         >
         <span v-else>We currently aren't advertising any jobs, but we</span>
         always keep our ear to the ground for great people -
-        <a href="https://apply.workable.com/j/14091E408E"
-          >please get in touch!</a
+        <a href="https://apply.workable.com/futurefriendly/j/B2871A5501/apply/"
+        >please get in touch!</a
         >
       </div>
     </div>
     <div v-else>
       <div class="lines-spinner">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+        <div class="line"/>
+        <div class="line"/>
+        <div class="line"/>
+        <div class="line"/>
       </div>
     </div>
   </div>
@@ -52,8 +52,8 @@
 import WorkableDetail from '../WorkableDetail.vue'
 
 export default {
-  components: { WorkableDetail },
   name: 'WorkableList',
+  components: { WorkableDetail },
   data() {
     return {
       loaded: false,
@@ -71,20 +71,6 @@ export default {
     this.loaded = true
   },
   fetchOnServer: false,
-  methods: {
-    onOpen(shortcode) {
-      this.selectedShortcode = shortcode
-      this.selectedTitle = this.jobs.find(
-        job => job.shortcode === shortcode
-      ).title
-      this.detailOpen = true
-    },
-    onClose() {
-      this.selectedShortcode = undefined
-      this.detailOpen = false
-    },
-    onCloseComplete() {}
-  },
   computed: {
     availableJobsByCity() {
       const filtered = this.jobs.filter(job => {
@@ -101,6 +87,20 @@ export default {
         return acc
       }, {})
     }
+  },
+  methods: {
+    onOpen(shortcode) {
+      this.selectedShortcode = shortcode
+      this.selectedTitle = this.jobs.find(
+        job => job.shortcode === shortcode
+      ).title
+      this.detailOpen = true
+    },
+    onClose() {
+      this.selectedShortcode = undefined
+      this.detailOpen = false
+    },
+    onCloseComplete() {}
   }
 }
 </script>
