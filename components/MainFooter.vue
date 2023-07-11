@@ -37,7 +37,7 @@
 
       <div class="xs-full s-half horizontal">
         <div class="m-half v-margin-bottom h-padding-right">
-          <p class="no-margin-top body">
+          <!-- <p class="no-margin-top body">
             Future Friendly is a certified B-Corp since 2017.
           </p>
           <story-blok-image
@@ -46,7 +46,7 @@
             filename="https://a.storyblok.com/f/94997/64x96/fcaf6c4a90/b-corp-logo.png"
             class="flag"
             alt="B-Corp Logo"
-          />
+          /> -->
         </div>
 
         <div class="m-half v-margin-bottom h-padding-right">
