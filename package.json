@@ -16,8 +16,6 @@
   "dependencies": {
     "-": "0.0.1",
     "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/google-analytics": "^2.2.0",
-    "@nuxtjs/gtm": "^2.4.0",
     "@wearewondrous/nuxt-storyblok-router": "^1.2.5",
     "chokidar": "^3.5.2",
     "cross-env": "^5.2.0",
