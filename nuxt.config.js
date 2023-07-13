@@ -133,7 +133,6 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/gtm',
     'nuxt-compress',
     '@nuxtjs/axios',
     // [
@@ -224,11 +223,6 @@ module.exports = {
   //       })
   //   }
   // },
-
-  gtm: {
-    id: 'GTM-NRB2BWS',
-    enabled: true
-  },
 
   buildModules: ['@aceforth/nuxt-optimized-images'],
 
