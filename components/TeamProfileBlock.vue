@@ -1,6 +1,6 @@
 <template>
 
-  <article v-if="story"
+  <article v-if="story.content.image"
            :class="story.content.thumbnail_size" 
            class="team-profile-block h-padding-right xs-half s-quarter m-sixth v-margin-bottom v-margin-bottom">
     <story-blok-image :filename="story.content.image.filename" :alt="`Portrait of ${story.name}`" :blend="'multiply'" aspect="square" class="v-margin-bottom-tiny"/>
@@ -20,6 +20,9 @@ export default {
       type: Object,
       default: null
     }
+  },
+  mounted(){
+    console.log(this.story)
   }
 }
 </script>

@@ -5,9 +5,9 @@
         <div class="horizontal v-padding-top-big v-padding-bottom-mega">
           <div class="v-padding-bottom-big">
             <h1>Future Friendly Podcast.</h1>
-            <h3>Where to listen</h3>
+            <!-- <h3>Where to listen</h3> -->
 
-            <div class="horizontal">
+            <!-- <div class="horizontal">
               <a
                 href="https://podcasts.apple.com/au/podcast/future-friendly/id1532264513"
                 target="_blank"
@@ -49,7 +49,7 @@
                 />
                 <span>RSS Feed</span>
               </a>
-            </div>
+            </div> -->
           </div>
 
           <div class="vertical xs-full m-half h-padding-right">
