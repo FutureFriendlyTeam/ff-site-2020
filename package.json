@@ -14,7 +14,6 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "-": "0.0.1",
     "@nuxtjs/axios": "^5.13.6",
     "@wearewondrous/nuxt-storyblok-router": "^1.2.5",
     "chokidar": "^3.5.2",
