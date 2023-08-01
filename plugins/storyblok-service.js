@@ -23,11 +23,11 @@ const StoryblokService = class {
     script.src = src
     script.id = 'storyblok-javascript-bridge'
 
-    script.onerror = function () {
+    script.onerror = function() {
       cb(new Error('Failed to load' + src))
     }
 
-    script.onload = function () {
+    script.onload = function() {
       cb()
     }
 
@@ -52,10 +52,13 @@ const StoryblokService = class {
   isEditorMode() {
     if (typeof window !== 'undefined') {
       return (
-        window.location.ancestorOrigins[0] &&
-        window.location.ancestorOrigins[0].includes('app.storyblok.com') || window.location.hostname.match(/localhost|[0-9]{2,3}\.[0-9]{2,3}\.[0-9]{2,3}\.[0-9]{2,3}|::1|\.local|^$/gi)
+        (window.location?.ancestorOrigins &&
+          window.location.ancestorOrigins[0] &&
+          window.location.ancestorOrigins[0].includes('app.storyblok.com')) ||
+        window.location.hostname.match(
+          /localhost|[0-9]{2,3}\.[0-9]{2,3}\.[0-9]{2,3}\.[0-9]{2,3}|::1|\.local|^$/gi
+        )
       )
-
     }
     return false
   }
@@ -85,7 +88,7 @@ const StoryblokService = class {
     })
 
     //
-    window.storyblok.pingEditor(function () {
+    window.storyblok.pingEditor(function() {
       if (storyblok.inEditor) {
         storyblok.enterEditmode()
       }
