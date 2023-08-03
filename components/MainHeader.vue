@@ -1,6 +1,16 @@
 <template>
   <!-- <div> -->
   <div>
+
+    <div id="banner" class="v-padding-top-small v-padding-bottom-small">
+      <div class="center-col horizontal">
+        <div class="xs-full">
+          <p class="body mini">Future Friendly Team Pty Ltd has been acquired by Ernst & Young, Australia. <a href="" target="_blank">Read more</a></p>
+        </div>
+      </div>
+    </div>
+
+
     <header 
       v-if="globals" id="header" class="v-padding-top v-padding-bottom color-background">
       <div class="center-col horizontal">
@@ -28,6 +38,8 @@
         </div>
       </div>
     </header>
+
+
 
     <transition name="quick-fade" mode="out-in">
       <div v-if="mobileNavOpen" id="mobile-nav">
@@ -76,8 +88,13 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/variables.scss';
 
+#banner {
+  background-color: #000;
+  color: #fff;
+}
+
 #header {
-  position: fixed;
+  // position: fixed;
   width: 100%;
   z-index: 9999;
 
@@ -145,4 +162,6 @@ export default {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+
+
 </style>
