@@ -12,9 +12,9 @@
         class="v-margin-bottom"
       />
       <section class="xs-full">
-        <h2 class="body highlight v-margin-top-none">
+        <!-- <h2 class="body highlight v-margin-top-none">
           Ep. {{ story.content.episode }}
-        </h2>
+        </h2> -->
         <h2 class="body highlight v-margin-top-none">
           {{ story.content.title }}
         </h2>
