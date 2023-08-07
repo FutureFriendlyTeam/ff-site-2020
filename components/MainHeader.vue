@@ -5,7 +5,7 @@
     <div id="banner" class="v-padding-top-small v-padding-bottom-small">
       <div class="center-col horizontal">
         <div class="xs-full">
-          <p class="body mini">Future Friendly Team Pty Ltd has been acquired by Ernst & Young, Australia. <a href="" target="_blank">Read more</a></p>
+          <p class="body mini">Future Friendly Team Pty Ltd has been acquired by Ernst & Young, Australia. <a href="https://www.ey.com/en_au/news/2023/08/ey-to-build-new-product-and-service-innovation-offering-in-oceania-with-the-acquisition-of-future-friendly" target="_blank">Read more</a></p>
         </div>
       </div>
     </div>
