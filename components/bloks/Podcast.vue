@@ -54,7 +54,7 @@
 
           <div class="vertical xs-full m-half h-padding-right">
             <h1 class="mid v-margin-top-none v-margin-bottom">
-              Future Friendly Podcast — Ep. {{ blok.episode }}
+              Future Friendly Podcast
             </h1>
 
             <h2 class="big v-margin-top-none v-margin-bottom">
