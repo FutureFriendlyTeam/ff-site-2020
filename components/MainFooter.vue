@@ -72,6 +72,32 @@
         </div>
       </div>
     </div>
+
+    <div class="center-col horizontal">
+      <div class="xs-sixth">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3432_833)">
+<g clip-path="url(#clip1_3432_833)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.11924 28.344H13.1377V32H0.309082V16.1108H9.40314L11.5312 19.7669H5.12385V22.389H10.9219V25.7219H5.12385L5.11924 28.344ZM21.6732 16.1108L18.9496 21.2949L16.2352 16.1108H10.9173L16.5168 25.7219V32H21.3177V25.7219L26.9173 16.1108H21.6732Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M31.6999 5.91344V0L0 11.4622L31.6999 5.91344Z" fill="#FFE600"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_3432_833">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+<clipPath id="clip1_3432_833">
+<rect width="31.6999" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+
+      </div>
+      <div class="xs-auto">
+        <p class="body">A part of <a href="https://www.ey.com/" target="_blank">EY Business Transformation</a></p>
+      </div>
+    </div>
   </footer>
 </template>
 
