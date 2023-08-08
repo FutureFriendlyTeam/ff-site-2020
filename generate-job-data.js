@@ -3,7 +3,16 @@ const fs = require('fs')
 
 const getJobs = async () => {
   console.log('Retrieving jobs from workable.')
-  const { body } = await jobsLambda.jobs()
+
+  let body = ''
+  try {
+    const results = await jobsLambda.jobs()
+    body = results?.body || ''
+  } catch (e) {}
+  if (body.length === 0) {
+    console.error('Unable to retrieve jobs')
+    return
+  }
 
   const output = {
     list: [],
