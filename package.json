@@ -8,10 +8,11 @@
     "dev": "cross-env HOST=0.0.0.0 nuxt ",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "npm run generate-job-data && nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lintfix": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "generate-job-data": "env-cmd node generate-job-data"
   },
   "dependencies": {
     "-": "0.0.1",
@@ -21,6 +22,7 @@
     "@wearewondrous/nuxt-storyblok-router": "^1.2.5",
     "chokidar": "^3.5.2",
     "cross-env": "^5.2.0",
+    "env-cmd": "^10.1.0",
     "f": "^1.4.0",
     "imagemin": "^5.3.1",
     "lazysizes": "^5.2.2",

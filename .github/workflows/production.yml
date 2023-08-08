@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - master
+  schedule:
+    # Run once a day at 12 PM
+    - cron: "0 12 * * *"
 jobs:
   publish:
     name: Publish to GitHub Pages
