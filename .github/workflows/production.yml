@@ -3,10 +3,14 @@ on:
   push:
     branches:
       - master
+  schedule:
+    # Run once a day at 12 PM
+    - cron: "0 12 * * *"
 jobs:
   publish:
     name: Publish to GitHub Pages
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -20,6 +24,8 @@ jobs:
         run: npm install
       - name: Build static site
         run: npm run generate
+        env:
+          WORKABLE_TOKEN: ${{ secrets.WORKABLE_TOKEN }}
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:

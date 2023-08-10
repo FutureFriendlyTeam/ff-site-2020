@@ -284,11 +284,17 @@ export default {
   },
   methods: {
     async getJob() {
-      this.job = await this.$axios.$get(
-        `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${
-          this.shortcode
-        }`
-      )
+    /*
+    this.job = await this.$axios.$get(
+      `https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs/${
+        this.shortcode
+      }`
+    )
+    */   
+    try {
+      this.job = require('/data/jobs.json').details.find(({shortcode}) => shortcode === this.shortcode)
+    } catch (e) {}
+
       this.loaded = true
     },
     onClose() {

@@ -8,10 +8,11 @@
     "dev": "cross-env HOST=0.0.0.0 nuxt ",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "npm run generate-job-data && nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lintfix": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "generate-job-data": "cross-env node generate-job-data"
   },
   "dependencies": {
     "-": "0.0.1",
