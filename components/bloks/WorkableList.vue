@@ -66,9 +66,15 @@ export default {
     }
   },
   async fetch() {
+    /*
     this.jobs = await this.$axios.$get(
       'https://j0vz06anpf.execute-api.ap-southeast-2.amazonaws.com/jobs'
     )
+    */
+    try {
+      this.jobs = require('/data/jobs.json').list
+    } catch (e) {}
+
     this.loaded = true
   },
   fetchOnServer: false,
