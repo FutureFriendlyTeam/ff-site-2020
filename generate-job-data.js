@@ -7,7 +7,10 @@ const getJobs = async () => {
   let body = ''
   try {
     const results = await jobsLambda.jobs()
-    body = results?.body || ''
+
+    if (results && results.body) {
+      body = results.body
+    }
   } catch (e) {}
   if (body.length === 0) {
     console.error('Unable to retrieve jobs')
