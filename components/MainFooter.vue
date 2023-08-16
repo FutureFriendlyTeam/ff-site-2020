@@ -74,7 +74,7 @@
     </div>
 
     <div class="center-col horizontal">
-      <div class="xs-sixth">
+      <div class="xs-full m-sixth">
         <svg width="176" height="40" viewBox="0 0 176 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_3432_833)">
 <g clip-path="url(#clip1_3432_833)">
