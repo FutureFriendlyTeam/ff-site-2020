@@ -1,1 +1,0 @@
-window.__NUXT__=(function(a,b){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1704370049",layout:"default",error:a,state:{brandRenameBanner:{isBannerVisible:b,isFromMfReferrer:false}},serverRendered:b,routePath:"\u002Farchive\u002Fwho-we-are-alt-2",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_nuxt\u002F",cdnURL:a}}}}(null,true));
