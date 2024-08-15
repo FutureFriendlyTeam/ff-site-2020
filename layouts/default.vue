@@ -15,6 +15,7 @@
 <script>
 import MainHeader from '~/components/MainHeader.vue'
 import { mapGetters } from 'vuex'
+import { inject } from "@vercel/analytics"
 
 export default {
   components: {
@@ -35,6 +36,7 @@ export default {
   },
   mounted() {
     console.log('V 1.1')
+    inject()
     this.$root.$on('colorChange', e => {
       this.updateColors(e.backgroundColor, e.textColor)
     })
