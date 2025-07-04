@@ -1,14 +1,7 @@
 <template>
   <!-- <div> -->
   <div>
-
-    <div id="banner" class="v-padding-top-small v-padding-bottom-small">
-      <div class="center-col horizontal">
-        <div class="xs-full">
-          <p class="body mini">Future Friendly Team Pty Ltd has been acquired by Ernst & Young, Australia. <a href="https://www.ey.com/en_au/news/2023/08/ey-to-build-new-product-and-service-innovation-offering-in-oceania-with-the-acquisition-of-future-friendly" target="_blank">Read more</a></p>
-        </div>
-      </div>
-    </div>
+    <StudioPlusBanner />
 
 
     <header 
@@ -56,7 +49,9 @@
 <script>
 export default {
   name: 'MainHeader',
-  components: {},
+  components: {
+    StudioPlusBanner: () => import('./StudioPlusBanner.vue')
+  },
   data() {
     return {
       mobileNavOpen: false,
@@ -82,8 +77,7 @@ export default {
     })
   }
 }
-</script> 
-
+</script>
 
 <style lang="scss" scoped>
 @import '../scss/variables.scss';
@@ -162,6 +156,4 @@ export default {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
-
-
 </style>

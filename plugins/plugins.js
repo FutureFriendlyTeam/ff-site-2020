@@ -43,7 +43,7 @@ import AwardBadge from '~/components/AwardBadge'
 import ModalPractice from '@/components/bloks/ModalPractice'
 import FormSection from '~/components/bloks/FormSection'
 import FormInput from '~/components/bloks/FormInput'
-import WorkableList from '~/components/bloks/WorkableList'
+import LinkedInJobsLink from '~/components/bloks/LinkedInJobsLink'
 
 Vue.component('main-footer', MainFooter)
 Vue.component('brand-rename-banner', BrandRenameBanner)
@@ -75,7 +75,7 @@ Vue.component('award-badge', AwardBadge)
 Vue.component('modal-practice', ModalPractice)
 Vue.component('form-section', FormSection)
 Vue.component('form-input', FormInput)
-Vue.component('workable-listing-display', WorkableList)
+Vue.component('workable-listing-display', LinkedInJobsLink)
 
 // Vue.prototype.$backgroundColor = '#ffffff'
 Vue.prototype.$theme = {

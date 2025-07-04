@@ -13,8 +13,7 @@ const robots = {
 }
 
 const metaData = {
-  title:
-    'Future Friendly (Formerly Mentally Friendly) - Digital service strategy & product delivery.',
+  title: 'EY Future Friendly - A part of EY Studio+',
   desc:
     'Design & innovation team in Sydney & Canberra – we create digital services that change lives and build a better future.',
   image: 'https://futurefriendly.team/future-friendly.png'

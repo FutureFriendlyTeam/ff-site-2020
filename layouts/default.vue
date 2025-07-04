@@ -15,7 +15,7 @@
 <script>
 import MainHeader from '~/components/MainHeader.vue'
 import { mapGetters } from 'vuex'
-import { inject } from "@vercel/analytics"
+// import { inject } from "@vercel/analytics"
 
 export default {
   components: {
@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isBrandRenameBannerVisible: 'brandRenameBanner/isBannerVisible',
+      isBrandRenameBannerVisible: 'brandRenameBanner/isBannerVisible'
     })
   },
   data() {
@@ -36,17 +36,15 @@ export default {
   },
   mounted() {
     console.log('V 1.1')
-    inject()
+    // inject()
     this.$root.$on('colorChange', e => {
       this.updateColors(e.backgroundColor, e.textColor)
     })
 
-    const query = this.$route.query;
-    const {
-      utm_source,
-      utm_medium,
-    } = query;
-    const isMfReferrer = utm_source === 'mentallyfriendly.com' && utm_medium === 'website'
+    const query = this.$route.query
+    const { utm_source, utm_medium } = query
+    const isMfReferrer =
+      utm_source === 'mentallyfriendly.com' && utm_medium === 'website'
     this.$store.commit('brandRenameBanner/setIsFromMfReferrer', isMfReferrer)
   },
   methods: {
@@ -88,10 +86,10 @@ export default {
       }
       return this.$theme[color] || fallback
     },
-    hideBrandRenameBanner (e) {
+    hideBrandRenameBanner(e) {
       this.$store.commit('brandRenameBanner/toggleBannerState')
     }
-  },
+  }
 }
 </script>
 
