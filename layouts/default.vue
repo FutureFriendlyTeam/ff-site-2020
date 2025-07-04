@@ -21,11 +21,6 @@ export default {
   components: {
     MainHeader
   },
-  computed: {
-    ...mapGetters({
-      isBrandRenameBannerVisible: 'brandRenameBanner/isBannerVisible'
-    })
-  },
   data() {
     return {
       activeBackgroundColor: '#ffffff',
@@ -33,6 +28,11 @@ export default {
       activeHoverColor: '#F05969',
       disableBackgroundAnimations: true
     }
+  },
+  computed: {
+    ...mapGetters({
+      isBrandRenameBannerVisible: 'brandRenameBanner/isBannerVisible'
+    })
   },
   mounted() {
     console.log('V 1.1')
