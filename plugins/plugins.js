@@ -75,7 +75,6 @@ Vue.component('award-badge', AwardBadge)
 Vue.component('modal-practice', ModalPractice)
 Vue.component('form-section', FormSection)
 Vue.component('form-input', FormInput)
-Vue.component('workable-listing-display', LinkedInJobsLink)
 
 // Vue.prototype.$backgroundColor = '#ffffff'
 Vue.prototype.$theme = {
