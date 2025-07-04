@@ -6,12 +6,6 @@
             "use": "@nuxt/vercel-builder"
         }
     ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
-    ],
     "headers": [
         {
             "source": "/(.*)",
