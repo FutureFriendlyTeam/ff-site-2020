@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "sass:math";
 @mixin aspect-ratio($width, $height) {
   &:before {
     content: '';
@@ -25,7 +26,7 @@ export default {
     margin-left: -1px;
     float: left;
     height: 0;
-    padding-top: ($height / $width) * 100%;
+    padding-top: math.div($height, $width) * 100%;
   }
 
   &:after {
