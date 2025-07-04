@@ -4,6 +4,9 @@
   "description": "My polished Nuxt.js project",
   "author": "Yasin Masukor",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider HOST=0.0.0.0 nuxt",
     "build": "nuxt build",
