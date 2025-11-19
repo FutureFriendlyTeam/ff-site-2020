@@ -13,7 +13,7 @@ const robots = {
 }
 
 const metaData = {
-  title: 'EY Future Friendly - A part of EY Studio+',
+  title: 'Future Friendly',
   desc:
     'Design & innovation team in Sydney & Canberra – we create digital services that change lives and build a better future.',
   image: 'https://futurefriendly.team/future-friendly.png'
@@ -37,7 +37,7 @@ const defaultMeta = [
   {
     hid: 'twitter:title',
     name: 'twitter:title',
-    content: 'Homepage | Mentally Friendly'
+    content: 'Homepage | Future Friendly'
   },
   {
     hid: 'twitter:description',

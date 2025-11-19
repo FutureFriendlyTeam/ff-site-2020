@@ -1,5 +1,5 @@
 <template>
-  <future-div :background-color="'light2'" :text-color="'dark'">
+  <future-div v-if="false" :background-color="'light2'" :text-color="'dark'">
 
     <section class="v-margin-bottom">
       <div class="center-col">
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+// FIXME: The v-if on the future-div is to disable this component until we can remove staff references from the CMS
+
 import TeamProfileBlock from '~/components/TeamProfileBlock.vue'
 
 export default {

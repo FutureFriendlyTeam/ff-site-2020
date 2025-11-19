@@ -26,7 +26,19 @@ export default {
   },
   computed: {
     richtext() {
-      return this.$storyblok.client.richTextResolver.render(this.blok.text)
+      let text = { ...this.blok.text }
+
+      // FIXME: Temporary fixes until we can remove EY references from the CMS
+      if (text?.content?.[1]?.content?.[0]?.text?.includes('EY Australia')) {
+        delete text.content[1].content[0]
+      }
+      if (text?.content?.[0]?.content?.[0]?.text === 'Media') {
+        for (let i = text.content.length; i >= 0; i--) {
+          delete text.content[i]
+        }
+      }
+
+      return this.$storyblok.client.richTextResolver.render(text)
     }
   }
 }

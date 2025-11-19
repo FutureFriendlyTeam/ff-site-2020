@@ -1,9 +1,6 @@
 <template>
   <!-- <div> -->
   <div>
-    <StudioPlusBanner />
-
-
     <header 
       v-if="globals" id="header" class="v-padding-top v-padding-bottom color-background">
       <div class="center-col horizontal">
@@ -49,9 +46,6 @@
 <script>
 export default {
   name: 'MainHeader',
-  components: {
-    StudioPlusBanner: () => import('./StudioPlusBanner.vue')
-  },
   data() {
     return {
       mobileNavOpen: false,
