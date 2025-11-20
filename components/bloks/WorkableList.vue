@@ -1,5 +1,5 @@
 <template>
-  <div class="vertical xs-full s-half h-padding-right clear-left">
+  <div v-if="false" class="vertical xs-full s-half h-padding-right clear-left">
     <div class="v-margin-top border-both">
       <h3>Join our team</h3>
       <p class="mini">
