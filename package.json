@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@vercel/analytics": "^1.1.4",
     "@wearewondrous/nuxt-storyblok-router": "^1.2.5",
     "chokidar": "^3.5.2",
     "cross-env": "^5.2.0",
@@ -42,7 +43,6 @@
     "eslint-plugin-nuxt": "^0.4.3",
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-vue": "^4.0.0",
-    "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-pngquant": "^9.0.1",
     "imagemin-svgo": "^8.0.0",
@@ -58,6 +58,7 @@
     "webpack": "^4.46.0"
   },
   "optionalDependencies": {
-    "fsevents": "^2.3.2"
+    "fsevents": "^2.3.2",
+    "imagemin-gifsicle": "^7.0.0"
   }
 }
